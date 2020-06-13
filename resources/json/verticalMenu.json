@@ -1,0 +1,35 @@
+{
+  "menu": [
+
+    {
+      "url": "",
+      "navheader": "Apps",
+      "icon": ""
+    },
+    {
+      "url": "",
+      "name": "User",
+      "icon": "feather icon-unlock",
+      "submenu": [
+        {
+          "url": "app-user-index",
+          "name": "List",
+          "icon": "feather icon-circle",
+          "i18n": "nav.app_user_list"
+        }
+      ]
+    },
+    {
+      "url": "question",
+      "name": "question",
+      "icon": "feather icon-mail",
+      "i18n": "locale.question"
+    },
+    {
+      "url": "app-licensecode-index",
+      "name": "Licensecode",
+      "icon": "feather icon-mail",
+      "i18n": "locale.licensecode"
+    }
+  ]
+}
