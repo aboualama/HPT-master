@@ -854,7 +854,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\projects\laravel\full-version\resources\js\core\app.js */"./resources/js/core/app.js");
+module.exports = __webpack_require__(/*! F:\projects\laravel\HTP\backend\resources\js\core\app.js */"./resources/js/core/app.js");
 
 
 /***/ })

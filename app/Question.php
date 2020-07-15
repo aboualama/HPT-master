@@ -15,4 +15,10 @@ class Question extends Model implements TranslatableContract
     protected $table = 'questions';
     public $translatedAttributes =  ['question', 'right_answer', 'wrongans_1', 'wrongans_2', 'wrongans_3', 'right_answers', 'wrong_answers'];
     protected $fillable =  ['type', 'image', 'video'];
+
+
+
+    public function answers(){
+      return $this->hasMany(Answer::class, 'question_id', 'id');
+    }
 }

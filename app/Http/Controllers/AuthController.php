@@ -20,6 +20,7 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
+      dd($request->all());
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
@@ -60,9 +61,7 @@ class AuthController extends Controller
         ]);
         $credentials = request(['email', 'password']);
         if(!Auth::attempt($credentials))
-            return response()->json([
-                'message' => 'Unauthorized'
-            ], 401);
+            return response()->json([ 'message' => 'Unauthorized' ], 401);
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;

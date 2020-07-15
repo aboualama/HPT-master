@@ -17,11 +17,15 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
+Route::get('/questions/{type}', 'Api\QuestionController@getquestions');
+
+Route::get('/' , function(){return  'test'; });
+
 Route::group([
   'prefix' => 'auth'
 ], function () {
-  Route::post('login', 'AuthController@login');
-  Route::post('register', 'AuthController@register');
+  Route::post('login', 'Api\AuthController@login');
+  Route::post('register', 'Api\AuthController@register');
 
   Route::group([
     'middleware' => 'auth:api'
@@ -30,4 +34,5 @@ Route::group([
       Route::get('user', 'AuthController@user');
   });
 });
+
 
