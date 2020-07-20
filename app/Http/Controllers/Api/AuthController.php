@@ -39,20 +39,49 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-      $loginData = $request->validate([
+      $loginData = validator()->make($request->all(), [
           'email' => 'email|required',
           'password' => 'required'
       ]);
 
-      if (!auth()->attempt($loginData)) {
-          return response(['message' => 'Invalid Credentials']);
-      }
+      // $loginData = $request->validate([
+      //   'email' => 'email|required',
+      //   'password' => 'required'
+      // ]);
+      // if (!auth()->attempt($loginData)) {
+      //     return response(['message' => 'Invalid Credentials']);
+      // }
 
-      $accessToken = auth()->user()->createToken('authToken')->accessToken;
+      if ($loginData->fails())
+    	{
+        	return response(['status' => '440' , 'message' => $loginData->errors()->first() , 'errors' => $loginData->errors()] );
+    	}
+      $user = User::where('email' , $request->email)->first();
+    	if($user)
+    	{
+    		if(Hash::check($request->password , $user->password))
+    			{
+            $accessToken = $user->createToken('authToken')->accessToken;
+            return response(['status' => '200' , 'message' => 'OK' , 'user' => $user, 'access_token' => $accessToken]);
+    			}
+    		else
+          		{
+    				return response(['status' => '440' , 'message' => 'password is wrong'] );
+    			}
+    	}
 
-      return response(['user' => auth()->user(), 'access_token' => $accessToken]);
+
     }
 
+
+    public function logout(Request $request)
+    {
+        $request->user()->logout();
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
+
+      }
 
 
 

@@ -18,19 +18,17 @@ use Illuminate\Http\Request;
 // });
 
 Route::get('/questions/{type}', 'Api\QuestionController@getquestions');
+Route::get('/getAllQuestions', 'Api\QuestionController@getAllQuestions');
+Route::get('/getanswers', 'Api\QuestionController@getanswers');
 
-Route::get('/' , function(){return  'test'; });
+Route::get('/test' , function(){return  'test'; });
 
-Route::group([
-  'prefix' => 'auth'
-], function () {
+Route::group(['prefix' => 'auth'], function () {
   Route::post('login', 'Api\AuthController@login');
   Route::post('register', 'Api\AuthController@register');
 
-  Route::group([
-    'middleware' => 'auth:api'
-  ], function() {
-      Route::get('logout', 'AuthController@logout');
+  Route::group(['middleware' => 'auth:api'], function() {
+      Route::get('logout', 'Api\AuthController@logout');
       Route::get('user', 'AuthController@user');
   });
 });
