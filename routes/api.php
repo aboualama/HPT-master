@@ -17,9 +17,10 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::get('/questions/{type}', 'Api\QuestionController@getquestions');
-Route::get('/getAllQuestions', 'Api\QuestionController@getAllQuestions');
-Route::get('/getanswers', 'Api\QuestionController@getanswers');
+  Route::get('/questions/{type}', 'Api\QuestionController@getquestions');
+  Route::get('/getAllQuestions', 'Api\QuestionController@getAllQuestions');
+  Route::get('/getanswers', 'Api\QuestionController@getanswers');
+  Route::post('/checklicens', 'Api\AuthController@checklicens');
 
 Route::get('/test' , function(){return  'test'; });
 

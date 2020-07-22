@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\User;
 use Carbon\Carbon;
+use App\Licensecode;
 use Hash;
 use Illuminate\Http\Request;
 
@@ -44,14 +45,6 @@ class AuthController extends Controller
           'password' => 'required'
       ]);
 
-      // $loginData = $request->validate([
-      //   'email' => 'email|required',
-      //   'password' => 'required'
-      // ]);
-      // if (!auth()->attempt($loginData)) {
-      //     return response(['message' => 'Invalid Credentials']);
-      // }
-
       if ($loginData->fails())
     	{
         	return response(['status' => '440' , 'message' => $loginData->errors()->first() , 'errors' => $loginData->errors()] );
@@ -61,8 +54,7 @@ class AuthController extends Controller
     	{
     		if(Hash::check($request->password , $user->password))
     			{
-            $accessToken = $user->createToken('authToken')->accessToken;
-            return response(['status' => '200' , 'message' => 'OK' , 'user' => $user, 'access_token' => $accessToken]);
+            return response(['status' => '200' , 'message' => 'OK' , 'user' => $user]);
     			}
     		else
           		{
@@ -84,6 +76,34 @@ class AuthController extends Controller
       }
 
 
+
+  public function checklicens(Request $request)
+  {
+    $data = validator()->make($request->all(), [
+      'user_id'   => 'required',
+      'code'      => 'required'
+    ]);
+
+    $user = User::find($request->user_id);
+    if ($data->fails())
+    {
+      return response(['status' => '440' , 'message' => $data->errors()->first() , 'errors' => $data->errors()] );
+    }
+    $licens = Licensecode::where('user_id' , $request->user_id)->first();
+
+    if($licens)
+    {
+      if($licens->code == $request->code)
+      {
+        $accessToken = $user->createToken('authToken')->accessToken;
+        return response(['status' => '200' , 'message' => 'OK' , 'access_token' => $accessToken]);
+      }
+      else
+      {
+        return response(['status' => '440' , 'message' => 'licens code is wrong']);
+      }
+    }
+  }
 
 
 }
