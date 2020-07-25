@@ -96,7 +96,7 @@ class AuthController extends Controller
       if($licens->code == $request->code)
       {
         $accessToken = $user->createToken('authToken')->accessToken;
-        return response(['status' => '200' , 'message' => 'OK' , 'access_token' => $accessToken]);
+        return response(['status' => '200' , 'message' => 'OK' , 'licens_id' => $licens->id , 'access_token' => $accessToken]);
       }
       else
       {
