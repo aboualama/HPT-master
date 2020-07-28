@@ -75,7 +75,7 @@
               <tr>
                 <th scope="row">{{$i +1}}</th>
                 <td>{{$record->type}}</td>
-                <td>{{$record->question}}</td>
+                <td id="question_{{$record->id}}">{{$record->question}}</td>
                 {{--  <td>{{$record->right_answer}}</td>--}}
                 {{--<td>{{$record->wrongans_1}}</td>
                 <td>{{$record->wrongans_2}}</td>
@@ -351,6 +351,8 @@ function addWrongAnswer() {
                           });
                         }else{
                             $("#modal-block-edit").modal('toggle');
+                            $('#question_' + data.id).text(data.question);
+                            console.log(data.question);
                             toastr.success('Updated Successfully', "Question!",);
                         }
                 }, error: function (xhr) {

@@ -114,7 +114,7 @@ class RSMCQuestionController extends Controller
       }
       $record['image'] = json_encode($img);
       $record->update();
-      return response()->json(['status' => 200]);
+      return response()->json($record);
     }
 
 
