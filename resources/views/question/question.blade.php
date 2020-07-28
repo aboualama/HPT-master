@@ -272,5 +272,93 @@ function addWrongAnswer() {
 
     $("#Answers").append(m);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  $(document).on('click', '#submit', function (e) {
+            e.preventDefault();
+            $(".small_error").text('');
+            var url = $("#url").val();
+            var formData = new FormData($('#form')[0]);
+
+            $.ajax({
+                type: 'post',
+                enctype: 'multipart/form-data',
+                url: url,
+                data: formData,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (data) {
+
+                    if (data.status == 442){
+                      $.each(data.errors, function (key, val) {
+                        var newchar = '_'
+                        var str = key.split('.').join(newchar);
+                        // str = key.replace(/./g , "_")
+                        $("#" + str + "_error").text(val[0]);
+                        console.log(str);
+                      });
+                    }else{
+                        window.location.href = "/en/question";
+                        toastr.success('Created Successfully', "Question!",);
+                    }
+                }, error: function (xhr) {
+
+                }
+            });
+        });
+
+
+
+
+        $(document).on('click', '#edit', function (e) {
+            e.preventDefault();
+            var url = $("#url").val();
+            $(".small_error").text('');
+
+            console.log(url);
+            var formData = new FormData($('#formedit')[0]);
+
+            $.ajax({
+                enctype: 'multipart/form-data',
+                url: url ,
+                data: formData,
+                type: 'POST',
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (data) {
+                        console.log(data);
+
+                        if (data.status == 442){
+                          $.each(data.errors, function (key, val) {
+                            var newchar = '_'
+                            var str = key.split('.').join(newchar);
+                            // str = key.replace(/./g , "_")
+                            $("#" + str + "_error").text(val[0]);
+                            console.log(str);
+                          });
+                        }else{
+                            $("#modal-block-edit").modal('toggle');
+                            toastr.success('Updated Successfully', "Question!",);
+                        }
+                }, error: function (xhr) {
+
+                }
+            });
+        });
+
+
   </script>
   @endsection
