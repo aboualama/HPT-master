@@ -326,7 +326,7 @@ function addWrongAnswer() {
             var url = $("#url").val();
             $(".small_error").text('');
 
-            console.log(url);
+            // console.log(url);
             var formData = new FormData($('#formedit')[0]);
 
             $.ajax({

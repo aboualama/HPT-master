@@ -21,7 +21,7 @@ class RSMCQuestionController extends Controller
     {
       //  dd($request->all());
       $rules = $this->rules();
-      $rules = $rules + ['img_answers.*' => 'required|mimes:jpg,png|max:20000',];
+      $rules = $rules + ['img_answers.*' => 'required|mimes:jpg,jpeg,png|max:20000',];
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
@@ -72,7 +72,9 @@ class RSMCQuestionController extends Controller
       // dd($request->all());
       $rules = $this->rules();
       if (request()->hasFile('img_answers')) {
-        $rules = $rules + ['img_answers' => 'required|mimes:jpg,png|max:20000',];
+        $rules = $rules + ['img_answers'   => 'required|array',
+                           'img_answers.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                          ];
       }
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
