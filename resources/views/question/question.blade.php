@@ -146,11 +146,10 @@
 
 
 
-function addWrongAnswer() {
+function addWrongAnswerSMC() {
       let i = $('.index').length + 1
       let m =  `<div class="form-group row" index>
                 <div class="col-md-3">
-                  <h4> Answers</h4>
                 </div>
                 <div class="col-md-3">
                   <label>en</label>
@@ -173,7 +172,7 @@ function addWrongAnswer() {
     }
 
 
-    function addQuestionSMC() {
+    function addRightAnswerSMC() {
       let i = $('.index').length + 1
       let img = ` <div class="col-12" index>
                   <div class="form-group row">

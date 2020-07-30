@@ -34,7 +34,7 @@
                               <div class="col-12"> <hr></div>
 
                               <div class="col-12">
-                                <h4>Answers</h4>
+                                <h4>Wrong Answers</h4>
                               </div>
                               @for ($i = 0 ; $i < sizeof(json_decode($record->wrong_answers)) ; $i++)
                                 <div  class="col-12">

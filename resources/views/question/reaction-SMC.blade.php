@@ -34,15 +34,17 @@
 
               <div class="col-12">
                 <hr>
-                <h4>Wrong Answer</h4>
+                <h4> Answer</h4>
                 <hr>
               </div>
 
 
               <div class="col-12">
+                <hr>
+                <h4>Wrong Answer</h4>
+                <hr>
                 <div class="form-group row">
                   <div class="col-md-3">
-                    <h4> Answers</h4>
                   </div>
                   <div class="col-md-3">
                     <label>en</label>
@@ -68,7 +70,7 @@
 
               <div class="col-12" id="allQuestions">
                 <hr>
-                <h4>Wrong Answer</h4>
+                <h4>Right Answer</h4>
                 <hr>
 
                 <div class="col-12">
@@ -111,10 +113,10 @@
               <div class="col-12">
                 <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
                 {{-- <a href="#" onclick="sendDataSMC()" class="btn btn-primary mr-1 mb-1">Submit</a> --}}
-                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addWrongAnswer()">Add
+                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addWrongAnswerSMC()">Add Wrong
                     Answer</a>
-                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addQuestionSMC()">Add Right
-                  Question</a>
+                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addRightAnswerSMC()">Add Right
+                  Answer</a>
                 <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
               </div>
             </div>

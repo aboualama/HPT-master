@@ -259,14 +259,14 @@
 
               if(form === "edit"){
               console.log(form);
-                toastr.info('edddddddddddddddddd.', 'Edit!', { "timeOut": 5000 });
+                toastr.info('Updated Successfully', "User!", { "timeOut": 5000 });
                 $('#name-user_' + data.id).text(data.name);
                 $('#email-user_' + data.id).text(data.email);
                 $('#userName-user_' + data.id).text(data.userName);
                 $('#cell-user_' + data.id).text(data.cell);
                 $('#address-user_' + data.id).text(data.address);
               }else{
-              toastr.info('edddddddddddddddddd.', 'Add!', { "timeOut": 5000 });
+              toastr.info('Created Successfully', "User!", { "timeOut": 5000 });
               console.log(form);
               td.append(`
                   <tr>
