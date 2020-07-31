@@ -19,7 +19,7 @@
       'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
 
-      Route::get('/tesxt' , function(){return  'test'; });
+      // Route::get('/tesxt' , function(){return  'test'; });
 
 
   Auth::routes(['verify' => false]);

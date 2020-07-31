@@ -59,7 +59,7 @@ $(document).ready(function() {
         url: "/question/" + id,
         method: "DELETE",
         success: function (data) {
-          toastr.success('XXXXXXXXXXXXXXXXXXX', "Question!",);
+          toastr.success('Deleted Successfully',"Question!",);
           td.fadeOut();
         },
         error: function (data) {

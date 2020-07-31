@@ -18,7 +18,7 @@ class QuestionController extends Controller
     {
       $records = Question::all();
       $breadcrumbs = [
-        ['link'=>"dashboard-analytics",'name'=>"Home"], ['link'=>"dashboard-analytics",'name'=>"Pages"], ['name'=>"Question List"]
+        ['link'=>"/",'name'=>__('locale.home')], ['name'=>__('locale.question')]
       ];
       return view('question.question', [
         'breadcrumbs' => $breadcrumbs,

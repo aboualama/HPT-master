@@ -143,29 +143,121 @@ return [
     "File Manager" => "Gerenciador de arquivos",
     "Pricing" => "Preços",
 
-    "Licensecode" => "Licensecode",
 
-    'en' => [
-      'title' => 'Title in en',
-      'intro' => 'intro in en',
-      'description' => 'Description in en',
-      'question' => 'Question in en',
-    ],
-    'it' => [
-      'title' => 'Title in it',
-      'intro' => 'Intro in it',
-      'description' => 'Description in it',
-      'question' => 'Question in it',
-    ],
-    'pt' => [
-      'title' => 'Title in pt',
-      'intro' => 'Intro in pt',
-      'description' => 'Description in pt',
-      'question' => 'Question in pt',
-    ],
-
+    "home" => "Principale",
     "photo" => "photo",
     "video" => "video",
-    "question" => "Question",
-    "questiontype" => "Question Ttype",
+    "question" => "Domanda",
+    "questions" => "Domandas",
+    "questiontype" => "Domanda Ttype",
+    "value" => "Value",
+    "values" => "Values",
+
+
+    "create" => "create",
+    "read" => "read",
+    "update" => "update",
+    "edit" => "Edit",
+    "delete" => "delete",
+    "Add New Question" => "Aggiungi nuova domanda",
+    "Question List" => "Elenco delle domande",
+    "Action" => "Azione",
+    "type" => "tipo",
+    "please select Question Type" => "selezionare il tipo di domanda",
+    "Question Type" => "tipo di domanda",
+    "delete" => "delete",
+
+
+    "users" => "utenti",
+    "roles" => "ruoli",
+    "permissions" => "permessi",
+
+    'choice' => 'Scelta',
+    'right_answer' => 'Risposta esatta',
+    'wrongans' => 'Risposta sbagliata',
+    'wrongans_1' => 'Risposta sbagliata 1',
+    'wrongans_2' => 'Risposta sbagliata 2',
+    'wrongans_3' => 'Risposta sbagliata 3',
+
+
+
+
+    "Licensecode" => "Codice di licenza",
+
+
+    'en' => [
+      'title' => 'Titolo in en',
+      'intro' => 'intro in en',
+      'description' => 'Descrizione in en',
+      'question' => 'Domanda in en',
+      'choice' => 'Scelta in en',
+      'answer' => 'Risposta in en',
+
+      // Validatation
+      'question required' => 'Domanda inglese richiesta',
+      'question string' => 'Domanda inglese deve essere una stringa',
+      'question min' => 'Domanda inglese deve essere di almeno 3 caratteri',
+      'question max' => 'Domanda inglese deve essere inferiore a 260 caratteri',
+      'answer required' => 'Risposta inglese richiesta',
+      'answer string' => 'Risposta inglese deve essere una stringa',
+      'right_answers required' => 'Inglese risposte giuste richiesta',
+      'right_answers string' => 'Inglese risposte giuste deve essere una stringa',
+      'wrong_answers required' => 'Risposte inglesi sbagliate richiesta',
+      'wrong_answers string' => 'Risposte inglesi sbagliate deve essere una stringa',
+    ],
+    'it' => [
+      'title' => 'Titolo in it',
+      'intro' => 'Intro in it',
+      'description' => 'Descrizione in it',
+      'question' => 'Domanda in it',
+      'choice' => 'Scelta in it',
+      'answer' => 'Risposta in it',
+
+      // Validatation
+      'question required' => 'Italia domanda richiesta',
+      'question string' => 'Italia domanda deve essere una stringa',
+      'question min' => 'Italia domanda deve essere di almeno 3 caratteri',
+      'question max' => 'Italia domanda deve essere inferiore a 260 caratteri',
+      'answer required' => 'Italia risposta richiesta',
+      'answer string' => 'Italia risposta deve essere una stringa',
+      'right_answers required' => 'Italia risposte giuste richiesta',
+      'right_answers string' => 'Italia risposte giuste deve essere una stringa',
+      'wrong_answers required' => 'Italia inglesi sbagliate richiesta',
+      'wrong_answers string' => 'Italia inglesi sbagliate deve essere una stringa',
+    ],
+    'pt' => [
+      'title' => 'Titolo in pt',
+      'intro' => 'Intro in pt',
+      'description' => 'Descrizione in pt',
+      'question' => 'Domanda in pt',
+      'choice' => 'Scelta in pt',
+      'answer' => 'Risposta in pt',
+
+      // Validatation
+      'question required' => 'Portoghese domanda richiesta',
+      'question string' => 'Portoghese domanda deve essere una stringa',
+      'question min' => 'Portoghese domanda deve essere di almeno 3 caratteri',
+      'question max' => 'Portoghese domanda deve essere inferiore a 260 caratteri',
+      'answer required' => 'Portoghese risposta richiesta',
+      'answer string' => 'Portoghese risposta deve essere una stringa',
+      'right_answers required' => 'Portoghese risposte giuste richiesta',
+      'right_answers string' => 'Portoghese risposte giuste deve essere una stringa',
+      'wrong_answers required' => 'Portoghese inglesi sbagliate richiesta',
+      'wrong_answers string' => 'Portoghese inglesi sbagliate deve essere una stringa',
+    ],
+
+    // Validatation
+    'type required' => 'tipo richiesto',
+    'type string'   => 'tipo deve essere una stringa',
+    'value_1 required'  => 'valore 1 richiesto',
+    'value_1 numeric'   => 'valore 1 deve essere un numero',
+    'value_2 required'  => 'valore 2 richiesto',
+    'value_2 numeric'   => 'valore 2 deve essere un numero',
+    'value_3 required'  => 'valore 3 richiesto',
+    'value_3 numeric'   => 'valore 3 deve essere un numero',
+    'value_4 required'  => 'valore 4 richiesto',
+    'value_4 numeric'   => 'valore 4 deve essere un numero',
+    'value_5 required'  => 'valore 5 richiesto',
+    'value_5 numeric'   => 'valore 5 deve essere un numero',
+
 ];

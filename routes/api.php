@@ -23,7 +23,7 @@ use Illuminate\Http\Request;
   Route::post('/storanswers', 'Api\QuestionController@storanswers');
   Route::post('/checklicens', 'Api\AuthController@checklicens');
 
-Route::get('/test' , function(){return  'test'; });
+// Route::get('/test' , function(){return  'test'; });
 
 Route::group(['prefix' => 'auth'], function () {
   Route::post('login', 'Api\AuthController@login');

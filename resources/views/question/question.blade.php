@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Questions')
+@section('title', __('locale.questions'))
 
 
 @section('vendor-style')
@@ -22,13 +22,13 @@
 
 @section('content')
 
-<button class="btn btn-success mr-1 mb-1" id="addnew">Add New Question</button>
+<button class="btn btn-success mr-1 mb-1" id="addnew">{{__('locale.Add New Question')}}</button>
 
 <div class="col-sm-12 col-12" id="add-new-select" style="display: none">
-  <p>please select Question Type</p>
+  <p>{{__('locale.please select Question Type')}}</p>
   <div class="form-group">
     <select class="select2 form-control" id="select-type">
-      <option value="0" selected>Select Question Type</option>
+      <option value="0" selected>{{__('locale.Question Type')}}</option>
       <option value="Recognation"> Recognation</option>
       <option value="reaction"> Reaction</option>
       <option value="reaction-SMC"> Reaction-SMC</option>
@@ -51,7 +51,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Question List</h4>
+        <h4 class="card-title">{{__('locale.Question List')}}</h4>
 
       </div>
       <div class="card-content">
@@ -60,13 +60,13 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">type</th>
-                <th scope="col">question</th>
+                <th scope="col">{{__('locale.type')}}</th>
+                <th scope="col">{{__('locale.question')}}</th>
                 {{-- <th scope="col">Right Answer</th>--}}
                 {{--<th scope="col">Wrong Answer 1</th>
                 <th scope="col">Wrong Answer 2</th>
                 <th scope="col">Wrong Answer 3</th> --}}
-                <th scope="col">Action</th>
+                <th scope="col">{{__('locale.Action')}}</th>
               </tr>
             </thead>
             <tbody>

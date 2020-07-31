@@ -147,6 +147,7 @@ return [
 
 
 
+  "home" => "Home",
   "photo" => "photo",
   "video" => "video",
   "question" => "Question",
@@ -160,6 +161,13 @@ return [
   "read" => "read",
   "update" => "update",
   "edit" => "Edit",
+  "delete" => "delete",
+  "Add New Question" => "Add New Question",
+  "Question List" => "Question List",
+  "Action" => "Action",
+  "type" => "type",
+  "please select Question Type" => "please select Question Type",
+  "Question Type" => "Question Type",
   "delete" => "delete",
 
 
