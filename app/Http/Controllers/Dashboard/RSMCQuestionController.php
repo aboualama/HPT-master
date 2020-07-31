@@ -43,20 +43,42 @@ class RSMCQuestionController extends Controller
               $recordQ->save();
       }
 
-      if (request()->hasFile('img_answers'))
+      // if (request()->hasFile('img_answers'))
+      // {
+      //   foreach($request->file('img_answers') as $i => $image)
+      //     {
+      //         $public_path = 'uploads/img_answers';
+      //         $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
+      //         $image->move($public_path , $img_name);
+      //         $img[] = $img_name;
+      //     }
+      // }
+      // else
+      // {
+      //   $img[] = 'default.jpg';
+      // }
+
+
+
+      $img = [];
+      $index = count($request->en['right_answers']);
+
+      for($i = 0 ; $i < $index ; $i++)
       {
-        foreach($request->file('img_answers') as $i => $image)
-          {
-              $public_path = 'uploads/img_answers';
-              $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
-              $image->move($public_path , $img_name);
-              $img[] = $img_name;
-          }
+        if (isset($request->file('img_answers')[$i])) {
+            $image = $request->file('img_answers')[$i];
+            $public_path = 'uploads/img_answers';
+            $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
+            $image->move($public_path , $img_name);
+            $img[] = $img_name;
+        }
+        else {
+            $img[] = 'default.jpg';
+        }
       }
-      else
-      {
-        $img[] = 'default.jpg';
-      }
+
+
+
 
       $record['image'] = json_encode($img);
       $record->update();
