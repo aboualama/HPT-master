@@ -260,4 +260,24 @@ return [
     'value_5 required'  => 'valore 5 richiesto',
     'value_5 numeric'   => 'valore 5 deve essere un numero',
 
+
+
+
+
+
+    'Add Answer' => 'Aggiungi Nuova Risposta',
+    'Submit' => 'Invia',
+    'Reset' => 'Ripristina',
+    'Answers' => 'risposte',
+    'values' => 'Valori',
+    'value' => 'Valore',
+    'Wrong Answer' => 'Risposta sbagliata',
+    'Right Answer' => 'Risposta esatta',
+    'answer' => 'zzzzzzzzzz',
+    'answer' => 'zzzzzzzzzz',
+    'answer' => 'zzzzzzzzzz',
+    'answer' => 'zzzzzzzzzz',
+    'answer' => 'zzzzzzzzzz',
+    'answer' => 'zzzzzzzzzz',
+
 ];

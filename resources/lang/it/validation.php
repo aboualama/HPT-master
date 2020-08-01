@@ -140,6 +140,10 @@ return [
     | "email". TTai tiesiog padeda mums padaryti žinutes truputi aiškesnėmis.
     |
     */
+
     'attributes' => [
-    ],
+
+      'en.right answer' => 'custom-message',
+      ],
 ];
+

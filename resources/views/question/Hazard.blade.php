@@ -1,9 +1,8 @@
 <div class="col-md-12 col-12">
-  <h4>Question Type - {{ $type }} </h4>
+  <h4>{{__('locale.Question Type')}} - {{ $type }} </h4>
 
   <div class="card">
     <div class="card-header">
-      <h4 class="card-title">Vertical Form with Icons</h4>
     </div>
     <div class="card-content">
       <div class="card-body">
@@ -59,7 +58,7 @@
 
             <div class="col-12">
               <hr>
-              <h4>Answers</h4>
+              <h4>{{__('locale.Answers')}}</h4>
               <hr>
             </div>
 
@@ -120,9 +119,9 @@
             </div>
 
             <div class="col-12">
-              <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
-              <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addAnswer()">Add Answer</a>
-              <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+              <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
+              <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addAnswer()">{{__('locale.Add Answer')}}</a>
+              <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
             </div>
           </div>
       </div>

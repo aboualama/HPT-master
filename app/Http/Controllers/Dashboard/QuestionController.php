@@ -187,13 +187,13 @@ class QuestionController extends Controller
         $locale . '.question.min'              => __('locale.' . $locale . '.question min'),
         $locale . '.question.max'              => __('locale.' . $locale . '.question max'),
         $locale . '.right_answer.*.required'   => __('locale.' . $locale . '.right_answers required'),
-        $locale . '.right_answer.*..string'    => __('locale.' . $locale . '.right_answers string'),
+        $locale . '.right_answer.*.string'     => __('locale.' . $locale . '.right_answers string'),
         $locale . '.wrongans_1.*.required'     => __('locale.' . $locale . '.wrongans required'),
-        $locale . '.wrongans_1.*..string'      => __('locale.' . $locale . '.wrongans string'),
+        $locale . '.wrongans_1.*.string'       => __('locale.' . $locale . '.wrongans string'),
         $locale . '.wrongans_2.*.required'     => __('locale.' . $locale . '.wrongans required'),
-        $locale . '.wrongans_2.*..string'      => __('locale.' . $locale . '.wrongans string'),
+        $locale . '.wrongans_2.*.string'       => __('locale.' . $locale . '.wrongans string'),
         $locale . '.wrongans_3.*.required'     => __('locale.' . $locale . '.wrongans required'),
-        $locale . '.wrongans_3.*..string'      => __('locale.' . $locale . '.wrongans string'),
+        $locale . '.wrongans_3.*.string'       => __('locale.' . $locale . '.wrongans string'),
       ];
     }
     return  $transMessage + $basicMessage;

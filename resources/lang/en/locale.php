@@ -195,6 +195,7 @@ return [
     'question' => 'Question in en',
     'choice' => 'Choice in en',
     'answer' => 'Answer in pt',
+    'wrongans' => 'Wrong Answer',
 
     // Validatation
     'question required' => 'English question required',
@@ -262,5 +263,38 @@ return [
   'value_4 numeric'   => 'value 4 must be a number',
   'value_5 required'  => 'value 5 required',
   'value_5 numeric'   => 'value 5 must be a number',
+
+
+
+
+
+
+
+
+
+  'Add Answer' => 'Add Answer',
+  'Submit' => 'Submit',
+  'Reset' => 'Reset',
+  'Answers' => 'Answers',
+  'values' => 'Values',
+  'value' => 'value',
+  'Wrong Answer' => 'Wrong Answer',
+  'Right Answer' => 'Right Answer',
+  'Add Wrong Answer' => 'Add Wrong Answer',
+  'Add Right Answer' => 'Add Right Answer',
+  'answer' => 'zzzzzzzzzz',
+  'answer' => 'zzzzzzzzzz',
+  'answer' => 'zzzzzzzzzz',
+  'answer' => 'zzzzzzzzzz',
+  'answer' => 'zzzzzzzzzz',
+  'answer' => 'zzzzzzzzzz',
+
+
+
+
+
+
+
+
 
 ];

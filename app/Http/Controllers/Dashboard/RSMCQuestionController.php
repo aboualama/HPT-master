@@ -184,9 +184,9 @@ class RSMCQuestionController extends Controller
         $locale . '.question.min'               => __('locale.' . $locale . '.question min'),
         $locale . '.question.max'               => __('locale.' . $locale . '.question max'),
         $locale . '.right_answers.*.required'   => __('locale.' . $locale . '.right_answers required'),
-        $locale . '.right_answers.*..string'    => __('locale.' . $locale . '.right_answers string'),
+        $locale . '.right_answers.*.string'     => __('locale.' . $locale . '.right_answers string'),
         $locale . '.wrong_answers.*.required'   => __('locale.' . $locale . '.wrong_answers required'),
-        $locale . '.wrong_answers.*..string'    => __('locale.' . $locale . '.wrong_answers string'),
+        $locale . '.wrong_answers.*.string'     => __('locale.' . $locale . '.wrong_answers string'),
       ];
     }
     return  $transMessage + $basicMessage;

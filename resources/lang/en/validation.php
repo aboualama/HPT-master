@@ -145,6 +145,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+    'en.right answer' => 'custom-message',
+    ],
 
 ];

@@ -193,7 +193,7 @@ class HazardQuestionController extends Controller
         $locale . '.question.min'       => __('locale.' . $locale . '.question min'),
         $locale . '.question.max'       => __('locale.' . $locale . '.question max'),
         $locale . '.answer.*.required'  => __('locale.' . $locale . '.answer required'),
-        $locale . '.answer.*..string'   => __('locale.' . $locale . '.answer string'),
+        $locale . '.answer.*.string'    => __('locale.' . $locale . '.answer string'),
       ];
     }
     return  $transMessage + $basicMessage;

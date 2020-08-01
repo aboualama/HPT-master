@@ -3,7 +3,7 @@
   @include('partials._errors')
   <div class="card">
     <div class="card-header">
-      <h4 class="card-title">Question Type - {{ $type }} </h4>
+      <h4>{{__('locale.Question Type')}} - {{ $type }} </h4>
     </div>
     <div class="card-content">
       <div class="card-body">
@@ -34,14 +34,14 @@
 
               <div class="col-12">
                 <hr>
-                <h4> Answer</h4>
+                <h4> {{__('locale.Answers')}}</h4>
                 <hr>
               </div>
 
 
               <div class="col-12">
                 <hr>
-                <h4>Wrong Answer</h4>
+                <h4>{{__('locale.Wrong Answer')}}</h4>
                 <hr>
                 <div class="form-group row">
                   <div class="col-md-3">
@@ -70,7 +70,7 @@
 
               <div class="col-12" id="allQuestions">
                 <hr>
-                <h4>Right Answer</h4>
+                <h4>{{__('locale.Right Answer')}}</h4>
                 <hr>
 
                 <div class="col-12">
@@ -111,13 +111,11 @@
                 <hr>
               </div>
               <div class="col-12">
-                <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
+                <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
                 {{-- <a href="#" onclick="sendDataSMC()" class="btn btn-primary mr-1 mb-1">Submit</a> --}}
-                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addWrongAnswerSMC()">Add Wrong
-                    Answer</a>
-                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addRightAnswerSMC()">Add Right
-                  Answer</a>
-                <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addWrongAnswerSMC()">{{__('locale.Add Wrong Answer')}}</a>
+                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addRightAnswerSMC()">{{__('locale.Add Right Answer')}}</a>
+                <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
               </div>
             </div>
           </div>

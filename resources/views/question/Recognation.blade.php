@@ -3,7 +3,7 @@
         @include('partials._errors')
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Question Type - {{ $type }} </h4>
+                <h4 class="card-title">{{__('locale.Question Type')}} - {{ $type }} </h4>
             </div>
             <div class="card-content">
                 <div class="card-body">
@@ -39,7 +39,7 @@
                               <div class="col-12">
                                 <div class="row">
 
-                                  <video id="player" playsinline controls data-poster="/path/to/poster.jpg"
+                                  <video id="player" playsinline controls data-poster="{{asset('uploads/img_answers/default.jpg')}}"
                                     style="height: 350px; width: 620px; margin: 0 auto"
                                     onclick="document.getElementById('input').click()">
                                     <source src="" type="video/mp4" size="720" />
@@ -80,8 +80,8 @@
                               @endforeach
 
                               <div class="col-12">
-                                  <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
-                                  <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                                  <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
+                                  <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
                               </div>
                             </div>
                         </div>
