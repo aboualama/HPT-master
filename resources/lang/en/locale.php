@@ -236,6 +236,7 @@ return [
     'question' => 'Question in pt',
     'choice' => 'Choice in pt',
     'answer' => 'Answer in pt',
+    'right_answers' => 'Portuguese right answers',
 
     // Validatation
     'question required' => 'Portuguese question required',
@@ -269,9 +270,6 @@ return [
 
 
 
-
-
-
   'Add Answer' => 'Add Answer',
   'Submit' => 'Submit',
   'Reset' => 'Reset',
@@ -282,12 +280,18 @@ return [
   'Right Answer' => 'Right Answer',
   'Add Wrong Answer' => 'Add Wrong Answer',
   'Add Right Answer' => 'Add Right Answer',
-  'answer' => 'zzzzzzzzzz',
-  'answer' => 'zzzzzzzzzz',
-  'answer' => 'zzzzzzzzzz',
-  'answer' => 'zzzzzzzzzz',
-  'answer' => 'zzzzzzzzzz',
-  'answer' => 'zzzzzzzzzz',
+
+  'Logout' => 'Logout',
+  'Name' => 'Name',
+  'User Name' => 'User Name',
+  'Cell' => 'Cell',
+  'Address' => 'Address',
+  'Add New Data' => 'Add New Data',
+  'Select User Role' => 'Select User Role',
+  'Admin' => 'Admin',
+  'Editor' => 'Editor',
+  'what can user do.' => 'what can user do.',
+  'Cancel' => 'Cancel',
 
 
 

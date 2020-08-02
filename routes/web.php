@@ -13,15 +13,7 @@
 
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::group(
-    [
-      'prefix' => LaravelLocalization::setLocale(),
-      'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-    ], function(){
-
-
-
-      // Route::get('/tesxt' , function(){return  'test'; });
+Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
 
   Auth::routes(['verify' => false]);
@@ -61,9 +53,6 @@ Route::group(
 
     Route::post('/hazardquestion', 'Dashboard\HazardQuestionController@store');
     Route::Put('/edit-question-3/{id}', 'Dashboard\HazardQuestionController@update');
-
-
-
 
 
 

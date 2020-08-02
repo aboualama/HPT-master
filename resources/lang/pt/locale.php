@@ -273,11 +273,18 @@ return [
     'value' => 'Valore',
     'Wrong Answer' => 'Risposta sbagliata',
     'Right Answer' => 'Risposta esatta',
-    'answer' => 'zzzzzzzzzz',
-    'answer' => 'zzzzzzzzzz',
-    'answer' => 'zzzzzzzzzz',
-    'answer' => 'zzzzzzzzzz',
-    'answer' => 'zzzzzzzzzz',
-    'answer' => 'zzzzzzzzzz',
+
+
+    'Logout' => 'Disconnettersi',
+    'Name' => 'Nome',
+    'User Name' => 'Nome utente',
+    'Cell' => 'Cellula',
+    'Address' => 'Indirizzo',
+    'Add New Data' => 'Aggiungi nuovi dati',
+    'Select User Role' => 'Seleziona il ruolo utente',
+    'Admin' => 'Admin',
+    'Editor' => 'Editore',
+    'what can user do.' => 'cosa può fare l\'utente.',
+    'Cancel' => 'Annulla',
 
 ];

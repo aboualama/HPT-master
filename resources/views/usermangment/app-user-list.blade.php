@@ -45,12 +45,12 @@
         <thead>
           <tr>
             <th></th>
-            <th>NAME</th>
-            <th>EMAIL</th>
-            <th>USER NAME</th>
-            <th>CELL</th>
-            <th>ADDRESS</th>
-            <th>ACTION</th>
+            <th>{{__('locale.Name')}}</th>
+            <th>{{__('locale.Email')}}</th>
+            <th>{{__('locale.User Name')}}</th>
+            <th>{{__('locale.Cell')}}</th>
+            <th>{{__('locale.Address')}}</th>
+            <th>{{__('locale.Action')}}</th>
           </tr>
         </thead>
         <tbody>
@@ -81,7 +81,7 @@
           @csrf
           <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
             <div>
-              <h4 class="text-uppercase" id="h-add-update">Add New Data</h4>
+              <h4 class="text-uppercase" id="h-add-update">{{__('locale.Add New Data')}}</h4>
             </div>
             <div class="hide-data-sidebar">
               <i class="feather icon-x"></i>
@@ -91,24 +91,24 @@
             <div class="data-fields px-2 mt-1">
               <div class="row">
                 <div class="col-sm-12 data-field-col">
-                  <label for="data-name">Name</label>
+                  <label for="data-name">{{__('locale.Name')}}</label>
                   <input type="text" class="form-control" name="name" id="data-name">
                 </div>
                 <div class="col-sm-12 data-field-col">
-                  <label for="data-email">Email</label>
+                  <label for="data-email">{{__('locale.Email')}}</label>
                   <input type="text" class="form-control" name="email" id="data-email">
                 </div>
                 <div class="col-sm-12 data-field-col">
-                  <label for="data-userName">User Name</label>
+                  <label for="data-userName">{{__('locale.User Name')}}</label>
                   <input type="text" class="form-control" name="userName" id="data-userName">
                 </div>
                 <div class="col-sm-12 data-field-col">
-                  <label for="data-cell">Cell</label>
+                  <label for="data-cell">{{__('locale.Cell')}}</label>
                   <input type="text" class="form-control" name="cell" id="data-cell">
                 </div>
 
                 <div class="col-sm-12 data-field-col">
-                  <label for="data-address">Address</label>
+                  <label for="data-address">{{__('locale.Address')}}</label>
                   <input type="text" class="form-control" name="address" id="data-address">
                 </div>
 
@@ -122,10 +122,10 @@
                 <div class="col-sm-12 col-12 data-field-col">
                   <label for="user-role">User Role</label>
                       <select class="select2 form-control" id="user-role">
-                          <option value="0" selected>Select User Role</option>
-                          <option value="Admin"> Admin</option>
-                          <option value="Editor"> Editor</option>
-                          <option value="User"> User</option>
+                          <option value="0" selected>{{__('locale.Select User Role')}}</option>
+                          <option value="Admin"> {{__('locale.Admin')}}</option>
+                          <option value="Editor"> {{__('locale.Editor')}}</option>
+                          <option value="User"> {{__('locale.User')}}</option>
                       </select>
                 </div>
 
@@ -145,7 +145,7 @@
                             $can_do = ['create', 'read', 'update', 'delete'];
                           @endphp
 
-                          <p>what can user do.</p>
+                          <p>{{__('locale.what can user do.')}}</p>
                           <ul class="nav nav-tabs" role="tablist">
                             @foreach ($models as $index => $model)
                               <li class="nav-item">
@@ -187,10 +187,10 @@
             </div>
           <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
             <div class="add-data-btn">
-              <input type="submit" id="add-update" class="btn btn-primary" value="Add Data">
+              <input type="submit" id="add-update" class="btn btn-primary" value="{{__('locale.Submit')}}">
             </div>
             <div class="cancel-data-btn">
-              <input type="reset" class="btn btn-outline-danger" value="Cancel">
+              <input type="reset" class="btn btn-outline-danger" value="{{__('locale.Cancel')}}">
             </div>
           </div>
         </form>
