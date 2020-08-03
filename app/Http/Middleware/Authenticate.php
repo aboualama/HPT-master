@@ -18,7 +18,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route( LaravelLocalization::localizeURL('/login'));
+            return url( LaravelLocalization::localizeURL('/login'));
         }
     }
 }
