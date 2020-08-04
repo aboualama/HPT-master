@@ -292,7 +292,10 @@ return [
   'Editor' => 'Editor',
   'what can user do.' => 'what can user do.',
   'Cancel' => 'Cancel',
-
+  'select video' => 'Select Video',
+  'select img' => 'Select Image',
+  'Cancel' => 'Cancel',
+  'Cancel' => 'Cancel',
 
 
 

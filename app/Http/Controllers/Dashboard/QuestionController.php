@@ -43,12 +43,21 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
+      // dd($request->all());
       $rules = $this->rules();
-      $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
+      $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000', 'video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors(), 'status' => 442]);
+      }
+
+      if (request()->hasFile('image'))
+      {
+        $image =  $request->file('image');
+        $public_path = 'uploads/image';
+        $image_name = time() . '.' . $image->getClientOriginalExtension();
+        $image->move($public_path , $image_name);
       }
 
       if (request()->hasFile('video'))
@@ -56,13 +65,13 @@ class QuestionController extends Controller
           $public_path = 'uploads/videos';
           $video_name = time() . '.' . request('video')->getClientOriginalExtension();
           request('video')->move($public_path , $video_name);
-      }else
-      {
-          $video_name = 'default.mp4';
       }
 
-      $request['video'] = $video_name;
       $record = Question::create($request->all());
+      $record['image'] = $image_name;
+      $record['video'] = $video_name;
+      $record->save();
+
       return response()->json(['status' => 200]);
     }
 
@@ -81,6 +90,7 @@ class QuestionController extends Controller
     public function edit($id)
     {
       $record = Question::find($id);
+      // dd($record);
       $type = $record->type;
       $answers = Answer::where('question_id' , $id)->get();
       $breadcrumbs = [
@@ -109,6 +119,17 @@ class QuestionController extends Controller
 
       $record = Question::find($id) ;
 
+      if (request()->hasFile('image'))
+      {
+          $image =  $request->file('image');
+          $public_path = 'uploads/image';
+          $image_name = time() . '.' . $image->getClientOriginalExtension();
+          $image->move($public_path , $image_name);
+      }else
+      {
+          $image_name = $record->image;
+      }
+
       if (request()->hasFile('video'))
       {
           $public_path = 'uploads/videos';
@@ -119,8 +140,10 @@ class QuestionController extends Controller
           $video_name = $record->video;
       }
 
-      $request['video'] = $video_name;
       $record->update($request->all());
+      $record['image'] = $image_name;
+      $record['video'] = $video_name;
+      $record->save();
       return response()->json(['status' => 200]);
     }
 

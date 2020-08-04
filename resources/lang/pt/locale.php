@@ -286,5 +286,8 @@ return [
     'Editor' => 'Editore',
     'what can user do.' => 'cosa può fare l\'utente.',
     'Cancel' => 'Annulla',
+    'select video' => 'Seleziona video',
+    'select img' => 'Seleziona immagine',
+    'Cancel' => 'Cancel',
 
 ];

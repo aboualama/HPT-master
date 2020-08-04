@@ -36,18 +36,40 @@
               </div>
 
 
+
+
               <div class="col-12">
                 <div class="row">
-                  <video id="player" playsinline controls data-poster="/path/to/poster.jpg"
-                    style="height: 350px; width: 620px; margin: 0 auto"
-                    onclick="document.getElementById('input').click()">
-                    <source src="{{asset('uploads/video/'.$record->video)}}" type="video/mp4" size="720" />
-                  </video>
-                  <input id="input" type="file"
-                    onchange="document.getElementById('player').src=window.URL.createObjectURL(this.files[0])"
-                    name="video" style="display:none;">
+                  <div class="col-md-6">
+                    <h4 class="text-center">{{__('locale.select video')}}</h4>
+                    <video id="player" playsinline controls data-poster="{{asset('uploads/image/default.jpg')}}"
+                      style="max-height: 350px; max-width: 100%; display: block; margin: 0 auto;"
+                      onclick="document.getElementById('input').click()">
+                      <source src="{{asset('uploads/video/'.$record->video)}}" type="video/mp4" size="720" />
+                    </video>
+
+                    <input id="input" type="file"
+                      onchange="document.getElementById('player').src=window.URL.createObjectURL(this.files[0])"
+                      name="video" style="display:none;">
+                      <small id="video_error" class="form-text text-danger text-center small_error"> </small>
+                  </div>
+
+                  <div class="col-md-6">
+                    <h4 class="text-center">{{__('locale.select img')}}</h4>
+                    <img
+                      id="preview_img"
+                      onclick="document.getElementById('input_img').click()"
+                      src="{{asset('uploads/image/'. $record->image)}}"
+                      style="max-width: 80%; max-height: 350px; display: block; margin: 0 auto;" />
+                    <input
+                        id="input_img"
+                        type="file"
+                        onchange="document.getElementById('preview_img').src=window.URL.createObjectURL(this.files[0])"
+                        name="image"
+                        style="display:none;">
+                        <small id="image_error" class="form-text text-danger text-center small_error" style="margin-bottom: 25px;"> </small>
+                  </div>
                 </div>
-                <small id="video_error" class="form-text text-danger center small_error"> </small>
                 <hr>
               </div>
 

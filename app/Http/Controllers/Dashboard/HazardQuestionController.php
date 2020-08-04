@@ -21,7 +21,7 @@ class HazardQuestionController extends Controller
   {
     //  dd($request->all());
     $rules = $this->rules();
-    $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:20000',];
+    $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000', 'video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
     $messages = $this->messages();
     $validator = Validator::make($request->all(), $rules, $messages);
     if ($validator->fails()) {
@@ -31,13 +31,24 @@ class HazardQuestionController extends Controller
     $record = new Question();
     $record['type'] = $request->type;
 
-    if (request()->hasFile('video')) {
-      $video =  $request->file('video');
-      $public_path = 'uploads/video';
-      $video_name = time() . '.' . $video->getClientOriginalExtension();
-      $video->move($public_path, $video_name);
+
+    if (request()->hasFile('image'))
+    {
+        $image =  $request->file('image');
+        $public_path = 'uploads/image';
+        $image_name = time() . '.' . $image->getClientOriginalExtension();
+        $image->move($public_path , $image_name);
     }
 
+    if (request()->hasFile('video'))
+    {
+        $video =  $request->file('video');
+        $public_path = 'uploads/video';
+        $video_name = time() . '.' . $video->getClientOriginalExtension();
+        $video->move($public_path, $video_name);
+    }
+
+    $record['image'] = $image_name;
     $record['video'] = $video_name;
     $record->save();
 
@@ -88,11 +99,21 @@ class HazardQuestionController extends Controller
     }
 
     $old = Question::find($id);
+    $old_image = $old->image;
     $old_video = $old->video;
     $old->delete();
     $record = new Question();
     $record['type'] = $request->type;
     $record->save();
+
+    if (request()->hasFile('image')) {
+      $image =  $request->file('image');
+      $public_path = 'uploads/image';
+      $image_name = time() . '.' . $image->getClientOriginalExtension();
+      $image->move($public_path, $image_name);
+    } else {
+      $image_name = $old_image;
+    }
 
     if (request()->hasFile('video')) {
       $video =  $request->file('video');
@@ -103,6 +124,7 @@ class HazardQuestionController extends Controller
       $video_name = $old_video;
     }
 
+    $record['image'] = $image_name;
     $record['video'] = $video_name;
     $record->save();
 
