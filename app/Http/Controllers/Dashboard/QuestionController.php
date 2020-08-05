@@ -62,7 +62,7 @@ class QuestionController extends Controller
 
       if (request()->hasFile('video'))
       {
-          $public_path = 'uploads/videos';
+          $public_path = 'uploads/video';
           $video_name = time() . '.' . request('video')->getClientOriginalExtension();
           request('video')->move($public_path , $video_name);
       }
@@ -121,21 +121,24 @@ class QuestionController extends Controller
 
       if (request()->hasFile('image'))
       {
+        unlink('uploads/image/'.$record->image);
           $image =  $request->file('image');
           $public_path = 'uploads/image';
           $image_name = time() . '.' . $image->getClientOriginalExtension();
           $image->move($public_path , $image_name);
-      }else
+      } else
       {
           $image_name = $record->image;
       }
 
       if (request()->hasFile('video'))
       {
-          $public_path = 'uploads/videos';
-          $video_name = time() . '.' . request('video')->getClientOriginalExtension();
-          request('video')->move($public_path , $video_name);
-      }else
+        unlink('uploads/video/'.$record->video);
+          $video =  $request->file('video');
+          $public_path = 'uploads/video';
+          $video_name = time() . '.' . $video->getClientOriginalExtension();
+          $video->move($public_path , $video_name);
+      } else
       {
           $video_name = $record->video;
       }
@@ -151,6 +154,8 @@ class QuestionController extends Controller
     public function destroy($id)
     {
       $record = Question::find($id);
+      unlink('uploads/image/'.$record->image);
+      unlink('uploads/video/'.$record->video);
       $record->delete();
     }
 

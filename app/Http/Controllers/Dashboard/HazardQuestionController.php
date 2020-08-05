@@ -106,22 +106,27 @@ class HazardQuestionController extends Controller
     $record['type'] = $request->type;
     $record->save();
 
-    if (request()->hasFile('image')) {
-      $image =  $request->file('image');
-      $public_path = 'uploads/image';
-      $image_name = time() . '.' . $image->getClientOriginalExtension();
-      $image->move($public_path, $image_name);
+    if (request()->hasFile('image'))
+    {
+      unlink('uploads/image/'. $old_image);
+        $image =  $request->file('image');
+        $public_path = 'uploads/image';
+        $image_name = time() . '.' . $image->getClientOriginalExtension();
+        $image->move($public_path, $image_name);
     } else {
-      $image_name = $old_image;
+        $image_name = $old_image;
     }
 
-    if (request()->hasFile('video')) {
-      $video =  $request->file('video');
-      $public_path = 'uploads/video';
-      $video_name = time() . '.' . $video->getClientOriginalExtension();
-      $video->move($public_path, $video_name);
-    } else {
-      $video_name = $old_video;
+    if (request()->hasFile('video'))
+    {
+      unlink('uploads/image/'.$old_video);
+        $video =  $request->file('video');
+        $public_path = 'uploads/video';
+        $video_name = time() . '.' . $video->getClientOriginalExtension();
+        $video->move($public_path, $video_name);
+    } else
+    {
+        $video_name = $old_video;
     }
 
     $record['image'] = $image_name;
@@ -164,6 +169,8 @@ class HazardQuestionController extends Controller
   public function destroy($id)
   {
     $record = Question::find($id);
+    unlink('uploads/image/'.$record->image);
+    unlink('uploads/video/'.$record->video);
     $record->delete();
   }
 
