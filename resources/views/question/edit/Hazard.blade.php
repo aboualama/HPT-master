@@ -160,6 +160,7 @@
               <div class="col-12">
                 <button id="edit" type="button" class="btn btn-primary mr-1 mb-1">Submit</button>
                 <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                <button type="reset" class="btn btn-warning mr-1 mb-1" onclick="location.reload()">Cancel</button>
               </div>
             </div>
           </div>

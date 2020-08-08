@@ -43,22 +43,6 @@ class RSMCQuestionController extends Controller
               $recordQ->save();
       }
 
-      // if (request()->hasFile('img_answers'))
-      // {
-      //   foreach($request->file('img_answers') as $i => $image)
-      //     {
-      //         $public_path = 'uploads/img_answers';
-      //         $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
-      //         $image->move($public_path , $img_name);
-      //         $img[] = $img_name;
-      //     }
-      // }
-      // else
-      // {
-      //   $img[] = 'default.jpg';
-      // }
-
-
 
       $img = [];
       $index = count($request->en['right_answers']);

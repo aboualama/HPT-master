@@ -55,6 +55,8 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
     Route::post('/hazardquestion', 'Dashboard\HazardQuestionController@store');
     Route::Put('/edit-question-3/{id}', 'Dashboard\HazardQuestionController@update');
 
+    Route::post('/hazardpquestion', 'Dashboard\HazardPQuestionController@store');
+    Route::Put('/edit-question-4/{id}', 'Dashboard\HazardPQuestionController@update');
 
 
 

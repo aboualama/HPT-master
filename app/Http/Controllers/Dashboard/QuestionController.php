@@ -109,7 +109,7 @@ class QuestionController extends Controller
     {
       $rules = $this->rules();
       if (request()->hasFile('video')) {
-        $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
+        $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000', 'video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
       }
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
@@ -154,8 +154,12 @@ class QuestionController extends Controller
     public function destroy($id)
     {
       $record = Question::find($id);
-      unlink('uploads/image/'.$record->image);
-      unlink('uploads/video/'.$record->video);
+      if(isset($record->image) && $record->image !== 'default.jpg'){
+          unlink('uploads/image/'.$record->image);
+      }
+      if(isset($record->video) && $record->image !== 'demo.mp4'){
+          unlink('uploads/video/'.$record->video);
+      }
       $record->delete();
     }
 
