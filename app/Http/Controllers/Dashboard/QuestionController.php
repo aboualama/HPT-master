@@ -147,7 +147,7 @@ class QuestionController extends Controller
       $record['image'] = $image_name;
       $record['video'] = $video_name;
       $record->save();
-      return response()->json(['status' => 200]);
+      return response()->json($record);
     }
 
 

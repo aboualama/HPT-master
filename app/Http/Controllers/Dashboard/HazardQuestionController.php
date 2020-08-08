@@ -161,7 +161,7 @@ class HazardQuestionController extends Controller
         $answerTrans->save();
       }
     }
-    return response()->json(['status' => 200]);
+    return response()->json($record);
   }
 
 

@@ -15,7 +15,7 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->enum('type', ['Recognation','Reaction' ,'Reaction-SMC', 'Hazard', 'Hard']);
+          $table->enum('type', ['Recognation','Risk-Responsibilty' ,'Reaction-SMC', 'Hazard', 'Hazard-Perception']);
           $table->string('image')->nullable();
           $table->string('video')->nullable();
 

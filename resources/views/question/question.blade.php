@@ -30,10 +30,10 @@
     <select class="select2 form-control" id="select-type">
       <option value="0" selected>{{__('locale.Question Type')}}</option>
       <option value="Recognation"> Recognation</option>
-      <option value="reaction"> Reaction</option>
+      <option value="Risk-Responsibilty"> Risk-Responsibilty</option>
       <option value="reaction-SMC"> Reaction-SMC</option>
       <option value="Hazard"> Hazard</option>
-      <option value="hard"> hard</option>
+      <option value="Hazard-Perception"> Hazard-Perception</option>
     </select>
   </div>
 </div>
@@ -62,10 +62,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">{{__('locale.type')}}</th>
                 <th scope="col">{{__('locale.question')}}</th>
-                {{-- <th scope="col">Right Answer</th>--}}
-                {{--<th scope="col">Wrong Answer 1</th>
-                <th scope="col">Wrong Answer 2</th>
-                <th scope="col">Wrong Answer 3</th> --}}
                 <th scope="col">{{__('locale.Action')}}</th>
               </tr>
             </thead>
@@ -76,11 +72,6 @@
                 <th scope="row">{{$i +1}}</th>
                 <td>{{$record->type}}</td>
                 <td id="question_{{$record->id}}">{{$record->question}}</td>
-                {{--  <td>{{$record->right_answer}}</td>--}}
-                {{--<td>{{$record->wrongans_1}}</td>
-                <td>{{$record->wrongans_2}}</td>
-                <td>{{$record->wrongans_3}}</td>--}}
-
                 <td>
                   <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
                   <span class="action-delete" data-id="{{$record->id}}"><i class="feather icon-trash"></i></span>
@@ -323,9 +314,10 @@ function addWrongAnswerSMC() {
         $(document).on('click', '#edit', function (e) {
             e.preventDefault();
             var url = $("#url").val();
+            var question_id = $("#question_id").val();
             $(".small_error").text('');
 
-            // console.log(url);
+            console.log(question_id);
             var formData = new FormData($('#formedit')[0]);
 
             $.ajax({
@@ -350,8 +342,8 @@ function addWrongAnswerSMC() {
                           });
                         }else{
                             $("#modal-block-edit").modal('toggle');
-                            $('#question_' + data.id).text(data.question);
-                            console.log(data.question);
+                            $('#question_' + question_id).text(data.question);
+                            console.log('question_' + question_id);
                             toastr.success('Updated Successfully', "Question!",);
                         }
                 }, error: function (xhr) {

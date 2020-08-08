@@ -36,7 +36,8 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
 
    // Licensecode Pages
     Route::get('/app-licensecode-index', 'Dashboard\LicensecodeController@index');
-    Route::post('/app-licensecode-UpdateOrCreate', 'Dashboard\LicensecodeController@updateOrCreate');
+    Route::post('/app-licensecode-UpdateOrCreate', 'Dashboard\LicensecodeController@store');
+    Route::delete('/app-licensecode-delete/{id}', 'Dashboard\LicensecodeController@delete');
 
 
 

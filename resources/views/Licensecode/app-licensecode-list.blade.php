@@ -39,8 +39,7 @@
               <div class="row">
                 <div class="col-3">
                   <div class="form-group">
-                    <label>Lincence Number</label>
-                    <input type="number" id="lNumber" value="1" min="1">
+                    <input class="form-control" type="number" id="number" min="1" placeholder="Lincence Number">
                   </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
@@ -78,17 +77,16 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($records['licenses'] as $user)
+        @foreach ($records['licenses'] as $i => $record)
           <tr>
             <td></td>
-            <td class="licenses-id" id="licenses-id_{{ $user->id }}">{{ $user->id }}</td>
-            <td class="licenses-Code" id="licenses-Code_{{ $user["id"] }}">{{ $user->code }}</td>
-            <td class="licenses-user_id" id="licenses-user_{{ $user["id"] }}">{{ $user->user->name }}</td>
-            <td class="licenses-role" id="name-user_{{ $user["id"] }}">Admin</td>
-            <td class="licenses-role" id="name-user_{{ $user["id"] }}">Active</td>
+            <td class="licenses-id">{{ $i +1 }}</td>
+            <td class="licenses-Code">{{ $record->code }}</td>
+            <td class="licenses-user_id">{{ $record->user->name }}</td>
+            <td class="licenses-role">Admin</td>
+            <td class="licenses-role">Active</td>
             <td class="user-action">
-              <span class="action-edit" data-id="{{$user["id"]}}"><i class="feather icon-edit"></i></span>
-              <span class="action-delete" data-id="{{$user["id"]}}"><i class="feather icon-trash"></i></span>
+              <span class="action-delete" data-id="{{ $record->id }}"><i class="feather icon-trash"></i></span>
             </td>
           </tr>
         @endforeach
@@ -124,6 +122,7 @@
         url: "app-licensecode-UpdateOrCreate",
         data: {
           'user_id': $('#user-id').val(),
+          'number': $('#number').val(),
         },
         success: function (data) {
           toastr.success('Licensecode Generated Successfully.', 'Generated!', {"timeOut": 5000});
@@ -134,6 +133,25 @@
         }
       });
     });
+
+
+  // On Delete
+  $('.action-delete').on("click", function(e){
+    e.stopPropagation();
+    var id = $(this).data("id");
+    var td = $(this).closest('td').parent('tr');
+    $.ajax({
+        url: "/app-licensecode-delete" + '/' + id,
+        method: "DELETE",
+        success: function (data) {
+          toastr.success('Deleted Successfully',"licensecode!",);
+          td.fadeOut();
+        },
+        error: function (data) {
+            console.log('Error:', data);
+        }
+    });
+  });
 
   </script>
 @endsection

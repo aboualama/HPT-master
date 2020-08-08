@@ -17,6 +17,7 @@
 
               <input type="hidden" id="type" name="type" value="{{$type}}">
               <input type="hidden" id="url" value="{{ url('en/edit-question-3/' . $record->id) }}">
+              <input type="hidden" id="question_id" value="{{ $record->id }}">
 
               @foreach ( config('translatable.locales') as $lang)
               <div class="col-12">
