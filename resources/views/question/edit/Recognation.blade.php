@@ -13,7 +13,7 @@
           <div class="form-body">
             <div class="row">
 
-              <input type="hidden" name="type" value=" Recognation">
+              <input type="hidden" name="type" value="{{$type}}">
               <input type="hidden" id="url" value="{{ url('en/edit-question-1/' . $record->id) }}">
               <input type="hidden" id="question_id" value="{{ $record->id }}">
 

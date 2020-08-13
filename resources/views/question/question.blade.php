@@ -171,7 +171,7 @@ function addWrongAnswerSMC() {
                       <img
                         id="preview_${i}"
                         onclick="document.getElementById('input_${i}').click()"
-                        src="{{asset('uploads/img_answers/default.jpg')}}"
+                        src="{{asset('uploads/image/default.jpg')}}"
                         style="height: 80px; width: 80px;" />
                       <input
                           id="input_${i}"
