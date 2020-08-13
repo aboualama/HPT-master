@@ -169,32 +169,32 @@ function addWrongAnswerSMC() {
                   <div class="form-group row">
                     <div class="col-md-3" style="text-align: center;">
                       <img
-                        id="preview_`+ i +`"
-                        onclick="document.getElementById('input_`+ i +`').click()"
+                        id="preview_${i}"
+                        onclick="document.getElementById('input_${i}').click()"
                         src="{{asset('uploads/img_answers/default.jpg')}}"
                         style="height: 80px; width: 80px;" />
                       <input
-                          id="input_`+ i +`"
+                          id="input_${i}"
                           type="file"
-                          onchange="document.getElementById('preview_`+ i +`').src=window.URL.createObjectURL(this.files[0])"
+                          onchange="document.getElementById('preview_${i}').src=window.URL.createObjectURL(this.files[0])"
                           name="img_answers[]"
                           style="display:none;">
-                    <small id="img_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                    <small id="img_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
                     <div class="col-md-3">
                       <label>en</label>
                       <input type="text" class="form-control en wrong_answers" name="en[right_answers][]" placeholder="en" required>
-                      <small id="en_right_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                      <small id="en_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
                     <div class="col-md-3">
                       <label>it</label>
                       <input type="text"  class="form-control it wrong_answers" name="it[right_answers][]" placeholder="it">
-                      <small id="it_right_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                      <small id="it_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
                     <div class="col-md-3">
                       <label>pt</label>
                       <input type="text"  class="form-control pt wrong_answers" name="pt[right_answers][]" placeholder="pt">
-                      <small id="pt_right_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                      <small id="pt_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
                   </div>
         </div><hr>`;

@@ -69,7 +69,7 @@
                                     <img
                                         id="preview_{{$i}}"
                                         onclick="document.getElementById('input_{{$i}}').click()"
-                                        src="{{asset('uploads/img_answers/'.json_decode($record->image)[$i])}}"
+                                        src="{{asset('uploads/image/'.json_decode($record->image)[$i])}}"
                                         style="height: 80px; width: 80px;" />
                                     <input
                                           id="input_{{$i}}"

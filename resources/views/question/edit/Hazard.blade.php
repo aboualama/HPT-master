@@ -65,7 +65,7 @@
                     <video id="player" playsinline controls data-poster="{{asset('uploads/image/default.jpg')}}"
                       style="max-height: 350px; max-width: 100%; display: block; margin: 0 auto; margin-bottom: 25px;"
                       onclick="document.getElementById('input').click()">
-                      <source src="{{asset('uploads/video/'.$record->video)}}" type="video/mp4" size="720" />
+                      <source src="{{$record->video}}" type="video/mp4" size="720" />
                     </video>
 
                     <input id="input" type="file"
@@ -79,7 +79,7 @@
                     <img
                       id="preview_img"
                       onclick="document.getElementById('input_img').click()"
-                      src="{{asset('uploads/image/'.$record->image)}}"
+                      src="{{$record->image}}"
                       style="max-width: 80%; max-height: 350px; display: block; margin: 0 auto;" />
                     <input
                         id="input_img"

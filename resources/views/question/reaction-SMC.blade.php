@@ -79,7 +79,7 @@
                       <img
                         id="preview_img"
                         onclick="document.getElementById('input_img').click()"
-                        src="{{asset('uploads/img_answers/default.jpg')}}"
+                        src="{{asset('uploads/image/default.jpg')}}"
                         style="height: 80px; width: 80px;" />
                       <input
                           id="input_img"

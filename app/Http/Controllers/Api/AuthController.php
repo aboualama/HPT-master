@@ -89,14 +89,15 @@ class AuthController extends Controller
     {
       return response(['status' => '440' , 'message' => $data->errors()->first() , 'errors' => $data->errors()] );
     }
-    $licens = Licensecode::where('user_id' , $request->user_id)->first();
-
+    $licens = Licensecode::where('user_id' , $request->user_id)->pluck('code')->toArray();
+    $licens_id = Licensecode::where('code' , $request->code)->get('id');
+    // dd($licens);
     if($licens)
     {
-      if($licens->code == $request->code)
+      if(in_array($request->code , $licens))
       {
         $accessToken = $user->createToken('authToken')->accessToken;
-        return response(['status' => '200' , 'message' => 'OK' , 'licens_id' => $licens->id , 'access_token' => $accessToken]);
+        return response(['status' => '200' , 'message' => 'OK' , 'licens_id' => $licens_id , 'access_token' => $accessToken]);
       }
       else
       {

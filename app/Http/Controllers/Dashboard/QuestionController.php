@@ -109,7 +109,10 @@ class QuestionController extends Controller
     {
       $rules = $this->rules();
       if (request()->hasFile('video')) {
-        $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000', 'video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
+        $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
+      }
+      if (request()->hasFile('image')) {
+        $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000'];
       }
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
@@ -121,7 +124,9 @@ class QuestionController extends Controller
 
       if (request()->hasFile('image'))
       {
-        unlink('uploads/image/'.$record->image);
+        // if(isset($record->image) && $record->image !== 'default.jpg'){
+        //   unlink('uploads/image/'.$record->image);
+        // }
           $image =  $request->file('image');
           $public_path = 'uploads/image';
           $image_name = time() . '.' . $image->getClientOriginalExtension();
@@ -133,7 +138,7 @@ class QuestionController extends Controller
 
       if (request()->hasFile('video'))
       {
-        unlink('uploads/video/'.$record->video);
+        // unlink('uploads/video/'.$record->video);
           $video =  $request->file('video');
           $public_path = 'uploads/video';
           $video_name = time() . '.' . $video->getClientOriginalExtension();
@@ -154,12 +159,12 @@ class QuestionController extends Controller
     public function destroy($id)
     {
       $record = Question::find($id);
-      if(isset($record->image) && $record->image !== 'default.jpg'){
-          unlink('uploads/image/'.$record->image);
-      }
-      if(isset($record->video) && $record->image !== 'demo.mp4'){
-          unlink('uploads/video/'.$record->video);
-      }
+      // if(isset($record->image) && $record->image !== 'default.jpg'){
+      //     unlink('uploads/image/'.$record->image);
+      // }
+      // if(isset($record->video) && $record->image !== 'demo.mp4'){
+      //     unlink('uploads/video/'.$record->video);
+      // }
       $record->delete();
     }
 

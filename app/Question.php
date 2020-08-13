@@ -21,4 +21,25 @@ class Question extends Model implements TranslatableContract
     public function answers(){
       return $this->hasMany(Answer::class, 'question_id', 'id');
     }
+
+    public function getImageAttribute($value)
+    {
+        if ($value) {
+            if($this->type == 'Reaction-SMC') {
+              return $value;
+            } else {
+              return asset("uploads/image/" . $value);
+            }
+        } else {
+            return asset('uploads/image/default.jpg');
+        }
+    }
+    public function getVideoAttribute($value)
+    {
+        if ($value) {
+              return asset("uploads/video/" . $value);
+        } else {
+            return asset('uploads/image/default.jpg');
+        }
+    }
 }

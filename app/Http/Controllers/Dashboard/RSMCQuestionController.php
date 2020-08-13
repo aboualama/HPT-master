@@ -51,7 +51,7 @@ class RSMCQuestionController extends Controller
       {
         if (isset($request->file('img_answers')[$i])) {
             $image = $request->file('img_answers')[$i];
-            $public_path = 'uploads/img_answers';
+            $public_path = 'uploads/image';
             $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
             $image->move($public_path , $img_name);
             $img[] = $img_name;
@@ -111,7 +111,7 @@ class RSMCQuestionController extends Controller
       {
         if (isset($request->file('img_answers')[$i])) {
             $image = $request->file('img_answers')[$i];
-            $public_path = 'uploads/img_answers';
+            $public_path = 'uploads/image';
             $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
             $image->move($public_path , $img_name);
             $img[] = $img_name;
@@ -125,13 +125,6 @@ class RSMCQuestionController extends Controller
       return response()->json($record);
     }
 
-
-
-    public function destroy($id)
-    {
-      $record = Question::find($id);
-      $record->delete();
-    }
 
 
 
