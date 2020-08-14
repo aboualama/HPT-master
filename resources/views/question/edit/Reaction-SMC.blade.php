@@ -60,25 +60,25 @@
                               <div  class="col-12">
                                 <h4>Right Answers</h4>
                               </div>
-                              @php
+                              {{-- @php
                                 $right_answers = json_decode($record->right_answers, true);
-                              @endphp
-                              @for ($i = 0 ; $i < sizeof($right_answers) ; $i++)
+                              @endphp --}}
+                              {{-- @for ($i = 0 ; $i < sizeof($right_answers) ; $i++) --}}
                               <div  class="col-12">
                                 <div class="row">
                                   <div class="col-md-4" style="text-align: center;">
                                     <img
-                                        id="preview_{{$i}}"
-                                        onclick="document.getElementById('input_{{$i}}').click()"
-                                        src="{{asset('uploads/image/'.json_decode($record->image)[$i])}}"
+                                        id="preview_0"
+                                        onclick="document.getElementById('input_0').click()"
+                                        src="{{asset('uploads/image/'. $record->image)}}"
                                         style="height: 80px; width: 80px;" />
                                     <input
-                                          id="input_{{$i}}"
+                                          id="input_0"
                                           type="file"
-                                          onchange="document.getElementById('preview_{{$i}}').src=window.URL.createObjectURL(this.files[0])"
-                                          name="img_answers[]"
+                                          onchange="document.getElementById('preview_0').src=window.URL.createObjectURL(this.files[0])"
+                                          name="img_answers"
                                           style="display:none;">
-                                          <small id="img_answers_{{$i}}_error" class="form-text text-danger center small_error"> </small>
+                                          <small id="img_answers_0_error" class="form-text text-danger center small_error"> </small>
                                   </div>
                                   @foreach ( config('translatable.locales') as $lang)
                                       <div class="col-md-4" style="align-self: center;">
@@ -86,16 +86,16 @@
                                         <input
                                               type="text"
                                               class="form-control"
-                                              name="{{$lang}}[right_answers][]"
-                                              value="{{json_decode($record->translate($lang)->right_answers)[$i]}}"
+                                              name="{{$lang}}[right_answers]"
+                                              value="{{ $record->translate($lang)->right_answers }}"
                                               required>
-                                              <small id="{{$lang}}_right_answers_{{$i}}_error" class="form-text text-danger center small_error"> </small>
+                                              <small id="{{$lang}}_right_answers_0_error" class="form-text text-danger center small_error"> </small>
                                       </div>
                                   @endforeach
                                 </div>
                                 <hr>
                               </div>
-                              @endfor
+                              {{-- @endfor --}}
 
 
 

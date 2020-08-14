@@ -21,16 +21,31 @@ class RSMCQuestionController extends Controller
     {
       //  dd($request->all());
       $rules = $this->rules();
-      $rules = $rules + ['img_answers.*' => 'required|mimes:jpg,jpeg,png|max:20000',];
+      $rules = $rules + ['img_answers' => 'required|mimes:jpg,jpeg,png|max:20000',];
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors(), 'status' => 442]);
       }
+      $index = count($request->en['right_answers']);
 
-      $record = new Question();
-      $record['type'] = $request->type;
-      $record->save();
+      for($i = 0 ; $i < $index ; $i++)
+      {
+
+        $record = new Question();
+        $record['type'] = $request->type;
+        $record->save();
+
+        if (isset($request->file('img_answers')[$i])) {
+            $image = $request->file('img_answers')[$i];
+            $public_path = 'uploads/image';
+            $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
+            $image->move($public_path , $img_name);
+            $img = $img_name;
+        }
+        else {
+            $img = 'default.jpg';
+        }
 
       foreach(config('translatable.locales') as $lang){
         $data = $request->get($lang);
@@ -38,36 +53,16 @@ class RSMCQuestionController extends Controller
               $recordQ['locale'] = $lang;
               $recordQ['question'] = $data['question'];
               $recordQ['question_id'] = $record['id'];
-              $recordQ->right_answers = json_encode($data['right_answers']);
+              $recordQ->right_answers = $data['right_answers'][$i];
               $recordQ->wrong_answers = json_encode($data['wrong_answers']);
               $recordQ->save();
       }
 
-
-      $img = [];
-      $index = count($request->en['right_answers']);
-
-      for($i = 0 ; $i < $index ; $i++)
-      {
-        if (isset($request->file('img_answers')[$i])) {
-            $image = $request->file('img_answers')[$i];
-            $public_path = 'uploads/image';
-            $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
-            $image->move($public_path , $img_name);
-            $img[] = $img_name;
-        }
-        else {
-            $img[] = 'default.jpg';
-        }
+        $record['image'] = $img;
+        $record->update();
       }
 
-
-
-
-      $record['image'] = json_encode($img);
-      $record->update();
       return response()->json(['status' => 200]);
-
     }
 
 
@@ -75,22 +70,35 @@ class RSMCQuestionController extends Controller
 
     public function update(Request $request,  $id)
     {
-      // dd($request->all());
+        // dd($request->all());
       $rules = $this->rules();
       if (request()->hasFile('img_answers')) {
-        $rules = $rules + ['img_answers'   => 'required|array',
-                           'img_answers.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-                          ];
+        $rules = $rules + ['img_answers'   =>  'required|mimes:jpg,jpeg,png|max:20000'];
       }
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors(), 'status' => 442]);
       }
+
       $old = Question::find($id);
+      $old_image = $old->image;
       $old->delete();
       $record = new Question();
       $record['type'] = $request->type;
+
+      if ($request->hasFile('img_answers')) {
+          $image = $request->file('img_answers');
+          $public_path = 'uploads/image';
+          $img_name = time() . '.' . $image->getClientOriginalExtension();
+          $image->move($public_path , $img_name);
+          $img = $img_name;
+      }
+      else {
+          $img = $old_image;
+      }
+
+      $record['image'] = $img;
       $record->save();
 
       foreach(config('translatable.locales') as $lang){
@@ -99,28 +107,10 @@ class RSMCQuestionController extends Controller
             $recordQ['locale'] = $lang;
             $recordQ['question'] = $data['question'];
             $recordQ['question_id'] = $record['id'];
-            $recordQ->right_answers = json_encode($data['right_answers']);
+            $recordQ->right_answers = $data['right_answers'];
             $recordQ->wrong_answers = json_encode($data['wrong_answers']);
             $recordQ->save();
       }
-
-      $img = [];
-      $index = count($request->en['right_answers']);
-
-      for($i = 0 ; $i < $index ; $i++)
-      {
-        if (isset($request->file('img_answers')[$i])) {
-            $image = $request->file('img_answers')[$i];
-            $public_path = 'uploads/image';
-            $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
-            $image->move($public_path , $img_name);
-            $img[] = $img_name;
-        }
-        else {
-            $img[] = json_decode($old->image)[$i];
-        }
-      }
-      $record['image'] = json_encode($img);
       $record->update();
       return response()->json($record);
     }
@@ -168,4 +158,5 @@ class RSMCQuestionController extends Controller
     }
     return  $transMessage + $basicMessage;
   }
+
 }
