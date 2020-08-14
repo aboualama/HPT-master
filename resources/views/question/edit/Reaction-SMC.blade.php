@@ -42,6 +42,7 @@
                                   <div class="row" >
                                     @foreach ( config('translatable.locales') as $lang)
                                         <div class="col-md-4">
+                                          <label>{{$lang}}</label>
                                         <input
                                               type="text"
                                               class="form-control"
@@ -65,7 +66,7 @@
                               @for ($i = 0 ; $i < sizeof($right_answers) ; $i++)
                               <div  class="col-12">
                                 <div class="row">
-                                  <div class="col-md-3" style="text-align: center;">
+                                  <div class="col-md-4" style="text-align: center;">
                                     <img
                                         id="preview_{{$i}}"
                                         onclick="document.getElementById('input_{{$i}}').click()"
@@ -80,7 +81,8 @@
                                           <small id="img_answers_{{$i}}_error" class="form-text text-danger center small_error"> </small>
                                   </div>
                                   @foreach ( config('translatable.locales') as $lang)
-                                      <div class="col-md-3" style="align-self: center;">
+                                      <div class="col-md-4" style="align-self: center;">
+                                        <label>{{$lang}}</label>
                                         <input
                                               type="text"
                                               class="form-control"

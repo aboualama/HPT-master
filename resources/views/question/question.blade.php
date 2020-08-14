@@ -140,22 +140,32 @@
 function addWrongAnswerSMC() {
       let i = $('.index').length + 1
       let m =  `<div class="form-group row" index>
-                <div class="col-md-3">
+                <div class="col-md-4">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>en</label>
                   <input type="text" class="form-control en wrong_answers" name="en[wrong_answers][]" placeholder="en">
                   <small id="en_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>it</label>
                   <input type="text"  class="form-control it wrong_answers" name="it[wrong_answers][]" placeholder="it">
                   <small id="it_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>pt</label>
                   <input type="text"  class="form-control pt wrong_answers" name="pt[wrong_answers][]" placeholder="pt">
                   <small id="pt_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                </div>
+                <div class="col-md-4">
+                  <label>fr</label>
+                  <input type="text"  class="form-control fr wrong_answers" name="fr[wrong_answers][]" placeholder="fr">
+                  <small id="fr_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                </div>
+                <div class="col-md-4">
+                  <label>gr</label>
+                  <input type="text"  class="form-control gr wrong_answers" name="gr[wrong_answers][]" placeholder="gr">
+                  <small id="gr_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                 </div>
               </div>`;
 
@@ -167,7 +177,7 @@ function addWrongAnswerSMC() {
       let i = $('.index').length + 1
       let img = ` <div class="col-12" index>
                   <div class="form-group row">
-                    <div class="col-md-3" style="text-align: center;">
+                    <div class="col-md-4" style="text-align: center;">
                       <img
                         id="preview_${i}"
                         onclick="document.getElementById('input_${i}').click()"
@@ -181,20 +191,30 @@ function addWrongAnswerSMC() {
                           style="display:none;">
                     <small id="img_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>en</label>
                       <input type="text" class="form-control en wrong_answers" name="en[right_answers][]" placeholder="en" required>
                       <small id="en_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>it</label>
                       <input type="text"  class="form-control it wrong_answers" name="it[right_answers][]" placeholder="it">
                       <small id="it_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>pt</label>
                       <input type="text"  class="form-control pt wrong_answers" name="pt[right_answers][]" placeholder="pt">
                       <small id="pt_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-4">
+                      <label>fr</label>
+                      <input type="text"  class="form-control fr wrong_answers" name="fr[right_answers][]" placeholder="fr">
+                      <small id="fr_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-4">
+                      <label>gr</label>
+                      <input type="text"  class="form-control gr wrong_answers" name="gr[right_answers][]" placeholder="gr">
+                      <small id="gr_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
                   </div>
         </div><hr>`;
@@ -218,16 +238,29 @@ function addWrongAnswerSMC() {
     let m =  ` <div class="col-12" index>
                 <div class="form-group row">
                   <div class="col-md-4">
+                    <label>en</label>
                     <input type="text" id="choice1" class="form-control" name="en[answer][]" placeholder="en answer">
                     <small id="en_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                   </div>
                   <div class="col-md-4">
+                    <label>it</label>
                     <input type="text" id="choice1" class="form-control" name="it[answer][]" placeholder="en answer">
                     <small id="it_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                   </div>
                   <div class="col-md-4">
+                    <label>pt</label>
                     <input type="text" id="choice1" class="form-control" name="pt[answer][]" placeholder="en answer">
                     <small id="pt_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-4">
+                    <label>fr</label>
+                    <input type="text" id="choice1" class="form-control" name="fr[answer][]" placeholder="en answer">
+                    <small id="fr_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-4">
+                    <label>gr</label>
+                    <input type="text" id="choice1" class="form-control" name="gr[answer][]" placeholder="en answer">
+                    <small id="gr_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                   </div>
                 </div>
               </div>

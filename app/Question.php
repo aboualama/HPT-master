@@ -16,28 +16,28 @@ class Question extends Model implements TranslatableContract
     public $translatedAttributes =  ['question', 'right_answer', 'wrongans_1', 'wrongans_2', 'wrongans_3', 'right_answers', 'wrong_answers'];
     protected $fillable =  ['type', 'image', 'video'];
 
-
+    protected $appends = ['image_path', 'video_path'];
 
     public function answers(){
       return $this->hasMany(Answer::class, 'question_id', 'id');
     }
 
-    public function getImageAttribute($value)
+    public function getImagePathAttribute()
     {
-        if ($value) {
+        if ($this->image) {
             if($this->type == 'Reaction-SMC') {
-              return $value;
+              return $this->image;
             } else {
-              return asset("uploads/image/" . $value);
+              return asset("uploads/image/" . $this->image);
             }
         } else {
             return asset('uploads/image/default.jpg');
         }
     }
-    public function getVideoAttribute($value)
+    public function getVideoPathAttribute()
     {
-        if ($value) {
-              return asset("uploads/video/" . $value);
+        if ($this->video) {
+              return asset("uploads/video/" . $this->video);
         } else {
             return asset('uploads/image/default.jpg');
         }

@@ -65,7 +65,7 @@
                     <video id="player" playsinline controls data-poster="{{asset('uploads/image/default.jpg')}}"
                       style="max-height: 350px; max-width: 100%; display: block; margin: 0 auto; margin-bottom: 25px;"
                       onclick="document.getElementById('input').click()">
-                      <source src="{{$record->video}}" type="video/mp4" size="720" />
+                      <source src="{{$record->video_path}}" type="video/mp4" size="720" />
                     </video>
 
                     <input id="input" type="file"
@@ -79,7 +79,7 @@
                     <img
                       id="preview_img"
                       onclick="document.getElementById('input_img').click()"
-                      src="{{$record->image}}"
+                      src="{{$record->image_path}}"
                       style="max-width: 80%; max-height: 350px; display: block; margin: 0 auto;" />
                     <input
                         id="input_img"
@@ -115,6 +115,7 @@
                 <div class="form-group row">
                   @foreach ( config('translatable.locales') as $lang)
                   <div class="col-md-4">
+                    <label>{{$lang}}</label>
                     <input type="text" class="form-control" name="{{$lang}}[answer][]"
                       value="{{$answer->translate($lang)->answer}}" required>
                       <small id="{{$lang.'_answer_'.$i.'_error'}}" class="form-text text-danger center small_error"> </small>

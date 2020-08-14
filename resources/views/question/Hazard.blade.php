@@ -92,6 +92,7 @@
               <div class="form-group row">
                 @foreach ( config('translatable.locales') as $lang)
                 <div class="col-md-4">
+                  <label>{{$lang}}</label>
                   <input type="text" id="choice1" class="form-control" name="{{$lang}}[answer][]"
                     placeholder="@lang('locale.' . $lang . '.answer')">
                   <small id="{{$lang.'_answer_0_error'}}" class="form-text text-danger center small_error"> </small>

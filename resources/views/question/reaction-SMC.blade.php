@@ -44,22 +44,32 @@
                 <h4>{{__('locale.Wrong Answer')}}</h4>
                 <hr>
                 <div class="form-group row">
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <label>en</label>
                     <input type="text" class="form-control en wrong_answers" name="en[wrong_answers][]" placeholder="en">
                     <small id="en_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <label>it</label>
                     <input type="text"  class="form-control it wrong_answers" name="it[wrong_answers][]" placeholder="it">
                     <small id="it_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <label>pt</label>
                     <input type="text"  class="form-control pt wrong_answers" name="pt[wrong_answers][]" placeholder="pt">
                     <small id="pt_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-4">
+                    <label>fr</label>
+                    <input type="text"  class="form-control fr wrong_answers" name="fr[wrong_answers][]" placeholder="fr">
+                    <small id="fr_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-4">
+                    <label>gr</label>
+                    <input type="text"  class="form-control gr wrong_answers" name="gr[wrong_answers][]" placeholder="gr">
+                    <small id="gr_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
                   </div>
                 </div>
               </div>
@@ -75,7 +85,7 @@
 
                 <div class="col-12">
                   <div class="form-group row">
-                    <div class="col-md-3" style="text-align: center;">
+                    <div class="col-md-4" style="text-align: center;">
                       <img
                         id="preview_img"
                         onclick="document.getElementById('input_img').click()"
@@ -89,20 +99,30 @@
                           style="display:none;">
                           <small id="img_answers_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>en</label>
                       <input type="text" class="form-control en wrong_answers" name="en[right_answers][]" placeholder="en" required>
                       <small id="en_right_answers_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>it</label>
                       <input type="text"  class="form-control it wrong_answers" name="it[right_answers][]" placeholder="it">
                       <small id="it_right_answers_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>pt</label>
                       <input type="text"  class="form-control pt wrong_answers" name="pt[right_answers][]" placeholder="pt">
                       <small id="pt_right_answers_0_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-4">
+                      <label>fr</label>
+                      <input type="text"  class="form-control fr wrong_answers" name="fr[right_answers][]" placeholder="fr">
+                      <small id="fr_right_answers_0_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-4">
+                      <label>gr</label>
+                      <input type="text"  class="form-control gr wrong_answers" name="gr[right_answers][]" placeholder="gr">
+                      <small id="gr_right_answers_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
                   </div>
                 </div>
@@ -121,29 +141,6 @@
           </div>
         </form>
       </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="col-12">
-  <div class="form-group row">
-    <div class="col-md-6">
-      <input type="file" class="form-control" name="video" placeholder="">
-    </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" name="video">
-    </div>
-    <div>
-      <select class="select2 form-control" multiple>
-        <option value="square">Square</option>
-        <option value="rectangle">Rectangle</option>
-        <option value="rombo">Rombo</option>
-        <option value="romboid">Romboid</option>
-        <option value="trapeze">Trapeze</option>
-        <option value="traible">Triangle</option>
-        <option value="polygon">Polygon</option>
-      </select>
     </div>
   </div>
 </div>
