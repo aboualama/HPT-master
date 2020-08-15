@@ -129,7 +129,7 @@ return [
     "Media Player" => "Reprodutor de mídia",
     "agGrid Table" => "agGrid Table",
     "User Settings" => "Configurações do Usuário",
-    "User" => "Usuário",
+    "User"=>"Usuário",
     "List"=>"Lista",
     "View"=>"Ver",
     "Edit"=>"Editar",
@@ -142,7 +142,6 @@ return [
     "Access Control"=>"Controle de acesso",
     "File Manager" => "Gerenciador de arquivos",
     "Pricing" => "Preços",
-
 
 
     "home" => "Principale",
@@ -175,10 +174,13 @@ return [
 
     'choice' => 'Scelta',
     'right_answer' => 'Risposta esatta',
+    'right answer' => 'Risposta esatta',
+    'wrong answer' => 'Risposta sbagliata',
     'wrongans' => 'Risposta sbagliata',
     'wrongans_1' => 'Risposta sbagliata 1',
     'wrongans_2' => 'Risposta sbagliata 2',
     'wrongans_3' => 'Risposta sbagliata 3',
+
 
 
 
@@ -273,8 +275,6 @@ return [
     'value' => 'Valore',
     'Wrong Answer' => 'Risposta sbagliata',
     'Right Answer' => 'Risposta esatta',
-    'Add Wrong Answer' => 'Aggiungi risposta errata',
-    'Add Right Answer' => 'Aggiungi la risposta giusta',
 
 
     'Logout' => 'Disconnettersi',

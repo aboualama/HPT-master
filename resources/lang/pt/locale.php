@@ -174,6 +174,8 @@ return [
 
     'choice' => 'Scelta',
     'right_answer' => 'Risposta esatta',
+    'right answer' => 'Risposta esatta',
+    'wrong answer' => 'Risposta sbagliata',
     'wrongans' => 'Risposta sbagliata',
     'wrongans_1' => 'Risposta sbagliata 1',
     'wrongans_2' => 'Risposta sbagliata 2',
@@ -232,6 +234,48 @@ return [
       'question' => 'Domanda in pt',
       'choice' => 'Scelta in pt',
       'answer' => 'Risposta in pt',
+
+      // Validatation
+      'question required' => 'Portoghese domanda richiesta',
+      'question string' => 'Portoghese domanda deve essere una stringa',
+      'question min' => 'Portoghese domanda deve essere di almeno 3 caratteri',
+      'question max' => 'Portoghese domanda deve essere inferiore a 260 caratteri',
+      'answer required' => 'Portoghese risposta richiesta',
+      'answer string' => 'Portoghese risposta deve essere una stringa',
+      'right_answers required' => 'Portoghese risposte giuste richiesta',
+      'right_answers string' => 'Portoghese risposte giuste deve essere una stringa',
+      'wrong_answers required' => 'Portoghese inglesi sbagliate richiesta',
+      'wrong_answers string' => 'Portoghese inglesi sbagliate deve essere una stringa',
+    ],
+
+    'fr' => [
+      'title' => 'Titolo in fr',
+      'intro' => 'Intro in fr',
+      'description' => 'Descrizione in fr',
+      'question' => 'Domanda in fr',
+      'choice' => 'Scelta in fr',
+      'answer' => 'Risposta in fr',
+
+      // Validatation
+      'question required' => 'Portoghese domanda richiesta',
+      'question string' => 'Portoghese domanda deve essere una stringa',
+      'question min' => 'Portoghese domanda deve essere di almeno 3 caratteri',
+      'question max' => 'Portoghese domanda deve essere inferiore a 260 caratteri',
+      'answer required' => 'Portoghese risposta richiesta',
+      'answer string' => 'Portoghese risposta deve essere una stringa',
+      'right_answers required' => 'Portoghese risposte giuste richiesta',
+      'right_answers string' => 'Portoghese risposte giuste deve essere una stringa',
+      'wrong_answers required' => 'Portoghese inglesi sbagliate richiesta',
+      'wrong_answers string' => 'Portoghese inglesi sbagliate deve essere una stringa',
+    ],
+
+    'gr' => [
+      'title' => 'Titolo in gr',
+      'intro' => 'Intro in gr',
+      'description' => 'Descrizione in gr',
+      'question' => 'Domanda in gr',
+      'choice' => 'Scelta in gr',
+      'answer' => 'Risposta in gr',
 
       // Validatation
       'question required' => 'Portoghese domanda richiesta',

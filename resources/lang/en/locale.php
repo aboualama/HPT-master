@@ -177,6 +177,8 @@ return [
 
   'choice' => 'Choice',
   'right_answer' => 'Right Answer',
+  'right answer' => 'Right Answer',
+  'wrong answer' => 'Wrong Answer',
   'wrongans' => 'Wrong Answer',
   'wrongans_1' => 'Wrong Answer 1',
   'wrongans_2' => 'Wrong Answer 2',
@@ -236,6 +238,48 @@ return [
     'question' => 'Question in pt',
     'choice' => 'Choice in pt',
     'answer' => 'Answer in pt',
+    'right_answers' => 'Portuguese right answers',
+
+    // Validatation
+    'question required' => 'Portuguese question required',
+    'question string' => 'Portuguese question must be string',
+    'question min' => 'Portuguese question must be at least 3 char',
+    'question max' => 'Portuguese question must be less than 260 char',
+    'answer required' => 'Portuguese answer required',
+    'answer string' => 'Portuguese answer must be string',
+    'right_answers required' => 'Portuguese right_answers required',
+    'right_answers string' => 'Portuguese right_answers must be string',
+    'wrong_answers required' => 'Portuguese wrong_answers required',
+    'wrong_answers string' => 'Portuguese wrong_answers must be string',
+  ],
+  'fr' => [
+    'title' => 'Title in fr',
+    'intro' => 'Intro in fr',
+    'description' => 'Description in fr',
+    'question' => 'Question in fr',
+    'choice' => 'Choice in fr',
+    'answer' => 'Answer in fr',
+    'right_answers' => 'Portuguese right answers',
+
+    // Validatation
+    'question required' => 'Portuguese question required',
+    'question string' => 'Portuguese question must be string',
+    'question min' => 'Portuguese question must be at least 3 char',
+    'question max' => 'Portuguese question must be less than 260 char',
+    'answer required' => 'Portuguese answer required',
+    'answer string' => 'Portuguese answer must be string',
+    'right_answers required' => 'Portuguese right_answers required',
+    'right_answers string' => 'Portuguese right_answers must be string',
+    'wrong_answers required' => 'Portuguese wrong_answers required',
+    'wrong_answers string' => 'Portuguese wrong_answers must be string',
+  ],
+  'gr' => [
+    'title' => 'Title in gr',
+    'intro' => 'Intro in gr',
+    'description' => 'Description in gr',
+    'question' => 'Question in gr',
+    'choice' => 'Choice in gr',
+    'answer' => 'Answer in gr',
     'right_answers' => 'Portuguese right answers',
 
     // Validatation

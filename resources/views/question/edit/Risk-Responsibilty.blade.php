@@ -2,7 +2,7 @@
 <div class="col-md-12 col-12">
   <div class="card">
     <div class="card-header">
-      <h4 class="card-title">Edit {{ $record->type }} Question </h4>
+      <h4 class="card-title">{{__('locale.Edit')}} {{ $record->type }} {{__('locale.question')}} </h4>
     </div>
     <div class="card-content">
       <div class="card-body">
@@ -104,9 +104,9 @@
               @endforeach
 
               <div class="col-12">
-                <button id="edit" type="button" class="btn btn-primary mr-1 mb-1">Submit</button>
-                <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
-                <button type="reset" class="btn btn-warning mr-1 mb-1" onclick="location.reload()">Cancel</button>
+                <button id="edit" type="button" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
+                <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
+                <button type="reset" class="btn btn-warning mr-1 mb-1" onclick="location.reload()">{{__('locale.Cancel')}}</button>
               </div>
             </div>
           </div>

@@ -174,6 +174,8 @@ return [
 
     'choice' => 'Scelta',
     'right_answer' => 'Risposta esatta',
+    'right answer' => 'Risposta esatta',
+    'wrong answer' => 'Risposta sbagliata',
     'wrongans' => 'Risposta sbagliata',
     'wrongans_1' => 'Risposta sbagliata 1',
     'wrongans_2' => 'Risposta sbagliata 2',

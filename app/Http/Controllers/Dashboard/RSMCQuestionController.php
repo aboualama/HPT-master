@@ -87,7 +87,11 @@ class RSMCQuestionController extends Controller
       $record = new Question();
       $record['type'] = $request->type;
 
-      if ($request->hasFile('img_answers')) {
+      if ($request->hasFile('img_answers'))
+      {
+        if(isset($old_image) && $old_image !== 'default.jpg'){
+          unlink('uploads/image/'.$old_image);
+        }
           $image = $request->file('img_answers');
           $public_path = 'uploads/image';
           $img_name = time() . '.' . $image->getClientOriginalExtension();
