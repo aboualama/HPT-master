@@ -48,7 +48,7 @@
                     <video id="player" playsinline controls data-poster="{{asset('uploads/image/default.jpg')}}"
                       style="height: 350px; width: 620px; display: block; margin: 0 auto;"
                       onclick="document.getElementById('input').click()">
-                      <source src="{{asset('uploads/image/default.jpg')}}" type="video/mp4" size="720" />
+                      <source src="{{asset('uploads/video/demo.mp4')}}" type="video/mp4" size="720" />
                     </video>
 
                     <input id="input" type="file"
