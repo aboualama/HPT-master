@@ -22,6 +22,5 @@ class Cors
         ->header('Content-Type', 'application/json')
         ->header('X-Requested-With', 'XMLHttpRequest')
         ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization');
-
     }
 }
