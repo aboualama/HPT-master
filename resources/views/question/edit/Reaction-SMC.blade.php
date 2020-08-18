@@ -1,7 +1,7 @@
       <div class="col-md-12 col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Edit {{$type}} Question </h4>
+              <h4 class="card-title">{{__('locale.Edit')}} {{ $record->type }} {{__('locale.question')}} </h4>
             </div>
             <div class="card-content">
                 <div class="card-body">
@@ -16,6 +16,7 @@
 
                               <input type="hidden" name="type" value="{{$type}}">
                               <input type="hidden" id="url" value="{{ url('en/edit-question-2/' . $record->id) }}">
+                              <input type="hidden" id="question_id" value="{{ $record->id }}">
 
                               @foreach ( config('translatable.locales') as $lang)
                               <div class="col-12">
@@ -34,13 +35,14 @@
                               <div class="col-12"> <hr></div>
 
                               <div class="col-12">
-                                <h4>Answers</h4>
+                                <h4>{{__('locale.' . 'wrong answer')}}</h4>
                               </div>
                               @for ($i = 0 ; $i < sizeof(json_decode($record->wrong_answers)) ; $i++)
                                 <div  class="col-12">
                                   <div class="row" >
                                     @foreach ( config('translatable.locales') as $lang)
                                         <div class="col-md-4">
+                                          <label>{{$lang}}</label>
                                         <input
                                               type="text"
                                               class="form-control"
@@ -56,50 +58,52 @@
                               @endfor
 
                               <div  class="col-12">
-                                <h4>Right Answers</h4>
+                                <h4>{{__('locale.' . 'right answer')}}</h4>
                               </div>
-                              @php
+                              {{-- @php
                                 $right_answers = json_decode($record->right_answers, true);
-                              @endphp
-                              @for ($i = 0 ; $i < sizeof($right_answers) ; $i++)
+                              @endphp --}}
+                              {{-- @for ($i = 0 ; $i < sizeof($right_answers) ; $i++) --}}
                               <div  class="col-12">
                                 <div class="row">
-                                  <div class="col-md-3" style="text-align: center;">
+                                  <div class="col-md-4" style="text-align: center;">
                                     <img
-                                        id="preview_{{$i}}"
-                                        onclick="document.getElementById('input_{{$i}}').click()"
-                                        src="{{asset('uploads/img_answers/'.json_decode($record->image)[$i])}}"
+                                        id="preview_0"
+                                        onclick="document.getElementById('input_0').click()"
+                                        src="{{asset('uploads/image/'. $record->image)}}"
                                         style="height: 80px; width: 80px;" />
                                     <input
-                                          id="input_{{$i}}"
+                                          id="input_0"
                                           type="file"
-                                          onchange="document.getElementById('preview_{{$i}}').src=window.URL.createObjectURL(this.files[0])"
-                                          name="img_answers[]"
+                                          onchange="document.getElementById('preview_0').src=window.URL.createObjectURL(this.files[0])"
+                                          name="img_answers"
                                           style="display:none;">
-                                          <small id="img_answers_{{$i}}_error" class="form-text text-danger center small_error"> </small>
+                                          <small id="img_answers_0_error" class="form-text text-danger center small_error"> </small>
                                   </div>
                                   @foreach ( config('translatable.locales') as $lang)
-                                      <div class="col-md-3" style="align-self: center;">
+                                      <div class="col-md-4" style="align-self: center;">
+                                        <label>{{$lang}}</label>
                                         <input
                                               type="text"
                                               class="form-control"
-                                              name="{{$lang}}[right_answers][]"
-                                              value="{{json_decode($record->translate($lang)->right_answers)[$i]}}"
+                                              name="{{$lang}}[right_answers]"
+                                              value="{{ $record->translate($lang)->right_answers }}"
                                               required>
-                                              <small id="{{$lang}}_right_answers_{{$i}}_error" class="form-text text-danger center small_error"> </small>
+                                              <small id="{{$lang}}_right_answers_0_error" class="form-text text-danger center small_error"> </small>
                                       </div>
                                   @endforeach
                                 </div>
                                 <hr>
                               </div>
-                              @endfor
+                              {{-- @endfor --}}
 
 
 
 
                               <div class="col-12">
-                                  <button id="edit" type="button" class="btn btn-primary mr-1 mb-1">Submit</button>
-                                  <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                                  <button id="edit" type="button" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
+                                  <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
+                                  <button type="reset" class="btn btn-warning mr-1 mb-1" onclick="location.reload()">{{__('locale.Cancel')}}</button>
                               </div>
                             </div>
                         </div>

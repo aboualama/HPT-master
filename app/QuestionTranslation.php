@@ -8,5 +8,5 @@ class QuestionTranslation extends Model
 {
   protected $table = 'questions_translations';
   public $timestamps = false;
-  protected $fillable = ['question', 'image', 'video', 'right_answer', 'wrongans_1', 'wrongans_2', 'wrongans_3', 'wrong_answers', 'right_answers', 'img_answers'];
+  protected $fillable = ['question', 'right_answer', 'wrongans_1', 'wrongans_2', 'wrongans_3', 'wrong_answers', 'right_answers', 'img_answers'];
 }

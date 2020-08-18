@@ -18,7 +18,7 @@ class QuestionController extends Controller
     {
       $records = Question::all();
       $breadcrumbs = [
-        ['link'=>"dashboard-analytics",'name'=>"Home"], ['link'=>"dashboard-analytics",'name'=>"Pages"], ['name'=>"Question List"]
+        ['link'=>"/",'name'=>__('locale.home')], ['name'=>__('locale.question')]
       ];
       return view('question.question', [
         'breadcrumbs' => $breadcrumbs,
@@ -43,26 +43,35 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
+      // dd($request->all());
       $rules = $this->rules();
-      $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
+      $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000', 'video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors(), 'status' => 442]);
       }
 
-      if (request()->hasFile('video'))
+      if (request()->hasFile('image'))
       {
-          $public_path = 'uploads/videos';
-          $video_name = time() . '.' . request('video')->getClientOriginalExtension();
-          request('video')->move($public_path , $video_name);
-      }else
-      {
-          $video_name = 'default.mp4';
+        $image =  $request->file('image');
+        $public_path = 'uploads/image';
+        $image_name = time() . '.' . $image->getClientOriginalExtension();
+        $image->move($public_path , $image_name);
       }
 
-      $request['video'] = $video_name;
+      if (request()->hasFile('video'))
+      {
+          $public_path = 'uploads/video';
+          $video_name = time() . '.' . request('video')->getClientOriginalExtension();
+          request('video')->move($public_path , $video_name);
+      }
+
       $record = Question::create($request->all());
+      $record['image'] = $image_name;
+      $record['video'] = $video_name;
+      $record->save();
+
       return response()->json(['status' => 200]);
     }
 
@@ -81,6 +90,7 @@ class QuestionController extends Controller
     public function edit($id)
     {
       $record = Question::find($id);
+      // dd($record);
       $type = $record->type;
       $answers = Answer::where('question_id' , $id)->get();
       $breadcrumbs = [
@@ -101,6 +111,9 @@ class QuestionController extends Controller
       if (request()->hasFile('video')) {
         $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
       }
+      if (request()->hasFile('image')) {
+        $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000'];
+      }
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
@@ -109,25 +122,51 @@ class QuestionController extends Controller
 
       $record = Question::find($id) ;
 
+      if (request()->hasFile('image'))
+      {
+        if(isset($record->image) && $record->image !== 'default.jpg'){
+          unlink('uploads/image/'.$record->image);
+        }
+          $image =  $request->file('image');
+          $public_path = 'uploads/image';
+          $image_name = time() . '.' . $image->getClientOriginalExtension();
+          $image->move($public_path , $image_name);
+      } else
+      {
+          $image_name = $record->image;
+      }
+
       if (request()->hasFile('video'))
       {
-          $public_path = 'uploads/videos';
-          $video_name = time() . '.' . request('video')->getClientOriginalExtension();
-          request('video')->move($public_path , $video_name);
-      }else
+        if(isset($record->video) && $record->video !== 'demo.mp4'){
+          unlink('uploads/video/'.$record->video);
+        }
+          $video =  $request->file('video');
+          $public_path = 'uploads/video';
+          $video_name = time() . '.' . $video->getClientOriginalExtension();
+          $video->move($public_path , $video_name);
+      } else
       {
           $video_name = $record->video;
       }
 
-      $request['video'] = $video_name;
       $record->update($request->all());
-      return response()->json(['status' => 200]);
+      $record['image'] = $image_name;
+      $record['video'] = $video_name;
+      $record->save();
+      return response()->json($record);
     }
 
 
     public function destroy($id)
     {
       $record = Question::find($id);
+      if(isset($record->image) && $record->image !== 'default.jpg'){
+          unlink('uploads/image/'.$record->image);
+      }
+      if(isset($record->video) && $record->video !== 'demo.mp4'){
+          unlink('uploads/video/'.$record->video);
+      }
       $record->delete();
     }
 
@@ -187,13 +226,13 @@ class QuestionController extends Controller
         $locale . '.question.min'              => __('locale.' . $locale . '.question min'),
         $locale . '.question.max'              => __('locale.' . $locale . '.question max'),
         $locale . '.right_answer.*.required'   => __('locale.' . $locale . '.right_answers required'),
-        $locale . '.right_answer.*..string'    => __('locale.' . $locale . '.right_answers string'),
+        $locale . '.right_answer.*.string'     => __('locale.' . $locale . '.right_answers string'),
         $locale . '.wrongans_1.*.required'     => __('locale.' . $locale . '.wrongans required'),
-        $locale . '.wrongans_1.*..string'      => __('locale.' . $locale . '.wrongans string'),
+        $locale . '.wrongans_1.*.string'       => __('locale.' . $locale . '.wrongans string'),
         $locale . '.wrongans_2.*.required'     => __('locale.' . $locale . '.wrongans required'),
-        $locale . '.wrongans_2.*..string'      => __('locale.' . $locale . '.wrongans string'),
+        $locale . '.wrongans_2.*.string'       => __('locale.' . $locale . '.wrongans string'),
         $locale . '.wrongans_3.*.required'     => __('locale.' . $locale . '.wrongans required'),
-        $locale . '.wrongans_3.*..string'      => __('locale.' . $locale . '.wrongans string'),
+        $locale . '.wrongans_3.*.string'       => __('locale.' . $locale . '.wrongans string'),
       ];
     }
     return  $transMessage + $basicMessage;

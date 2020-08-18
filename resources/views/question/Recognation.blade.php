@@ -3,7 +3,7 @@
         @include('partials._errors')
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Question Type - {{ $type }} </h4>
+                <h4 class="card-title">{{__('locale.Question Type')}} - {{ $type }} </h4>
             </div>
             <div class="card-content">
                 <div class="card-body">
@@ -39,17 +39,37 @@
                               <div class="col-12">
                                 <div class="row">
 
-                                  <video id="player" playsinline controls data-poster="/path/to/poster.jpg"
-                                    style="height: 350px; width: 620px; margin: 0 auto"
-                                    onclick="document.getElementById('input').click()">
-                                    <source src="" type="video/mp4" size="720" />
-                                  </video>
+                                  <div class="col-md-6">
+                                    <h4 class="text-center">{{__('locale.select video')}}</h4>
+                                    <video id="player" playsinline controls data-poster="{{asset('uploads/image/default.jpg')}}"
+                                      style="height: 350px; width: 620px; display: block; margin: 0 auto; margin-bottom: 25px;"
+                                      onclick="document.getElementById('input').click()">
+                                      <source src="{{asset('uploads/video/demo.mp4')}}" type="video/mp4" size="720" />
+                                    </video>
 
-                                  <input id="input" type="file"
-                                    onchange="document.getElementById('player').src=window.URL.createObjectURL(this.files[0])"
-                                    name="video" style="display:none;">
+                                    <input id="input" type="file"
+                                      onchange="document.getElementById('player').src=window.URL.createObjectURL(this.files[0])"
+                                      name="video" style="display:none;">
+                                      <small id="video_error" class="form-text text-danger center small_error"> </small>
+                                  </div>
+
+                                  <div class="col-md-6">
+                                    <h4 class="text-center">{{__('locale.select img')}}</h4>
+                                    <img
+                                      id="preview_img"
+                                      onclick="document.getElementById('input_img').click()"
+                                      src="{{asset('uploads/image/default.jpg')}}"
+                                      style="max-width: 50%; max-height: 350px; display: block; margin: 0 auto;" />
+                                    <input
+                                        id="input_img"
+                                        type="file"
+                                        onchange="document.getElementById('preview_img').src=window.URL.createObjectURL(this.files[0])"
+                                        name="image"
+                                        style="display:none;">
+                                        <small id="image_error" class="form-text text-danger text-center small_error"> </small>
+                                  </div>
+
                                 </div>
-                                <small id="video_error" class="form-text text-danger center small_error"> </small>
                                 <hr>
                               </div>
 
@@ -80,8 +100,8 @@
                               @endforeach
 
                               <div class="col-12">
-                                  <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
-                                  <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                                  <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
+                                  <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
                               </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Questions')
+@section('title', __('locale.questions'))
 
 
 @section('vendor-style')
@@ -22,18 +22,18 @@
 
 @section('content')
 
-<button class="btn btn-success mr-1 mb-1" id="addnew">Add New Question</button>
+<button class="btn btn-success mr-1 mb-1" id="addnew">{{__('locale.Add New Question')}}</button>
 
 <div class="col-sm-12 col-12" id="add-new-select" style="display: none">
-  <p>please select Question Type</p>
+  <p>{{__('locale.please select Question Type')}}</p>
   <div class="form-group">
     <select class="select2 form-control" id="select-type">
-      <option value="0" selected>Select Question Type</option>
+      <option value="0" selected>{{__('locale.Question Type')}}</option>
       <option value="Recognation"> Recognation</option>
-      <option value="reaction"> Reaction</option>
+      <option value="Risk-Responsibilty"> Risk-Responsibilty</option>
       <option value="reaction-SMC"> Reaction-SMC</option>
       <option value="Hazard"> Hazard</option>
-      <option value="hard"> hard</option>
+      <option value="Hazard-Perception"> Hazard-Perception</option>
     </select>
   </div>
 </div>
@@ -51,7 +51,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Question List</h4>
+        <h4 class="card-title">{{__('locale.Question List')}}</h4>
 
       </div>
       <div class="card-content">
@@ -60,13 +60,9 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">type</th>
-                <th scope="col">question</th>
-                {{-- <th scope="col">Right Answer</th>--}}
-                {{--<th scope="col">Wrong Answer 1</th>
-                <th scope="col">Wrong Answer 2</th>
-                <th scope="col">Wrong Answer 3</th> --}}
-                <th scope="col">Action</th>
+                <th scope="col">{{__('locale.type')}}</th>
+                <th scope="col">{{__('locale.question')}}</th>
+                <th scope="col">{{__('locale.Action')}}</th>
               </tr>
             </thead>
             <tbody>
@@ -75,12 +71,7 @@
               <tr>
                 <th scope="row">{{$i +1}}</th>
                 <td>{{$record->type}}</td>
-                <td>{{$record->question}}</td>
-                {{--  <td>{{$record->right_answer}}</td>--}}
-                {{--<td>{{$record->wrongans_1}}</td>
-                <td>{{$record->wrongans_2}}</td>
-                <td>{{$record->wrongans_3}}</td>--}}
-
+                <td id="question_{{$record->id}}">{{$record->question}}</td>
                 <td>
                   <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
                   <span class="action-delete" data-id="{{$record->id}}"><i class="feather icon-trash"></i></span>
@@ -146,26 +137,35 @@
 
 
 
-function addWrongAnswer() {
+function addWrongAnswerSMC() {
       let i = $('.index').length + 1
       let m =  `<div class="form-group row" index>
-                <div class="col-md-3">
-                  <h4> Answers</h4>
+                <div class="col-md-4">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>en</label>
                   <input type="text" class="form-control en wrong_answers" name="en[wrong_answers][]" placeholder="en">
                   <small id="en_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>it</label>
                   <input type="text"  class="form-control it wrong_answers" name="it[wrong_answers][]" placeholder="it">
                   <small id="it_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>pt</label>
                   <input type="text"  class="form-control pt wrong_answers" name="pt[wrong_answers][]" placeholder="pt">
                   <small id="pt_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                </div>
+                <div class="col-md-4">
+                  <label>fr</label>
+                  <input type="text"  class="form-control fr wrong_answers" name="fr[wrong_answers][]" placeholder="fr">
+                  <small id="fr_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                </div>
+                <div class="col-md-4">
+                  <label>gr</label>
+                  <input type="text"  class="form-control gr wrong_answers" name="gr[wrong_answers][]" placeholder="gr">
+                  <small id="gr_wrong_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                 </div>
               </div>`;
 
@@ -173,38 +173,48 @@ function addWrongAnswer() {
     }
 
 
-    function addQuestionSMC() {
+    function addRightAnswerSMC() {
       let i = $('.index').length + 1
       let img = ` <div class="col-12" index>
                   <div class="form-group row">
-                    <div class="col-md-3" style="text-align: center;">
+                    <div class="col-md-4" style="text-align: center;">
                       <img
-                        id="preview_`+ i +`"
-                        onclick="document.getElementById('input_`+ i +`').click()"
-                        src="{{asset('uploads/img_answers/default.jpg')}}"
+                        id="preview_${i}"
+                        onclick="document.getElementById('input_${i}').click()"
+                        src="{{asset('uploads/image/default.jpg')}}"
                         style="height: 80px; width: 80px;" />
                       <input
-                          id="input_`+ i +`"
+                          id="input_${i}"
                           type="file"
-                          onchange="document.getElementById('preview_`+ i +`').src=window.URL.createObjectURL(this.files[0])"
+                          onchange="document.getElementById('preview_${i}').src=window.URL.createObjectURL(this.files[0])"
                           name="img_answers[]"
                           style="display:none;">
-                    <small id="img_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                    <small id="img_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>en</label>
                       <input type="text" class="form-control en wrong_answers" name="en[right_answers][]" placeholder="en" required>
-                      <small id="en_right_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                      <small id="en_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>it</label>
                       <input type="text"  class="form-control it wrong_answers" name="it[right_answers][]" placeholder="it">
-                      <small id="it_right_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                      <small id="it_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>pt</label>
                       <input type="text"  class="form-control pt wrong_answers" name="pt[right_answers][]" placeholder="pt">
-                      <small id="pt_right_answers_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                      <small id="pt_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-4">
+                      <label>fr</label>
+                      <input type="text"  class="form-control fr wrong_answers" name="fr[right_answers][]" placeholder="fr">
+                      <small id="fr_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-4">
+                      <label>gr</label>
+                      <input type="text"  class="form-control gr wrong_answers" name="gr[right_answers][]" placeholder="gr">
+                      <small id="gr_right_answers_${i}_error" class="form-text text-danger center small_error"> </small>
                     </div>
                   </div>
         </div><hr>`;
@@ -228,16 +238,29 @@ function addWrongAnswer() {
     let m =  ` <div class="col-12" index>
                 <div class="form-group row">
                   <div class="col-md-4">
+                    <label>en</label>
                     <input type="text" id="choice1" class="form-control" name="en[answer][]" placeholder="en answer">
                     <small id="en_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                   </div>
                   <div class="col-md-4">
+                    <label>it</label>
                     <input type="text" id="choice1" class="form-control" name="it[answer][]" placeholder="en answer">
                     <small id="it_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                   </div>
                   <div class="col-md-4">
+                    <label>pt</label>
                     <input type="text" id="choice1" class="form-control" name="pt[answer][]" placeholder="en answer">
                     <small id="pt_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-4">
+                    <label>fr</label>
+                    <input type="text" id="choice1" class="form-control" name="fr[answer][]" placeholder="en answer">
+                    <small id="fr_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-4">
+                    <label>gr</label>
+                    <input type="text" id="choice1" class="form-control" name="gr[answer][]" placeholder="en answer">
+                    <small id="gr_answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
                   </div>
                 </div>
               </div>
@@ -272,5 +295,96 @@ function addWrongAnswer() {
 
     $("#Answers").append(m);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  $(document).on('click', '#submit', function (e) {
+            e.preventDefault();
+            $(".small_error").text('');
+            var url = $("#url").val();
+            var formData = new FormData($('#form')[0]);
+
+            $.ajax({
+                type: 'post',
+                enctype: 'multipart/form-data',
+                url: url,
+                data: formData,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (data) {
+
+                    if (data.status == 442){
+                      $.each(data.errors, function (key, val) {
+                        var newchar = '_'
+                        var str = key.split('.').join(newchar);
+                        // str = key.replace(/./g , "_")
+                        $("#" + str + "_error").text(val[0]);
+                        console.log(str);
+                      });
+                    }else{
+                        window.location.href = "/en/question";
+                        toastr.success('Created Successfully', "Question!",);
+                    }
+                }, error: function (xhr) {
+
+                }
+            });
+        });
+
+
+
+
+        $(document).on('click', '#edit', function (e) {
+            e.preventDefault();
+            var url = $("#url").val();
+            var question_id = $("#question_id").val();
+            $(".small_error").text('');
+
+            console.log(question_id);
+            var formData = new FormData($('#formedit')[0]);
+
+            $.ajax({
+                enctype: 'multipart/form-data',
+                url: url ,
+                data: formData,
+                type: 'POST',
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (data) {
+                        console.log(data);
+
+                        if (data.status == 442){
+                          $.each(data.errors, function (key, val) {
+                            var newchar = '_'
+                            var str = key.split('.').join(newchar);
+                            // str = key.replace(/./g , "_")
+                            $("#" + str + "_error").text(val[0]);
+                            console.log(str);
+                          });
+                        }else{
+                            $("#modal-block-edit").modal('toggle');
+                            $('#question_' + question_id).text(data.question);
+                            console.log('question_' + question_id);
+                            toastr.success('Updated Successfully', "Question!",);
+                        }
+                }, error: function (xhr) {
+
+                }
+            });
+        });
+
+
   </script>
   @endsection

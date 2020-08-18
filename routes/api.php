@@ -17,11 +17,13 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::get('/questions/{type}', 'Api\QuestionController@getquestions');
-Route::get('/getAllQuestions', 'Api\QuestionController@getAllQuestions');
-Route::get('/getanswers', 'Api\QuestionController@getanswers');
+  Route::get('/questions/{type}', 'Api\QuestionController@getquestions');
+  Route::get('/getAllQuestions', 'Api\QuestionController@getAllQuestions');
+  Route::get('/getanswers', 'Api\QuestionController@getanswers');
+  Route::post('/storanswers', 'Api\QuestionController@storanswers');
+  Route::post('/checklicens', 'Api\AuthController@checklicens');
 
-Route::get('/test' , function(){return  'test'; });
+// Route::get('/test' , function(){return  'test'; });
 
 Route::group(['prefix' => 'auth'], function () {
   Route::post('login', 'Api\AuthController@login');

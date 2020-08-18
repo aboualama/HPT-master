@@ -32,11 +32,13 @@
 
 
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                  <a rel="alternate" hreflang="{{ $localeCode }}" class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"  data-language="{{ $localeCode }}">
+                  <a onclick="window.reload();" rel="alternate" hreflang="{{ $localeCode }}" class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"  data-language="{{ $localeCode }}">
                     <i class="flag-icon flag-icon-{{ ($localeCode == 'en')  ? 'us' : $localeCode }}"></i> {{ $properties['native'] }}
                   </a>
                 @endforeach
+<script>
 
+</script>
 
               </div>
             </li>
@@ -61,7 +63,7 @@
               <div class="dropdown-menu dropdown-menu-right">
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item" >
                     <i class="feather icon-power"> </i>
-                  Logout
+                    {{__('locale.Logout')}}
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf

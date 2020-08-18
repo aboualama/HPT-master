@@ -11,15 +11,9 @@
   |
   */
 
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-
-  Route::group(
-    [
-      'prefix' => LaravelLocalization::setLocale(),
-      'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-    ], function(){
-
-      Route::get('/tesxt' , function(){return  'test'; });
+Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
 
   Auth::routes(['verify' => false]);
@@ -42,7 +36,8 @@
 
    // Licensecode Pages
     Route::get('/app-licensecode-index', 'Dashboard\LicensecodeController@index');
-    Route::post('/app-licensecode-UpdateOrCreate', 'Dashboard\LicensecodeController@updateOrCreate');
+    Route::post('/app-licensecode-UpdateOrCreate', 'Dashboard\LicensecodeController@store');
+    Route::delete('/app-licensecode-delete/{id}', 'Dashboard\LicensecodeController@delete');
 
 
 
@@ -60,9 +55,8 @@
     Route::post('/hazardquestion', 'Dashboard\HazardQuestionController@store');
     Route::Put('/edit-question-3/{id}', 'Dashboard\HazardQuestionController@update');
 
-
-
-
+    Route::post('/hazardpquestion', 'Dashboard\HazardPQuestionController@store');
+    Route::Put('/edit-question-4/{id}', 'Dashboard\HazardPQuestionController@update');
 
 
 

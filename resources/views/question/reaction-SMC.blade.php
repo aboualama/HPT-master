@@ -3,7 +3,7 @@
   @include('partials._errors')
   <div class="card">
     <div class="card-header">
-      <h4 class="card-title">Question Type - {{ $type }} </h4>
+      <h4>{{__('locale.Question Type')}} - {{ $type }} </h4>
     </div>
     <div class="card-content">
       <div class="card-body">
@@ -34,30 +34,42 @@
 
               <div class="col-12">
                 <hr>
-                <h4>Wrong Answer</h4>
+                <h4> {{__('locale.Answers')}}</h4>
                 <hr>
               </div>
 
 
               <div class="col-12">
+                <hr>
+                <h4>{{__('locale.Wrong Answer')}}</h4>
+                <hr>
                 <div class="form-group row">
-                  <div class="col-md-3">
-                    <h4> Answers</h4>
+                  <div class="col-md-4">
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <label>en</label>
                     <input type="text" class="form-control en wrong_answers" name="en[wrong_answers][]" placeholder="en">
                     <small id="en_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <label>it</label>
                     <input type="text"  class="form-control it wrong_answers" name="it[wrong_answers][]" placeholder="it">
                     <small id="it_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <label>pt</label>
                     <input type="text"  class="form-control pt wrong_answers" name="pt[wrong_answers][]" placeholder="pt">
                     <small id="pt_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-4">
+                    <label>fr</label>
+                    <input type="text"  class="form-control fr wrong_answers" name="fr[wrong_answers][]" placeholder="fr">
+                    <small id="fr_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-4">
+                    <label>gr</label>
+                    <input type="text"  class="form-control gr wrong_answers" name="gr[wrong_answers][]" placeholder="gr">
+                    <small id="gr_wrong_answers_0_error" class="form-text text-danger center small_error"> </small>
                   </div>
                 </div>
               </div>
@@ -68,16 +80,16 @@
 
               <div class="col-12" id="allQuestions">
                 <hr>
-                <h4>Wrong Answer</h4>
+                <h4>{{__('locale.Right Answer')}}</h4>
                 <hr>
 
                 <div class="col-12">
                   <div class="form-group row">
-                    <div class="col-md-3" style="text-align: center;">
+                    <div class="col-md-4" style="text-align: center;">
                       <img
                         id="preview_img"
                         onclick="document.getElementById('input_img').click()"
-                        src="{{asset('uploads/img_answers/default.jpg')}}"
+                        src="{{asset('uploads/image/default.jpg')}}"
                         style="height: 80px; width: 80px;" />
                       <input
                           id="input_img"
@@ -87,20 +99,30 @@
                           style="display:none;">
                           <small id="img_answers_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>en</label>
                       <input type="text" class="form-control en wrong_answers" name="en[right_answers][]" placeholder="en" required>
                       <small id="en_right_answers_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>it</label>
                       <input type="text"  class="form-control it wrong_answers" name="it[right_answers][]" placeholder="it">
                       <small id="it_right_answers_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <label>pt</label>
                       <input type="text"  class="form-control pt wrong_answers" name="pt[right_answers][]" placeholder="pt">
                       <small id="pt_right_answers_0_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-4">
+                      <label>fr</label>
+                      <input type="text"  class="form-control fr wrong_answers" name="fr[right_answers][]" placeholder="fr">
+                      <small id="fr_right_answers_0_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-4">
+                      <label>gr</label>
+                      <input type="text"  class="form-control gr wrong_answers" name="gr[right_answers][]" placeholder="gr">
+                      <small id="gr_right_answers_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
                   </div>
                 </div>
@@ -109,41 +131,16 @@
                 <hr>
               </div>
               <div class="col-12">
-                <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
+                <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
                 {{-- <a href="#" onclick="sendDataSMC()" class="btn btn-primary mr-1 mb-1">Submit</a> --}}
-                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addWrongAnswer()">Add
-                    Answer</a>
-                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addQuestionSMC()">Add Right
-                  Question</a>
-                <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addWrongAnswerSMC()">{{__('locale.Add Wrong Answer')}}</a>
+                <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addRightAnswerSMC()">{{__('locale.Add Right Answer')}}</a>
+                <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
               </div>
             </div>
           </div>
         </form>
       </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="col-12">
-  <div class="form-group row">
-    <div class="col-md-6">
-      <input type="file" class="form-control" name="video" placeholder="">
-    </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" name="video">
-    </div>
-    <div>
-      <select class="select2 form-control" multiple>
-        <option value="square">Square</option>
-        <option value="rectangle">Rectangle</option>
-        <option value="rombo">Rombo</option>
-        <option value="romboid">Romboid</option>
-        <option value="trapeze">Trapeze</option>
-        <option value="traible">Triangle</option>
-        <option value="polygon">Polygon</option>
-      </select>
     </div>
   </div>
 </div>

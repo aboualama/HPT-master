@@ -33,17 +33,24 @@ class LicensecodeController extends Controller
     return response()->json($record);
   }
 
-  public function updateOrCreate2(Request $request)
+  public function store(Request $request)
   {
     $data = $this->validate(request(), [
-      'user_id' => 'required,uniqe',
+      'user_id' => 'required',
     ]);
-    $data['code'] = Str::random(5);
 
-    $record = Licensecode::create($data);
-
+    for($i = 0 ; $i < $request->number ; $i++){
+      $data['code'] = Str::random(5);
+      $record = Licensecode::create($data);
+    }
     return response()->json($record);
   }
 
+
+  public function delete($id){
+    $record = Licensecode::find($id);
+    $record->delete();
+
+  }
 
 }

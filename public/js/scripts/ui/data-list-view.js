@@ -157,7 +157,7 @@ $(document).ready(function() {
         url: "/app-user-delete" + '/' + id,
         method: "DELETE",
         success: function (data) {
-          toastr.success('XXXXXXXXXXXXXXXXXXX',"user!",);
+          toastr.success('Deleted Successfully',"User!",);
           td.fadeOut();
         },
         error: function (data) {

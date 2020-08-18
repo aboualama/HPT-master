@@ -111,6 +111,5 @@ class UserManagmentController
         $record = User::find($id);
         $record->delete();
 
-
     }
 }
