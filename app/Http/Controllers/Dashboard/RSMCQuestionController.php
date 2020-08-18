@@ -21,7 +21,7 @@ class RSMCQuestionController extends Controller
     {
       //  dd($request->all());
       $rules = $this->rules();
-      $rules = $rules + ['img_answers' => 'required|mimes:jpg,jpeg,png|max:20000',];
+      $rules = $rules + [];
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {

@@ -45,7 +45,7 @@ class QuestionController extends Controller
     {
       // dd($request->all());
       $rules = $this->rules();
-      $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000', 'video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
+      $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000'];
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {

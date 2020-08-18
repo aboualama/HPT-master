@@ -41,7 +41,7 @@
 
               <div class="col-12">
                 <div class="row">
-                  <div class="col-md-6">
+                  {{--<div class="col-md-6">
                     <h4 class="text-center">{{__('locale.select video')}}</h4>
                     <video id="player" playsinline controls data-poster="{{asset('uploads/image/default.jpg')}}"
                       style="max-height: 350px; max-width: 100%; display: block; margin: 0 auto;"
@@ -53,7 +53,7 @@
                       onchange="document.getElementById('player').src=window.URL.createObjectURL(this.files[0])"
                       name="video" style="display:none;">
                       <small id="video_error" class="form-text text-danger text-center small_error"> </small>
-                  </div>
+                  </div>--}}
                   <div class="col-md-6">
                     <h4 class="text-center">{{__('locale.select img')}}</h4>
                     <img

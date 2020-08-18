@@ -15,7 +15,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
-
+  Route::get('ProvaInvio', function () {
+    Mail::to("egyangel93@gmail.com")->send(new \App\Mail\WelcomeMail("aaaa"));
+  });
   Auth::routes(['verify' => false]);
 
 
