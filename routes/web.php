@@ -18,10 +18,10 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
   Route::get('ProvaInvio', function () {
     Mail::to("egyangel93@gmail.com")->send(new \App\Mail\WelcomeMail("aaaa"));
   });
-  Auth::routes(['verify' => false]);
+  Auth::routes(['verify' => true]);
 
 
-  Route::group(['middleware' => 'auth'], function () {
+  Route::group(['middleware' => ['auth','verified']], function () {
 
     // Users Pages
     Route::get('/app-user-index', 'Dashboard\UserManagmentController@index');

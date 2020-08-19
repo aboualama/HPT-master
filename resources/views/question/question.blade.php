@@ -73,6 +73,7 @@
                 <td>{{$record->type}}</td>
                 <td id="question_{{$record->id}}">{{$record->question}}</td>
                 <td>
+                  <span class="action-edit" data-id="{{$record->id}}"><i class="fa fa-clone"></i></span>
                   <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
                   <span class="action-delete" data-id="{{$record->id}}"><i class="feather icon-trash"></i></span>
                 </td>

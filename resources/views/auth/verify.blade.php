@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts/fullLayoutMaster')
 
 @section('content')
 <div class="container">
@@ -15,7 +15,16 @@
                     @endif
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
+                    {{ __('If you did not receive the email') }},
+                    {{-- <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>. --}}
+
+
+                    <form  method="POST" action="{{ route('verification.resend') }}">
+                      @csrf
+                        <div class="col-12">
+                            <button  type="submit" class="btn btn-info btn-sm" style="float: right">{{ __('click here to request another') }}</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
