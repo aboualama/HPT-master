@@ -46,6 +46,7 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
     Route::get('/question', 'Dashboard\QuestionController@index');
     Route::get('/question-edit/{id}', 'Dashboard\QuestionController@edit');
     Route::delete('/question/{id}', 'Dashboard\QuestionController@destroy');
+    Route::get('/clone-question/{id}', 'Dashboard\QuestionController@clone');
 
 
     Route::post('/question', 'Dashboard\QuestionController@store');

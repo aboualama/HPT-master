@@ -5,6 +5,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Answer;
+use App\AnswerTranslation;
 use App\Http\Controllers\Controller;
 
 use App\Question;
@@ -124,9 +125,9 @@ class QuestionController extends Controller
 
       if (request()->hasFile('image'))
       {
-        if(isset($record->image) && $record->image !== 'default.jpg'){
-          unlink('uploads/image/'.$record->image);
-        }
+        // if(isset($record->image) && $record->image !== 'default.jpg'){
+        //   unlink('uploads/image/'.$record->image);
+        // }
           $image =  $request->file('image');
           $public_path = 'uploads/image';
           $image_name = time() . '.' . $image->getClientOriginalExtension();
@@ -139,7 +140,7 @@ class QuestionController extends Controller
       if (request()->hasFile('video'))
       {
         if(isset($record->video) && $record->video !== 'demo.mp4'){
-          unlink('uploads/video/'.$record->video);
+          // unlink('uploads/video/'.$record->video);
         }
           $video =  $request->file('video');
           $public_path = 'uploads/video';
@@ -160,15 +161,54 @@ class QuestionController extends Controller
 
     public function destroy($id)
     {
-      $record = Question::find($id);
-      if(isset($record->image) && $record->image !== 'default.jpg'){
-          unlink('uploads/image/'.$record->image);
-      }
-      if(isset($record->video) && $record->video !== 'demo.mp4'){
-          unlink('uploads/video/'.$record->video);
-      }
+       $record = Question::find($id);
+      // if(isset($record->image) && $record->image !== 'default.jpg'){
+      //     unlink('uploads/image/'.$record->image);
+      // }
+      // if(isset($record->video) && $record->video !== 'demo.mp4'){
+      //     unlink('uploads/video/'.$record->video);
+      // }
       $record->delete();
     }
+
+
+
+
+    public function clone($id)
+    {
+
+      $model = Question::find($id);
+      $newModel = $model->replicateWithTranslations();
+      $newModel->push();
+
+      if($newModel->type === 'Hazard')
+      {
+        foreach($model->answers->toArray() as $answer)
+        {
+          $newModelanswer = new Answer();
+          $newModelanswer->question_id  = $newModel->id;
+          $newModelanswer->value_1      = $answer['value_1'];
+          $newModelanswer->value_2      = $answer['value_2'];
+          $newModelanswer->value_3      = $answer['value_3'];
+          $newModelanswer->value_4      = $answer['value_4'];
+          $newModelanswer->value_5      = $answer['value_5'];
+          $newModelanswer->save();
+
+          foreach($answer['translations'] as $translations)
+          {
+            $answerTrans = new AnswerTranslation();
+            $answerTrans['locale']    = $translations['locale'];
+            $answerTrans['answer_id'] = $newModelanswer['id'];
+            $answerTrans['answer']    = $translations['answer'];
+            $answerTrans->save();
+          }
+
+        }
+
+      }
+
+    }
+
 
     public function getquestions()
     {
