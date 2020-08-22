@@ -36,10 +36,6 @@ class QuestionController extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
 
 
     public function store(Request $request)
@@ -61,30 +57,11 @@ class QuestionController extends Controller
         $image->move($public_path , $image_name);
       }
 
-      if (request()->hasFile('video'))
-      {
-          $public_path = 'uploads/video';
-          $video_name = time() . '.' . request('video')->getClientOriginalExtension();
-          request('video')->move($public_path , $video_name);
-      }
-
       $record = Question::create($request->all());
       $record['image'] = $image_name;
-      $record['video'] = $video_name;
       $record->save();
 
       return response()->json(['status' => 200]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Question $question)
-    {
-        //
     }
 
 
@@ -109,9 +86,6 @@ class QuestionController extends Controller
     public function update(Request $request,  $id)
     {
       $rules = $this->rules();
-      if (request()->hasFile('video')) {
-        $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
-      }
       if (request()->hasFile('image')) {
         $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000'];
       }
@@ -137,23 +111,8 @@ class QuestionController extends Controller
           $image_name = $record->image;
       }
 
-      if (request()->hasFile('video'))
-      {
-        if(isset($record->video) && $record->video !== 'demo.mp4'){
-          // unlink('uploads/video/'.$record->video);
-        }
-          $video =  $request->file('video');
-          $public_path = 'uploads/video';
-          $video_name = time() . '.' . $video->getClientOriginalExtension();
-          $video->move($public_path , $video_name);
-      } else
-      {
-          $video_name = $record->video;
-      }
-
       $record->update($request->all());
       $record['image'] = $image_name;
-      $record['video'] = $video_name;
       $record->save();
       return response()->json($record);
     }

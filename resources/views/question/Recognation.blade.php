@@ -53,7 +53,7 @@
                                       <small id="video_error" class="form-text text-danger center small_error"> </small>
                                   </div>--}}
 
-                                  <div class="col-md-6">
+                                  <div class="col-md-12">
                                     <h4 class="text-center">{{__('locale.select img')}}</h4>
                                     <img
                                       id="preview_img"
