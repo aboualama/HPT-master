@@ -201,7 +201,7 @@ class QuestionController extends Controller
     $transRule = [];
     foreach (config('translatable.locales') as $locale) {
       $transRule = $transRule + [
-        $locale . '.question'       => 'required|string|min:3|max:260',
+        $locale . '.question'     => 'required|string|min:3|max:260',
         $locale . '.right_answer' => 'required|string',
         $locale . '.wrongans_1'   => 'required|string',
         $locale . '.wrongans_2'   => 'required|string',

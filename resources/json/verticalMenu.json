@@ -26,6 +26,12 @@
       "i18n": "locale.question"
     },
     {
+      "url": "result",
+      "name": "result",
+      "icon": "feather icon-mail",
+      "i18n": "locale.result"
+    },
+    {
       "url": "app-licensecode-index",
       "name": "Licensecode",
       "icon": "feather icon-mail",

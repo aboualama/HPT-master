@@ -69,6 +69,15 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
     Route::post('/login/validate', 'Auth\LoginController@validate_api');
 
 
+
+
+
+
+
+    Route::get('/result', 'Dashboard\ResultController@index');
+    Route::get('/send-mail/{id}', 'Dashboard\ResultController@send');
+
+
     }); // End Auth Middleware Group
 
 

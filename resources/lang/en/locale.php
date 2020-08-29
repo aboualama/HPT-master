@@ -188,6 +188,8 @@ return [
 
 
   "Licensecode" => "Licensecode",
+  "Date" => "Date",
+  "result" => "Result",
 
 
   'en' => [
