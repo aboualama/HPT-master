@@ -45,57 +45,31 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">{{__('locale.User')}}</th>
+                <th scope="col">{{__('locale.username')}}</th>
+                <th scope="col">{{__('locale.email')}}</th>
                 <th scope="col">{{__('locale.Licensecode')}}</th>
+                <th scope="col">{{__('locale.point')}}</th>
                 <th scope="col">{{__('locale.Date')}}</th>
                 <th scope="col">{{__('locale.Action')}}</th>
               </tr>
             </thead>
             <tbody>
 
-              <tr>
-                <th scope="row">1</th>
-                <td> User </td>
-                <td> Licensecode </td>
-                <td> Date </td>
-                <td>
-                  <span class="action-mail" data-id="id1"><i class="feather icon-mail"></i></span>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">1</th>
-                <td> User </td>
-                <td> Licensecode </td>
-                <td> Date </td>
-                <td>
-                  <span class="action-mail" data-id="id2"><i class="feather icon-mail"></i></span>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">1</th>
-                <td> User </td>
-                <td> Licensecode </td>
-                <td> Date </td>
-                <td>
-                  <span class="action-mail" data-id="id3"><i class="feather icon-mail"></i></span>
-                </td>
-              </tr>
-
-              {{-- @if(isset($records))
+              @if(isset($records))
                 @foreach ($records as $i => $record)
                 <tr>
                   <th scope="row">{{$i +1}}</th>
-                  <td>{{$record->type}}</td>
-                  <td id="question_{{$record->id}}">{{$record->question}}</td>
-                  <td id="question_{{$record->id}}">{{$record->question}}</td>
+                  <td id="result_{{$record->id}}" class="username">{{$record->user->name}}</td>
+                  <td id="result_{{$record->id}}" class="email">{{$record->user->email}}</td>
+                  <td id="result_{{$record->id}}" class="licensecode">{{$record->licensecode->code}}</td>
+                  <td id="result_{{$record->id}}" class="point">{{$record->point}}</td>
+                  <td id="result_{{$record->id}}" class="date">{{$record->created_at}}</td>
                   <td>
                     <span class="action-mail" data-id="{{$record->id}}"><i class="feather icon-mail"></i></span>
                   </td>
                 </tr>
                 @endforeach
-              @endif --}}
+              @endif
 
             </tbody>
           </table>

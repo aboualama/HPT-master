@@ -6,25 +6,29 @@ namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Result;
+use App\Mail\Resultmail;
+use App\Useranswer;
+use Mail;
 
 class ResultController extends Controller
 {
   public function index()
   {
-    // $records = Result::all();
+    $records = Useranswer::all();
     $breadcrumbs = [
       ['link'=>"/",'name'=>__('locale.home')], ['name'=>__('locale.result')]
     ];
     return view('result.result', [
       'breadcrumbs' => $breadcrumbs,
-      // 'records' => $records
+      'records' => $records
     ]);
   }
 
-  public function send($id)
+  public function send(Request $request)
   {
-    dd($id);
+
+    $data = $request->all();
+    Mail::to($request->email)->send(new Resultmail($data));
 
   }
 }

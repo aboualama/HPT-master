@@ -190,6 +190,9 @@ return [
   "Licensecode" => "Licensecode",
   "Date" => "Date",
   "result" => "Result",
+  "point" => "Point",
+  "email" => "Email",
+  "username" => "User Name",
 
 
   'en' => [
