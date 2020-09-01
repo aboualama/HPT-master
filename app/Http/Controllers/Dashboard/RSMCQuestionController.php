@@ -90,7 +90,7 @@ class RSMCQuestionController extends Controller
       if ($request->hasFile('img_answers'))
       {
         if(isset($old_image) && $old_image !== 'default.jpg'){
-          unlink('uploads/image/'.$old_image);
+          // unlink('uploads/image/'.$old_image);
         }
           $image = $request->file('img_answers');
           $public_path = 'uploads/image';

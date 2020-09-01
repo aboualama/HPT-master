@@ -121,8 +121,8 @@ class HazardQuestionController extends Controller
 
     if (request()->hasFile('video'))
     {
-      // if(isset($old_video)){
-      //   unlink('uploads/video/'.$old_video);
+      // if(isset($record->video) && $record->video !== 'demo.mp4'){
+      //     unlink('uploads/video/'.$record->video);
       // }
         $video =  $request->file('video');
         $public_path = 'uploads/video';
@@ -166,20 +166,6 @@ class HazardQuestionController extends Controller
       }
     }
     return response()->json($record);
-  }
-
-
-
-  public function destroy($id)
-  {
-    $record = Question::find($id);
-    if(isset($record->image) && $record->image !== 'default.jpg'){
-        unlink('uploads/image/'.$record->image);
-    }
-    if(isset($record->video) && $record->image !== 'demo.mp4'){
-        unlink('uploads/video/'.$record->video);
-    }
-    $record->delete();
   }
 
 

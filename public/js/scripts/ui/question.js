@@ -71,6 +71,24 @@ $(document).ready(function() {
 
 
 
+    // On clone
+    $('.action-clone').on("click", function (e) {
+      e.stopPropagation();
+      var td = $(this).closest('td').parent('tr');
+      var id = $(this).data("id");
+      $.ajax({
+        url: "/clone-question/" + id,
+        success: function (data) {
+          toastr.success('Clone Successfully',"Question!",);
+          window.location.href = "/en/question";
+        },
+        error: function (data) {
+          console.log('Error:');
+        }
+      });
+    });
+
+
     function getAnswers() {
       $('#allAnswers').find('input.en').map(function (elem, value) {
         return value.value;

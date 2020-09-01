@@ -5,6 +5,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Answer;
+use App\AnswerTranslation;
 use App\Http\Controllers\Controller;
 
 use App\Question;
@@ -35,10 +36,6 @@ class QuestionController extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
 
 
     public function store(Request $request)
@@ -60,30 +57,11 @@ class QuestionController extends Controller
         $image->move($public_path , $image_name);
       }
 
-      if (request()->hasFile('video'))
-      {
-          $public_path = 'uploads/video';
-          $video_name = time() . '.' . request('video')->getClientOriginalExtension();
-          request('video')->move($public_path , $video_name);
-      }
-
       $record = Question::create($request->all());
       $record['image'] = $image_name;
-      $record['video'] = $video_name;
       $record->save();
 
       return response()->json(['status' => 200]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Question $question)
-    {
-        //
     }
 
 
@@ -108,9 +86,6 @@ class QuestionController extends Controller
     public function update(Request $request,  $id)
     {
       $rules = $this->rules();
-      if (request()->hasFile('video')) {
-        $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
-      }
       if (request()->hasFile('image')) {
         $rules = $rules + ['image' => 'required|mimes:jpg,jpeg,png|max:20000'];
       }
@@ -124,9 +99,9 @@ class QuestionController extends Controller
 
       if (request()->hasFile('image'))
       {
-        if(isset($record->image) && $record->image !== 'default.jpg'){
-          unlink('uploads/image/'.$record->image);
-        }
+        // if(isset($record->image) && $record->image !== 'default.jpg'){
+        //   unlink('uploads/image/'.$record->image);
+        // }
           $image =  $request->file('image');
           $public_path = 'uploads/image';
           $image_name = time() . '.' . $image->getClientOriginalExtension();
@@ -136,23 +111,8 @@ class QuestionController extends Controller
           $image_name = $record->image;
       }
 
-      if (request()->hasFile('video'))
-      {
-        if(isset($record->video) && $record->video !== 'demo.mp4'){
-          unlink('uploads/video/'.$record->video);
-        }
-          $video =  $request->file('video');
-          $public_path = 'uploads/video';
-          $video_name = time() . '.' . $video->getClientOriginalExtension();
-          $video->move($public_path , $video_name);
-      } else
-      {
-          $video_name = $record->video;
-      }
-
       $record->update($request->all());
       $record['image'] = $image_name;
-      $record['video'] = $video_name;
       $record->save();
       return response()->json($record);
     }
@@ -160,15 +120,54 @@ class QuestionController extends Controller
 
     public function destroy($id)
     {
-      $record = Question::find($id);
-      if(isset($record->image) && $record->image !== 'default.jpg'){
-          unlink('uploads/image/'.$record->image);
-      }
-      if(isset($record->video) && $record->video !== 'demo.mp4'){
-          unlink('uploads/video/'.$record->video);
-      }
+       $record = Question::find($id);
+      // if(isset($record->image) && $record->image !== 'default.jpg'){
+      //     unlink('uploads/image/'.$record->image);
+      // }
+      // if(isset($record->video) && $record->video !== 'demo.mp4'){
+      //     unlink('uploads/video/'.$record->video);
+      // }
       $record->delete();
     }
+
+
+
+
+    public function clone($id)
+    {
+
+      $model = Question::find($id);
+      $newModel = $model->replicateWithTranslations();
+      $newModel->push();
+
+      if($newModel->type === 'Hazard')
+      {
+        foreach($model->answers->toArray() as $answer)
+        {
+          $newModelanswer = new Answer();
+          $newModelanswer->question_id  = $newModel->id;
+          $newModelanswer->value_1      = $answer['value_1'];
+          $newModelanswer->value_2      = $answer['value_2'];
+          $newModelanswer->value_3      = $answer['value_3'];
+          $newModelanswer->value_4      = $answer['value_4'];
+          $newModelanswer->value_5      = $answer['value_5'];
+          $newModelanswer->save();
+
+          foreach($answer['translations'] as $translations)
+          {
+            $answerTrans = new AnswerTranslation();
+            $answerTrans['locale']    = $translations['locale'];
+            $answerTrans['answer_id'] = $newModelanswer['id'];
+            $answerTrans['answer']    = $translations['answer'];
+            $answerTrans->save();
+          }
+
+        }
+
+      }
+
+    }
+
 
     public function getquestions()
     {
@@ -202,7 +201,7 @@ class QuestionController extends Controller
     $transRule = [];
     foreach (config('translatable.locales') as $locale) {
       $transRule = $transRule + [
-        $locale . '.question'       => 'required|string|min:3|max:260',
+        $locale . '.question'     => 'required|string|min:3|max:260',
         $locale . '.right_answer' => 'required|string',
         $locale . '.wrongans_1'   => 'required|string',
         $locale . '.wrongans_2'   => 'required|string',

@@ -18,10 +18,10 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
   Route::get('ProvaInvio', function () {
     Mail::to("egyangel93@gmail.com")->send(new \App\Mail\WelcomeMail("aaaa"));
   });
-  Auth::routes(['verify' => false]);
+  Auth::routes(['verify' => true]);
 
 
-  Route::group(['middleware' => 'auth'], function () {
+  Route::group(['middleware' => ['auth','verified']], function () {
 
     // Users Pages
     Route::get('/app-user-index', 'Dashboard\UserManagmentController@index');
@@ -46,6 +46,7 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
     Route::get('/question', 'Dashboard\QuestionController@index');
     Route::get('/question-edit/{id}', 'Dashboard\QuestionController@edit');
     Route::delete('/question/{id}', 'Dashboard\QuestionController@destroy');
+    Route::get('/clone-question/{id}', 'Dashboard\QuestionController@clone');
 
 
     Route::post('/question', 'Dashboard\QuestionController@store');
@@ -66,6 +67,15 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
     Route::get('/getquestions', 'Dashboard\QuestionController@getquestions');
 
     Route::post('/login/validate', 'Auth\LoginController@validate_api');
+
+
+
+
+
+
+
+    Route::get('/result', 'Dashboard\ResultController@index');
+    Route::get('/send-mail/{id}', 'Dashboard\ResultController@send');
 
 
     }); // End Auth Middleware Group

@@ -25,11 +25,7 @@ class Question extends Model implements TranslatableContract
     public function getImagePathAttribute()
     {
         if ($this->image) {
-            if($this->type == 'Reaction-SMC') {
-              return $this->image;
-            } else {
               return asset("uploads/image/" . $this->image);
-            }
         } else {
             return asset('uploads/image/default.jpg');
         }

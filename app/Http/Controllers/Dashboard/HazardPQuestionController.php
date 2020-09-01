@@ -50,9 +50,9 @@ class HazardPQuestionController extends Controller
 
     if (request()->hasFile('video'))
     {
-      if(isset($record->video)){
-        // unlink('uploads/video/'.$record->video);
-      }
+      // if(isset($record->video) && $record->video !== 'demo.mp4'){
+      //     unlink('uploads/video/'.$record->video);
+      // }
         $video =  $request->file('video');
         $public_path = 'uploads/video';
         $video_name = time() . '.' . $video->getClientOriginalExtension();
