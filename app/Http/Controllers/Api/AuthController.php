@@ -90,7 +90,7 @@ class AuthController extends Controller
       return response(['status' => '440' , 'message' => $data->errors()->first() , 'errors' => $data->errors()] );
     }
     $licens = Licensecode::where('user_id' , $request->user_id)->pluck('code')->toArray();
-    $licens_id = Licensecode::where('code' , $request->code)->get('id');
+    $licens_id = Licensecode::where('code' , $request->code)->pluck('id');
     // dd($licens);
     if($licens)
     {

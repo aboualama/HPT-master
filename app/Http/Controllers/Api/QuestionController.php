@@ -42,14 +42,13 @@ class QuestionController extends Controller
 
   public function storanswers(Request $request)
   {
-    // dd($request->get('question_id'));
+    // dd($request->get('rAnswera'));
     $record = new Useranswer;
     $record->user_id = $request->get('user_id');
     $record->License_id = $request->get('licens_id');
-    $record->question_id = $request->get('question_id');
-    $record->answer_id = 69;
-    $record->isRight = $request->get('isRight');
-    $record->answer = $request->get('answer');
+    $record->question_id = 256;
+    $record->isRight = true;
+    $record->answer = 'answer';
     $record->point = $request->get('rAnswera');
     $record->save();
     return response($record, 200);

@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.0",
         "mcamara/laravel-localization": "^1.5",
-        "santigarcor/laratrust": "^5.2"
+        "santigarcor/laratrust": "^5.2",
+        "spatie/array-to-xml": "^2.13"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",

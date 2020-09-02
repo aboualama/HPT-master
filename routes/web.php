@@ -76,6 +76,7 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
 
     Route::get('/result', 'Dashboard\ResultController@index');
     Route::get('/send-mail/{id}', 'Dashboard\ResultController@send');
+    Route::get('/convert-xml/{id}', 'Dashboard\ResultController@convert');
 
 
     }); // End Auth Middleware Group

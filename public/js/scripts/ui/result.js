@@ -42,4 +42,29 @@ $(document).ready(function() {
 
 
 
+
+    // send mail
+    $('.action-xml').on("click", function (e) {
+      e.stopPropagation();
+      var td = $(this).closest('td').parent('tr');
+      var id = $(this).data("id");
+      var date = $(this).closest('tr').find('td.date').text();
+
+      $.ajax({
+        url: "/convert-xml/" + id,
+        data: {
+          'id': id,
+          'date': date
+        },
+        success: function (data) {
+          toastr.success('Convert Successfully',"Data!",);
+        },
+        error: function (data) {
+          console.log('Error:');
+        }
+      });
+    });
+
+
+
 })
