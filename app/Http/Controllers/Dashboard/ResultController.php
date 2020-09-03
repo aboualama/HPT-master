@@ -1,7 +1,6 @@
 <?php
 
 
-
 namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
@@ -21,7 +20,7 @@ class ResultController extends Controller
   {
     $records = Useranswer::all();
     $breadcrumbs = [
-      ['link'=>"/",'name'=>__('locale.home')], ['name'=>__('locale.result')]
+      ['link' => "/", 'name' => __('locale.home')], ['name' => __('locale.result')]
     ];
     return view('result.result', [
       'breadcrumbs' => $breadcrumbs,
@@ -37,15 +36,16 @@ class ResultController extends Controller
 
   public function convert($id)
   {
-    $headers = ['Content-Type' => 'application/pdf',];
+    header('Content-type: text/xml');
+   // $headers = ['Content-Type' => 'application/pdf',];
     $data = Useranswer::find($id)->toArray();
     $result = ArrayToXml::convert(json_decode($data['answer'], true));
 
     $public_path = 'uploads/file/';
-    $file_name = 'Result_'.$id.'.xml';
-    File::put($public_path . $file_name , $result);
+    $file_name = 'Result_' . $id . '.xml';
+    File::put($public_path . $file_name, $result);
     $file_path = public_path('uploads/file/' . $file_name);
-    return  response()->download($file_path);
+    return Response::download($file_path, $file_name);
 
   }
 }

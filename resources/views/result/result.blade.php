@@ -65,8 +65,8 @@
                   <td id="result_{{$record->id}}" class="point">{{$record->point}}</td>
                   <td id="result_{{$record->id}}" class="date">{{$record->created_at}}</td>
                   <td>
-                    <span class="action-mail" data-id="{{$record->id}}"><i class="feather icon-mail"></i></span>
-                    <span class="action-xml" data-id="{{$record->id}}"><i class="feather icon-file"></i></span>
+                    <span class="action-mail" data-id="{{$record->id}}" ><i class="feather icon-mail"></i></span>
+                    <span class="action" data-id="{{$record->id}}" onclick="downloadXML({{$record->id}})" ><i class="feather icon-file"></i></span>
                   </td>
                 </tr>
                 @endforeach
@@ -82,7 +82,7 @@
 <!-- Table head options end -->
 
 
-
+<iframe id="downloadXML" style="display:none;"></iframe>
 
 
 
@@ -106,7 +106,21 @@
 
 
 <script>
+  function downloadXML(id) {
+    var ifrm = document.getElementById('ifrm_' + id);
+    if (!ifrm) {
+      ifrm = document.createElement('iframe');
+      ifrm.setAttribute('id', 'ifrm_' + id);
+      ifrm.style.display = "none";
+      ifrm.style.height = "0px";
+      ifrm.style.wid = "0px";
+      el = document.getElementById('downloadXML');
+      el.parentNode.insertBefore(ifrm, el)
+    }
 
+    ifrm.src = '/convert-xml/' + id;
+
+  }
 
 
   </script>

@@ -1,7 +1,6 @@
 <?php
 
 
-
 namespace App\Http\Controllers\Api;
 
 use App\Answer;
@@ -23,11 +22,11 @@ class QuestionController extends Controller
   }
 
 
-  public function getquestions($type , $locale = 'it')
+  public function getquestions($type, $locale = 'it')
   {
     \App::setLocale($locale);
 
-    $record = Question::where('type' , $type)->with('answers')->get()->toArray();
+    $record = Question::where('type', $type)->with('answers')->get()->toArray();
     // $record = Question::where('type' , $type)->withTranslation()->with('answers')->get()->toArray();
     // dd(Question::listsTranslations('id')->get()->toArray());
     return response($record, 200);
@@ -42,18 +41,20 @@ class QuestionController extends Controller
 
   public function storanswers(Request $request)
   {
-    // dd($request->all());
-    $record = new Useranswer;
+    //return dd($request->all());
+    $record = new Useranswer();
+
     $record->user_id = $request->get('user_id');
     $record->License_id = $request->get('licens_id');
-    $record->question_id = 256;
+    $record->question_id = 1;
     $record->isRight = true;
     $record->answer = json_encode($request->answer);
     $record->point = 0;
+
+    //return dd($record);
     $record->save();
     return response($record, 200);
   }
-
 
 
 }
