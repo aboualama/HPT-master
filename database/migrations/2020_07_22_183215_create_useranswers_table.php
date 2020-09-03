@@ -26,7 +26,7 @@ class CreateUseranswersTable extends Migration
             $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
 
             $table->boolean('isRight');
-            $table->string('answer');
+            $table->json('answer');
             $table->bigInteger('point');
 
             $table->timestamps();

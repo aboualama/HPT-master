@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\Resultmail;
 use App\Useranswer;
 use File;
+use Illuminate\Support\Facades\Storage;
 use Mail;
 use Response;
 use Spatie\ArrayToXml\ArrayToXml;
@@ -34,15 +35,17 @@ class ResultController extends Controller
     Mail::to($request->email)->send(new Resultmail($data));
   }
 
-  public function convert(Request $request , $id)
+  public function convert($id)
   {
-    $data = $request->all();
-    $result = ArrayToXml::convert($data);
+    $headers = ['Content-Type' => 'application/pdf',];
+    $data = Useranswer::find($id)->toArray();
+    $result = ArrayToXml::convert(json_decode($data['answer'], true));
 
-    $public_path = 'uploads/file';
-    $file_name = '/Result_'.$id.'.xml';
+    $public_path = 'uploads/file/';
+    $file_name = 'Result_'.$id.'.xml';
     File::put($public_path . $file_name , $result);
+    $file_path = public_path('uploads/file/' . $file_name);
+    return  response()->download($file_path);
 
-    return Response::make($result, 200)->header('Content-Type', 'application/xml');
   }
 }
