@@ -30,7 +30,7 @@ class AuthController extends Controller
     	]);
     	if ($validator->fails())
     	{
-        	return response(['message' => 'Invalid Credentials', 'errors' => $validator->errors()],422);
+        	return response(['message' => 'Invalid Credentials', 'errors' => $validator->errors(),'status' => "440"],200);
     	}
       $request->merge(['password' => bcrypt($request->password)]);
       $record = User::create($request->all());
