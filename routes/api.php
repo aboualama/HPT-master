@@ -28,6 +28,8 @@ use Illuminate\Http\Request;
 Route::group(['prefix' => 'auth'], function () {
   Route::post('login', 'Api\AuthController@login');
   Route::post('register', 'Api\AuthController@register');
+  Route::get('email/verify/{id}', 'Api\VerificationApiController@verify')->name('verificationapi.verify');
+  Route::get('email/resend', 'Api\VerificationApiController@resend')->name('verificationapi.resend');
 
   Route::group(['middleware' => 'auth:api'], function() {
       Route::get('logout', 'Api\AuthController@logout');

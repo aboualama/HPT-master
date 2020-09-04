@@ -8,29 +8,35 @@ use Carbon\Carbon;
 use App\Licensecode;
 use Hash;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\VerifiesEmails;
+
 
 class AuthController extends Controller
 {
+  use VerifiesEmails;
 
     public function register(Request $request)
     {
-      // dd($request->all());
+     //  dd($request->all());
     	$data = $request->all();
     	$validator = validator()->make($data, [
             'name'               => 'required|min:6',
 			      'email'              => 'required|email|unique:users',
             'password'           => 'required|confirmed|min:6|max:60|alpha_num',
+            'lastName'           => 'required|string', // dah na2s mesh beyegy fel request
+            'cell'               => 'required', //tmam ?
+            'cf'                 => 'required|string',
+            'role'               => 'required|string',
     	]);
     	if ($validator->fails())
     	{
-        	return response(['message' => 'Invalid Credentials', 'errors' => $validator->errors()]);
+        	return response(['message' => 'Invalid Credentials', 'errors' => $validator->errors()],422);
     	}
       $request->merge(['password' => bcrypt($request->password)]);
       $record = User::create($request->all());
-
     	$accessToken = $record->createToken('authToken')->accessToken;
-
     	$record->save();
+      $record->sendApiEmailVerificationNotification();
       return response([ 'user' => $record, 'access_token' => $accessToken]);
     }
 
@@ -49,18 +55,22 @@ class AuthController extends Controller
     	{
         	return response(['status' => '440' , 'message' => $loginData->errors()->first() , 'errors' => $loginData->errors()] );
     	}
+
       $user = User::where('email' , $request->email)->first();
-    	if($user)
+
+    	if($user && $user->email_verified_at !== NULL)
     	{
     		if(Hash::check($request->password , $user->password))
     			{
             return response(['status' => '200' , 'message' => 'OK' , 'user' => $user]);
     			}
-    		else
-          		{
+    		  else{
     				return response(['status' => '440' , 'message' => 'password is wrong'] );
     			}
     	}
+      else{
+        return response()->json(['status' => '401' ,'message' => 'Unauthorised']);
+      }
 
 
     }
