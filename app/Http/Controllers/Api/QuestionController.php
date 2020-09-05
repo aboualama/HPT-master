@@ -22,9 +22,10 @@ class QuestionController extends Controller
   }
 
 
-  public function getquestions($type, $locale = 'it')
+  public function getquestions($type, Request $request)
   {
-    \App::setLocale($locale);
+
+    \App::setLocale($request[0]);
 
     $record = Question::where('type', $type)->with('answers')->get()->toArray();
     // $record = Question::where('type' , $type)->withTranslation()->with('answers')->get()->toArray();
