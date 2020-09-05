@@ -41,10 +41,10 @@ class ResultController extends Controller
     $data = Useranswer::find($id)->toArray();
     $result = ArrayToXml::convert(json_decode($data['answer'], true));
 
-    $public_path = 'uploads/file/';
+    $public_path = 'uploads/image/';
     $file_name = 'Result_' . $id . '.xml';
     File::put($public_path . $file_name, $result);
-    $file_path = public_path('uploads/file/' . $file_name);
+    $file_path = public_path('uploads/image/' . $file_name);
     return Response::download($file_path, $file_name);
 
   }
