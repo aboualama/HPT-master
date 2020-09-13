@@ -58,6 +58,34 @@ class QuestionController extends Controller
     $record->save();
     return response($record, 200);
   }
+  public function updateanswers(Request $request)
+  {
+     //dump($request->get('answer'));
+
+
+    $record = Useranswer::where('License_id','=',$request->get('licens_id'))->first();
+
+
+
+    $ansers = json_decode($record->answer,true);
+    $answerToattach = $request->get('answer');
+
+
+    $ansers['Reaction-simple'] = $answerToattach["Reaction-simple"];
+ //   return dd($ansers);
+
+    $record->answer = json_encode($ansers);
+    $record->user_id = $request->get('user_id');
+    $record->License_id = $request->get('licens_id');
+    $record->question_id = 1;
+    $record->isRight = true;
+    $record->point = 0;
+
+    //return dd($record);
+    $record->save();
+ return   dd($record);
+    return response($record, 200);
+  }
 
 
 }

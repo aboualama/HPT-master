@@ -32,7 +32,7 @@
         <option value="Recognation"> Recognation</option>
         <option value="Risk-Responsibilty"> Risk-Responsibilty</option>
         <option value="reaction-SMC"> Reaction-SMC</option>
-        <option value="Hazard"> Hazard</option>
+        {{--<option value="Hazard"> Hazard</option>--}}
         <option value="Hazard-Perception"> Hazard-Perception</option>
       </select>
     </div>
