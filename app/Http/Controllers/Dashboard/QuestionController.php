@@ -68,7 +68,12 @@ class QuestionController extends Controller
     public function edit($id)
     {
       $record = Question::find($id);
-      // dd($record);
+
+      $records = null;
+      if($record->type === 'Reaction-SMC'){
+        $records = Question::where('group_id' , $record->group_id)->get();
+      }
+
       $type = $record->type;
       $answers = Answer::where('question_id' , $id)->get();
       $breadcrumbs = [
@@ -78,6 +83,7 @@ class QuestionController extends Controller
         'breadcrumbs' => $breadcrumbs,
         'type' => $type,
         'record' => $record,
+        'records' => $records,
         'answers' => $answers
       ]);
     }

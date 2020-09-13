@@ -14,7 +14,7 @@ class Question extends Model implements TranslatableContract
 
     protected $table = 'questions';
     public $translatedAttributes =  ['question', 'right_answer', 'wrongans_1', 'wrongans_2', 'wrongans_3', 'right_answers', 'wrong_answers'];
-    protected $fillable =  ['type', 'image', 'video'];
+    protected $fillable =  ['type', 'image', 'video', 'group_id'];
 
     protected $appends = ['image_path', 'video_path'];
 
@@ -37,5 +37,10 @@ class Question extends Model implements TranslatableContract
         } else {
             return asset('uploads/image/default.jpg');
         }
+    }
+
+    public function group()
+    {
+       return $this->belongsTo(Group::class, 'group_id');
     }
 }

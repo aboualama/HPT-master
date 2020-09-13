@@ -5,6 +5,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Answer;
+use App\Group;
 use App\Http\Controllers\Controller;
 
 use App\Question;
@@ -29,11 +30,15 @@ class RSMCQuestionController extends Controller
       }
       $index = count($request->en['right_answers']);
 
+        $group = new Group;
+        $group->save();
+
       for($i = 0 ; $i < $index ; $i++)
       {
 
         $record = new Question();
         $record['type'] = $request->type;
+        $record['group_id'] = $group->id;
         $record->save();
 
         if (isset($request->file('img_answers')[$i])) {
@@ -71,51 +76,59 @@ class RSMCQuestionController extends Controller
     public function update(Request $request,  $id)
     {
         // dd($request->all());
+      $old = Question::find($id);
+      $oldgroup = Group::find($old->group_id);
+      $old_img = Question::where('group_id' , $oldgroup->id)->pluck('image');
+
+      $group = new Group;
+      $group->save();
+
       $rules = $this->rules();
-      if (request()->hasFile('img_answers')) {
-        $rules = $rules + ['img_answers'   =>  'required|mimes:jpg,jpeg,png|max:20000'];
-      }
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors(), 'status' => 442]);
       }
 
-      $old = Question::find($id);
-      $old_image = $old->image;
-      $old->delete();
-      $record = new Question();
-      $record['type'] = $request->type;
 
-      if ($request->hasFile('img_answers'))
+      $index = count($request->en['right_answers']);
+
+
+      for($i = 0 ; $i < $index ; $i++)
       {
-        if(isset($old_image) && $old_image !== 'default.jpg'){
-          // unlink('uploads/image/'.$old_image);
-        }
-          $image = $request->file('img_answers');
-          $public_path = 'uploads/image';
-          $img_name = time() . '.' . $image->getClientOriginalExtension();
-          $image->move($public_path , $img_name);
-          $img = $img_name;
-      }
-      else {
-          $img = $old_image;
-      }
+        $record = new Question();
+        $record['type'] = $request->type;
+        $record['group_id'] = $group->id;
+        $record->save();
 
-      $record['image'] = $img;
-      $record->save();
+        if (isset($request->file('img_answers')[$i])) {
+            $image = $request->file('img_answers')[$i];
+            $public_path = 'uploads/image';
+            $img_name = $i . time() . '.' . $image->getClientOriginalExtension();
+            $image->move($public_path , $img_name);
+            $img = $img_name;
+        }
+        else {
+            $img = $old_img[$i];
+        }
 
       foreach(config('translatable.locales') as $lang){
         $data = $request->get($lang);
-            $recordQ = new QuestionTranslation();
-            $recordQ['locale'] = $lang;
-            $recordQ['question'] = $data['question'];
-            $recordQ['question_id'] = $record['id'];
-            $recordQ->right_answers = $data['right_answers'];
-            $recordQ->wrong_answers = json_encode($data['wrong_answers']);
-            $recordQ->save();
+              $recordQ = new QuestionTranslation();
+              $recordQ['locale'] = $lang;
+              $recordQ['question'] = $data['question'];
+              $recordQ['question_id'] = $record['id'];
+              $recordQ->right_answers = $data['right_answers'][$i];
+              $recordQ->wrong_answers = json_encode($data['wrong_answers']);
+              $recordQ->save();
       }
+
+        $record['image'] = $img;
+        $record->update();
+      }
+
       $record->update();
+      $oldgroup->delete();
       return response()->json($record);
     }
 
