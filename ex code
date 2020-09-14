@@ -80,13 +80,6 @@ public function store(Request $request)
     public function update(Request $request,  $id)
     {
         // dd($request->all());
-      $old = Question::find($id);
-      $oldgroup = Group::find($old->group_id);
-      $oldgroup->delete();
-
-      $group = new Group;
-      $group->save();
-      dd($id);
 
       $rules = $this->rules();
       if (request()->hasFile('img_answers')) {
@@ -98,7 +91,7 @@ public function store(Request $request)
         return response()->json(['errors' => $validator->errors(), 'status' => 442]);
       }
 
-      // $old = Question::find($id);
+      $old = Question::find($id);
       $old_image = $old->image;
       $old->delete();
       $record = new Question();

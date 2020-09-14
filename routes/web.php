@@ -75,6 +75,8 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
 
 
     Route::get('/result', 'Dashboard\ResultController@index');
+    Route::get('/result-edit/{id}', 'Dashboard\ResultController@edit');
+    Route::Put('/result-edit/{id}', 'Dashboard\ResultController@update');
     Route::get('/send-mail/{id}', 'Dashboard\ResultController@send');
     Route::get('/convert-xml/{id}', 'Dashboard\ResultController@convert');
 

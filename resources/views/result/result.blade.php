@@ -67,6 +67,8 @@
                   <td>
                     <span class="action-mail" data-id="{{$record->id}}" ><i class="feather icon-mail"></i></span>
                     <span class="action" data-id="{{$record->id}}" onclick="downloadXML({{$record->id}})" ><i class="feather icon-file"></i></span>
+                    {{-- <span class="edit" data-id="{{$record->id}}" onclick="edit({{$record->id}})" ><i class="feather icon-edit"></i></span> --}}
+                    <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
                   </td>
                 </tr>
                 @endforeach
@@ -85,6 +87,27 @@
 <iframe id="downloadXML" style="display:none;"></iframe>
 
 
+
+
+{{-- Modal --}}
+<div class="col-12">
+  <div class="row">
+    <div class="modal-size-lg mr-1 mb-1 d-inline-block">
+      <div class="modal fade text-left" id="modal-block-edit" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel17" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div id="result">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 @endsection
@@ -121,6 +144,45 @@
     ifrm.src = '/convert-xml/' + id;
 
   }
+
+
+
+
+
+  $('.action-edit').on("click", function (e) {
+      e.stopPropagation();
+      var id = $(this).data("id");
+
+      $.ajax({
+        type: 'GET',
+        url: '/result-edit/' + id,
+        success: function (data) {
+          $('#modal-block-edit').modal('toggle');
+          $('#result').html(data);
+        }
+      });
+    });
+
+
+        $(document).on('click', '#edit', function (e) {
+            e.preventDefault();
+            var url = $("#url").val();
+            var result_id = $("#result_id").val();
+            console.log(result_id);
+
+            $.ajax({
+                url: url ,
+                data: {
+                  id : result_id
+                },
+                type: 'put',
+                success: function (data) {
+                        console.log(data);
+                }, error: function (xhr) {
+                        console.log(data);
+                }
+            });
+        });
 
 
   </script>

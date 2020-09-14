@@ -28,6 +28,71 @@ class ResultController extends Controller
     ]);
   }
 
+
+
+
+
+
+
+  public function edit($id)
+  {
+    $record = Useranswer::find($id);
+    $breadcrumbs = [
+      ['link'=>"dashboard-analytics",'name'=>"Home"], ['link'=>"dashboard-analytics",'name'=>"Pages"], ['name'=>"Edit Result "]
+    ];
+    return view('result.edit', [
+      'breadcrumbs' => $breadcrumbs,
+      'record' => $record,
+    ]);
+  }
+
+
+  public function update(Request $request, $id)
+  {
+    $record = Useranswer::find($id)->answer;
+    $record = json_decode($record, true);
+    $record2 = $record;
+
+    $result = array_merge($record, ["NEW" => $record2]);
+    dd($result);
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   public function send(Request $request)
   {
     $data = $request->all();
