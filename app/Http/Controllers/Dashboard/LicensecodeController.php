@@ -52,7 +52,6 @@ class LicensecodeController extends Controller
 
     return response()->json($record);
 
-
   }
 
 

@@ -21,7 +21,9 @@ use Illuminate\Http\Request;
   Route::get('/getAllQuestions', 'Api\QuestionController@getAllQuestions');
   Route::get('/getanswers', 'Api\QuestionController@getanswers');
   Route::post('/storanswers', 'Api\QuestionController@storanswers');
-  Route::post('/checklicens', 'Api\AuthController@checklicens');
+
+  Route::post('/checklicens', 'Api\LicensecodeController@checklicens');
+  Route::post('/LicenseInactive/{id}', 'Api\LicensecodeController@LicenseInactive');
 
 // Route::get('/test' , function(){return  'test'; });
 

@@ -14,8 +14,11 @@ class AddGroupIdToLicensecodesTable extends Migration
     public function up()
     {
         Schema::table('licensecodes', function (Blueprint $table) {
+
+          $table->boolean('active')->default(1);;
           $table->unsignedbigInteger('group_id')->nullable();
           $table->foreign('group_id')->references('id')->on('groups')->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 
