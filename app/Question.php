@@ -39,7 +39,7 @@ class Question extends Model implements TranslatableContract
         }
     }
 
-    public function group()
+    public function groupId()
     {
        return $this->belongsTo(Group::class, 'group_id');
     }

@@ -56,41 +56,7 @@ class ResultController extends Controller
     $result = array_merge($record, ["NEW" => $record2]);
     dd($result);
 
-
-
-
-
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   public function send(Request $request)

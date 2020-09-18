@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Group;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Licensecode;
+use App\Mail\License;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Mail;
 
 class LicensecodeController extends Controller
 {
@@ -24,26 +27,32 @@ class LicensecodeController extends Controller
     ]);
   }
 
-  public function updateOrCreate(Request $request)
-  {
-    $record = Licensecode::create(
-      ['user_id' => $request->get('user_id'),'code' => Str::random(5)]
-    );
-
-    return response()->json($record);
-  }
 
   public function store(Request $request)
   {
+    $user = User::find($request->user_id);
+
+    $group = new Group;
+    $group->type = 'licensecode';
+    $group->save();
+
     $data = $this->validate(request(), [
       'user_id' => 'required',
     ]);
 
     for($i = 0 ; $i < $request->number ; $i++){
       $data['code'] = Str::random(5);
+      $data['group_id'] = $group->id;
       $record = Licensecode::create($data);
     }
+
+    $License = Licensecode::where('group_id' , $group->id)->pluck('code');
+
+    Mail::to($user->email)->send(new License($License, $user));
+
     return response()->json($record);
+
+
   }
 
 
@@ -52,5 +61,31 @@ class LicensecodeController extends Controller
     $record->delete();
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // public function updateOrCreate(Request $request)
+  // {
+  //   $record = Licensecode::create(
+  //     ['user_id' => $request->get('user_id'),'code' => Str::random(5)]
+  //   );
+
+  //   return response()->json($record);
+  // }
 
 }

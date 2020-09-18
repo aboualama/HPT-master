@@ -12,4 +12,10 @@ class Licensecode extends Model
     public function user(){
       return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+
+    public function groupId(){
+      return $this->belongsTo(Group::class, 'group_id', 'id');
+    }
+
 }

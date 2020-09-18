@@ -81,6 +81,7 @@ class RSMCQuestionController extends Controller
       $old_img = Question::where('group_id' , $oldgroup->id)->pluck('image');
 
       $group = new Group;
+      $group->type = 'question';
       $group->save();
 
       $rules = $this->rules();
