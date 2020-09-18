@@ -24,6 +24,10 @@ use Illuminate\Http\Request;
 
   Route::post('/checklicens', 'Api\LicensecodeController@checklicens');
   Route::post('/LicenseInactive/{id}', 'Api\LicensecodeController@LicenseInactive');
+  Route::post('/updateanswers', 'Api\QuestionController@updateanswers');
+ // TODO check whic checklicens work
+  Route::post('/checklicens', 'Api\AuthController@checklicens');
+  Route::post('/requestLicenseMail', 'Api\AuthController@requestLicense');
 
 // Route::get('/test' , function(){return  'test'; });
 
