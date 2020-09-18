@@ -64,15 +64,16 @@ class QuestionController extends Controller
 
 
     $record = Useranswer::where('License_id','=',$request->get('licens_id'))->first();
-
-
-
     $ansers = json_decode($record->answer,true);
     $answerToattach = $request->get('answer');
 
+    if (isset($answerToattach['Reaction-simple'])) {
+      $ansers['Reaction-simple'] = $answerToattach["Reaction-simple"];
+    }else{
+      $ansers['Reaction-complex'] = $answerToattach["Reaction-complex"];
 
-    $ansers['Reaction-simple'] = $answerToattach["Reaction-simple"];
- //   return dd($ansers);
+    }
+    //   return dd($ansers);
 
     $record->answer = json_encode($ansers);
     $record->user_id = $request->get('user_id');
@@ -83,7 +84,7 @@ class QuestionController extends Controller
 
     //return dd($record);
     $record->save();
- return   dd($record);
+ //return   dd($record);
     return response($record, 200);
   }
 
