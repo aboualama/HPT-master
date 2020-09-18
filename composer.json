@@ -17,6 +17,7 @@
         "laravel/passport": "^9.3",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.0",
+        "maatwebsite/excel": "^3.1",
         "mcamara/laravel-localization": "^1.5",
         "santigarcor/laratrust": "^5.2",
         "spatie/array-to-xml": "^2.13"

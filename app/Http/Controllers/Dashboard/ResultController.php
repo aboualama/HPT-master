@@ -3,12 +3,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Exports\ResultExport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\Resultmail;
 use App\Useranswer;
 use File;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Excel;
 use Mail;
 use Response;
 use Spatie\ArrayToXml\ArrayToXml;
@@ -67,6 +69,22 @@ class ResultController extends Controller
 
   public function convert($id)
   {
+    header('Content-type: text/xml');
+   // $headers = ['Content-Type' => 'application/pdf',];
+    $data = Useranswer::find($id)->toArray();
+    $result = ArrayToXml::convert(json_decode($data['answer'], true));
+
+    $public_path = 'uploads/image/';
+    $file_name = 'Result_' . $id . '.xml';
+    File::put($public_path . $file_name, $result);
+    $file_path = public_path('uploads/image/' . $file_name);
+    return Response::download($file_path, $file_name);
+
+  }
+  public function export($id)
+  {
+    return \Maatwebsite\Excel\Facades\Excel::download(new ResultExport(1), "users.xlsx");
+
     header('Content-type: text/xml');
    // $headers = ['Content-Type' => 'application/pdf',];
     $data = Useranswer::find($id)->toArray();
