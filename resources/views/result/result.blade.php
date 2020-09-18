@@ -65,7 +65,8 @@
                   <td id="result_{{$record->id}}" class="point">{{$record->point}}</td>
                   <td id="result_{{$record->id}}" class="date">{{$record->created_at}}</td>
                   <td>
-                    <span class="action-mail" data-id="{{$record->id}}"><i class="feather icon-mail"></i></span>
+                    <span class="action-mail" data-id="{{$record->id}}" ><i class="feather icon-mail"></i></span>
+                    <span class="action" data-id="{{$record->id}}" onclick="downloadXML({{$record->id}})" ><i class="feather icon-file"></i></span>
                   </td>
                 </tr>
                 @endforeach
@@ -81,7 +82,7 @@
 <!-- Table head options end -->
 
 
-
+<iframe id="downloadXML" style="display:none;"></iframe>
 
 
 
@@ -101,50 +102,26 @@
 
 <script src="{{ asset(mix('js/scripts/forms/select/form-select2.js')) }}"></script>
 <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
-<script src="{{ asset('js/scripts/ui/mail.js') }}"></script>
+<script src="{{ asset('js/scripts/ui/result.js') }}"></script>
 
 
 <script>
+  function downloadXML(id) {
+    var ifrm = document.getElementById('ifrm_' + id);
+    if (!ifrm) {
+      ifrm = document.createElement('iframe');
+      ifrm.setAttribute('id', 'ifrm_' + id);
+      ifrm.style.display = "none";
+      ifrm.style.height = "0px";
+      ifrm.style.wid = "0px";
+      el = document.getElementById('downloadXML');
+      el.parentNode.insertBefore(ifrm, el)
+    }
 
+    ifrm.src = '/convert-xml/' + id;
 
+  }
 
-
-
-
-
-
-  // $(document).on('click', '#submit', function (e) {
-  //           e.preventDefault();
-  //           $(".small_error").text('');
-  //           var url = $("#url").val();
-  //           var formData = new FormData($('#form')[0]);
-
-  //           $.ajax({
-  //               type: 'post',
-  //               url: url,
-  //               data: formData,
-  //               processData: false,
-  //               contentType: false,
-  //               cache: false,
-  //               success: function (data) {
-
-  //                   if (data.status == 442){
-  //                     $.each(data.errors, function (key, val) {
-  //                       var newchar = '_'
-  //                       var str = key.split('.').join(newchar);
-  //                       // str = key.replace(/./g , "_")
-  //                       $("#" + str + "_error").text(val[0]);
-  //                       console.log(str);
-  //                     });
-  //                   }else{
-  //                       window.location.href = "/en/question";
-  //                       toastr.success('Created Successfully', "Question!",);
-  //                   }
-  //               }, error: function (xhr) {
-
-  //               }
-  //           });
-  //       });
 
   </script>
   @endsection

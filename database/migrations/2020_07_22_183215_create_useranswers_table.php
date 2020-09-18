@@ -19,16 +19,14 @@ class CreateUseranswersTable extends Migration
 
 
             $table->unsignedbigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+          //  $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedbigInteger('License_id');
-            $table->foreign('License_id')->references('id')->on('licensecodes')->onUpdate('cascade')->onDelete('cascade');
+         //   $table->foreign('License_id')->references('id')->on('licensecodes')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedbigInteger('question_id');
-            $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedbigInteger('answer_id');
-            $table->foreign('answer_id')->references('id')->on('answers')->onUpdate('cascade')->onDelete('cascade');
+        //    $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
 
             $table->boolean('isRight');
-            $table->string('answer');
+            $table->json('answer');
             $table->bigInteger('point');
 
             $table->timestamps();

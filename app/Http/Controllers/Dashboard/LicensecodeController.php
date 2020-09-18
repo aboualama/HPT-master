@@ -13,7 +13,7 @@ class LicensecodeController extends Controller
   public function index()
   {
     $records['users'] = User::all();
-    $records['licenses'] = Licensecode::with('user')->get();
+    $records['licenses'] = Licensecode::all();
    // dd($records['licenses']);
     $breadcrumbs = [
       ['link' => "dashboard-analytics", 'name' => "Home"], ['link' => "dashboard-analytics", 'name' => "Pages"], ['name' => "Licensecode "]
