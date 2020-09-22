@@ -13,7 +13,7 @@ class HazardPQuestionController extends Controller
 
   public function store(Request $request)
   {
-    // dd($request->all());
+     dd($request->all());
 
     $rules = $this->rules();
     $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
@@ -36,7 +36,7 @@ class HazardPQuestionController extends Controller
     $record['right_answers'] =  json_encode($request->val) ;
     $record->save();
 
-    return response()->json(['status' => 200]);
+    return response()->json(['status' => 200 ]);
   }
 
 
@@ -65,6 +65,8 @@ class HazardPQuestionController extends Controller
     }
 
     $record['video'] = $video_name;
+    $record['wrong_answers'] =  json_encode($request->answer) ;
+    $record['right_answers'] =  json_encode($request->val) ;
     $record->save();
     return response()->json($record);
   }

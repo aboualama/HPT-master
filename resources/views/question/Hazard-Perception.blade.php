@@ -52,12 +52,12 @@
                           <div class="row rowindex" id="rowindex_0">
                             <div class="col-md-7 offset-md-1">
                               <label> ... </label>
-                              <input type="text" class="form-control " name="answer[]" placeholder="Key">
+                              <input type="text" class="form-control " name="answer[]" placeholder="Pericolo">
                               <small id="answer_0_error" class="form-text text-danger center small_error"> </small>
                             </div>
                             <div class="col-md-2">
                               <label>...</label>
-                              <input type="number" step="0.01" min=0 class="form-control " name="val[]" placeholder="Value">
+                              <input type="number" step="0.01" min=0 class="form-control " name="val[]" placeholder="Secondi">
                               <small id="val_0_error" class="form-text text-danger center small_error"> </small>
                             </div>
                             <div class="col-md-2">
