@@ -138,6 +138,42 @@
 
 
 
+
+
+
+function addrow() {
+      let i = $('.rowindex').length
+      let m =  `<div class="row rowindex" id="rowindex_`+ i +`">
+                    <div class="col-md-7 offset-md-1">
+                      <label> ... </label>
+                      <input type="text" class="form-control " name="answer[]" placeholder="Key">
+                      <small id="answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-2">
+                      <label>...</label>
+                      <input type="number" step="0.01" min=0 class="form-control " name="val[]" placeholder="Value">
+                      <small id="val_`+ i +`_error" class="form-text text-danger center small_error"> </small>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="col-md-2" style="display: inline;">
+                        <span class="action-add" data-id="" onclick="addrow()" style="font-size: 25px; line-height: 3;"><i class="feather icon-plus-square"></i></span>
+                        <span onclick="removerow(`+ i +`)" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
+                      </div>
+                    </div>
+                  </div> `;
+
+      $("#rowindex").append(m);
+    }
+
+
+    function removerow(i) {
+      $('#rowindex_'+ i).fadeOut();
+    }
+
+
+
+
+
 function addWrongAnswerSMC() {
       let i = $('.Windex').length + 1
       let m =  `<div class="form-group row" Windex>
@@ -333,8 +369,8 @@ function addWrongAnswerSMC() {
                         console.log(str);
                       });
                     }else{
-                        window.location.href = "/en/question";
-                        toastr.success('Created Successfully', "Question!",);
+                        // window.location.href = "/en/question";
+                        // toastr.success('Created Successfully', "Question!",);
                     }
                 }, error: function (xhr) {
 

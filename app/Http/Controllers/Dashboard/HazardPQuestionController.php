@@ -14,8 +14,11 @@ class HazardPQuestionController extends Controller
   public function store(Request $request)
   {
     // dd($request->all());
-    $rules = ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
-    $validator = Validator::make($request->all(), $rules);
+
+    $rules = $this->rules();
+    $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
+    $messages = $this->messages();
+    $validator = Validator::make($request->all(), $rules, $messages);
     if ($validator->fails()) {
       return response()->json(['errors' => $validator->errors(), 'status' => 442]);
     }
@@ -29,6 +32,8 @@ class HazardPQuestionController extends Controller
 
     $record = Question::create($request->all());
     $record['video'] = $video_name;
+    $record['wrong_answers'] =  json_encode($request->answer) ;
+    $record['right_answers'] =  json_encode($request->val) ;
     $record->save();
 
     return response()->json(['status' => 200]);
@@ -63,4 +68,48 @@ class HazardPQuestionController extends Controller
     $record->save();
     return response()->json($record);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Validation Handle Rules and Messages
+
+    public function rules()
+    {
+      $basicRule = [
+        'type'                => 'required|string',
+        'val.*'  => 'required|numeric',
+        'answer.*'  => 'required|string',
+      ];
+      return $basicRule ;
+    }
+
+    public function messages()
+    {
+      $basicMessage =  [
+        'type.required'                => __('locale.type required'),
+        'type.string'                  => __('locale.type string'),
+        'val.*.required'  => __('locale.val required'),
+        'val.*.numeric'   => __('locale.val numeric'),
+        'answer.*.required'  => __('locale.answer required'),
+        'answer.*.numeric'   => __('locale.answer string'),
+      ];
+      return $basicMessage;
+    }
+
 }

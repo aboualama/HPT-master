@@ -49,6 +49,33 @@
 
 
                         <div class="col-12">
+                          <div class="row rowindex" id="rowindex_0">
+                            <div class="col-md-7 offset-md-1">
+                              <label> ... </label>
+                              <input type="text" class="form-control " name="answer[]" placeholder="Key">
+                              <small id="answer_0_error" class="form-text text-danger center small_error"> </small>
+                            </div>
+                            <div class="col-md-2">
+                              <label>...</label>
+                              <input type="number" step="0.01" min=0 class="form-control " name="val[]" placeholder="Value">
+                              <small id="val_0_error" class="form-text text-danger center small_error"> </small>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="col-md-2" style="display: inline;">
+                                <span onclick="addrow()" style="font-size: 25px; line-height: 3;"><i class="feather icon-plus-square"></i></span>
+                                {{--  <span class="close-div" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>--}}
+                               <span onclick="removerow(0)" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
+                              </div>
+                            </div>
+                          </div>
+                          <hr>
+                        </div>
+
+
+                        <div id="rowindex" class="col-12">
+
+                        </div>
+                        <div class="col-12">
                             <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
                             <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
                         </div>
@@ -79,6 +106,12 @@
 <link href="plyr.css" rel="stylesheet">
 <script>
 var player = new Plyr('#player');
+
+
+
+
+
+
 </script>
 @endsection
 
