@@ -4,6 +4,9 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Exports\ResultExport;
+use App\Question;
+use App\Result;
+use App\ResultEvalutation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\Resultmail;
@@ -31,16 +34,11 @@ class ResultController extends Controller
   }
 
 
-
-
-
-
-
   public function edit($id)
   {
     $record = Useranswer::find($id);
     $breadcrumbs = [
-      ['link'=>"dashboard-analytics",'name'=>"Home"], ['link'=>"dashboard-analytics",'name'=>"Pages"], ['name'=>"Edit Result "]
+      ['link' => "dashboard-analytics", 'name' => "Home"], ['link' => "dashboard-analytics", 'name' => "Pages"], ['name' => "Edit Result "]
     ];
     return view('result.edit', [
       'breadcrumbs' => $breadcrumbs,
@@ -70,7 +68,7 @@ class ResultController extends Controller
   public function convert($id)
   {
     header('Content-type: text/xml');
-   // $headers = ['Content-Type' => 'application/pdf',];
+    // $headers = ['Content-Type' => 'application/pdf',];
     $data = Useranswer::find($id)->toArray();
     $result = ArrayToXml::convert(json_decode($data['answer'], true));
 
@@ -81,12 +79,32 @@ class ResultController extends Controller
     return Response::download($file_path, $file_name);
 
   }
+
+  public function config()
+  {
+    $records = ResultEvalutation::all();
+    $records->map(function ($record) {
+      if ($record->type != "Hazard-Perception")
+        return $record;
+      $videos = Question::with("answers")->where('type', '=', 'Hazard-Perception')->get();
+      $record->videQuestions = $videos;
+    });
+    return dd($records->toArray());
+    $breadcrumbs = [
+      ['link' => "dashboard-analytics", 'name' => "Home"], ['link' => "dashboard-analytics", 'name' => "Pages"], ['name' => "Licensecode "]
+    ];
+     return view('result.config', [
+       'breadcrumbs' => $breadcrumbs,
+       'records' => $records
+     ]);
+  }
+
   public function export($id)
   {
     return \Maatwebsite\Excel\Facades\Excel::download(new ResultExport(1), "users.xlsx");
 
     header('Content-type: text/xml');
-   // $headers = ['Content-Type' => 'application/pdf',];
+    // $headers = ['Content-Type' => 'application/pdf',];
     $data = Useranswer::find($id)->toArray();
     $result = ArrayToXml::convert(json_decode($data['answer'], true));
 

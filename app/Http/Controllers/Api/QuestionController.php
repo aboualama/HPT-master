@@ -25,7 +25,7 @@ class QuestionController extends Controller
 
   public function getquestions($type, Request $request)
   {
- // return  dd($request);
+    // return  dd($request);
     App::setLocale($request->get("lang"));
 
 
@@ -58,20 +58,33 @@ class QuestionController extends Controller
     $record->save();
     return response($record, 200);
   }
+
   public function updateanswers(Request $request)
   {
-     //dump($request->get('answer'));
+    //dump($request->get('answer'));
 
 
-    $record = Useranswer::where('License_id','=',$request->get('licens_id'))->first();
-    $ansers = json_decode($record->answer,true);
+    $record = Useranswer::where('License_id', '=', $request->get('licens_id'))->first();
+
     $answerToattach = $request->get('answer');
+    if ($record) {
+      $ansers = json_decode($record->answer, true);
+      if (isset($answerToattach['Reaction-simple']))
+        $ansers['Reaction-simple'] = $answerToattach["Reaction-simple"];
+      if (isset($answerToattach["Reaction-complex"]))
+        $ansers['Reaction-complex'] = $answerToattach["Reaction-complex"];
+      if (isset($answerToattach["Reaction-SMC"]))
+        $ansers['Reaction-SMC'] = $answerToattach["Reaction-SMC"];
+      if (isset($answerToattach["Hazard-Perception"]))
+        $ansers['Hazard-Perception'] = $answerToattach["Hazard-Perception"];
+      if (isset($answerToattach["Risk-Responsibilty"]))
+        $ansers['Risk-Responsibilty'] = $answerToattach["Risk-Responsibilty"];
+      if (isset($answerToattach["Recognation"]))
+        $ansers['Recognation'] = $answerToattach["Recognation"];
 
-    if (isset($answerToattach['Reaction-simple'])) {
-      $ansers['Reaction-simple'] = $answerToattach["Reaction-simple"];
-    }else{
-      $ansers['Reaction-complex'] = $answerToattach["Reaction-complex"];
-
+    } else {
+      $record = new Useranswer();
+      $ansers = $answerToattach;
     }
     //   return dd($ansers);
 
@@ -84,7 +97,7 @@ class QuestionController extends Controller
 
     //return dd($record);
     $record->save();
- //return   dd($record);
+    //return   dd($record);
     return response($record, 200);
   }
 

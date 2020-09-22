@@ -36,6 +36,12 @@
       "name": "Licensecode",
       "icon": "feather icon-mail",
       "i18n": "locale.licensecode"
+    },
+    {
+      "url": "/configurator",
+      "name": "Configurator",
+      "icon": "feather icon-mail",
+      "i18n": "locale.configurator"
     }
   ]
 }
