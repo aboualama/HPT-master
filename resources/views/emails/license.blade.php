@@ -1,5 +1,5 @@
 @component('mail::message')
-# Result
+# licensecodes
 
 
 <div class="mail-items">

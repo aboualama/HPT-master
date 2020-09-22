@@ -40,6 +40,8 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
     Route::get('/app-licensecode-index', 'Dashboard\LicensecodeController@index');
     Route::post('/app-licensecode-UpdateOrCreate', 'Dashboard\LicensecodeController@store');
     Route::delete('/app-licensecode-delete/{id}', 'Dashboard\LicensecodeController@delete');
+    Route::get('/show-licenses/{id}', 'Dashboard\LicensecodeController@show');
+    Route::get('/send-licensecode-mail/{id}', 'Dashboard\LicensecodeController@sendLicense');
 
 
 
