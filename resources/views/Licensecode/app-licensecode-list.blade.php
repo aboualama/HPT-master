@@ -78,6 +78,7 @@
         </thead>
         <tbody>
         @foreach ($records['group'] as $i => $record)
+
           <tr>
             <td></td>
             <td class="licenses-id">{{ $i +1 }}</td>

@@ -16,6 +16,7 @@ class LicensecodeController extends Controller
   public function index()
   {
     $records['users'] = User::all();
+
     // $records['licenses'] = Licensecode::all();
     $records['group'] = Group::where('type', 'licensecode')->get();
 

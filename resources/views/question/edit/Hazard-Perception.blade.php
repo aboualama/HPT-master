@@ -45,9 +45,8 @@
               @php($wronganswers = json_decode($record->wrong_answers,true)?json_decode($record->wrong_answers,true) : [])
 
               @foreach( $rightanswers as $ans)
-                {{$loop->index}}
-                <div class="col-12">
-                  <div class="row rowindex" id="rowindex_0">
+                <div class="col-12" id="rowindex">
+                  <div class="row rowindex" id="rowindex_{{$loop->index}}">
                     <div class="col-md-7 offset-md-1">
                       <label> ... </label>
                       <input type="text" value="{{$wronganswers[$loop->index]}}" class="form-control " name="answer[]"
@@ -73,7 +72,7 @@
                 </div>
               @endforeach
               @if($rightanswers == [])
-                <div class="col-12">
+                <div class="col-12" id="rowindex">
                   <div class="row rowindex" id="rowindex_0">
                     <div class="col-md-7 offset-md-1">
                       <label> ... </label>
@@ -87,7 +86,9 @@
                     </div>
                     <div class="col-md-2">
                       <div class="col-md-2" style="display: inline;">
+
                         <span onclick="addrow()" style="font-size: 25px; line-height: 3;"><i class="feather icon-plus-square"></i></span>
+
                         {{--  <span class="close-div" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>--}}
                         <span onclick="removerow(0)" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
                       </div>
@@ -110,13 +111,12 @@
   </div>
 </div>
 <script>
-  function removerow(i) {
-    $('#rowindex_' + i).fadeOut();
-  }
 
-  function addrow() {
-    let i = $('.rowindex').length
-    let m = `<div class="row rowindex" id="rowindex_` + i + `">
+  $(document).ready(function () {
+
+    function addrow() {
+      let i = $('.rowindex').length
+      let m = `<div class="row rowindex" id="rowindex_` + i + `">
                     <div class="col-md-7 offset-md-1">
                       <label> ... </label>
                       <input type="text" class="form-control " name="answer[]" placeholder="Key">
@@ -135,6 +135,13 @@
                     </div>
                   </div> `;
 
-    $("#rowindex").append(m);
-  }
+      $("#rowindex").append(m);
+    }
+
+
+    function removerow(i) {
+      $('#rowindex_' + i).fadeOut();
+    }
+  });
+
 </script>
