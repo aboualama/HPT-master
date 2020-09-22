@@ -3,9 +3,11 @@
 namespace App\Exports;
 
 use App\User;
+use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use phpDocumentor\Reflection\Types\This;
 
 class ResultExport implements FromCollection
 {
@@ -13,9 +15,11 @@ class ResultExport implements FromCollection
 
   protected $result;
 
+
   public function __construct($result)
   {
-    $this->$result = $result;
+    unset($result['heading']);
+    $this->result = $result;
   }
 
   /**
@@ -23,8 +27,8 @@ class ResultExport implements FromCollection
    */
   public function collection()
   {
-   return User::all()->collect();
-    dd();
+
+    return new Collection($this->result['data']);
   }
 
   /*public function sheets(): array

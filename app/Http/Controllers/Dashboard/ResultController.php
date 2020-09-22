@@ -15,6 +15,7 @@ use File;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Excel;
 use Mail;
+use phpDocumentor\Reflection\Types\Collection;
 use Response;
 use Spatie\ArrayToXml\ArrayToXml;
 use View;
@@ -93,15 +94,85 @@ class ResultController extends Controller
     $breadcrumbs = [
       ['link' => "dashboard-analytics", 'name' => "Home"], ['link' => "dashboard-analytics", 'name' => "Pages"], ['name' => "Licensecode "]
     ];
-     return view('result.config', [
-       'breadcrumbs' => $breadcrumbs,
-       'records' => $records
-     ]);
+    return view('result.config', [
+      'breadcrumbs' => $breadcrumbs,
+      'records' => $records
+    ]);
   }
 
   public function export($id)
   {
-    return \Maatwebsite\Excel\Facades\Excel::download(new ResultExport(1), "users.xlsx");
+
+    $result = Useranswer::find($id);
+    $result = json_decode($result->answer, true);
+    $evaluation = ResultEvalutation::all();
+    /*dump($evaluation);
+    dd($result);*/
+    foreach ($result as $key => $res) {
+      switch ($key) {
+        case
+        "Recognation":
+          $excel["Recognation"]["heading"] = ["Domanda", "Punteggio"];
+          foreach ($res as $reco) {
+            $evaluation = ResultEvalutation::where('type', '=', 'Recognation')->first();
+
+            $excel["Recognation"]["data"][] = [$reco["question"]['question'], $reco['correct']['correct'] ? 1 * $evaluation->point : '0'];
+
+          }
+          break;
+        case "Hazard-Perception":
+          foreach ($res as $reco) {
+
+            $question = Question::find($reco['questionId'])->toArray();
+            $evaluation = ResultEvalutation::where('type', '=', 'Hazard-Perception')->first();
+            $rightMoments = [];
+            $points = 0;
+            dump($question['right_answers']);
+            if (isset($reco['correct'])) {
+
+              dump($reco['correct']);
+
+              foreach (json_decode($question['right_answers']) as $right) {
+                foreach ($reco['correct'] as $k => $pressed) {
+                  sscanf($pressed, "%d:%d", $minutes, $seconds);
+                  $time_seconds = $minutes * 60 + $seconds;
+                  if ($time_seconds >= $right && $time_seconds <= $right + 2 && $right != null) {
+                    $points =$points+ $evaluation->point - round($right + 2 - $time_seconds);
+                    dump($points,$right);
+                    unset($reco['right_answers'][$k]);
+                  }
+
+                }
+
+              }
+            }
+            dump($points,"---------------------------------------------------");
+            $evaluation = ResultEvalutation::where('type', '=', 'Reaction-SMC')->first();
+            $excel["Reaction-SMC"]["data"][] = [$reco["question"]['question'], $punteggio ? $punteggio: "0"];
+          }
+          break;
+
+          case "Reaction-SMC":
+          foreach ($res as $reco) {
+
+            $l = collect($reco['correct']);
+            $total = $l->count();
+            $correctAnswers = $l->filter(function ($f) {
+              return $f['correct'] == true;
+            })->count();
+            $punteggio = ($correctAnswers / $total * $evaluation->point);
+      //      dump("punteggio", $punteggio);
+            $evaluation = ResultEvalutation::where('type', '=', 'Reaction-SMC')->first();
+            $excel["Reaction-SMC"]["data"][] = [$reco["question"]['question'], $punteggio ? $punteggio: "0"];
+          }
+          break;
+      }
+    }
+    dd($excel);
+    $excel = $excel["Reaction-SMC"];
+    return \Maatwebsite\Excel\Facades\Excel::download(new ResultExport($excel), "users.xlsx");
+    dd(json_decode($result->answer, true));
+    //
 
     header('Content-type: text/xml');
     // $headers = ['Content-Type' => 'application/pdf',];

@@ -1,948 +1,2521 @@
 {
-  "menu": [
+  "Recognation": [
     {
-      "url": "",
-      "name": "Dashboard",
-      "slug": "dashboard",
-      "icon": "feather icon-home",
-      "i18n": "Dashboard",
-      "submenu": [
+      "questionId": 1,
+      "question": {
+        "id": 1,
+        "type": "Recognation",
+        "image": "1597759318.jpg",
+        "video": "1597759318.mp4",
+        "created_at": "2020-08-18T14:01:58.000000Z",
+        "updated_at": "2020-08-18T14:01:58.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1597759318.jpg",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597759318.mp4",
+        "question": "1.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+        "right_answer": "la curva",
+        "wrongans_1": "gli alberi",
+        "wrongans_2": "il guard rail",
+        "wrongans_3": "la  linea continua",
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 1,
+            "question": "1.You are driving a motor vehicle. What attracts your attention?",
+            "question_id": "1",
+            "locale": "en",
+            "right_answer": "the bend",
+            "wrongans_1": "trees",
+            "wrongans_2": "the crash barrier",
+            "wrongans_3": "the solid line",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 4,
+            "question": "1.Vous conduisez un v\u00e9hicule \u00e0 moteur. Qu'est-ce qui attire votre attention?",
+            "question_id": "1",
+            "locale": "fr",
+            "right_answer": "le virage",
+            "wrongans_1": "les arbres",
+            "wrongans_2": "la rambarde",
+            "wrongans_3": "la ligne continue",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 5,
+            "question": "1.\u039f\u03b4\u03b7\u03b3\u03b5\u03af\u03c4\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03b7\u03c7\u03b1\u03bd\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1. \u03a4\u03b9 \u03c4\u03c1\u03b1\u03b2\u03ac\u03b5\u03b9 \u03c4\u03b7\u03bd \u03c0\u03c1\u03bf\u03c3\u03bf\u03c7\u03ae \u03c3\u03b1\u03c2;",
+            "question_id": "1",
+            "locale": "gr",
+            "right_answer": "\u03b7 \u03c3\u03c4\u03c1\u03bf\u03c6\u03ae",
+            "wrongans_1": "\u03c4\u03b1 \u03b4\u03ad\u03bd\u03c4\u03c1\u03b1",
+            "wrongans_2": "\u03c4\u03bf \u03c3\u03c4\u03b7\u03b8\u03b1\u03af\u03bf \u03b1\u03c3\u03c6\u03b1\u03bb\u03b5\u03af\u03b1\u03c2 (\u03bc\u03c0\u03b1\u03c1\u03b9\u03ad\u03c1\u03b1)",
+            "wrongans_3": "\u03b7 \u03b4\u03b9\u03b1\u03b3\u03c1\u03ac\u03bc\u03bc\u03b9\u03c3\u03b7 \u03c4\u03bf\u03c5 \u03b4\u03c1\u03cc\u03bc\u03bf\u03c5",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 2,
+            "question": "1.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+            "question_id": "1",
+            "locale": "it",
+            "right_answer": "la curva",
+            "wrongans_1": "gli alberi",
+            "wrongans_2": "il guard rail",
+            "wrongans_3": "la  linea continua",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 3,
+            "question": "1.Encontra-se a conduzir um ve\u00edculo motorizado. O que atrai a sua aten\u00e7\u00e3o?",
+            "question_id": "1",
+            "locale": "pt",
+            "right_answer": "a curva",
+            "wrongans_1": "as \u00e1rvores",
+            "wrongans_2": "o rail de prote\u00e7\u00e3o",
+            "wrongans_3": "o tra\u00e7o cont\u00ednuo",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "il guard rail",
+            "correct": false
+          },
+          {
+            "answer": "la curva",
+            "correct": true
+          },
+          {
+            "answer": "gli alberi",
+            "correct": false
+          },
+          {
+            "answer": "la  linea continua",
+            "correct": false
+          }
+        ]
+      },
+      "correct": {
+        "answer": "gli alberi",
+        "correct": false
+      }
+    },
+    {
+      "questionId": 2,
+      "question": {
+        "id": 2,
+        "type": "Recognation",
+        "image": "1597759567.png",
+        "video": "1597759567.mp4",
+        "created_at": "2020-08-18T14:06:07.000000Z",
+        "updated_at": "2020-08-18T14:06:07.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1597759567.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597759567.mp4",
+        "question": "2.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+        "right_answer": "il veicolo che si immette",
+        "wrongans_1": "la linea continua",
+        "wrongans_2": "il semaforo",
+        "wrongans_3": "i pedoni",
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 6,
+            "question": "2.You are driving a motor vehicle. What attracts your attention?",
+            "question_id": "2",
+            "locale": "en",
+            "right_answer": "the emerging vehicle",
+            "wrongans_1": "the solid line",
+            "wrongans_2": "traffic lights",
+            "wrongans_3": "pedestrians",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 9,
+            "question": "2.Vous conduisez un v\u00e9hicule \u00e0 moteur. Qu'est-ce qui attire votre attention?",
+            "question_id": "2",
+            "locale": "fr",
+            "right_answer": "le v\u00e9hicule qui s'engage",
+            "wrongans_1": "la ligne continue",
+            "wrongans_2": "le feu",
+            "wrongans_3": "les pi\u00e9tons",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 10,
+            "question": "2.\u039f\u03b4\u03b7\u03b3\u03b5\u03af\u03c4\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03b7\u03c7\u03b1\u03bd\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1. \u03a4\u03b9 \u03c4\u03c1\u03b1\u03b2\u03ac\u03b5\u03b9 \u03c4\u03b7\u03bd \u03c0\u03c1\u03bf\u03c3\u03bf\u03c7\u03ae \u03c3\u03b1\u03c2;",
+            "question_id": "2",
+            "locale": "gr",
+            "right_answer": "\u03c4\u03bf \u03b5\u03b9\u03c3\u03b5\u03c1\u03c7\u03cc\u03bc\u03b5\u03bd\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1",
+            "wrongans_1": "\u03b7 \u03b4\u03b9\u03b1\u03b3\u03c1\u03ac\u03bc\u03bc\u03b9\u03c3\u03b7 \u03c4\u03bf\u03c5 \u03b4\u03c1\u03cc\u03bc\u03bf\u03c5",
+            "wrongans_2": "\u03bf \u03c6\u03c9\u03c4\u03b5\u03b9\u03bd\u03cc\u03c2 \u03c3\u03b7\u03bc\u03b1\u03c4\u03bf\u03b4\u03cc\u03c4\u03b7\u03c2",
+            "wrongans_3": "\u03bf\u03b9 \u03c0\u03b5\u03b6\u03bf\u03af",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 7,
+            "question": "2.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+            "question_id": "2",
+            "locale": "it",
+            "right_answer": "il veicolo che si immette",
+            "wrongans_1": "la linea continua",
+            "wrongans_2": "il semaforo",
+            "wrongans_3": "i pedoni",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 8,
+            "question": "2.Encontra-se a conduzir um ve\u00edculo motorizado. O que atrai a sua aten\u00e7\u00e3o?",
+            "question_id": "2",
+            "locale": "pt",
+            "right_answer": "o ve\u00edculo que aparece",
+            "wrongans_1": "o tra\u00e7o cont\u00ednuo",
+            "wrongans_2": "os sem\u00e1foros",
+            "wrongans_3": "os pe\u00f5es",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "il semaforo",
+            "correct": false
+          },
+          {
+            "answer": "i pedoni",
+            "correct": false
+          },
+          {
+            "answer": "il veicolo che si immette",
+            "correct": true
+          },
+          {
+            "answer": "la linea continua",
+            "correct": false
+          }
+        ]
+      },
+      "correct": {
+        "answer": "il veicolo che si immette",
+        "correct": true
+      }
+    },
+    {
+      "questionId": 43,
+      "question": {
+        "id": 43,
+        "type": "Recognation",
+        "image": "1599918174.png",
+        "video": "1597759567.mp4",
+        "created_at": "2020-09-12T13:37:54.000000Z",
+        "updated_at": "2020-09-12T13:42:54.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1599918174.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597759567.mp4",
+        "question": "3.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+        "right_answer": "la zona d'ombra",
+        "wrongans_1": "il ponte",
+        "wrongans_2": "la linea continua",
+        "wrongans_3": "la discesa",
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 177,
+            "question": "3.You are driving a motor vehicle. What attracts your attention?",
+            "question_id": "43",
+            "locale": "en",
+            "right_answer": "the area in the shade",
+            "wrongans_1": "the bridge",
+            "wrongans_2": "the solid line",
+            "wrongans_3": "the down hill gradient",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 178,
+            "question": "3.Vous conduisez un v\u00e9hicule \u00e0 moteur. Qu'est-ce qui attire votre attention?",
+            "question_id": "43",
+            "locale": "fr",
+            "right_answer": "la zone d'ombre",
+            "wrongans_1": "le pont",
+            "wrongans_2": "la ligne continue",
+            "wrongans_3": "la descente",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 179,
+            "question": "3.\u039f\u03b4\u03b7\u03b3\u03b5\u03af\u03c4\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03b7\u03c7\u03b1\u03bd\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1. \u03a4\u03b9 \u03c4\u03c1\u03b1\u03b2\u03ac\u03b5\u03b9 \u03c4\u03b7\u03bd \u03c0\u03c1\u03bf\u03c3\u03bf\u03c7\u03ae \u03c3\u03b1\u03c2;",
+            "question_id": "43",
+            "locale": "gr",
+            "right_answer": "\u03c4\u03bf \u03c3\u03ba\u03b9\u03b5\u03c1\u03cc \u03c4\u03bc\u03ae\u03bc\u03b1 \u03c4\u03bf\u03c5 \u03b4\u03c1\u03cc\u03bc\u03bf\u03c5",
+            "wrongans_1": "le pont",
+            "wrongans_2": "la ligne continue",
+            "wrongans_3": "\u03b7 \u03ba\u03b1\u03c4\u03b7\u03c6\u03cc\u03c1\u03b1",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 180,
+            "question": "3.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+            "question_id": "43",
+            "locale": "it",
+            "right_answer": "la zona d'ombra",
+            "wrongans_1": "il ponte",
+            "wrongans_2": "la linea continua",
+            "wrongans_3": "la discesa",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 181,
+            "question": "3.Encontra-se a conduzir um ve\u00edculo motorizado. O que atrai a sua aten\u00e7\u00e3o?",
+            "question_id": "43",
+            "locale": "pt",
+            "right_answer": "a \u00e1rea escondida pela sombra",
+            "wrongans_1": "a ponte",
+            "wrongans_2": "o tra\u00e7o cont\u00ednuo",
+            "wrongans_3": "a descida",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "la zona d'ombra",
+            "correct": true
+          },
+          {
+            "answer": "la linea continua",
+            "correct": false
+          },
+          {
+            "answer": "il ponte",
+            "correct": false
+          },
+          {
+            "answer": "la discesa",
+            "correct": false
+          }
+        ]
+      },
+      "correct": {
+        "answer": "la linea continua",
+        "correct": false
+      }
+    },
+    {
+      "questionId": 44,
+      "question": {
+        "id": 44,
+        "type": "Recognation",
+        "image": "1599918488.png",
+        "video": "1597759318.mp4",
+        "created_at": "2020-09-12T13:43:51.000000Z",
+        "updated_at": "2020-09-12T13:48:08.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1599918488.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597759318.mp4",
+        "question": "4.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+        "right_answer": "l'incrocio a visibilit\u00e0 limitata",
+        "wrongans_1": "il segnale di precedenza",
+        "wrongans_2": "i veicoli parcheggiati",
+        "wrongans_3": "la doppia linea continua",
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 182,
+            "question": "4.You are driving a motor vehicle. What attracts your attention?",
+            "question_id": "44",
+            "locale": "en",
+            "right_answer": "the crossroads with limited visibility",
+            "wrongans_1": "the signal 'give  way'",
+            "wrongans_2": "parked vehicles",
+            "wrongans_3": "the double solid line",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 183,
+            "question": "4.Vous conduisez un v\u00e9hicule \u00e0 moteur. Qu'est-ce qui attire votre attention?",
+            "question_id": "44",
+            "locale": "fr",
+            "right_answer": "le carrefour avec visibilit\u00e9 limit\u00e9e",
+            "wrongans_1": "le signal de priorit\u00e9",
+            "wrongans_2": "les v\u00e9hicules gar\u00e9s",
+            "wrongans_3": "la double ligne continue",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 184,
+            "question": "4..\u039f\u03b4\u03b7\u03b3\u03b5\u03af\u03c4\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03b7\u03c7\u03b1\u03bd\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1. \u03a4\u03b9 \u03c4\u03c1\u03b1\u03b2\u03ac\u03b5\u03b9 \u03c4\u03b7\u03bd \u03c0\u03c1\u03bf\u03c3\u03bf\u03c7\u03ae \u03c3\u03b1\u03c2;",
+            "question_id": "44",
+            "locale": "gr",
+            "right_answer": "o\u03b9 \u03b4\u03b9\u03b1\u03c3\u03c4\u03b1\u03c5\u03c1\u03c9\u03c3\u03b5\u03b9\u03c2 \u03bc\u03b5 \u03c0\u03b5\u03c1\u03b9\u03bf\u03c1\u03b9\u03c3\u03bc\u03ad\u03bd\u03b7 \u03bf\u03c1\u03b1\u03c4\u03cc\u03c4\u03b7\u03c4\u03b1",
+            "wrongans_1": "\u03b7 \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 \"\u03c5\u03c0\u03bf\u03c7\u03c1\u03b5\u03c9\u03c4\u03b9\u03ba\u03ae\u03c2 \u03c0\u03b1\u03c1\u03b1\u03c7\u03ce\u03c1\u03b7\u03c3\u03b7\u03c2 \u03c0\u03c1\u03bf\u03c4\u03b5\u03c1\u03b1\u03b9\u03cc\u03c4\u03b7\u03c4\u03b1\u03c2\"",
+            "wrongans_2": "\u03c4\u03b1 \u03c3\u03c4\u03b1\u03b8\u03bc\u03b5\u03c5\u03bc\u03ad\u03bd\u03b1 \u03bf\u03c7\u03ae\u03bc\u03b1\u03c4\u03b1",
+            "wrongans_3": "\u03b7 \u03b4\u03b9\u03c0\u03bb\u03ae \u03c3\u03c5\u03bd\u03b5\u03c7\u03cc\u03bc\u03b5\u03bd\u03b7 \u03b4\u03b9\u03b1\u03b3\u03c1\u03ac\u03bc\u03bc\u03b9\u03c3\u03b7 \u03c3\u03c4\u03bf \u03b4\u03c1\u03cc\u03bc\u03bf",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 185,
+            "question": "4.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+            "question_id": "44",
+            "locale": "it",
+            "right_answer": "l'incrocio a visibilit\u00e0 limitata",
+            "wrongans_1": "il segnale di precedenza",
+            "wrongans_2": "i veicoli parcheggiati",
+            "wrongans_3": "la doppia linea continua",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 186,
+            "question": "4.Encontra-se a conduzir um ve\u00edculo motorizado. O que atrai a sua aten\u00e7\u00e3o?",
+            "question_id": "44",
+            "locale": "pt",
+            "right_answer": "o cruzamento com pouca visibilidade",
+            "wrongans_1": "o sinal de ced\u00eancia de passagem",
+            "wrongans_2": "os ve\u00edculos estacionados",
+            "wrongans_3": "o duplo tra\u00e7o cont\u00ednuo",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "il segnale di precedenza",
+            "correct": false
+          },
+          {
+            "answer": "i veicoli parcheggiati",
+            "correct": false
+          },
+          {
+            "answer": "l'incrocio a visibilit\u00e0 limitata",
+            "correct": true
+          },
+          {
+            "answer": "la doppia linea continua",
+            "correct": false
+          }
+        ]
+      },
+      "correct": {
+        "answer": "la doppia linea continua",
+        "correct": false
+      }
+    },
+    {
+      "questionId": 45,
+      "question": {
+        "id": 45,
+        "type": "Recognation",
+        "image": "1599919947.png",
+        "video": "1597759318.mp4",
+        "created_at": "2020-09-12T13:49:02.000000Z",
+        "updated_at": "2020-09-12T14:12:27.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1599919947.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597759318.mp4",
+        "question": "5.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+        "right_answer": "le corsie di preselezione",
+        "wrongans_1": "la fermata del bus",
+        "wrongans_2": "le auto",
+        "wrongans_3": "Il semaforo",
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 187,
+            "question": "5.You are driving a motor vehicle. What attracts your attention?",
+            "question_id": "45",
+            "locale": "en",
+            "right_answer": "Indication of traffic lanes",
+            "wrongans_1": "the bus stop",
+            "wrongans_2": "the cars",
+            "wrongans_3": "the traffic lights",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 188,
+            "question": "5.Vous conduisez un v\u00e9hicule \u00e0 moteur. Qu'est-ce qui attire votre attention?",
+            "question_id": "45",
+            "locale": "fr",
+            "right_answer": "les voies de pr\u00e9s\u00e9lection",
+            "wrongans_1": "l'arr\u00eat de bus",
+            "wrongans_2": "les voitures",
+            "wrongans_3": "le feu",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 189,
+            "question": "5..\u039f\u03b4\u03b7\u03b3\u03b5\u03af\u03c4\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03b7\u03c7\u03b1\u03bd\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1. \u03a4\u03b9 \u03c4\u03c1\u03b1\u03b2\u03ac\u03b5\u03b9 \u03c4\u03b7\u03bd \u03c0\u03c1\u03bf\u03c3\u03bf\u03c7\u03ae \u03c3\u03b1\u03c2;",
+            "question_id": "45",
+            "locale": "gr",
+            "right_answer": "\u03bf\u03b9 \u03bb\u03c9\u03c1\u03af\u03b4\u03b5\u03c2 \u03bc\u03b5 \u03b5\u03b9\u03b4\u03b9\u03ba\u03ae \u03b4\u03b9\u03b1\u03b3\u03c1\u03ac\u03bc\u03bc\u03b9\u03c3\u03b7 \u03b5\u03c0\u03b9\u03bb\u03bf\u03b3\u03ae\u03c2\u03c3\u03c5\u03b3\u03ba\u03b5\u03ba\u03c1\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd \u03ba\u03b1\u03c4\u03b5\u03c5\u03b8\u03cd\u03bd\u03c3\u03b5\u03c9\u03bd",
+            "wrongans_1": "\u03b7 \u03c3\u03c4\u03ac\u03c3\u03b7 \u03bb\u03b5\u03c9\u03c6\u03bf\u03c1\u03b5\u03af\u03bf\u03c5",
+            "wrongans_2": "\u03c4\u03b1 \u03b1\u03c5\u03c4\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03b1",
+            "wrongans_3": "\u03bf \u03c6\u03c9\u03c4\u03b5\u03b9\u03bd\u03cc\u03c2 \u03c3\u03b7\u03bc\u03b1\u03c4\u03bf\u03b4\u03cc\u03c4\u03b7\u03c2",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 190,
+            "question": "5.Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+            "question_id": "45",
+            "locale": "it",
+            "right_answer": "le corsie di preselezione",
+            "wrongans_1": "la fermata del bus",
+            "wrongans_2": "le auto",
+            "wrongans_3": "Il semaforo",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 191,
+            "question": "5.Encontra-se a conduzir um ve\u00edculo motorizado. O que atrai a sua aten\u00e7\u00e3o?",
+            "question_id": "45",
+            "locale": "pt",
+            "right_answer": "as indica\u00e7\u00f5es de faixa de rodagem",
+            "wrongans_1": "a paragem do autocarro",
+            "wrongans_2": "os carros",
+            "wrongans_3": "os sem\u00e1foros",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "la fermata del bus",
+            "correct": false
+          },
+          {
+            "answer": "Il semaforo",
+            "correct": false
+          },
+          {
+            "answer": "le auto",
+            "correct": false
+          },
+          {
+            "answer": "le corsie di preselezione",
+            "correct": true
+          }
+        ]
+      },
+      "correct": {
+        "answer": "le corsie di preselezione",
+        "correct": true
+      }
+    },
+    {
+      "questionId": 46,
+      "question": {
+        "id": 46,
+        "type": "Recognation",
+        "image": "1599920358.png",
+        "video": "1597759318.mp4",
+        "created_at": "2020-09-12T14:13:37.000000Z",
+        "updated_at": "2020-09-12T14:19:18.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1599920358.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597759318.mp4",
+        "question": "1.1 Interazioni con altri utenti della strada - Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+        "right_answer": "B",
+        "wrongans_1": "A",
+        "wrongans_2": "A e C",
+        "wrongans_3": "Solo C",
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 192,
+            "question": "1.1 Interactions with other road users - You are driving a motor vehicle. What attracts your attention?",
+            "question_id": "46",
+            "locale": "en",
+            "right_answer": "B",
+            "wrongans_1": "A",
+            "wrongans_2": "A and C",
+            "wrongans_3": "Only C",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 193,
+            "question": "1.1 Interaction avec les autres utilisateurs de la route - Vous conduisez un v\u00e9hicule \u00e0 moteur. Qu'est-ce qui attire votre attention?",
+            "question_id": "46",
+            "locale": "fr",
+            "right_answer": "B",
+            "wrongans_1": "A",
+            "wrongans_2": "A et C",
+            "wrongans_3": "Seulement C",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 194,
+            "question": "1.1 \u0391\u03bb\u03bb\u03b7\u03bb\u03b5\u03c0\u03b9\u03b4\u03c1\u03ac\u03c3\u03b5\u03b9\u03c2 \u03bc\u03b5 \u03ac\u03bb\u03bb\u03bf\u03c5\u03c2 \u03c7\u03c1\u03ae\u03c3\u03c4\u03b5\u03c2 \u03c4\u03bf\u03c5 \u03b4\u03c1\u03cc\u03bc\u03bf\u03c5 - \u039f\u03b4\u03b7\u03b3\u03b5\u03af\u03c4\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03b7\u03c7\u03b1\u03bd\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1. \u03a4\u03b9 \u03c4\u03c1\u03b1\u03b2\u03ac\u03b5\u03b9 \u03c4\u03b7\u03bd \u03c0\u03c1\u03bf\u03c3\u03bf\u03c7\u03ae \u03c3\u03b1\u03c2;",
+            "question_id": "46",
+            "locale": "gr",
+            "right_answer": "B",
+            "wrongans_1": "A",
+            "wrongans_2": "A \u03ba\u03b1\u03b9 C",
+            "wrongans_3": "\u039c\u03cc\u03bd\u03bf \u03c4\u03bf C",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 195,
+            "question": "1.1 Interazioni con altri utenti della strada - Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+            "question_id": "46",
+            "locale": "it",
+            "right_answer": "B",
+            "wrongans_1": "A",
+            "wrongans_2": "A e C",
+            "wrongans_3": "Solo C",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 196,
+            "question": "1.1 Reconhecimento da situa\u00e7\u00e3o e do ambiente envolvente - Encontra-se a conduzir um ve\u00edculo motorizado. A maior incerteza est\u00e1 na zona:",
+            "question_id": "46",
+            "locale": "pt",
+            "right_answer": "B",
+            "wrongans_1": "A",
+            "wrongans_2": "A e C",
+            "wrongans_3": "Apenas C",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "A e C",
+            "correct": false
+          },
+          {
+            "answer": "Solo C",
+            "correct": false
+          },
+          {
+            "answer": "A",
+            "correct": false
+          },
+          {
+            "answer": "B",
+            "correct": true
+          }
+        ]
+      },
+      "correct": {
+        "answer": "A",
+        "correct": false
+      }
+    },
+    {
+      "questionId": 47,
+      "question": {
+        "id": 47,
+        "type": "Recognation",
+        "image": "1599920715.png",
+        "video": "1597759318.mp4",
+        "created_at": "2020-09-12T14:19:55.000000Z",
+        "updated_at": "2020-09-12T14:25:15.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1599920715.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597759318.mp4",
+        "question": "1.2 Interazioni con altri utenti della strada - Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+        "right_answer": "bisogna considerare che non vi \u00e8 sufficiente visibilit\u00e0 per effettuare la manovra in sicurezza",
+        "wrongans_1": "non bisogna preoccuparsi, poich\u00e9 la strada \u00e8 sufficientemente libera",
+        "wrongans_2": "considerare il possibile arrivo del tram",
+        "wrongans_3": "non bisogna preoccuparsi particolarmente, poich\u00e9 non \u00e8 vietato farlo (linea discontinua)",
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 197,
+            "question": "1.2 Interactions with other road users - You are driving a motor vehicle. What attracts your attention?",
+            "question_id": "47",
+            "locale": "en",
+            "right_answer": "it must be considered that there is not enough visibility to carry out the maneuver safely",
+            "wrongans_1": "there is no need to worry, as the road is sufficiently clear",
+            "wrongans_2": "consider the possible arrival of the tram",
+            "wrongans_3": "there is no need to worry particularly, as it is not forbidden to do so (dotted line)",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 198,
+            "question": "1.2 Interaction avec les autres utilisateurs de la route - Vous conduisez un v\u00e9hicule \u00e0 moteur. Qu'est-ce qui attire votre attention?",
+            "question_id": "47",
+            "locale": "fr",
+            "right_answer": "il faut consid\u00e9rer que la visibilit\u00e9e n'est pas suffisante pour effectuer la manoeuvre en s\u00e9curit\u00e9",
+            "wrongans_1": "il ne faut pas s'inqui\u00e9ter, car la route est suffisament libre",
+            "wrongans_2": "consid\u00e9rer l'arriv\u00e9e potentielle du tram",
+            "wrongans_3": "il ne faut pas s'inqui\u00e9ter particuli\u00e8rement, car ce n'est pas interdit (ligne discontinue)",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 199,
+            "question": "1.2 \u0391\u03bb\u03bb\u03b7\u03bb\u03b5\u03c0\u03b9\u03b4\u03c1\u03ac\u03c3\u03b5\u03b9\u03c2 \u03bc\u03b5 \u03ac\u03bb\u03bb\u03bf\u03c5\u03c2 \u03c7\u03c1\u03ae\u03c3\u03c4\u03b5\u03c2 \u03c4\u03bf\u03c5 \u03b4\u03c1\u03cc\u03bc\u03bf\u03c5 - \u039f\u03b4\u03b7\u03b3\u03b5\u03af\u03c4\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03b7\u03c7\u03b1\u03bd\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1. \u03a4\u03b9 \u03c4\u03c1\u03b1\u03b2\u03ac\u03b5\u03b9 \u03c4\u03b7\u03bd \u03c0\u03c1\u03bf\u03c3\u03bf\u03c7\u03ae \u03c3\u03b1\u03c2;",
+            "question_id": "47",
+            "locale": "gr",
+            "right_answer": "\u03bb\u03b1\u03bc\u03b2\u03ac\u03bd\u03b5\u03c4\u03b5 \u03c5\u03c0\u03cc\u03c8\u03b7 \u03cc\u03c4\u03b9 \u03b7 \u03bf\u03c1\u03b1\u03c4\u03cc\u03c4\u03b7\u03c4\u03b1 \u03b4\u03b5\u03bd \u03b5\u03af\u03bd\u03b1\u03b9 \u03b5\u03c0\u03b1\u03c1\u03ba\u03ae\u03c2 \u03b3\u03b9\u03b1 \u03bd\u03b1 \u03b3\u03af\u03bd\u03b5\u03b9 \u03bf \u03b5\u03bb\u03b9\u03b3\u03bc\u03cc\u03c2 \u03bc\u03b5 \u03b1\u03c3\u03c6\u03ac\u03bb\u03b5\u03b9\u03b1",
+            "wrongans_1": "\u03b4\u03b5\u03bd \u03c5\u03c0\u03ac\u03c1\u03c7\u03b5\u03b9 \u03bb\u03cc\u03b3\u03bf\u03c2 \u03b1\u03bd\u03b7\u03c3\u03c5\u03c7\u03af\u03b1\u03c2, \u03bf \u03b4\u03c1\u03cc\u03bc\u03bf\u03c2 \u03b5\u03af\u03bd\u03b1\u03b9 \u03b5\u03bb\u03b5\u03cd\u03b8\u03b5\u03c1\u03bf\u03c2",
+            "wrongans_2": "\u03bb\u03b1\u03bc\u03b2\u03ac\u03bd\u03b5\u03c4\u03b5 \u03c5\u03c0\u03cc\u03c8\u03b7 \u03cc\u03c4\u03b9 \u03b5\u03af\u03bd\u03b1\u03b9 \u03c0\u03b9\u03b8\u03b1\u03bd\u03cc \u03bd\u03b1 \u03c0\u03b5\u03c1\u03ac\u03c3\u03b5\u03b9 \u03c4\u03bf \u03c4\u03c1\u03b1\u03bc",
+            "wrongans_3": "\u03b4\u03b5\u03bd \u03c5\u03c0\u03ac\u03c1\u03c7\u03b5\u03b9 \u03b9\u03b4\u03b9\u03b1\u03af\u03c4\u03b5\u03c1\u03bf\u03c2 \u03bb\u03cc\u03b3\u03bf\u03c2 \u03b1\u03bd\u03b7\u03c3\u03c5\u03c7\u03af\u03b1\u03c2, \u03b5\u03c0\u03b9\u03c4\u03c1\u03ad\u03c0\u03b5\u03c4\u03b1\u03b9 \u03bd\u03b1 \u03c4\u03bf \u03ba\u03ac\u03bd\u03b5\u03c4\u03b5 (\u03b4\u03b9\u03b1\u03ba\u03b5\u03ba\u03bf\u03bc\u03bc\u03ad\u03bd\u03b7 \u03b3\u03c1\u03b1\u03bc\u03bc\u03ae)",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 200,
+            "question": "1.2 Interazioni con altri utenti della strada - Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+            "question_id": "47",
+            "locale": "it",
+            "right_answer": "bisogna considerare che non vi \u00e8 sufficiente visibilit\u00e0 per effettuare la manovra in sicurezza",
+            "wrongans_1": "non bisogna preoccuparsi, poich\u00e9 la strada \u00e8 sufficientemente libera",
+            "wrongans_2": "considerare il possibile arrivo del tram",
+            "wrongans_3": "non bisogna preoccuparsi particolarmente, poich\u00e9 non \u00e8 vietato farlo (linea discontinua)",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 201,
+            "question": "1.2 Reconhecimento da situa\u00e7\u00e3o e do ambiente envolvente - Encontra-se a conduzir um ve\u00edculo motorizado. Ao ultrapassar a carrinha branca:",
+            "question_id": "47",
+            "locale": "pt",
+            "right_answer": "\u00e9 preciso considerar que n\u00e3o h\u00e1 visibilidade suficiente para efectuar a manobra em seguran\u00e7a",
+            "wrongans_1": "n\u00e3o \u00e9 preciso ter cuidado, a estrada tem boa visibilidade",
+            "wrongans_2": "\u00e9 preciso ter aten\u00e7\u00e3o \u00e0 eventual passagem do el\u00e9ctrico",
+            "wrongans_3": "n\u00e3o \u00e9 preciso ter grande cuidado, \u00e9 permitido (tra\u00e7o semi-cont\u00ednuo)",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "bisogna considerare che non vi \u00e8 sufficiente visibilit\u00e0 per effettuare la manovra in sicurezza",
+            "correct": true
+          },
+          {
+            "answer": "non bisogna preoccuparsi, poich\u00e9 la strada \u00e8 sufficientemente libera",
+            "correct": false
+          },
+          {
+            "answer": "non bisogna preoccuparsi particolarmente, poich\u00e9 non \u00e8 vietato farlo (linea discontinua)",
+            "correct": false
+          },
+          {
+            "answer": "considerare il possibile arrivo del tram",
+            "correct": false
+          }
+        ]
+      },
+      "correct": {
+        "answer": "non bisogna preoccuparsi, poich\u00e9 la strada \u00e8 sufficientemente libera",
+        "correct": false
+      }
+    },
+    {
+      "questionId": 48,
+      "question": {
+        "id": 48,
+        "type": "Recognation",
+        "image": "1599921003.png",
+        "video": "1597759318.mp4",
+        "created_at": "2020-09-12T14:26:11.000000Z",
+        "updated_at": "2020-09-12T14:30:03.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1599921003.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597759318.mp4",
+        "question": "1.3 Interazioni con altri utenti della strada - Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+        "right_answer": "A",
+        "wrongans_1": "B e C",
+        "wrongans_2": "Solo B",
+        "wrongans_3": "Solo c",
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 202,
+            "question": "1.3 Interactions with other road users - You are driving a motor vehicle. What attracts your attention?",
+            "question_id": "48",
+            "locale": "en",
+            "right_answer": "A",
+            "wrongans_1": "B e C",
+            "wrongans_2": "Just B",
+            "wrongans_3": "Just C",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 203,
+            "question": "1.3 Interaction avec les autres utilisateurs de la route - Vous conduisez un v\u00e9hicule \u00e0 moteur. Qu'est-ce qui attire votre attention?",
+            "question_id": "48",
+            "locale": "fr",
+            "right_answer": "A",
+            "wrongans_1": "B et C",
+            "wrongans_2": "Seulement \u0392",
+            "wrongans_3": "Seulement C",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 204,
+            "question": "1.3 \u0391\u03bb\u03bb\u03b7\u03bb\u03b5\u03c0\u03b9\u03b4\u03c1\u03ac\u03c3\u03b5\u03b9\u03c2 \u03bc\u03b5 \u03ac\u03bb\u03bb\u03bf\u03c5\u03c2 \u03c7\u03c1\u03ae\u03c3\u03c4\u03b5\u03c2 \u03c4\u03bf\u03c5 \u03b4\u03c1\u03cc\u03bc\u03bf\u03c5 - \u039f\u03b4\u03b7\u03b3\u03b5\u03af\u03c4\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03b7\u03c7\u03b1\u03bd\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1. \u03a4\u03b9 \u03c4\u03c1\u03b1\u03b2\u03ac\u03b5\u03b9 \u03c4\u03b7\u03bd \u03c0\u03c1\u03bf\u03c3\u03bf\u03c7\u03ae \u03c3\u03b1\u03c2;",
+            "question_id": "48",
+            "locale": "gr",
+            "right_answer": "A",
+            "wrongans_1": "BB \u03ba\u03b1\u03b9 C",
+            "wrongans_2": "\u039c\u03cc\u03bd\u03bf \u03c3\u03c4\u03b7 \u0392",
+            "wrongans_3": "\u039c\u03cc\u03bd\u03bf \u03c3\u03c4\u03b7 C",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 205,
+            "question": "1.3 Interazioni con altri utenti della strada - Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+            "question_id": "48",
+            "locale": "it",
+            "right_answer": "A",
+            "wrongans_1": "B e C",
+            "wrongans_2": "Solo B",
+            "wrongans_3": "Solo c",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 206,
+            "question": "1.3 Reconhecimento da situa\u00e7\u00e3o e do ambiente envolvente - Encontra-se a conduzir um ve\u00edculo motorizado. A maior incerteza est\u00e1 na zona:",
+            "question_id": "48",
+            "locale": "pt",
+            "right_answer": "A",
+            "wrongans_1": "B e C",
+            "wrongans_2": "Apenas B",
+            "wrongans_3": "Apenas C",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Solo B",
+            "correct": false
+          },
+          {
+            "answer": "Solo c",
+            "correct": false
+          },
+          {
+            "answer": "B e C",
+            "correct": false
+          },
+          {
+            "answer": "A",
+            "correct": true
+          }
+        ]
+      },
+      "correct": {
+        "answer": "A",
+        "correct": true
+      }
+    },
+    {
+      "questionId": 49,
+      "question": {
+        "id": 49,
+        "type": "Recognation",
+        "image": "1599921218.png",
+        "video": "1597759318.mp4",
+        "created_at": "2020-09-12T14:30:13.000000Z",
+        "updated_at": "2020-09-12T14:33:38.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1599921218.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597759318.mp4",
+        "question": "1.4 Interazioni con altri utenti della strada - Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+        "right_answer": "una volta valutato lo spazio a disposizione  \u00e8 meglio aumentare lateralmente la distanza di sicurezza",
+        "wrongans_1": "considerare il possibile arrivo del tram",
+        "wrongans_2": "\u00e8 meglio accelerare in modo tale che  la manovra duri il minor tempo possibile",
+        "wrongans_3": "non ci saranno particolari difficolt\u00e0 visto l'ampio spazio a disposizione",
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 207,
+            "question": "1.4 Interactions with other road users - You are driving a motor vehicle. What attracts your attention?",
+            "question_id": "49",
+            "locale": "en",
+            "right_answer": "leave as much space as possible between yourself and the vehicle you are overtaking",
+            "wrongans_1": "consider the possible arrival of the tram",
+            "wrongans_2": "it is better to accelerate so that the maneuver lasts as little time as possible",
+            "wrongans_3": "there will be no particular difficulties because the available space is large",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 208,
+            "question": "1.4 Interaction avec les autres utilisateurs de la route - Vous conduisez un v\u00e9hicule \u00e0 moteur. Qu'est-ce qui attire votre attention?",
+            "question_id": "49",
+            "locale": "fr",
+            "right_answer": "Une fois \u00e9valu\u00e9 l'espace disponible il vaut mieux augmenter la distance lat\u00e9rale de s\u00e9curit\u00e9",
+            "wrongans_1": "consid\u00e9rer l'arriv\u00e9e potentielle du tram",
+            "wrongans_2": "il vaut mieux acc\u00e9l\u00e9rer de fa\u00e7on \u00e0 ce que la manoeuvre dure le moins longtemps possible",
+            "wrongans_3": "il n'y aura pas de difficult\u00e9s particuli\u00e8res vu le grand espace disponible",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 209,
+            "question": "1.4 \u0391\u03bb\u03bb\u03b7\u03bb\u03b5\u03c0\u03b9\u03b4\u03c1\u03ac\u03c3\u03b5\u03b9\u03c2 \u03bc\u03b5 \u03ac\u03bb\u03bb\u03bf\u03c5\u03c2 \u03c7\u03c1\u03ae\u03c3\u03c4\u03b5\u03c2 \u03c4\u03bf\u03c5 \u03b4\u03c1\u03cc\u03bc\u03bf\u03c5 - \u039f\u03b4\u03b7\u03b3\u03b5\u03af\u03c4\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03b7\u03c7\u03b1\u03bd\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf \u03cc\u03c7\u03b7\u03bc\u03b1. \u03a4\u03b9 \u03c4\u03c1\u03b1\u03b2\u03ac\u03b5\u03b9 \u03c4\u03b7\u03bd \u03c0\u03c1\u03bf\u03c3\u03bf\u03c7\u03ae \u03c3\u03b1\u03c2;",
+            "question_id": "49",
+            "locale": "gr",
+            "right_answer": "\u03bc\u03cc\u03bb\u03b9\u03c2 \u03c5\u03c0\u03bf\u03bb\u03bf\u03b3\u03af\u03c3\u03b5\u03c4\u03b5 \u03c4\u03bf \u03b4\u03b9\u03b1\u03b8\u03ad\u03c3\u03b9\u03bc\u03bf \u03c7\u03ce\u03c1\u03bf, \u03ba\u03b1\u03bb\u03cd\u03c4\u03b5\u03c1\u03b1 \u03bd\u03b1 \u03b1\u03c5\u03be\u03ae\u03c3\u03b5\u03c4\u03b5 \u03c4\u03b7\u03bd \u03c0\u03bb\u03b5\u03c5\u03c1\u03b9\u03ba\u03ae \u03b1\u03c0\u03cc\u03c3\u03c4\u03b1\u03c3\u03b7 \u03b1\u03c3\u03c6\u03b1\u03bb\u03b5\u03af\u03b1\u03c2",
+            "wrongans_1": "\u03bb\u03b1\u03bc\u03b2\u03ac\u03bd\u03b5\u03c4\u03b5 \u03c5\u03c0\u03cc\u03c8\u03b7 \u03cc\u03c4\u03b9 \u03b5\u03af\u03bd\u03b1\u03b9 \u03c0\u03b9\u03b8\u03b1\u03bd\u03cc \u03bd\u03b1 \u03c0\u03b5\u03c1\u03ac\u03c3\u03b5\u03b9 \u03c4\u03bf \u03c4\u03c1\u03b1\u03bc",
+            "wrongans_2": "\u03ba\u03b1\u03bb\u03cd\u03c4\u03b5\u03c1\u03b1 \u03bd\u03b1 \u03b5\u03c0\u03b9\u03c4\u03b1\u03c7\u03cd\u03bd\u03b5\u03c4\u03b5 \u03ce\u03c3\u03c4\u03b5 \u03bf \u03b5\u03bb\u03b9\u03b3\u03bc\u03cc\u03c2 \u03bd\u03b1 \u03b4\u03b9\u03b1\u03c1\u03ba\u03ad\u03c3\u03b5\u03b9 \u03c4\u03bf\u03bd \u03b5\u03bb\u03ac\u03c7\u03b9\u03c3\u03c4\u03bf \u03b4\u03c5\u03bd\u03b1\u03c4\u03cc \u03c7\u03c1\u03cc\u03bd\u03bf",
+            "wrongans_3": "\u03b4\u03b5\u03bd \u03b5\u03af\u03bd\u03b1\u03b9 \u03b9\u03b4\u03b9\u03b1\u03af\u03c4\u03b5\u03c1\u03b1 \u03b4\u03c5\u03c3\u03ba\u03bf\u03bb\u03bf \u03b3\u03b9\u03b1\u03c4\u03af \u03c5\u03c0\u03ac\u03c1\u03c7\u03b5\u03b9 \u03b1\u03c1\u03ba\u03b5\u03c4\u03cc\u03c2 \u03b4\u03b9\u03b1\u03b8\u03ad\u03c3\u03b9\u03bc\u03bf\u03c2 \u03c7\u03ce\u03c1\u03bf\u03c2",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 210,
+            "question": "1.4 Interazioni con altri utenti della strada - Stai conducendo un veicolo a motore. Cosa richiama la tua attenzione?",
+            "question_id": "49",
+            "locale": "it",
+            "right_answer": "una volta valutato lo spazio a disposizione  \u00e8 meglio aumentare lateralmente la distanza di sicurezza",
+            "wrongans_1": "considerare il possibile arrivo del tram",
+            "wrongans_2": "\u00e8 meglio accelerare in modo tale che  la manovra duri il minor tempo possibile",
+            "wrongans_3": "non ci saranno particolari difficolt\u00e0 visto l'ampio spazio a disposizione",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 211,
+            "question": "1.4 Encontra-se a conduzir um ve\u00edculo motorizado. Ao ultrapassar a carrinha branca: - Encontra-se a conduzir um ve\u00edculo motorizado. Ao ultrapassar a carrinha branca:",
+            "question_id": "49",
+            "locale": "pt",
+            "right_answer": "deixe o maior espa\u00e7o poss\u00edvel entre si e o ve\u00edculo quando estiver a ultrapassar",
+            "wrongans_1": "tenha em conta a poss\u00edvel passagem do el\u00e9ctrico",
+            "wrongans_2": "\u00e9 melhor acelerar para que a manobra dure o menor tempo poss\u00edvel",
+            "wrongans_3": "n\u00e3o ter\u00e1 especiais dificuldades, porque o espa\u00e7o dispon\u00edvel \u00e9 amplo",
+            "wrong_answers": null,
+            "right_answers": null,
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "una volta valutato lo spazio a disposizione  \u00e8 meglio aumentare lateralmente la distanza di sicurezza",
+            "correct": true
+          },
+          {
+            "answer": "non ci saranno particolari difficolt\u00e0 visto l'ampio spazio a disposizione",
+            "correct": false
+          },
+          {
+            "answer": "considerare il possibile arrivo del tram",
+            "correct": false
+          },
+          {
+            "answer": "\u00e8 meglio accelerare in modo tale che  la manovra duri il minor tempo possibile",
+            "correct": false
+          }
+        ]
+      },
+      "correct": {
+        "answer": "non ci saranno particolari difficolt\u00e0 visto l'ampio spazio a disposizione",
+        "correct": false
+      }
+    }
+  ],
+  "Risk-Responsibilty": [],
+  "Reaction-SMC": [
+    {
+      "questionId": 98,
+      "question": {
+        "id": 98,
+        "type": "Reaction-SMC",
+        "image": "01600093648.jpeg",
+        "video": null,
+        "created_at": "2020-09-15T13:46:45.000000Z",
+        "updated_at": "2020-09-15T13:46:45.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/01600093648.jpeg",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "question": "1.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": "Segnale",
+        "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+        "answers": [],
+        "translations": [
+          {
+            "id": 438,
+            "question": "1.For a second, an image containing one or more items to memorize in mind will appear on the screen. Next, a list of possible display items will appear. Barring the elements that were recognized inside the image.  When done, press the NEXT button",
+            "question_id": "98",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autovehicle\",\"2 wheels vehicle\",\"Motorcycle or scooter\",\"Road Sign\",\"Traffic light\",\"Pedestrian\"]",
+            "right_answers": "Road Sign",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 441,
+            "question": "1.Vous allez voir plusieurs photos. Elles appara\u00eetrons pendant environ une seconde. Apr\u00e8s  chaque photo on vous demandera d'indiquer ce que vous avez vu. Apr\u00e8s avoir r\u00e9pondu appuyer sur ENVOI en bas \u00e0 droite.",
+            "question_id": "98",
+            "locale": "fr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Voiture\",\"Bicyclette\",\"Moto ou scooter\",\"panneau de signalisation\",\"Feu\",\"Pi\\u00e9ton\"]",
+            "right_answers": "Feu",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 442,
+            "question": "1.\u0398\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1 \u03c3\u03c4\u03b7\u03bd \u03bf\u03b8\u03cc\u03bd\u03b7 \u03c0\u03bf\u03c5 \u03c0\u03b5\u03c1\u03b9\u03ad\u03c7\u03b5\u03b9 \u03ad\u03bd\u03b1 \u03ae \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03c0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b8\u03c5\u03bc\u03ac\u03c3\u03c4\u03b5 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03bf. \u03a3\u03c4\u03b7 \u03c3\u03c5\u03bd\u03ad\u03c7\u03b5\u03b9\u03b1 \u03b8\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03bb\u03af\u03c3\u03c4\u03b1 \u03c0\u03b9\u03b8\u03b1\u03bd\u03ce\u03bd \u03b1\u03bd\u03c4\u03b9\u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd. \u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03c4\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03b1\u03bd\u03b1\u03b3\u03bd\u03c9\u03c1\u03af\u03c3\u03b1\u03c4\u03b5 \u03c3\u03c4\u03b7\u03bd \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1.",
+            "question_id": "98",
+            "locale": "gr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"\\u0391\\u03c5\\u03c4\\u03bf\\u03ba\\u03af\\u03bd\\u03b7\\u03c4\\u03bf\",\"\\u0394\\u03af\\u03ba\\u03c5\\u03ba\\u03bb\\u03bf\",\"\\u039c\\u03bf\\u03c4\\u03bf\\u03c3\\u03b9\\u03ba\\u03bb\\u03ad\\u03c4\\u03b1 \\u03ae \\u03c3\\u03ba\\u03bf\\u03cd\\u03c4\\u03b5\\u03c1\",\"\\u03a0\\u03b9\\u03bd\\u03b1\\u03ba\\u03af\\u03b4\\u03b1 \\u039a\\u039f\\u039a\",\"\\u03a6\\u03b1\\u03bd\\u03ac\\u03c1\\u03b9\",\"\\u03a0\\u03b5\\u03b6\\u03cc\\u03c2\"]",
+            "right_answers": "\u03a6\u03b1\u03bd\u03ac\u03c1\u03b9",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 439,
+            "question": "1.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+            "question_id": "98",
+            "locale": "it",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+            "right_answers": "Segnale",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 440,
+            "question": "1.Agora ver\u00e1 v\u00e1rias fotografias, que aparecem cerca de um segundo.  Ap\u00f3s cada fotografia, dever\u00e1 responder a perguntas sobre o que viu.  Ap\u00f3s ter respondido, clique no bot\u00e3o SEGUINTE em baixo \u00e0 direita.",
+            "question_id": "98",
+            "locale": "pt",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autom\\u00f3vel\",\"Bicicleta\",\"Mota ou scooter\",\"Sinal de tr\\u00e2nsito\",\"Sem\\u00e1foro\",\"Pe\\u00f5es\"]",
+            "right_answers": "Sinal de tr\u00e2nsito",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Semaforo",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Segnale Stradale",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Pedone",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Autoveicolo",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Motocicletta o scooter",
+            "correct": false,
+            "isItemChecked": true
+          },
+          {
+            "answer": "Segnale",
+            "correct": true,
+            "isItemChecked": false
+          }
+        ]
+      },
+      "correct": [
         {
-          "url": "dashboard-analytics",
-          "name": "Analytics",
-          "icon": "feather icon-activity",
-          "i18n": "nav.dashboard_analytics"
-        },
-        {
-          "url": "dashboard-ecommerce",
-          "name": "eCommerce",
-          "icon": "feather icon-shopping-cart",
-          "i18n": "nav.dashboard_ecommerce"
+          "answer": "Motocicletta o scooter",
+          "correct": false,
+          "isItemChecked": true
         }
       ]
     },
     {
-      "url": "#",
-      "name": "Apps",
-      "slug": "apps",
-      "icon": "feather icon-package",
-      "i18n": "Apps",
-      "dropdown": "1",
-      "submenu": [
+      "questionId": 99,
+      "question": {
+        "id": 99,
+        "type": "Reaction-SMC",
+        "image": "1600098120.png",
+        "video": null,
+        "created_at": "2020-09-15T13:47:13.000000Z",
+        "updated_at": "2020-09-15T13:47:13.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1600098120.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "question": "2.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": "Auto",
+        "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+        "answers": [],
+        "translations": [
+          {
+            "id": 443,
+            "question": "2.For a second, an image containing one or more items to memorize in mind will appear on the screen. Next, a list of possible display items will appear. Barring the elements that were recognized inside the image.  When done, press the NEXT",
+            "question_id": "99",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autovehicle\",\"2 wheels vehicle\",\"Motorcycle or scooter\",\"Road Sign\",\"Traffic light\",\"Pedestrian\"]",
+            "right_answers": "Auto",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 446,
+            "question": "2.Vous allez voir plusieurs photos. Elles appara\u00eetrons pendant environ une seconde. Apr\u00e8s  chaque photo on vous demandera d'indiquer ce que vous avez vu. Apr\u00e8s avoir r\u00e9pondu appuyer sur ENVOI en bas \u00e0 droite.",
+            "question_id": "99",
+            "locale": "fr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Voiture\",\"Bicyclette\",\"Moto ou scooter\",\"panneau de signalisation\",\"Feu\",\"Pi\\u00e9ton\"]",
+            "right_answers": "Voiture",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 447,
+            "question": "2.\u0398\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1 \u03c3\u03c4\u03b7\u03bd \u03bf\u03b8\u03cc\u03bd\u03b7 \u03c0\u03bf\u03c5 \u03c0\u03b5\u03c1\u03b9\u03ad\u03c7\u03b5\u03b9 \u03ad\u03bd\u03b1 \u03ae \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03c0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b8\u03c5\u03bc\u03ac\u03c3\u03c4\u03b5 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03bf. \u03a3\u03c4\u03b7 \u03c3\u03c5\u03bd\u03ad\u03c7\u03b5\u03b9\u03b1 \u03b8\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03bb\u03af\u03c3\u03c4\u03b1 \u03c0\u03b9\u03b8\u03b1\u03bd\u03ce\u03bd \u03b1\u03bd\u03c4\u03b9\u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd. \u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03c4\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03b1\u03bd\u03b1\u03b3\u03bd\u03c9\u03c1\u03af\u03c3\u03b1\u03c4\u03b5 \u03c3\u03c4\u03b7\u03bd \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1.",
+            "question_id": "99",
+            "locale": "gr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"\\u0391\\u03c5\\u03c4\\u03bf\\u03ba\\u03af\\u03bd\\u03b7\\u03c4\\u03bf\",\"\\u0394\\u03af\\u03ba\\u03c5\\u03ba\\u03bb\\u03bf\",\"\\u039c\\u03bf\\u03c4\\u03bf\\u03c3\\u03b9\\u03ba\\u03bb\\u03ad\\u03c4\\u03b1 \\u03ae \\u03c3\\u03ba\\u03bf\\u03cd\\u03c4\\u03b5\\u03c1\",\"\\u03a0\\u03b9\\u03bd\\u03b1\\u03ba\\u03af\\u03b4\\u03b1 \\u039a\\u039f\\u039a\",\"\\u03a6\\u03b1\\u03bd\\u03ac\\u03c1\\u03b9\",\"\\u03a0\\u03b5\\u03b6\\u03cc\\u03c2\"]",
+            "right_answers": "\u0391\u03c5\u03c4\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 444,
+            "question": "2.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+            "question_id": "99",
+            "locale": "it",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+            "right_answers": "Auto",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 445,
+            "question": "2.Agora ver\u00e1 v\u00e1rias fotografias, que aparecem cerca de um segundo.  Ap\u00f3s cada fotografia, dever\u00e1 responder a perguntas sobre o que viu.  Ap\u00f3s ter respondido, clique no bot\u00e3o SEGUINTE em baixo \u00e0 direita.",
+            "question_id": "99",
+            "locale": "pt",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autom\\u00f3vel\",\"Bicicleta\",\"Mota ou scooter\",\"Sinal de tr\\u00e2nsito\",\"Sem\\u00e1foro\",\"Pe\\u00f5es\"]",
+            "right_answers": "Autom\u00f3vel",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Bicicletta",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Segnale Stradale",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Motocicletta o scooter",
+            "correct": false,
+            "isItemChecked": true
+          },
+          {
+            "answer": "Semaforo",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Auto",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Autoveicolo",
+            "correct": false,
+            "isItemChecked": false
+          }
+        ]
+      },
+      "correct": [
         {
-          "url": "app-email",
-          "name": "Email",
-          "i18n": "Email",
-          "icon": "feather icon-mail",
-          "slug": "email-application"
-        },
-        {
-          "url": "app-chat",
-          "name": "Chat",
-          "i18n": "Chat",
-          "icon": "feather icon-message-square",
-          "slug": "chat-application"
-        },
-        {
-          "url": "app-todo",
-          "name": "Todo",
-          "i18n": "Todo",
-          "icon": "feather icon-check-square",
-          "slug": "app-todo"
-        },
-        {
-          "url": "app-calender",
-          "name": "Calender",
-          "i18n": "Calender",
-          "icon": "feather icon-calendar",
-          "slug": "app-calender"
-        },
-        {
-          "url": "app-file-manager",
-          "name": "File Manager",
-          "icon": "feather icon-save",
-          "i18n": "nav.app_calender"
-        },
-        {
-          "url": "#",
-          "name": "Ecommerce",
-          "i18n": "Ecommerce",
-          "icon": "feather icon-shopping-cart",
-          "slug": "",
-          "dropdown": "1",
-          "submenu": [
-            {
-              "url": "app-ecommerce-shop",
-              "name": "Shop",
-              "i18n": "Shop",
-              "icon": "feather icon-circle",
-              "slug": "app-ecommerce-shop"
-            },
-            {
-              "url": "app-ecommerce-details",
-              "name": "Details",
-              "icon": "feather icon-circle",
-              "i18n": "nav.app_ecommerce_details"
-            },
-            {
-              "url": "app-ecommerce-wishlist",
-              "name": "Wish List",
-              "i18n": "Wish List",
-              "icon": "feather icon-circle",
-              "slug": "app-ecommerce-wishlist"
-            },
-            {
-              "url": "app-ecommerce-checkout",
-              "name": "Checkout",
-              "i18n": "Checkout",
-              "icon": "feather icon-circle",
-              "slug": "app-ecommerce-checkout"
-            }
-          ]
-        },
-        {
-          "url": "",
-          "name": "User",
-          "icon": "feather icon-unlock",
-          "submenu": [
-            {
-              "url": "app-user-list",
-              "name": "List",
-              "icon": "feather icon-circle",
-              "i18n": "nav.app_user_list"
-            },
-            {
-              "url": "app-user-view",
-              "name": "View",
-              "icon": "feather icon-circle",
-              "i18n": "nav.app_user_view"
-            },
-            {
-              "url": "app-user-edit",
-              "name": "Edit",
-              "icon": "feather icon-circle",
-              "i18n": "nav.app_user_edit"
-            }
-          ]
+          "answer": "Motocicletta o scooter",
+          "correct": false,
+          "isItemChecked": true
         }
       ]
     },
     {
-      "url": "#",
-      "name": "UI Elements",
-      "slug": "ui-elements",
-      "icon": "feather icon-layers",
-      "i18n": "UI Elements",
-      "dropdown": "1",
-      "submenu": [
+      "questionId": 100,
+      "question": {
+        "id": 100,
+        "type": "Reaction-SMC",
+        "image": "21600093648.png",
+        "video": null,
+        "created_at": "2020-09-15T13:48:16.000000Z",
+        "updated_at": "2020-09-15T13:48:16.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/21600093648.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "question": "3.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": "Auto,Moto",
+        "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+        "answers": [],
+        "translations": [
+          {
+            "id": 448,
+            "question": "3.For a second, an image containing one or more items to memorize in mind will appear on the screen. Next, a list of possible display items will appear. Barring the elements that were recognized inside the image.  When done, press the NEXT",
+            "question_id": "100",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autovehicle\",\"2 wheels vehicle\",\"Motorcycle or scooter\",\"Road Sign\",\"Traffic light\",\"Pedestrian\"]",
+            "right_answers": "Auto,Moto",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 451,
+            "question": "3.Vous allez voir plusieurs photos. Elles appara\u00eetrons pendant environ une seconde. Apr\u00e8s  chaque photo on vous demandera d'indiquer ce que vous avez vu. Apr\u00e8s avoir r\u00e9pondu appuyer sur ENVOI en bas \u00e0 droite.",
+            "question_id": "100",
+            "locale": "fr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Voiture\",\"Bicyclette\",\"Moto ou scooter\",\"panneau de signalisation\",\"Feu\",\"Pi\\u00e9ton\"]",
+            "right_answers": "\u0391\u03c5\u03c4\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf,\u039c\u03bf\u03c4\u03bf\u03c3\u03b9\u03ba\u03bb\u03ad\u03c4\u03b1",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 452,
+            "question": "3.\u0398\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1 \u03c3\u03c4\u03b7\u03bd \u03bf\u03b8\u03cc\u03bd\u03b7 \u03c0\u03bf\u03c5 \u03c0\u03b5\u03c1\u03b9\u03ad\u03c7\u03b5\u03b9 \u03ad\u03bd\u03b1 \u03ae \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03c0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b8\u03c5\u03bc\u03ac\u03c3\u03c4\u03b5 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03bf. \u03a3\u03c4\u03b7 \u03c3\u03c5\u03bd\u03ad\u03c7\u03b5\u03b9\u03b1 \u03b8\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03bb\u03af\u03c3\u03c4\u03b1 \u03c0\u03b9\u03b8\u03b1\u03bd\u03ce\u03bd \u03b1\u03bd\u03c4\u03b9\u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd. \u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03c4\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03b1\u03bd\u03b1\u03b3\u03bd\u03c9\u03c1\u03af\u03c3\u03b1\u03c4\u03b5 \u03c3\u03c4\u03b7\u03bd \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1.",
+            "question_id": "100",
+            "locale": "gr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"\\u0391\\u03c5\\u03c4\\u03bf\\u03ba\\u03af\\u03bd\\u03b7\\u03c4\\u03bf\",\"\\u0394\\u03af\\u03ba\\u03c5\\u03ba\\u03bb\\u03bf\",\"\\u039c\\u03bf\\u03c4\\u03bf\\u03c3\\u03b9\\u03ba\\u03bb\\u03ad\\u03c4\\u03b1 \\u03ae \\u03c3\\u03ba\\u03bf\\u03cd\\u03c4\\u03b5\\u03c1\",\"\\u03a0\\u03b9\\u03bd\\u03b1\\u03ba\\u03af\\u03b4\\u03b1 \\u039a\\u039f\\u039a\",\"\\u03a6\\u03b1\\u03bd\\u03ac\\u03c1\\u03b9\",\"\\u03a0\\u03b5\\u03b6\\u03cc\\u03c2\"]",
+            "right_answers": "Voiture,Moto",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 449,
+            "question": "3.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+            "question_id": "100",
+            "locale": "it",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+            "right_answers": "Auto,Moto",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 450,
+            "question": "3.Agora ver\u00e1 v\u00e1rias fotografias, que aparecem cerca de um segundo.  Ap\u00f3s cada fotografia, dever\u00e1 responder a perguntas sobre o que viu.  Ap\u00f3s ter respondido, clique no bot\u00e3o SEGUINTE em baixo \u00e0 direita.",
+            "question_id": "100",
+            "locale": "pt",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autom\\u00f3vel\",\"Bicicleta\",\"Mota ou scooter\",\"Sinal de tr\\u00e2nsito\",\"Sem\\u00e1foro\",\"Pe\\u00f5es\"]",
+            "right_answers": "Autom\u00f3vel,Mota",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Moto",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Auto",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Segnale Stradale",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Motocicletta o scooter",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Bicicletta",
+            "correct": false,
+            "isItemChecked": true
+          },
+          {
+            "answer": "Pedone",
+            "correct": false,
+            "isItemChecked": false
+          }
+        ]
+      },
+      "correct": [
         {
-          "url": "#",
-          "name": "Data List",
-          "i18n": "Data List",
-          "icon": "feather icon-list",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "data-list-view",
-              "name": "List View",
-              "i18n": "List View",
-              "icon": "feather icon-circle",
-              "slug": "data-list-view"
-            },
-            {
-              "url": "data-thumb-view",
-              "name": "Thumb View",
-              "i18n": "Thumb View",
-              "icon": "feather icon-circle",
-              "slug": "data-thumb-view"
-            }
-          ]
-        },
-        {
-          "url": "#",
-          "name": "Content",
-          "slug": "content",
-          "i18n": "Content",
-          "icon": "feather icon-layout",
-          "submenu": [
-            {
-              "url": "content-grid",
-              "name": "Grid",
-              "i18n": "Grid",
-              "icon": "feather icon-circle",
-              "slug": "content-grid"
-            },
-            {
-              "url": "content-typography",
-              "name": "Typography",
-              "i18n": "Typography",
-              "icon": "feather icon-circle",
-              "slug": "content-typography"
-            },
-            {
-              "url": "content-text-utilities",
-              "name": "Text Utilities",
-              "i18n": "Text Utilities",
-              "icon": "feather icon-circle",
-              "slug": "content-text-utilities"
-            },
-            {
-              "url": "content-syntax-highlighter",
-              "name": "Syntax Highlighter",
-              "i18n": "Syntax Highlighter",
-              "icon": "feather icon-circle",
-              "slug": "content-syntax-highlighter"
-            },
-            {
-              "url": "content-helper-classes",
-              "name": "Helper Classes",
-              "i18n": "Helper Classes",
-              "icon": "feather icon-circle",
-              "slug": "content-helper-classes"
-            }
-          ]
-        },
-        {
-          "url": "colors",
-          "name": "Colors",
-          "i18n": "Colors",
-          "icon": "feather icon-droplet",
-          "slug": "colors"
-        },
-        {
-          "url": "#",
-          "name": "Cards",
-          "i18n": "Cards",
-          "icon": "feather icon-credit-card",
-          "slug": "cards",
-          "submenu": [
-            {
-              "url": "card-basic",
-              "name": "Basic",
-              "i18n": "Basic",
-              "icon": "feather icon-circle",
-              "slug": "card-basic"
-            },
-            {
-              "url": "card-advance",
-              "name": "Advance",
-              "i18n": "Advance",
-              "icon": "feather icon-circle",
-              "slug": "card-advance"
-            },
-            {
-              "url": "card-statistics",
-              "name": "Statistics",
-              "i18n": "Statistics",
-              "icon": "feather icon-circle",
-              "slug": "card-statistics"
-            },
-            {
-              "url": "card-analytics",
-              "name": "Analytics",
-              "i18n": "Analytics",
-              "icon": "feather icon-circle",
-              "slug": "card-analytics"
-            },
-            {
-              "url": "card-actions",
-              "name": "Card Actions",
-              "i18n": "Card Actions",
-              "icon": "feather icon-circle",
-              "slug": "card-actions"
-            }
-          ]
-        },
-        {
-          "url": "#",
-          "name": "Icons",
-          "i18n": "Icons",
-          "icon": "feather icon-eye",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "icons-feather",
-              "name": "Feather",
-              "i18n": "Feather",
-              "icon": "feather icon-circle",
-              "slug": "icons-feather"
-            },
-            {
-              "url": "icons-font-awesome",
-              "name": "Font Awesome",
-              "i18n": "Font Awesome",
-              "icon": "feather icon-circle",
-              "slug": "icons-font-awesome"
-            }
-          ]
-        },
-        {
-          "url": "#",
-          "name": "Components",
-          "i18n": "Components",
-          "icon": "feather icon-briefcase",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "component-alert",
-              "name": "Alerts",
-              "i18n": "Alerts",
-              "icon": "feather icon-circle",
-              "slug": "component-alert"
-            },
-            {
-              "url": "component-buttons",
-              "name": "Buttons",
-              "i18n": "Buttons",
-              "icon": "feather icon-circle",
-              "slug": "component-buttons"
-            },
-            {
-              "url": "component-breadcrumbs",
-              "name": "Breadcrumbs",
-              "i18n": "Breadcrumbs",
-              "icon": "feather icon-circle",
-              "slug": "component-breadcrumbs"
-            },
-            {
-              "url": "component-carousel",
-              "name": "Carousel",
-              "i18n": "Carousel",
-              "icon": "feather icon-circle",
-              "slug": "component-carousel"
-            },
-            {
-              "url": "component-collapse",
-              "name": "Collapse",
-              "i18n": "Collapse",
-              "icon": "feather icon-circle",
-              "slug": "component-collapse"
-            },
-            {
-              "url": "component-dropdowns",
-              "name": "Dropdowns",
-              "i18n": "Dropdowns",
-              "icon": "feather icon-circle",
-              "slug": "component-dropdowns"
-            },
-            {
-              "url": "component-list-group",
-              "name": "List Group",
-              "i18n": "List Group",
-              "icon": "feather icon-circle",
-              "slug": "component-list-group"
-            },
-            {
-              "url": "component-modals",
-              "name": "Modals",
-              "i18n": "Modals",
-              "icon": "feather icon-circle",
-              "slug": "component-modals"
-            },
-            {
-              "url": "component-pagination",
-              "name": "Pagination",
-              "i18n": "Pagination",
-              "icon": "feather icon-circle",
-              "slug": "component-pagination"
-            },
-            {
-              "url": "component-navs",
-              "name": "Navs Component",
-              "i18n": "Navs Component",
-              "icon": "feather icon-circle",
-              "slug": "component-navs"
-            },
-            {
-              "url": "component-navbar",
-              "name": "Navbar",
-              "icon": "feather icon-circle",
-              "i18n": "Navbar",
-              "slug": "component-navbar"
-            },
-            {
-              "url": "component-tabs",
-              "name": "Tabs Component",
-              "i18n": "Tabs Component",
-              "icon": "feather icon-circle",
-              "slug": "component-tabs"
-            },
-            {
-              "url": "component-pills",
-              "name": "Pills Component",
-              "i18n": "Pills Component",
-              "icon": "feather icon-circle",
-              "slug": "component-pills"
-            },
-            {
-              "url": "component-tooltips",
-              "name": "Tooltips",
-              "i18n": "Tooltips",
-              "icon": "feather icon-circle",
-              "slug": "component-tooltips"
-            },
-            {
-              "url": "component-popovers",
-              "name": "Popovers",
-              "i18n": "Popovers",
-              "icon": "feather icon-circle",
-              "slug": "component-popovers"
-            },
-            {
-              "url": "component-badges",
-              "name": "Badges",
-              "i18n": "Badges",
-              "icon": "feather icon-circle",
-              "slug": "component-badges"
-            },
-            {
-              "url": "component-pill-badges",
-              "name": "Pill Badges",
-              "i18n": "Pill Badges",
-              "icon": "feather icon-circle",
-              "slug": "component-pill-badges"
-            },
-            {
-              "url": "component-progress",
-              "name": "Progress",
-              "i18n": "Progress",
-              "icon": "feather icon-circle",
-              "slug": "component-progress"
-            },
-            {
-              "url": "component-media-objects",
-              "name": "Media Objects",
-              "icon": "feather icon-circle",
-              "slug": "component-media-objects"
-            },
-            {
-              "url": "component-spinner",
-              "name": "Spinner",
-              "i18n": "Spinner",
-              "icon": "feather icon-circle",
-              "slug": "component-bs-spinner"
-            },
-            {
-              "url": "component-toast",
-              "name": "Toasts",
-              "i18n": "Toasts",
-              "icon": "feather icon-circle",
-              "slug": "component-toast"
-            }
-          ]
-        },
-        {
-          "url": "#",
-          "name": "Extra Components",
-          "i18n": "Extra Components",
-          "icon": "feather icon-box",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "ex-component-avatar",
-              "name": "Avatar",
-              "i18n": "Avatar",
-              "icon": "feather icon-circle",
-              "slug": "ex-component-avatar"
-            },
-            {
-              "url": "ex-component-chips",
-              "name": "Chips",
-              "i18n": "Chips",
-              "icon": "feather icon-circle",
-              "slug": "ex-component-chips"
-            },
-            {
-              "url": "ex-component-divider",
-              "name": "Divider",
-              "i18n": "Divider",
-              "icon": "feather icon-circle",
-              "slug": "ex-component-divider"
-            }
-          ]
-        },
-        {
-          "url": "#",
-          "name": "Extensions",
-          "i18n": "Extensions",
-          "icon": "feather icon-box",
-          "slug": "extensions",
-          "submenu": [
-            {
-              "url": "ext-component-sweet-alerts",
-              "name": "Sweet Alert",
-              "i18n": "Sweet Alert",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-sweet-alerts"
-            },
-            {
-              "url": "ext-component-toastr",
-              "name": "Toastr",
-              "i18n": "Toastr",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-toastr"
-            },
-            {
-              "url": "ext-component-noui-slider",
-              "name": "NoUi Slider",
-              "i18n": "NoUi Slider",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-noui-slider"
-            },
-            {
-              "url": "ext-component-file-uploader",
-              "name": "File Uploader",
-              "i18n": "File Uploader",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-file-uploader"
-            },
-            {
-              "url": "ext-component-quill-editor",
-              "name": "Quill Editor",
-              "i18n": "Quill Editor",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-quill-editor"
-            },
-            {
-              "url": "ext-component-drag-drop",
-              "name": "Drag & Drop",
-              "i18n": "Drag & Drop",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-drag-drop"
-            },
-            {
-              "url": "ext-component-tour",
-              "name": "Tour",
-              "i18n": "Tour",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-tour"
-            },
-            {
-              "url": "ext-component-clipboard",
-              "name": "Clipboard",
-              "i18n": "Clipboard",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-clipboard"
-            },
-            {
-              "url": "ext-component-plyr",
-              "name": "Media player",
-              "i18n": "Media player",
-              "icon": "feather icon-circle",
-              "slug": "Media Player"
-            },
-            {
-              "url": "ext-component-context-menu",
-              "name": "Context Menu",
-              "i18n": "Context Menu",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-context-menu"
-            },
-            {
-              "url": "ext-component-swiper",
-              "name": "Swiper",
-              "i18n": "swiper",
-              "icon": "feather icon-smartphone",
-              "slug": "nav.ext-component-swiper"
-            },
-            {
-              "url": "ext-component-i18n",
-              "name": "l18n",
-              "i18n": "l18n",
-              "icon": "feather icon-circle",
-              "slug": "ext-component-i18n"
-            }
-          ]
+          "answer": "Bicicletta",
+          "correct": false,
+          "isItemChecked": true
         }
       ]
     },
     {
-      "url": "#",
-      "name": "Forms & Tables",
-      "icon": "feather icon-edit-2",
-      "slug": "Forms & Tables",
-      "i18n": "Dashboard",
-      "dropdown": "1",
-      "submenu": [
+      "questionId": 101,
+      "question": {
+        "id": 101,
+        "type": "Reaction-SMC",
+        "image": "31600093648.jpeg",
+        "video": null,
+        "created_at": "2020-09-15T13:48:33.000000Z",
+        "updated_at": "2020-09-15T13:48:33.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/31600093648.jpeg",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "question": "4.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": "Auto,Semaforo",
+        "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+        "answers": [],
+        "translations": [
+          {
+            "id": 453,
+            "question": "4.For a second, an image containing one or more items to memorize in mind will appear on the screen. Next, a list of possible display items will appear. Barring the elements that were recognized inside the image.  When done, press the NEXT",
+            "question_id": "101",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autovehicle\",\"2 wheels vehicle\",\"Motorcycle or scooter\",\"Road Sign\",\"Traffic light\",\"Pedestrian\"]",
+            "right_answers": "Auto ,Traffic light",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 456,
+            "question": "4.Vous allez voir plusieurs photos. Elles appara\u00eetrons pendant environ une seconde. Apr\u00e8s  chaque photo on vous demandera d'indiquer ce que vous avez vu. Apr\u00e8s avoir r\u00e9pondu appuyer sur ENVOI en bas \u00e0 droite.",
+            "question_id": "101",
+            "locale": "fr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Voiture\",\"Bicyclette\",\"Moto ou scooter\",\"panneau de signalisation\",\"Feu\",\"Pi\\u00e9ton\"]",
+            "right_answers": "Voiture,Feu",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 457,
+            "question": "4.\u0398\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1 \u03c3\u03c4\u03b7\u03bd \u03bf\u03b8\u03cc\u03bd\u03b7 \u03c0\u03bf\u03c5 \u03c0\u03b5\u03c1\u03b9\u03ad\u03c7\u03b5\u03b9 \u03ad\u03bd\u03b1 \u03ae \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03c0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b8\u03c5\u03bc\u03ac\u03c3\u03c4\u03b5 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03bf. \u03a3\u03c4\u03b7 \u03c3\u03c5\u03bd\u03ad\u03c7\u03b5\u03b9\u03b1 \u03b8\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03bb\u03af\u03c3\u03c4\u03b1 \u03c0\u03b9\u03b8\u03b1\u03bd\u03ce\u03bd \u03b1\u03bd\u03c4\u03b9\u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd. \u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03c4\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03b1\u03bd\u03b1\u03b3\u03bd\u03c9\u03c1\u03af\u03c3\u03b1\u03c4\u03b5 \u03c3\u03c4\u03b7\u03bd \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1.",
+            "question_id": "101",
+            "locale": "gr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"\\u0391\\u03c5\\u03c4\\u03bf\\u03ba\\u03af\\u03bd\\u03b7\\u03c4\\u03bf\",\"\\u0394\\u03af\\u03ba\\u03c5\\u03ba\\u03bb\\u03bf\",\"\\u039c\\u03bf\\u03c4\\u03bf\\u03c3\\u03b9\\u03ba\\u03bb\\u03ad\\u03c4\\u03b1 \\u03ae \\u03c3\\u03ba\\u03bf\\u03cd\\u03c4\\u03b5\\u03c1\",\"\\u03a0\\u03b9\\u03bd\\u03b1\\u03ba\\u03af\\u03b4\\u03b1 \\u039a\\u039f\\u039a\",\"\\u03a6\\u03b1\\u03bd\\u03ac\\u03c1\\u03b9\",\"\\u03a0\\u03b5\\u03b6\\u03cc\\u03c2\"]",
+            "right_answers": "\u0391\u03c5\u03c4\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf, \u03a6\u03c9\u03c4\u03b5\u03b9\u03bd\u03cc\u03c2 \u03a3\u03b7\u03bc\u03b1\u03c4\u03bf\u03b4\u03cc\u03c4\u03b7\u03c2",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 454,
+            "question": "4.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+            "question_id": "101",
+            "locale": "it",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+            "right_answers": "Auto,Semaforo",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 455,
+            "question": "4.Agora ver\u00e1 v\u00e1rias fotografias, que aparecem cerca de um segundo.  Ap\u00f3s cada fotografia, dever\u00e1 responder a perguntas sobre o que viu.  Ap\u00f3s ter respondido, clique no bot\u00e3o SEGUINTE em baixo \u00e0 direita.",
+            "question_id": "101",
+            "locale": "pt",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autom\\u00f3vel\",\"Bicicleta\",\"Mota ou scooter\",\"Sinal de tr\\u00e2nsito\",\"Sem\\u00e1foro\",\"Pe\\u00f5es\"]",
+            "right_answers": "Autom\u00f3vel,Sem\u00e1foro",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Semaforo",
+            "correct": true,
+            "isItemChecked": true
+          },
+          {
+            "answer": "Autoveicolo",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Auto",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Segnale Stradale",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Motocicletta o scooter",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Bicicletta",
+            "correct": false,
+            "isItemChecked": false
+          }
+        ]
+      },
+      "correct": [
         {
-          "url": "#",
-          "name": "Form Elements",
-          "i18n": "Form Elements",
-          "icon": "feather icon-copy",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "form-select",
-              "name": "Select",
-              "i18n": "Select",
-              "icon": "feather icon-circle",
-              "slug": "form-select"
-            },
-            {
-              "url": "form-switch",
-              "name": "Switch",
-              "i18n": "Switch",
-              "icon": "feather icon-circle",
-              "slug": "form-switch"
-            },
-            {
-              "url": "form-checkbox",
-              "name": "Checkbox",
-              "i18n": "Checkbox",
-              "icon": "feather icon-circle",
-              "slug": "form-checkbox"
-            },
-            {
-              "url": "form-radio",
-              "name": "Radio",
-              "i18n": "Radio",
-              "icon": "feather icon-circle",
-              "slug": "form-radio"
-            },
-            {
-              "url": "form-input",
-              "name": "Input",
-              "i18n": "Input",
-              "icon": "feather icon-circle",
-              "slug": "form-input"
-            },
-            {
-              "url": "form-input-groups",
-              "name": "Input Groups",
-              "i18n": "Input Groups",
-              "icon": "feather icon-circle",
-              "slug": "form-input-groups"
-            },
-            {
-              "url": "form-number-input",
-              "name": "Number Input",
-              "i18n": "Number Input",
-              "icon": "feather icon-circle",
-              "slug": "form-number-input"
-            },
-            {
-              "url": "form-textarea",
-              "name": "Textarea",
-              "i18n": "Textarea",
-              "icon": "feather icon-circle",
-              "slug": "form-textarea"
-            },
-            {
-              "url": "form-date-time-picker",
-              "name": "Date & Time Picker",
-              "i18n": "Date & Time Picker",
-              "icon": "feather icon-circle",
-              "slug": "form-date-time-picker"
-            }
-          ]
-        },
-        {
-          "url": "form-layout",
-          "name": "Form Layout",
-          "i18n": "Form Layout",
-          "icon": "feather icon-box",
-          "slug": "form-layout"
-        },
-        {
-          "url": "form-wizard",
-          "name": "Form Wizard",
-          "i18n": "Form Wizard",
-          "icon": "feather icon-package",
-          "slug": "form-wizard"
-        },
-        {
-          "url": "form-validation",
-          "name": "Form Validation",
-          "i18n": "Form Validation",
-          "icon": "feather icon-check-circle",
-          "slug": "form-validation"
-        },
-        {
-          "url": "table",
-          "name": "Table",
-          "i18n": "Table",
-          "icon": "feather icon-server",
-          "slug": "table"
-        },
-        {
-          "url": "table-datatable",
-          "name": "Datatable",
-          "i18n": "Datatable",
-          "icon": "feather icon-grid",
-          "slug": "table-datatable"
-        },
-        {
-          "url": "table-ag-grid",
-          "name": "agGrid Table",
-          "icon": "feather icon-grid",
-          "i18n": "nav.table_ag_grid",
-          "slug": "table-ag-grid"
+          "answer": "Semaforo",
+          "correct": true,
+          "isItemChecked": true
         }
       ]
     },
     {
-      "url": "#",
-      "name": "Pages",
-      "icon": "feather icon-file",
-      "slug": "pages",
-      "i18n": "Pages",
-      "dropdown": "1",
-      "submenu": [
+      "questionId": 102,
+      "question": {
+        "id": 102,
+        "type": "Reaction-SMC",
+        "image": "1600098640.png",
+        "video": null,
+        "created_at": "2020-09-15T13:51:29.000000Z",
+        "updated_at": "2020-09-15T13:51:29.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1600098640.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "question": "5.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": "Auto, Semaforo, Segnale Stradale",
+        "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+        "answers": [],
+        "translations": [
+          {
+            "id": 458,
+            "question": "5.For a second, an image containing one or more items to memorize in mind will appear on the screen. Next, a list of possible display items will appear. Barring the elements that were recognized inside the image.  When done, press the NEXT",
+            "question_id": "102",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autovehicle\",\"2 wheels vehicle\",\"Motorcycle or scooter\",\"Road Sign\",\"Traffic light\",\"Pedestrian\"]",
+            "right_answers": "Auto, Traffic light, Road Sign",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 461,
+            "question": "5.Vous allez voir plusieurs photos. Elles appara\u00eetrons pendant environ une seconde. Apr\u00e8s  chaque photo on vous demandera d'indiquer ce que vous avez vu. Apr\u00e8s avoir r\u00e9pondu appuyer sur ENVOI en bas \u00e0 droite.",
+            "question_id": "102",
+            "locale": "fr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Voiture\",\"Bicyclette\",\"Moto ou scooter\",\"panneau de signalisation\",\"Feu\",\"Pi\\u00e9ton\"]",
+            "right_answers": "Voiture, Feu, panneau de signalisation",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 462,
+            "question": "5.\u0398\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1 \u03c3\u03c4\u03b7\u03bd \u03bf\u03b8\u03cc\u03bd\u03b7 \u03c0\u03bf\u03c5 \u03c0\u03b5\u03c1\u03b9\u03ad\u03c7\u03b5\u03b9 \u03ad\u03bd\u03b1 \u03ae \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03c0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b8\u03c5\u03bc\u03ac\u03c3\u03c4\u03b5 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03bf. \u03a3\u03c4\u03b7 \u03c3\u03c5\u03bd\u03ad\u03c7\u03b5\u03b9\u03b1 \u03b8\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03bb\u03af\u03c3\u03c4\u03b1 \u03c0\u03b9\u03b8\u03b1\u03bd\u03ce\u03bd \u03b1\u03bd\u03c4\u03b9\u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd. \u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03c4\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03b1\u03bd\u03b1\u03b3\u03bd\u03c9\u03c1\u03af\u03c3\u03b1\u03c4\u03b5 \u03c3\u03c4\u03b7\u03bd \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1.",
+            "question_id": "102",
+            "locale": "gr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"\\u0391\\u03c5\\u03c4\\u03bf\\u03ba\\u03af\\u03bd\\u03b7\\u03c4\\u03bf\",\"\\u0394\\u03af\\u03ba\\u03c5\\u03ba\\u03bb\\u03bf\",\"\\u039c\\u03bf\\u03c4\\u03bf\\u03c3\\u03b9\\u03ba\\u03bb\\u03ad\\u03c4\\u03b1 \\u03ae \\u03c3\\u03ba\\u03bf\\u03cd\\u03c4\\u03b5\\u03c1\",\"\\u03a0\\u03b9\\u03bd\\u03b1\\u03ba\\u03af\\u03b4\\u03b1 \\u039a\\u039f\\u039a\",\"\\u03a6\\u03b1\\u03bd\\u03ac\\u03c1\\u03b9\",\"\\u03a0\\u03b5\\u03b6\\u03cc\\u03c2\"]",
+            "right_answers": "\u0391\u03c5\u03c4\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf, \u03a6\u03b1\u03bd\u03ac\u03c1\u03b9, \u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 \u039a\u039f\u039a",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 459,
+            "question": "5.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+            "question_id": "102",
+            "locale": "it",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+            "right_answers": "Auto, Semaforo, Segnale Stradale",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 460,
+            "question": "5.Agora ver\u00e1 v\u00e1rias fotografias, que aparecem cerca de um segundo.  Ap\u00f3s cada fotografia, dever\u00e1 responder a perguntas sobre o que viu.  Ap\u00f3s ter respondido, clique no bot\u00e3o SEGUINTE em baixo \u00e0 direita.",
+            "question_id": "102",
+            "locale": "pt",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autom\\u00f3vel\",\"Bicicleta\",\"Mota ou scooter\",\"Sinal de tr\\u00e2nsito\",\"Sem\\u00e1foro\",\"Pe\\u00f5es\"]",
+            "right_answers": "Autom\u00f3vel, Sem\u00e1foro, Sinal de tr\u00e2nsito",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Autoveicolo",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Segnale Stradale",
+            "correct": true,
+            "isItemChecked": true
+          },
+          {
+            "answer": "Semaforo",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Bicicletta",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Pedone",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Auto",
+            "correct": true,
+            "isItemChecked": false
+          }
+        ]
+      },
+      "correct": [
         {
-          "url": "page-user-profile",
-          "name": "Profile",
-          "i18n": "Profile",
-          "icon": "feather icon-user",
-          "slug": "user-profile"
-        },
-        {
-          "url": "page-account-settings",
-          "name": "Account Settings",
-          "icon": "feather icon-settings",
-          "i18n": "nav.page_account_settings"
-        },
-        {
-          "url": "page-faq",
-          "name": "FAQ",
-          "i18n": "FAQ",
-          "icon": "feather icon-help-circle",
-          "slug": "faq"
-        },
-        {
-          "url": "page-knowledge-base",
-          "name": "Knowledge Base",
-          "i18n": "Knowledge Base",
-          "icon": "feather icon-info",
-          "slug": "knowledge-base"
-        },
-        {
-          "url": "page-search",
-          "name": "Search",
-          "i18n": "Search",
-          "icon": "feather icon-search",
-          "slug": "search-page"
-        },
-        {
-          "url": "page-invoice",
-          "name": "Invoice",
-          "i18n": "Invoice",
-          "icon": "feather icon-file",
-          "slug": "invoice"
-        },
-        {
-          "url": "pricing",
-          "name": "Pricing",
-          "i18n": "pricing",
-          "icon": "fa fa-money",
-          "slug": "invoice"
-        },
-        {
-          "url": "#",
-          "name": "Authentication",
-          "i18n": "Authentication",
-          "icon": "feather icon-unlock",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "auth-login",
-              "name": "Login",
-              "i18n": "Login",
-              "icon": "feather icon-circle",
-              "slug": "login"
-            },
-            {
-              "url": "auth-register",
-              "name": "Register",
-              "i18n": "Register",
-              "icon": "feather icon-circle",
-              "slug": "register"
-            },
-            {
-              "url": "auth-forgot-password",
-              "name": "Forgot Password",
-              "i18n": "Forgot Password",
-              "icon": "feather icon-circle",
-              "slug": "forgot-password"
-            },
-            {
-              "url": "auth-reset-password",
-              "name": "Reset Password",
-              "i18n": "Reset Password",
-              "icon": "feather icon-circle",
-              "slug": "reset-password"
-            },
-            {
-              "url": "auth-lock-screen",
-              "name": "Lock Screen",
-              "i18n": "Lock Screen",
-              "icon": "feather icon-circle",
-              "slug": "lock-screen"
-            }
-          ]
-        },
-        {
-          "url": "#",
-          "name": "Miscellaneous",
-          "i18n": "Miscellaneous",
-          "icon": "feather icon-file-text",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "page-coming-soon",
-              "name": "Coming Soon",
-              "i18n": "Coming Soon",
-              "icon": "feather icon-circle",
-              "slug": "coming-soon"
-            },
-            {
-              "url": "error-404",
-              "name": "Error 404",
-              "i18n": "404",
-              "icon": "feather icon-circle",
-              "slug": "error-404"
-            },
-            {
-              "url": "error-500",
-              "name": "Error 500",
-              "i18n": "500",
-              "icon": "feather icon-circle",
-              "slug": "error-500"
-            },
-            {
-              "url": "page-not-authorized",
-              "name": "Not Authorized",
-              "i18n": "Not Authorized",
-              "icon": "feather icon-circle",
-              "slug": "not-authorized"
-            },
-            {
-              "url": "page-maintenance",
-              "name": "Maintenance",
-              "i18n": "Maintenance",
-              "icon": "feather icon-circle",
-              "slug": "maintenance"
-            }
-          ]
+          "answer": "Segnale Stradale",
+          "correct": true,
+          "isItemChecked": true
         }
       ]
     },
     {
-      "url": "#",
-      "name": "Charts & Maps",
-      "icon": "feather icon-bar-chart-2",
-      "slug": "chart",
-      "i18n": "Charts & Maps",
-      "dropdown": "1",
-      "submenu": [
+      "questionId": 104,
+      "question": {
+        "id": 104,
+        "type": "Reaction-SMC",
+        "image": "1600178121.png",
+        "video": null,
+        "created_at": "2020-09-15T13:55:21.000000Z",
+        "updated_at": "2020-09-15T13:55:21.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1600178121.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "question": "6.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": "Auto, Semaforo, Bicicletta",
+        "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+        "answers": [],
+        "translations": [
+          {
+            "id": 468,
+            "question": "6.For a second, an image containing one or more items to memorize in mind will appear on the screen. Next, a list of possible display items will appear. Barring the elements that were recognized inside the image.  When done, press the NEXT",
+            "question_id": "104",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autovehicle\",\"2 wheels vehicle\",\"Motorcycle or scooter\",\"Road Sign\",\"Traffic light\",\"Pedestrian\"]",
+            "right_answers": "Auto, Traffic light, 2 wheels vehicle",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 471,
+            "question": "6.Vous allez voir plusieurs photos. Elles appara\u00eetrons pendant environ une seconde. Apr\u00e8s  chaque photo on vous demandera d'indiquer ce que vous avez vu. Apr\u00e8s avoir r\u00e9pondu appuyer sur ENVOI en bas \u00e0 droite.",
+            "question_id": "104",
+            "locale": "fr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Voiture\",\"Bicyclette\",\"Moto ou scooter\",\"panneau de signalisation\",\"Feu\",\"Pi\\u00e9ton\"]",
+            "right_answers": "Voiture, Feu, Bicyclette",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 472,
+            "question": "6.\u0398\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1 \u03c3\u03c4\u03b7\u03bd \u03bf\u03b8\u03cc\u03bd\u03b7 \u03c0\u03bf\u03c5 \u03c0\u03b5\u03c1\u03b9\u03ad\u03c7\u03b5\u03b9 \u03ad\u03bd\u03b1 \u03ae \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03c0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b8\u03c5\u03bc\u03ac\u03c3\u03c4\u03b5 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03bf. \u03a3\u03c4\u03b7 \u03c3\u03c5\u03bd\u03ad\u03c7\u03b5\u03b9\u03b1 \u03b8\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03bb\u03af\u03c3\u03c4\u03b1 \u03c0\u03b9\u03b8\u03b1\u03bd\u03ce\u03bd \u03b1\u03bd\u03c4\u03b9\u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd. \u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03c4\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03b1\u03bd\u03b1\u03b3\u03bd\u03c9\u03c1\u03af\u03c3\u03b1\u03c4\u03b5 \u03c3\u03c4\u03b7\u03bd \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1.",
+            "question_id": "104",
+            "locale": "gr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"\\u0391\\u03c5\\u03c4\\u03bf\\u03ba\\u03af\\u03bd\\u03b7\\u03c4\\u03bf\",\"\\u0394\\u03af\\u03ba\\u03c5\\u03ba\\u03bb\\u03bf\",\"\\u039c\\u03bf\\u03c4\\u03bf\\u03c3\\u03b9\\u03ba\\u03bb\\u03ad\\u03c4\\u03b1 \\u03ae \\u03c3\\u03ba\\u03bf\\u03cd\\u03c4\\u03b5\\u03c1\",\"\\u03a0\\u03b9\\u03bd\\u03b1\\u03ba\\u03af\\u03b4\\u03b1 \\u039a\\u039f\\u039a\",\"\\u03a6\\u03b1\\u03bd\\u03ac\\u03c1\\u03b9\",\"\\u03a0\\u03b5\\u03b6\\u03cc\\u03c2\"]",
+            "right_answers": "\u0391\u03c5\u03c4\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf, \u03a6\u03b1\u03bd\u03ac\u03c1\u03b9, \u0394\u03af\u03ba\u03c5\u03ba\u03bb\u03bf",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 469,
+            "question": "6.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+            "question_id": "104",
+            "locale": "it",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+            "right_answers": "Auto, Semaforo, Bicicletta",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 470,
+            "question": "6.Agora ver\u00e1 v\u00e1rias fotografias, que aparecem cerca de um segundo.  Ap\u00f3s cada fotografia, dever\u00e1 responder a perguntas sobre o que viu.  Ap\u00f3s ter respondido, clique no bot\u00e3o SEGUINTE em baixo \u00e0 direita.",
+            "question_id": "104",
+            "locale": "pt",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autom\\u00f3vel\",\"Bicicleta\",\"Mota ou scooter\",\"Sinal de tr\\u00e2nsito\",\"Sem\\u00e1foro\",\"Pe\\u00f5es\"]",
+            "right_answers": "Autom\u00f3vel, Sem\u00e1foro, Bicicleta",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Bicicletta",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Autoveicolo",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Motocicletta o scooter",
+            "correct": false,
+            "isItemChecked": true
+          },
+          {
+            "answer": "Auto",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Pedone",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Semaforo",
+            "correct": true,
+            "isItemChecked": false
+          }
+        ]
+      },
+      "correct": [
         {
-          "url": "#",
-          "name": "Charts",
-          "i18n": "Charts",
-          "icon": "feather icon-pie-chart",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "chart-apex",
-              "name": "Apex",
-              "i18n": "Apex",
-              "icon": "feather icon-circle",
-              "slug": "chart-apex"
-            },
-            {
-              "url": "chart-chartjs",
-              "name": "Chartjs",
-              "i18n": "Chartjs",
-              "icon": "feather icon-circle",
-              "slug": "chart-chartjs"
-            },
-            {
-              "url": "chart-echarts",
-              "name": "Echarts",
-              "i18n": "Echarts",
-              "icon": "feather icon-circle",
-              "slug": "chart-echarts"
-            }
-          ]
-        },
-        {
-          "url": "maps-google",
-          "name": "Google Maps",
-          "i18n": "Google Maps",
-          "icon": "feather icon-map",
-          "slug": "maps-google"
+          "answer": "Motocicletta o scooter",
+          "correct": false,
+          "isItemChecked": true
         }
       ]
     },
     {
-      "url": "#",
-      "name": "Others",
-      "icon": "feather icon-more-horizontal",
-      "slug": "others",
-      "i18n": "Others",
-      "dropdown": "1",
-      "submenu": [
+      "questionId": 105,
+      "question": {
+        "id": 105,
+        "type": "Reaction-SMC",
+        "image": "1600098950.png",
+        "video": null,
+        "created_at": "2020-09-15T13:55:46.000000Z",
+        "updated_at": "2020-09-15T13:55:46.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1600098950.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "question": "7.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": "Auto, Pedone, Segnale Stradale",
+        "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+        "answers": [],
+        "translations": [
+          {
+            "id": 473,
+            "question": "7.For a second, an image containing one or more items to memorize in mind will appear on the screen. Next, a list of possible display items will appear. Barring the elements that were recognized inside the image.  When done, press the NEXT",
+            "question_id": "105",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autovehicle\",\"2 wheels vehicle\",\"Motorcycle or scooter\",\"Road Sign\",\"Traffic light\",\"Pedestrian\"]",
+            "right_answers": "Autovehicle, Pedestrian, Road Sign",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 476,
+            "question": "7.Vous allez voir plusieurs photos. Elles appara\u00eetrons pendant environ une seconde. Apr\u00e8s  chaque photo on vous demandera d'indiquer ce que vous avez vu. Apr\u00e8s avoir r\u00e9pondu appuyer sur ENVOI en bas \u00e0 droite.",
+            "question_id": "105",
+            "locale": "fr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Voiture\",\"Bicyclette\",\"Moto ou scooter\",\"panneau de signalisation\",\"Feu\",\"Pi\\u00e9ton\"]",
+            "right_answers": "Voiture, Pi\u00e9ton, panneau de signalisation",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 477,
+            "question": "7.\u0398\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1 \u03c3\u03c4\u03b7\u03bd \u03bf\u03b8\u03cc\u03bd\u03b7 \u03c0\u03bf\u03c5 \u03c0\u03b5\u03c1\u03b9\u03ad\u03c7\u03b5\u03b9 \u03ad\u03bd\u03b1 \u03ae \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03c0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b8\u03c5\u03bc\u03ac\u03c3\u03c4\u03b5 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03bf. \u03a3\u03c4\u03b7 \u03c3\u03c5\u03bd\u03ad\u03c7\u03b5\u03b9\u03b1 \u03b8\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03bb\u03af\u03c3\u03c4\u03b1 \u03c0\u03b9\u03b8\u03b1\u03bd\u03ce\u03bd \u03b1\u03bd\u03c4\u03b9\u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd. \u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03c4\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03b1\u03bd\u03b1\u03b3\u03bd\u03c9\u03c1\u03af\u03c3\u03b1\u03c4\u03b5 \u03c3\u03c4\u03b7\u03bd \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1.",
+            "question_id": "105",
+            "locale": "gr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"\\u0391\\u03c5\\u03c4\\u03bf\\u03ba\\u03af\\u03bd\\u03b7\\u03c4\\u03bf\",\"\\u0394\\u03af\\u03ba\\u03c5\\u03ba\\u03bb\\u03bf\",\"\\u039c\\u03bf\\u03c4\\u03bf\\u03c3\\u03b9\\u03ba\\u03bb\\u03ad\\u03c4\\u03b1 \\u03ae \\u03c3\\u03ba\\u03bf\\u03cd\\u03c4\\u03b5\\u03c1\",\"\\u03a0\\u03b9\\u03bd\\u03b1\\u03ba\\u03af\\u03b4\\u03b1 \\u039a\\u039f\\u039a\",\"\\u03a6\\u03b1\\u03bd\\u03ac\\u03c1\\u03b9\",\"\\u03a0\\u03b5\\u03b6\\u03cc\\u03c2\"]",
+            "right_answers": "\u0391\u03c5\u03c4\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf, \u03a0\u03b5\u03b6\u03cc\u03c2, \u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 \u039a\u039f\u039a",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 474,
+            "question": "7.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+            "question_id": "105",
+            "locale": "it",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+            "right_answers": "Auto, Pedone, Segnale Stradale",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 475,
+            "question": "7.Agora ver\u00e1 v\u00e1rias fotografias, que aparecem cerca de um segundo.  Ap\u00f3s cada fotografia, dever\u00e1 responder a perguntas sobre o que viu.  Ap\u00f3s ter respondido, clique no bot\u00e3o SEGUINTE em baixo \u00e0 direita.",
+            "question_id": "105",
+            "locale": "pt",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autom\\u00f3vel\",\"Bicicleta\",\"Mota ou scooter\",\"Sinal de tr\\u00e2nsito\",\"Sem\\u00e1foro\",\"Pe\\u00f5es\"]",
+            "right_answers": "Autom\u00f3vel, Pe\u00f5es, Sinal de tr\u00e2nsito",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Auto",
+            "correct": true,
+            "isItemChecked": true
+          },
+          {
+            "answer": "Pedone",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Bicicletta",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Autoveicolo",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Semaforo",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Segnale Stradale",
+            "correct": true,
+            "isItemChecked": false
+          }
+        ]
+      },
+      "correct": [
         {
-          "url": "#",
-          "name": "Menu Levels",
-          "i18n": "Menu Levels",
-          "icon": "feather icon-menu",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "#",
-              "name": "Second Level",
-              "i18n": "Second Level",
-              "icon": "feather icon-circle",
-              "slug": ""
-            },
-            {
-              "url": "#",
-              "name": "Second Level",
-              "i18n": "Second Level",
-              "icon": "feather icon-circle",
-              "slug": "",
-              "submenu": [
-                {
-                  "url": "#",
-                  "name": "Third Level",
-                  "i18n": "Third Level",
-                  "icon": "feather icon-circle",
-                  "slug": ""
-                },
-                {
-                  "url": "#",
-                  "name": "Third Level",
-                  "i18n": "Third Level",
-                  "icon": "feather icon-circle",
-                  "slug": ""
-                }
-              ]
-            }
-          ]
-        },
+          "answer": "Auto",
+          "correct": true,
+          "isItemChecked": true
+        }
+      ]
+    },
+    {
+      "questionId": 106,
+      "question": {
+        "id": 106,
+        "type": "Reaction-SMC",
+        "image": "11600093648.png",
+        "video": null,
+        "created_at": "2020-09-15T13:56:25.000000Z",
+        "updated_at": "2020-09-15T13:56:25.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/11600093648.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "question": "8.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": "Auto, Pedone",
+        "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+        "answers": [],
+        "translations": [
+          {
+            "id": 478,
+            "question": "8.For a second, an image containing one or more items to memorize in mind will appear on the screen. Next, a list of possible display items will appear. Barring the elements that were recognized inside the image.  When done, press the NEXT",
+            "question_id": "106",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autovehicle\",\"2 wheels vehicle\",\"Motorcycle or scooter\",\"Road Sign\",\"Traffic light\",\"Pedestrian\"]",
+            "right_answers": "Autovehicle, Pedestrian",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 481,
+            "question": "8.Vous allez voir plusieurs photos. Elles appara\u00eetrons pendant environ une seconde. Apr\u00e8s  chaque photo on vous demandera d'indiquer ce que vous avez vu. Apr\u00e8s avoir r\u00e9pondu appuyer sur ENVOI en bas \u00e0 droite.",
+            "question_id": "106",
+            "locale": "fr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Voiture\",\"Bicyclette\",\"Moto ou scooter\",\"panneau de signalisation\",\"Feu\",\"Pi\\u00e9ton\"]",
+            "right_answers": "Voiture, Pi\u00e9ton",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 482,
+            "question": "8.\u0398\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1 \u03c3\u03c4\u03b7\u03bd \u03bf\u03b8\u03cc\u03bd\u03b7 \u03c0\u03bf\u03c5 \u03c0\u03b5\u03c1\u03b9\u03ad\u03c7\u03b5\u03b9 \u03ad\u03bd\u03b1 \u03ae \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03c0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b8\u03c5\u03bc\u03ac\u03c3\u03c4\u03b5 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03bf. \u03a3\u03c4\u03b7 \u03c3\u03c5\u03bd\u03ad\u03c7\u03b5\u03b9\u03b1 \u03b8\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03bb\u03af\u03c3\u03c4\u03b1 \u03c0\u03b9\u03b8\u03b1\u03bd\u03ce\u03bd \u03b1\u03bd\u03c4\u03b9\u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd. \u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03c4\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03b1\u03bd\u03b1\u03b3\u03bd\u03c9\u03c1\u03af\u03c3\u03b1\u03c4\u03b5 \u03c3\u03c4\u03b7\u03bd \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1.",
+            "question_id": "106",
+            "locale": "gr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"\\u0391\\u03c5\\u03c4\\u03bf\\u03ba\\u03af\\u03bd\\u03b7\\u03c4\\u03bf\",\"\\u0394\\u03af\\u03ba\\u03c5\\u03ba\\u03bb\\u03bf\",\"\\u039c\\u03bf\\u03c4\\u03bf\\u03c3\\u03b9\\u03ba\\u03bb\\u03ad\\u03c4\\u03b1 \\u03ae \\u03c3\\u03ba\\u03bf\\u03cd\\u03c4\\u03b5\\u03c1\",\"\\u03a0\\u03b9\\u03bd\\u03b1\\u03ba\\u03af\\u03b4\\u03b1 \\u039a\\u039f\\u039a\",\"\\u03a6\\u03b1\\u03bd\\u03ac\\u03c1\\u03b9\",\"\\u03a0\\u03b5\\u03b6\\u03cc\\u03c2\"]",
+            "right_answers": "\u0391\u03c5\u03c4\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf, \u03a0\u03b5\u03b6\u03cc\u03c2",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 479,
+            "question": "8.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+            "question_id": "106",
+            "locale": "it",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+            "right_answers": "Auto, Pedone",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 480,
+            "question": "8.Agora ver\u00e1 v\u00e1rias fotografias, que aparecem cerca de um segundo.  Ap\u00f3s cada fotografia, dever\u00e1 responder a perguntas sobre o que viu.  Ap\u00f3s ter respondido, clique no bot\u00e3o SEGUINTE em baixo \u00e0 direita.",
+            "question_id": "106",
+            "locale": "pt",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autom\\u00f3vel\",\"Bicicleta\",\"Mota ou scooter\",\"Sinal de tr\\u00e2nsito\",\"Sem\\u00e1foro\",\"Pe\\u00f5es\"]",
+            "right_answers": "Autom\u00f3vel, Pe\u00f5es",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Segnale Stradale",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Pedone",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Autoveicolo",
+            "correct": false,
+            "isItemChecked": true
+          },
+          {
+            "answer": "Auto",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Bicicletta",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Semaforo",
+            "correct": false,
+            "isItemChecked": false
+          }
+        ]
+      },
+      "correct": [
         {
-          "url": "",
-          "name": "Disabled Menu",
-          "i18n": "Disabled Menu",
-          "icon": "feather icon-eye-off",
-          "slug": "",
-          "classlist": "disabled"
-        },
+          "answer": "Autoveicolo",
+          "correct": false,
+          "isItemChecked": true
+        }
+      ]
+    },
+    {
+      "questionId": 107,
+      "question": {
+        "id": 107,
+        "type": "Reaction-SMC",
+        "image": "1600099080.png",
+        "video": null,
+        "created_at": "2020-09-15T14:01:57.000000Z",
+        "updated_at": "2020-09-15T14:01:57.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/1600099080.png",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "question": "9.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": "Auto, Pedone, Segnale Stradale",
+        "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+        "answers": [],
+        "translations": [
+          {
+            "id": 483,
+            "question": "9.For a second, an image containing one or more items to memorize in mind will appear on the screen. Next, a list of possible display items will appear. Barring the elements that were recognized inside the image.  When done, press the NEXT",
+            "question_id": "107",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autovehicle\",\"2 wheels vehicle\",\"Motorcycle or scooter\",\"Road Sign\",\"Traffic light\",\"Pedestrian\"]",
+            "right_answers": "Autovehicle, Pedestrian, Road Sign",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 486,
+            "question": "9.Vous allez voir plusieurs photos. Elles appara\u00eetrons pendant environ une seconde. Apr\u00e8s  chaque photo on vous demandera d'indiquer ce que vous avez vu. Apr\u00e8s avoir r\u00e9pondu appuyer sur ENVOI en bas \u00e0 droite.",
+            "question_id": "107",
+            "locale": "fr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Voiture\",\"Bicyclette\",\"Moto ou scooter\",\"panneau de signalisation\",\"Feu\",\"Pi\\u00e9ton\"]",
+            "right_answers": "Voiture, Pi\u00e9ton, panneau de signalisation",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 487,
+            "question": "9.\u0398\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1 \u03c3\u03c4\u03b7\u03bd \u03bf\u03b8\u03cc\u03bd\u03b7 \u03c0\u03bf\u03c5 \u03c0\u03b5\u03c1\u03b9\u03ad\u03c7\u03b5\u03b9 \u03ad\u03bd\u03b1 \u03ae \u03c0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03c0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b8\u03c5\u03bc\u03ac\u03c3\u03c4\u03b5 \u03b3\u03b9\u03b1 \u03ad\u03bd\u03b1 \u03b4\u03b5\u03c5\u03c4\u03b5\u03c1\u03cc\u03bb\u03b5\u03c0\u03c4\u03bf. \u03a3\u03c4\u03b7 \u03c3\u03c5\u03bd\u03ad\u03c7\u03b5\u03b9\u03b1 \u03b8\u03b1 \u03b5\u03bc\u03c6\u03b1\u03bd\u03b9\u03c3\u03c4\u03b5\u03af \u03bc\u03b9\u03b1 \u03bb\u03af\u03c3\u03c4\u03b1 \u03c0\u03b9\u03b8\u03b1\u03bd\u03ce\u03bd \u03b1\u03bd\u03c4\u03b9\u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03c9\u03bd. \u0395\u03c0\u03b9\u03bb\u03ad\u03be\u03c4\u03b5 \u03c4\u03b1 \u03c3\u03c4\u03bf\u03b9\u03c7\u03b5\u03af\u03b1 \u03c0\u03bf\u03c5 \u03b1\u03bd\u03b1\u03b3\u03bd\u03c9\u03c1\u03af\u03c3\u03b1\u03c4\u03b5 \u03c3\u03c4\u03b7\u03bd \u03b5\u03b9\u03ba\u03cc\u03bd\u03b1.",
+            "question_id": "107",
+            "locale": "gr",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"\\u0391\\u03c5\\u03c4\\u03bf\\u03ba\\u03af\\u03bd\\u03b7\\u03c4\\u03bf\",\"\\u0394\\u03af\\u03ba\\u03c5\\u03ba\\u03bb\\u03bf\",\"\\u039c\\u03bf\\u03c4\\u03bf\\u03c3\\u03b9\\u03ba\\u03bb\\u03ad\\u03c4\\u03b1 \\u03ae \\u03c3\\u03ba\\u03bf\\u03cd\\u03c4\\u03b5\\u03c1\",\"\\u03a0\\u03b9\\u03bd\\u03b1\\u03ba\\u03af\\u03b4\\u03b1 \\u039a\\u039f\\u039a\",\"\\u03a6\\u03b1\\u03bd\\u03ac\\u03c1\\u03b9\",\"\\u03a0\\u03b5\\u03b6\\u03cc\\u03c2\"]",
+            "right_answers": "\u0391\u03c5\u03c4\u03bf\u03ba\u03af\u03bd\u03b7\u03c4\u03bf, \u03a0\u03b5\u03b6\u03cc\u03c2, \u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 \u039a\u039f\u039a",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 484,
+            "question": "9.Adesso vedrai diverse foto. Appariranno per circa un secondo. Dopo ogni foto ti verr\u00e0 chiesto di indicare cosa hai visto. Dopo che hai risposto schiaccia AVANTI in basso a destra",
+            "question_id": "107",
+            "locale": "it",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autoveicolo\",\"Bicicletta\",\"Motocicletta o scooter\",\"Segnale Stradale\",\"Semaforo\",\"Pedone\"]",
+            "right_answers": "Auto, Pedone, Segnale Stradale",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          },
+          {
+            "id": 485,
+            "question": "9.Agora ver\u00e1 v\u00e1rias fotografias, que aparecem cerca de um segundo.  Ap\u00f3s cada fotografia, dever\u00e1 responder a perguntas sobre o que viu.  Ap\u00f3s ter respondido, clique no bot\u00e3o SEGUINTE em baixo \u00e0 direita.",
+            "question_id": "107",
+            "locale": "pt",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Autom\\u00f3vel\",\"Bicicleta\",\"Mota ou scooter\",\"Sinal de tr\\u00e2nsito\",\"Sem\\u00e1foro\",\"Pe\\u00f5es\"]",
+            "right_answers": "Autom\u00f3vel, Pe\u00f5es, Sinal de tr\u00e2nsito",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "shuffled": [
+          {
+            "answer": "Segnale Stradale",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Pedone",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Semaforo",
+            "correct": false,
+            "isItemChecked": true
+          },
+          {
+            "answer": "Autoveicolo",
+            "correct": false,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Auto",
+            "correct": true,
+            "isItemChecked": false
+          },
+          {
+            "answer": "Motocicletta o scooter",
+            "correct": false,
+            "isItemChecked": false
+          }
+        ]
+      },
+      "correct": [
         {
-          "url": "https://weeneet.com/demo/vuexy-html-bootstrap-admin-template/documentation/documentation-laravel.html",
-          "name": "Documentation",
-          "i18n": "Documentation",
-          "slug": "documentation",
-          "icon": "feather icon-folder"
-        },
-        {
-          "url": "https://weeneet.ticksy.com/",
-          "name": "Raise Support",
-          "i18n": "Raise Support",
-          "slug": "support-raise-support",
-          "icon": "feather icon-life-buoy"
+          "answer": "Semaforo",
+          "correct": false,
+          "isItemChecked": true
         }
       ]
     }
-  ]
+  ],
+  "Hazard": [],
+  "Hazard-Perception": [
+    {
+      "questionId": 18,
+      "question": {
+        "id": 18,
+        "type": "Hazard-Perception",
+        "image": null,
+        "video": "1597764219.mp4",
+        "created_at": "2020-08-18T15:23:39.000000Z",
+        "updated_at": "2020-08-18T15:23:39.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1597764219.mp4",
+        "question": null,
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 496,
+            "question": null,
+            "question_id": "18",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Pedone\",\"Smart nella rotonda\"]",
+            "right_answers": "[\"7\",\"11\"]",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      }
+    },
+    {
+      "questionId": 35,
+      "question": {
+        "id": 35,
+        "type": "Hazard-Perception",
+        "image": null,
+        "video": "1599922441.mp4",
+        "created_at": "2020-09-04T13:54:21.000000Z",
+        "updated_at": "2020-09-12T14:54:01.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1599922441.mp4",
+        "question": null,
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 497,
+            "question": null,
+            "question_id": "35",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Pedoni\",\"Pedone che varia\"]",
+            "right_answers": "[\"38.5\",\"60\"]",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "pressed": [
+          "00:06",
+          "00:09",
+          "00:35",
+          "00:43",
+          "00:59"
+        ]
+      },
+      "correct": [
+        "00:06",
+        "00:09",
+        "00:39",
+        "00:43",
+        "00:59"
+      ]
+    },
+    {
+      "questionId": 51,
+      "question": {
+        "id": 51,
+        "type": "Hazard-Perception",
+        "image": null,
+        "video": "1599922476.mp4",
+        "created_at": "2020-09-12T14:54:36.000000Z",
+        "updated_at": "2020-09-12T14:54:36.000000Z",
+        "group_id": null,
+        "image_path": "https:\/\/dev.hpt.training\/uploads\/image\/default.jpg",
+        "video_path": "https:\/\/dev.hpt.training\/uploads\/video\/1599922476.mp4",
+        "question": null,
+        "right_answer": null,
+        "wrongans_1": null,
+        "wrongans_2": null,
+        "wrongans_3": null,
+        "right_answers": null,
+        "wrong_answers": null,
+        "answers": [],
+        "translations": [
+          {
+            "id": 495,
+            "question": null,
+            "question_id": "51",
+            "locale": "en",
+            "right_answer": null,
+            "wrongans_1": null,
+            "wrongans_2": null,
+            "wrongans_3": null,
+            "wrong_answers": "[\"Giardiniere\",\"Pedone e scooter\",\"Pedoni con il rosso\",null]",
+            "right_answers": "[\"5\",\"12.5\",\"41\",null]",
+            "img_answers": null,
+            "created_at": null,
+            "updated_at": null
+          }
+        ],
+        "pressed": [
+          "00:02",
+          "00:55"
+        ]
+      },
+      "correct": [
+        "00:02",
+        "00:55"
+      ]
+    }
+  ],
+  "Reaction-simple": [
+    {
+      "startTime": "2020-09-22T15:54:35.749Z",
+      "result": "00:00.750"
+    },
+    {
+      "startTime": "2020-09-22T15:54:40.315Z"
+    },
+    {
+      "startTime": "2020-09-22T15:54:43.368Z",
+      "result": "00:00.428"
+    },
+    {
+      "startTime": "2020-09-22T15:54:46.508Z",
+      "result": "00:00.615"
+    },
+    {
+      "startTime": "2020-09-22T15:54:50.824Z"
+    }
+  ],
+  "Reaction-complex": {
+    "correct": [
+      {
+        "startTime": "2020-09-22T15:55:11.053Z",
+        "result": "00:00.612"
+      },
+      {
+        "startTime": "2020-09-22T15:55:17.259Z"
+      },
+      {
+        "startTime": "2020-09-22T15:55:20.726Z"
+      },
+      {
+        "startTime": "2020-09-22T15:55:51.171Z"
+      },
+      {
+        "startTime": "2020-09-22T15:55:56.779Z"
+      }
+    ],
+    "wrong": 7
+  }
 }
