@@ -39,7 +39,11 @@
                     @break
                     @case( "Hazard-Perception")
                     <div class="col-12">
-                      <hr>
+                      <label>{{__('locale.'.$record->type)}}</label>
+                      <div class="form-group">
+                        <input type="text" class="data form-control" data-id="{{$record->id}}"
+                               value="{{$record->point}}">
+                      </div>
                     </div>
                     @break
                     @case( "Recognation")

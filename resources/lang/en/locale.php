@@ -314,11 +314,6 @@ return [
   'value_5 required'  => 'value 5 required',
   'value_5 numeric'   => 'value 5 must be a number',
 
-
-
-
-
-
   'Add Answer' => 'Add Answer',
   'Submit' => 'Submit',
   'Reset' => 'Reset',
@@ -345,12 +340,4 @@ return [
   'select img' => 'Select Image',
   'Cancel' => 'Cancel',
   'Cancel' => 'Cancel',
-
-
-
-
-
-
-
-
 ];

@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Exports\ResultExport;
+use App\Exports\resultSheets;
 use App\Question;
 use App\Result;
 use App\ResultEvalutation;
@@ -90,9 +91,9 @@ class ResultController extends Controller
       $videos = Question::with("answers")->where('type', '=', 'Hazard-Perception')->get();
       $record->videQuestions = $videos;
     });
-    return dd($records->toArray());
+    // return dd($records->toArray());
     $breadcrumbs = [
-      ['link' => "dashboard-analytics", 'name' => "Home"], ['link' => "dashboard-analytics", 'name' => "Pages"], ['name' => "Licensecode "]
+  //    ['link' => "dashboard-analytics", 'name' => "Home"], ['link' => "dashboard-analytics", 'name' => "Pages"], ['name' => "Licensecode "]
     ];
     return view('result.config', [
       'breadcrumbs' => $breadcrumbs,
@@ -106,8 +107,8 @@ class ResultController extends Controller
     $result = Useranswer::find($id);
     $result = json_decode($result->answer, true);
     $evaluation = ResultEvalutation::all();
-    /*dump($evaluation);
-    dd($result);*/
+    /* dump($evaluation);
+     dd($result);*/
     foreach ($result as $key => $res) {
       switch ($key) {
         case
@@ -121,24 +122,24 @@ class ResultController extends Controller
           }
           break;
         case "Hazard-Perception":
-          foreach ($res as $reco) {
+          foreach ($res as $index => $reco) {
 
             $question = Question::find($reco['questionId'])->toArray();
             $evaluation = ResultEvalutation::where('type', '=', 'Hazard-Perception')->first();
             $rightMoments = [];
             $points = 0;
-            dump($question['right_answers']);
+            // dump($question['right_answers']);
             if (isset($reco['correct'])) {
 
-              dump($reco['correct']);
+             // dump($reco['correct']);
 
               foreach (json_decode($question['right_answers']) as $right) {
                 foreach ($reco['correct'] as $k => $pressed) {
                   sscanf($pressed, "%d:%d", $minutes, $seconds);
                   $time_seconds = $minutes * 60 + $seconds;
                   if ($time_seconds >= $right && $time_seconds <= $right + 2 && $right != null) {
-                    $points =$points+ $evaluation->point - round($right + 2 - $time_seconds);
-                    dump($points,$right);
+                    $points = $points + $evaluation->point - round($right + 2 - $time_seconds);
+                    // dump($points,$right);
                     unset($reco['right_answers'][$k]);
                   }
 
@@ -146,31 +147,47 @@ class ResultController extends Controller
 
               }
             }
-            dump($points,"---------------------------------------------------");
-            $evaluation = ResultEvalutation::where('type', '=', 'Reaction-SMC')->first();
-            $excel["Reaction-SMC"]["data"][] = [$reco["question"]['question'], $punteggio ? $punteggio: "0"];
+          //  dump($points, $reco);
+            // $evaluation = ResultEvalutation::where('type', '=', 'Reaction-SMC')->first();
+            $excel["Hazard-Perception"]["heading"] = ["Domanda", "Punteggio"];
+            $excel["Hazard-Perception"]["data"][] = [$index, $points ? $points : "0"];
           }
           break;
 
-          case "Reaction-SMC":
+        case "Reaction-SMC":
+          $excel["Reaction-SMC"]["heading"] = ["Domanda", "Punteggio"];
           foreach ($res as $reco) {
-
             $l = collect($reco['correct']);
             $total = $l->count();
             $correctAnswers = $l->filter(function ($f) {
               return $f['correct'] == true;
             })->count();
             $punteggio = ($correctAnswers / $total * $evaluation->point);
-      //      dump("punteggio", $punteggio);
+            //      dump("punteggio", $punteggio);
             $evaluation = ResultEvalutation::where('type', '=', 'Reaction-SMC')->first();
-            $excel["Reaction-SMC"]["data"][] = [$reco["question"]['question'], $punteggio ? $punteggio: "0"];
+            $excel["Reaction-SMC"]["data"][] = [$reco["question"]['question'], $punteggio ? $punteggio : "0"];
           }
+          break;
+
+        case "Reaction-simple":
+          $excel["Reaction-simple"]["heading"] = ["Domanda", "Punteggio"];
+          foreach ($res as $index => $reco) {
+            $excel["Reaction-simple"]["data"][] = [$index + 1, isset($reco["result"]) ? $reco["result"] : ""];
+          }
+          break;
+
+        case "Reaction-complex":
+          $excel["Reaction-complex"]["heading"] = ["Domanda", "Punteggio"];
+          foreach ($res["correct"] as $index => $reco) {
+            $excel["Reaction-complex"]["data"][] = [$index + 1, isset($reco["result"]) ? $reco["result"] : ""];
+          }
+          $excel["Reaction-complex"]["data"][] = ["Sbagliato" , $res["wrong"]];
           break;
       }
     }
-    dd($excel);
-    $excel = $excel["Reaction-SMC"];
-    return \Maatwebsite\Excel\Facades\Excel::download(new ResultExport($excel), "users.xlsx");
+
+
+    return \Maatwebsite\Excel\Facades\Excel::download(new resultSheets($excel), $id.".xlsx");
     dd(json_decode($result->answer, true));
     //
 

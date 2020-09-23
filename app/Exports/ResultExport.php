@@ -6,19 +6,21 @@ use App\User;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use Maatwebsite\Excel\Concerns\WithTitle;
 use phpDocumentor\Reflection\Types\This;
 
-class ResultExport implements FromCollection
+class ResultExport implements FromCollection, WithTitle
 {
-  use Exportable;
+
 
   protected $result;
+  private $sheetName;
 
-
-  public function __construct($result)
+  public function __construct($sheetName,$result)
   {
-    unset($result['heading']);
+    $this->sheetName = $sheetName;
     $this->result = $result;
   }
 
@@ -34,5 +36,15 @@ class ResultExport implements FromCollection
   /*public function sheets(): array
   {
     return [$this->collection()];
+  }*/
+
+  public function title(): string
+  {
+    return $this->sheetName;
+  }
+
+/*  public function headings(): array
+  {
+    return new Collection($this->result['heading']);
   }*/
 }
