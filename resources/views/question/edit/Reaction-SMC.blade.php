@@ -63,7 +63,7 @@
                               </div>
 
                               @foreach ( $records as $i => $record)
-
+                                {{$record->id}}
                                   <div  class="col-12">
                                     <div class="row">
                                       <div class="col-md-4" style="text-align: center;">
@@ -87,7 +87,7 @@
                                                   type="text"
                                                   class="form-control"
                                                   name="{{$lang}}[right_answers][]"
-                                                  value="{{ $record->translate($lang)->right_answers }}"
+                                                  value="{{ $record->translate($lang)->right_answers ??  '' }}"
                                                   required>
                                                   <small id="{{$lang}}_right_answers_0_error" class="form-text text-danger center small_error"> </small>
                                           </div>

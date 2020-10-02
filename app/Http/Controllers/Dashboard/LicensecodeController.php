@@ -21,6 +21,8 @@ class LicensecodeController extends Controller
     $records['group'] = Group::where('type', 'licensecode')->get();
 
 
+
+
    // dd($records['licenses']);
     $breadcrumbs = [
       ['link' => "dashboard-analytics", 'name' => "Home"], ['link' => "dashboard-analytics", 'name' => "Pages"], ['name' => "Licensecode "]
@@ -35,6 +37,7 @@ class LicensecodeController extends Controller
   public function show($id)
   {
     $records = licensecode::where('group_id', $id)->get();
+
     return view('licensecode.show', ['records' => $records]);
   }
 
@@ -82,7 +85,7 @@ class LicensecodeController extends Controller
 
 
   public function delete($id){
-    $record = Licensecode::find($id);
+    $record = Group::find($id);
     $record->delete();
 
   }

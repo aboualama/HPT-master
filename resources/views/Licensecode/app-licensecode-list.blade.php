@@ -84,14 +84,14 @@
             <td class="licenses-id">{{ $i +1 }}</td>
             <td class="licenses-Code">{{ $record->id }}</td>
             <td class="username">{{$record->licensecodes->count()}}</td>
-            <td class="username">{{$record->licensecodes[0]->user->name}}</td>
+            <td class="username">{{--{{$record->licensecodes[0]->user->name}}--}}</td>
             <td class="licenses-user_id">
               <button type="button" class="btn btn-primary  action-licenses" data-id="{{$record->id}}" >
                 Show Licensecode
               </button>
             </td>
             <td class="user-action">
-              <span class="action-mail" data-id="{{$record->id}}" data-user_id="{{$record->licensecodes[0]->user->id}}"><i class="feather icon-mail"></i></span>
+              <span class="action-mail" data-id="{{$record->id}}" data-user_id="{{--{{$record->licensecodes[0]->user->id}}--}}"><i class="feather icon-mail"></i></span>
               <span class="action-delete" data-id="{{ $record->id }}"><i class="feather icon-trash"></i></span>
             </td>
           </tr>

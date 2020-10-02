@@ -11,14 +11,14 @@ use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use phpDocumentor\Reflection\Types\This;
 
-class ResultExport implements FromCollection, WithTitle
+class ResultExport implements FromCollection, WithTitle,WithHeadings
 {
 
 
   protected $result;
   private $sheetName;
 
-  public function __construct($sheetName,$result)
+  public function __construct($sheetName, $result)
   {
     $this->sheetName = $sheetName;
     $this->result = $result;
@@ -39,12 +39,12 @@ class ResultExport implements FromCollection, WithTitle
   }*/
 
   public function title(): string
-  {
+  {eaction-SMC.blade.php
     return $this->sheetName;
   }
 
-/*  public function headings(): array
+  public function headings(): array
   {
-    return new Collection($this->result['heading']);
-  }*/
+    return $this->result['heading'];
+  }
 }

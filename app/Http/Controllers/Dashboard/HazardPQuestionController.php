@@ -31,8 +31,12 @@ class HazardPQuestionController extends Controller
 
     $record = Question::create($request->all());
     $record['video'] = $video_name;
-    $record['wrong_answers'] = json_encode($request->answer);
-    $record['right_answers'] = json_encode($request->val);
+    $answer = [];
+    foreach($request->answer as $i => $ans)
+    {
+      $answer[$i] = ['answer' => $ans , 'val' => $request->val[$i]];
+    }
+    $record['wrong_answers'] = json_encode($answer);
     $record->save();
 
     return response()->json(['status' => 200]);
@@ -66,8 +70,12 @@ class HazardPQuestionController extends Controller
       $record['video'] = $video_name;
     }
 
-    $record['wrong_answers'] = json_encode($request->answer);
-    $record['right_answers'] = json_encode($request->val);
+    $answer = [];
+    foreach($request->answer as $i => $ans)
+    {
+      $answer[$i] = ['answer' => $ans , 'val' => $request->val[$i]];
+    }
+    $record['wrong_answers'] = json_encode($answer);
     $record->save();
     return response()->json($record);
   }
