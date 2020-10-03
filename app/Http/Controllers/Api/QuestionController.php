@@ -69,6 +69,8 @@ class QuestionController extends Controller
     $answerToattach = $request->get('answer');
     if ($record) {
       $ansers = json_decode($record->answer, true);
+      if (isset($answerToattach["Recognation"]))
+        $ansers['Recognation'] = $answerToattach["Recognation"];
       if (isset($answerToattach['Reaction-simple']))
         $ansers['Reaction-simple'] = $answerToattach["Reaction-simple"];
       if (isset($answerToattach["Reaction-complex"]))
@@ -77,10 +79,12 @@ class QuestionController extends Controller
         $ansers['Reaction-SMC'] = $answerToattach["Reaction-SMC"];
       if (isset($answerToattach["Hazard-Perception"]))
         $ansers['Hazard-Perception'] = $answerToattach["Hazard-Perception"];
-      if (isset($answerToattach["Risk-Responsibilty"]))
+      if (isset($answerToattach["Risk-Responsibilty"])) {
         $ansers['Risk-Responsibilty'] = $answerToattach["Risk-Responsibilty"];
-      if (isset($answerToattach["Recognation"]))
-        $ansers['Recognation'] = $answerToattach["Recognation"];
+        $lisence = App\Licensecode::where('licens_id', '=', $request->get('licens_id'))->get();
+        $lisence->active = 0;
+        $lisence->save();
+      }
 
     } else {
       $record = new Useranswer();
@@ -101,5 +105,33 @@ class QuestionController extends Controller
     return response($record, 200);
   }
 
+
+  function getResultByLisence(Request $request)
+  {
+    $id = $request->get('id');
+
+    $record = Useranswer::firstWhere("License_id", '=', $id);
+
+    $ret = null;
+    if ($record)
+    {
+      $ansers = json_decode($record->answer, true);
+      if (isset($ansers["Hazard-Perception"]))
+        $ret = 'Hazard-Perception';
+      else if (isset($ansers["Reaction-SMC"]))
+        $ret = 'Reaction-SMC';
+      else if (isset($ansers["Reaction-complex"]))
+        $ret = 'Reaction-complex';
+      else if (isset($ansers['Reaction-simple']))
+        $ret = 'Reaction-simple';
+      else if (isset($ansers["Recognation"]))
+        $ret = "Recognation";
+    }
+
+
+
+    //$answer = json_decode($record->answer);
+    return response(\GuzzleHttp\json_encode(["question" => $ret]), 200);
+  }
 
 }
