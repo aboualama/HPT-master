@@ -65,11 +65,11 @@
                   <td id="result_{{$record->id}}" class="point">{{$record->point}}</td>
                   <td id="result_{{$record->id}}" class="date">{{$record->created_at}}</td>
                   <td>
-                    <span class="action-mail" data-id="{{$record->id}}" ><i class="feather icon-mail"></i></span>
-                    <span class="action" data-id="{{$record->id}}" onclick="downloadXML({{$record->id}})" ><i class="feather icon-file"></i></span>
+                   {{-- <span class="action-mail" data-id="{{$record->id}}" ><i class="feather icon-mail"></i></span>
+                   --}} <span class="action" data-id="{{$record->id}}" onclick="downloadXML({{$record->id}})" ><i class="feather icon-file"></i></span>
                     {{-- <span class="edit" data-id="{{$record->id}}" onclick="edit({{$record->id}})" ><i class="feather icon-edit"></i></span> --}}
-                    <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
-                  </td>
+                  {{--  <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
+                 --}} </td>
                 </tr>
                 @endforeach
               @endif

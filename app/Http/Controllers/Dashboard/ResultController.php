@@ -111,20 +111,23 @@ class ResultController extends Controller
     /*  dd($result);*/
     foreach ($result as $key => $res) {
       switch ($key) {
-        case
-        "Recognation":
+        case "Recognation":
+          $total = 0;
           $excel["Recognation"]["heading"] = ["Domanda", "Punteggio"];
           foreach ($res as $reco) {
             $evaluation = ResultEvalutation::where('type', '=', 'Recognation')->first();
 
             $excel["Recognation"]["data"][] = [$reco["question"]['question'], $reco['correct']['correct'] ? 1 * $evaluation->point : '0'];
-
+            $total = $total + $evaluation->point;
           }
+          $excel["Recognation"]["data"][] = ["TOTALE", $total];
           break;
         case "Hazard-Perception":
           //dd(json_encode($res));
           $info = [];
+
           foreach ($res as $index => $reco) {
+            $total = 0;
             $info[$index] = [];
             $question = Question::find($reco['questionId'])->toArray();
             $evaluation = ResultEvalutation::where('type', '=', 'Hazard-Perception')->first();
@@ -155,20 +158,24 @@ class ResultController extends Controller
                 }
                 $m[] = $risposta;
                 $m[] = $points ? $points : "0";
+                $total = $total + $points;
                 $points = 0;
                 $excel["Hazard-Perception" . ($index + 1)]["data"][] = [$m];
+
               }
+              $excel["Hazard-Perception" . ($index + 1)]["data"][] = ["TOTALE","","",$total];
             }
             //  dump($points, $reco);
             // $evaluation = ResultEvalutation::where('type', '=', 'Reaction-SMC')->first();
 
 
           }
-        //  dd($excel);
+          //  dd($excel);
           break;
 
         case "Reaction-SMC":
           $excel["Reaction-SMC"]["heading"] = ["Domanda", "Punteggio"];
+          $totale = 0;
           foreach ($res as $reco) {
             $l = collect($reco['correct']);
             $total = $l->count();
@@ -176,10 +183,13 @@ class ResultController extends Controller
               return $f['correct'] == true;
             })->count();
             $punteggio = ($correctAnswers / $total * $evaluation->point);
+            $totale = $totale + $punteggio;
             //      dump("punteggio", $punteggio);
             $evaluation = ResultEvalutation::where('type', '=', 'Reaction-SMC')->first();
             $excel["Reaction-SMC"]["data"][] = [$reco["question"]['question'], $punteggio ? $punteggio : "0"];
+
           }
+          $excel["Reaction-SMC"]["data"][] = ["TOTALE", $totale ? $totale : "0"];
           break;
 
         case "Reaction-simple":

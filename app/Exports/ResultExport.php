@@ -39,7 +39,7 @@ class ResultExport implements FromCollection, WithTitle,WithHeadings
   }*/
 
   public function title(): string
-  {eaction-SMC.blade.php
+  {
     return $this->sheetName;
   }
 
