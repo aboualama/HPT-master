@@ -81,7 +81,7 @@ class QuestionController extends Controller
         $ansers['Hazard-Perception'] = $answerToattach["Hazard-Perception"];
       if (isset($answerToattach["Risk-Responsibilty"])) {
         $ansers['Risk-Responsibilty'] = $answerToattach["Risk-Responsibilty"];
-        $lisence = App\Licensecode::where('licens_id', '=', $request->get('licens_id'))->get();
+        $lisence = App\Licensecode::where('id', '=', $request->get('licens_id'))->get();
         $lisence->active = 0;
         $lisence->save();
       }
