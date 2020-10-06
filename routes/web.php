@@ -1,19 +1,19 @@
 <?php
 
-  /*
-  |--------------------------------------------------------------------------
-  | Web Routes
-  |--------------------------------------------------------------------------
-  |
-  | Here is where you can register web routes for your application. These
-  | routes are loaded by the RouteServiceProvider within a group which
-  | contains the "web" middleware group. Now create something great!
-  |
-  */
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
   Route::get('ProvaInvio', function () {
     Mail::to("egyangel93@gmail.com")->send(new \App\Mail\WelcomeMail("aaaa"));
@@ -21,11 +21,15 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
   Auth::routes(['verify' => true]);
 
 
-  Route::group(['middleware' => ['auth','verified']], function () {
+  Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Users Pages
     Route::get('/app-user-index', 'Dashboard\UserManagmentController@index');
     Route::get('/', 'Dashboard\UserManagmentController@index');
+    Route::get('/test', function (){
+      $m = "2";
+      dd(gmdate("i:s",$m));
+    });
 
     // Route::get('/app-user-create', 'Dashboard\UserManagmentController@create');
 
@@ -36,14 +40,12 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
 
     Route::delete('/app-user-delete/{id}', 'Dashboard\UserManagmentController@delete');
 
-   // Licensecode Pages
+    // Licensecode Pages
     Route::get('/app-licensecode-index', 'Dashboard\LicensecodeController@index');
     Route::post('/app-licensecode-UpdateOrCreate', 'Dashboard\LicensecodeController@store');
     Route::delete('/app-licensecode-delete/{id}', 'Dashboard\LicensecodeController@delete');
     Route::get('/show-licenses/{id}', 'Dashboard\LicensecodeController@show');
     Route::get('/send-licensecode-mail/{id}', 'Dashboard\LicensecodeController@sendLicense');
-
-
 
 
     Route::get('/question', 'Dashboard\QuestionController@index');
@@ -65,16 +67,10 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
     Route::Put('/edit-question-4/{id}', 'Dashboard\HazardPQuestionController@update');
 
 
-
     Route::get('/getquestion', 'Dashboard\QuestionController@getaddform');
     Route::get('/getquestions', 'Dashboard\QuestionController@getquestions');
 
     Route::post('/login/validate', 'Auth\LoginController@validate_api');
-
-
-
-
-
 
 
     Route::get('/result', 'Dashboard\ResultController@index');
@@ -87,7 +83,7 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['l
     Route::get('/configurator', 'Dashboard\ResultController@config');
 
 
-    }); // End Auth Middleware Group
+  }); // End Auth Middleware Group
 
 
 }); // End LaravelLocalization Group

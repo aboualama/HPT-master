@@ -27,7 +27,7 @@ class LicensecodeController extends Controller
     $breadcrumbs = [
       ['link' => "dashboard-analytics", 'name' => "Home"], ['link' => "dashboard-analytics", 'name' => "Pages"], ['name' => "Licensecode "]
     ];
-    return view('/Licensecode/app-licensecode-list', [
+    return view('/licensecode/app-licensecode-list', [
       'breadcrumbs' => $breadcrumbs,
       'records' => $records
     ]);

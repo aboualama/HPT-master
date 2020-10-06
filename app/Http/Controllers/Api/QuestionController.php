@@ -81,7 +81,8 @@ class QuestionController extends Controller
         $ansers['Hazard-Perception'] = $answerToattach["Hazard-Perception"];
       if (isset($answerToattach["Risk-Responsibilty"])) {
         $ansers['Risk-Responsibilty'] = $answerToattach["Risk-Responsibilty"];
-        $lisence = App\Licensecode::where('id', '=', $request->get('licens_id'))->get();
+        $lisence = App\Licensecode::find($request->get('licens_id'));
+      //  dump($lisence);
         $lisence->active = 0;
         $lisence->save();
       }
@@ -113,18 +114,18 @@ class QuestionController extends Controller
     $record = Useranswer::firstWhere("License_id", '=', $id);
 
     $ret = null;
-    if ($record)
+    if ($record && $record->answer)
     {
       $ansers = json_decode($record->answer, true);
-      if (isset($ansers["Hazard-Perception"]))
+      if (isset($ansers["Hazard-Perception"]) && count($ansers["Hazard-Perception"])>0)
         $ret = 'Hazard-Perception';
-      else if (isset($ansers["Reaction-SMC"]))
+      else if (isset($ansers["Reaction-SMC"]) && count($ansers["Reaction-SMC"])>0)
         $ret = 'Reaction-SMC';
-      else if (isset($ansers["Reaction-complex"]))
+      else if (isset($ansers["Reaction-complex"]) && count($ansers["Reaction-complex"])>0)
         $ret = 'Reaction-complex';
-      else if (isset($ansers['Reaction-simple']))
+      else if (isset($ansers['Reaction-simple']) && count($ansers['Reaction-simple'])>0)
         $ret = 'Reaction-simple';
-      else if (isset($ansers["Recognation"]))
+      else if (isset($ansers["Recognation"]) && count($ansers["Recognation"])>0)
         $ret = "Recognation";
     }
 

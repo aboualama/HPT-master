@@ -25,7 +25,10 @@ class ResultController extends Controller
 {
   public function index()
   {
-    $records = Useranswer::all();
+    $records = Useranswer::whereHas('licensecode',function ($query) {
+      return $query->where('active', '=', 0);
+    })->get();
+  //  dd($records->toArray());
     $breadcrumbs = [
       ['link' => "/", 'name' => __('locale.home')], ['name' => __('locale.result')]
     ];
@@ -116,11 +119,11 @@ class ResultController extends Controller
           $excel["Recognation"]["heading"] = ["Domanda", "Punteggio"];
           foreach ($res as $reco) {
             $evaluation = ResultEvalutation::where('type', '=', 'Recognation')->first();
-
-            $excel["Recognation"]["data"][] = [$reco["question"]['question'], $reco['correct']['correct'] ? 1 * $evaluation->point : '0'];
-            $total = $total + $evaluation->point;
+            $poi = $reco['correct']['correct'] ? 1 * $evaluation->point : 0;
+            $excel["Recognation"]["data"][] = [$reco["question"]['question'], $poi ? $poi : '0'];
+            $total = $total + $poi;
           }
-          $excel["Recognation"]["data"][] = ["TOTALE", $total];
+          $excel["Recognation"]["data"][] = ["TOTALE", $total ? $total : '0'];
           break;
         case "Hazard-Perception":
           //dd(json_encode($res));
@@ -163,7 +166,7 @@ class ResultController extends Controller
                 $excel["Hazard-Perception" . ($index + 1)]["data"][] = [$m];
 
               }
-              $excel["Hazard-Perception" . ($index + 1)]["data"][] = ["TOTALE","","",$total];
+              $excel["Hazard-Perception" . ($index + 1)]["data"][] = ["TOTALE", "", "", $total ? $total : "0"];
             }
             //  dump($points, $reco);
             // $evaluation = ResultEvalutation::where('type', '=', 'Reaction-SMC')->first();
@@ -194,16 +197,60 @@ class ResultController extends Controller
 
         case "Reaction-simple":
           $excel["Reaction-simple"]["heading"] = ["Domanda", "Punteggio"];
+          $media = 0;
+          $mediacount = 0;
           foreach ($res as $index => $reco) {
+            if (isset($reco["result"])) {
+
+              $d = explode(':', $reco["result"]);
+
+              $seconds = ($d[0] * 60) + $d[1];
+              $mediacount = $mediacount + 1;
+            } else {
+              $seconds = 0;
+            }
+            $media = $media + $seconds;
             $excel["Reaction-simple"]["data"][] = [$index + 1, isset($reco["result"]) ? $reco["result"] : "Miss"];
           }
+          if ($media) {
+            $media = ($media / $mediacount);
+            $media = explode('.', $media);
+
+          } else {
+            $media[0] = 0;
+            $media[1] = 0;
+          }
+          $excel["Reaction-simple"]["data"][] = ["MEDIA", $media[0] ? gmdate("i:s", $media[0]):gmdate("i:s", $media[0]).".".$media[1]];
           break;
 
         case "Reaction-complex":
           $excel["Reaction-complex"]["heading"] = ["Domanda", "Punteggio"];
+          $media = 0;
+          $mediacount = 0;
           foreach ($res["correct"] as $index => $reco) {
-            $excel["Reaction-complex"]["data"][] = [$index + 1, isset($reco["result"]) ? $reco["result"] : ""];
+            if (isset($reco["result"])) {
+
+              $d = explode(':', $reco["result"]);
+
+              $seconds = ($d[0] * 60) + $d[1];
+              $mediacount = $mediacount + 1;
+            } else {
+              $seconds = 0;
+            }
+            $media = $media + $seconds;
+
+            $excel["Reaction-complex"]["data"][] = [$index + 1, isset($reco["result"]) ? $reco["result"] : "MISS"];
           }
+          if ($media) {
+            $media = ($media / $mediacount);
+            $media = explode('.', $media);
+
+          }else{
+            $media[0] = 0;
+            $media[1] = 0;
+
+          }
+          $excel["Reaction-complex"]["data"][] = ["MEDIA",  $media[0] ? gmdate("i:s", $media[0]):gmdate("i:s", $media[0]).".".$media[1]];
           $excel["Reaction-complex"]["data"][] = ["Sbagliato", $res["wrong"]];
           break;
       }
