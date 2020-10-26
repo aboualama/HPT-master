@@ -25,10 +25,10 @@ class ResultController extends Controller
 {
   public function index()
   {
-    $records = Useranswer::whereHas('licensecode',function ($query) {
+    $records = Useranswer::whereHas('licensecode', function ($query) {
       return $query->where('active', '=', 0);
     })->get();
-  //  dd($records->toArray());
+    //  dd($records->toArray());
     $breadcrumbs = [
       ['link' => "/", 'name' => __('locale.home')], ['name' => __('locale.result')]
     ];
@@ -125,8 +125,19 @@ class ResultController extends Controller
           }
           $excel["Recognation"]["data"][] = ["TOTALE", $total ? $total : '0'];
           break;
+        case "Risk-Responsibilty":
+          $total = 0;
+          $excel["Risk-Responsibilty"]["heading"] = ["Domanda", "Punteggio"];
+          foreach ($res as $reco) {
+            $evaluation = ResultEvalutation::where('type', '=', 'Risk-Responsibilty')->first();
+            $poi = $reco['correct']['correct'] ? 1 * $evaluation->point : 0;
+            $excel["Risk-Responsibilty"]["data"][] = [$reco["question"]['question'], $poi ? $poi : '0'];
+            $total = $total + $poi;
+          }
+          $excel["Risk-Responsibilty"]["data"][] = ["TOTALE", $total ? $total : '0'];
+          break;
         case "Hazard-Perception":
-          //dd(json_encode($res));
+          // dd($res);
           $info = [];
 
           foreach ($res as $index => $reco) {
@@ -144,7 +155,10 @@ class ResultController extends Controller
               $info[$index]["correct"] = $reco['correct'];
               // dump($reco['correct']);
               $pericolo = json_decode($question['wrong_answers']);
-              foreach (json_decode($question['right_answers']) as $key_right => $right) {
+              $pericoli = [];
+              $pericoli = json_decode($question['right_answers'],true);
+
+              foreach ($pericoli as $key_right => $right) {
                 $m = [];
                 $m[] = $pericolo[$key_right];
                 $m[] = $right;
@@ -217,10 +231,11 @@ class ResultController extends Controller
             $media = explode('.', $media);
 
           } else {
+            $media = [];
             $media[0] = 0;
             $media[1] = 0;
           }
-          $excel["Reaction-simple"]["data"][] = ["MEDIA", $media[0] ? gmdate("i:s", $media[0]):gmdate("i:s", $media[0]).".".$media[1]];
+          $excel["Reaction-simple"]["data"][] = ["MEDIA", $media[0] ? gmdate("i:s", $media[0]) : gmdate("i:s", $media[0]) . "." . $media[1]];
           break;
 
         case "Reaction-complex":
@@ -245,12 +260,13 @@ class ResultController extends Controller
             $media = ($media / $mediacount);
             $media = explode('.', $media);
 
-          }else{
+          } else {
+            $media = [];
             $media[0] = 0;
             $media[1] = 0;
 
           }
-          $excel["Reaction-complex"]["data"][] = ["MEDIA",  $media[0] ? gmdate("i:s", $media[0]):gmdate("i:s", $media[0]).".".$media[1]];
+          $excel["Reaction-complex"]["data"][] = ["MEDIA", $media[0] ? gmdate("i:s", $media[0]) : gmdate("i:s", $media[0]) . "." . $media[1]];
           $excel["Reaction-complex"]["data"][] = ["Sbagliato", $res["wrong"]];
           break;
       }

@@ -11,6 +11,5 @@
 Back
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+
 @endcomponent

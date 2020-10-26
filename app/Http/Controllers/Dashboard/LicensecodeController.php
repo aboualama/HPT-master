@@ -63,7 +63,7 @@ class LicensecodeController extends Controller
 
     $License = Licensecode::where('group_id' , $group->id)->pluck('code');
 
-    Mail::to($user->email)->send(new License($License, $user));
+   // Mail::to($user->email)->send(new License($License, $user));
 
     return response()->json($record);
 

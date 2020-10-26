@@ -78,23 +78,28 @@
         </thead>
         <tbody>
         @foreach ($records['group'] as $i => $record)
+          @if ($record->licensecodes->count() >0)
 
-          <tr>
-            <td></td>
-            <td class="licenses-id">{{ $i +1 }}</td>
-            <td class="licenses-Code">{{ $record->id }}</td>
-            <td class="username">{{$record->licensecodes->count()}}</td>
-            <td class="username">{{$record->licensecodes[0]->user->name}}</td>
-            <td class="licenses-user_id">
-              <button type="button" class="btn btn-primary  action-licenses" data-id="{{$record->id}}" >
-                Show Licensecode
-              </button>
-            </td>
-            <td class="user-action">
-              <span class="action-mail" data-id="{{$record->id}}" data-user_id="{{$record->licensecodes[0]->user->id}}"><i class="feather icon-mail"></i></span>
-              <span class="action-delete" data-id="{{ $record->id }}"><i class="feather icon-trash"></i></span>
-            </td>
-          </tr>
+
+            <tr>
+              <td></td>
+              <td class="licenses-id">{{ $i +1 }}</td>
+              <td class="licenses-Code">{{ $record->id }}</td>
+              <td class="username">{{$record->licensecodes->count()}}</td>
+
+              <td class="username">{{$record->licensecodes[0]->user->name}}</td>
+              <td class="licenses-user_id">
+                <button type="button" class="btn btn-primary  action-licenses" data-id="{{$record->id}}">
+                  Show Licensecode
+                </button>
+              </td>
+              <td class="user-action">
+                <span class="action-mail" data-id="{{$record->id}}"
+                      data-user_id="{{$record->licensecodes[0]->user->id}}"><i class="feather icon-mail"></i></span>
+                <span class="action-delete" data-id="{{ $record->id }}"><i class="feather icon-trash"></i></span>
+              </td>
+            </tr>
+          @endif
         @endforeach
         </tbody>
       </table>
@@ -104,32 +109,32 @@
   <!-- users list ends -->
 
 
-<!-- Modal -->
-<div class="col-12">
-  <div class="row">
-    <div class="modal-size-lg mr-1 mb-1 d-inline-block">
-      <div class="modal fade text-left" id="modal-block-licenses" tabindex="-1" role="dialog"
-        aria-labelledby="myModalLabel17" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">License Code </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div id="licenses"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <!-- Modal -->
+  <div class="col-12">
+    <div class="row">
+      <div class="modal-size-lg mr-1 mb-1 d-inline-block">
+        <div class="modal fade text-left" id="modal-block-licenses" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel17" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">License Code </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="licenses"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 
 
@@ -173,9 +178,8 @@
     });
 
 
-
-  //  show
-  $('.action-licenses').on("click", function (e) {
+    //  show
+    $('.action-licenses').on("click", function (e) {
       e.stopPropagation();
       var id = $(this).data("id");
 
@@ -203,7 +207,7 @@
           'user_id': user_id
         },
         success: function (data) {
-          toastr.success('Send Successfully',"Mail!",);
+          toastr.success('Send Successfully', "Mail!",);
         },
         error: function (data) {
           console.log('Error:');
@@ -213,26 +217,22 @@
 
 
     // On Delete
-    $('.action-delete').on("click", function(e){
+    $('.action-delete').on("click", function (e) {
       e.stopPropagation();
       var id = $(this).data("id");
       var td = $(this).closest('td').parent('tr');
       $.ajax({
-          url: "/app-licensecode-delete" + '/' + id,
-          method: "DELETE",
-          success: function (data) {
-            toastr.success('Deleted Successfully',"licensecode!",);
-            td.fadeOut();
-          },
-          error: function (data) {
-              console.log('Error:', data);
-          }
+        url: "/app-licensecode-delete" + '/' + id,
+        method: "DELETE",
+        success: function (data) {
+          toastr.success('Deleted Successfully', "licensecode!",);
+          td.fadeOut();
+        },
+        error: function (data) {
+          console.log('Error:', data);
+        }
       });
     });
-
-
-
-
 
 
   </script>

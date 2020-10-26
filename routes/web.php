@@ -11,6 +11,7 @@
 |
 */
 
+use App\User;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
@@ -27,8 +28,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/app-user-index', 'Dashboard\UserManagmentController@index');
     Route::get('/', 'Dashboard\UserManagmentController@index');
     Route::get('/test', function (){
-      $m = "2";
-      dd(gmdate("i:s",$m));
+
     });
 
     // Route::get('/app-user-create', 'Dashboard\UserManagmentController@create');

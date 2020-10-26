@@ -33,7 +33,7 @@ class LicenseRequest extends Mailable
         ->with([
           'username' => $this->data['displayName'],
           'email' => $this->data['email'],
-          'numero' => $this->data['numero'],
+          'number' => $this->data['number'],
           'date' => $this->data['date'],
           'cell' => $this->data['cell'],
         ]);
