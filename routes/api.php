@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
+  Route::get('/getQuestionEntro/{type}', 'Api\QuestionController@getQuestionEntro');
+
   Route::post('/questions/{type}', 'Api\QuestionController@getquestions');
   Route::get('/getAllQuestions', 'Api\QuestionController@getAllQuestions');
   Route::get('/getanswers', 'Api\QuestionController@getanswers');

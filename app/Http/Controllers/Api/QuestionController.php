@@ -9,6 +9,7 @@ use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use App\Qtype;
 use App\Useranswer;
 
 use function PHPSTORM_META\type;
@@ -21,6 +22,18 @@ class QuestionController extends Controller
     $record = Question::with('answers')->get()->toArray();
     return response($record, 200);
   }
+
+
+  public function getQuestionEntro($type, Request $request)
+  {
+    // App::setLocale($request->get("lang"));
+    $record = Qtype::where('type', $type)->listsTranslations('entro')->get();
+    dd($record);
+    return response($record, 200);
+  }
+
+
+
 
 
   public function getquestions($type, Request $request)
