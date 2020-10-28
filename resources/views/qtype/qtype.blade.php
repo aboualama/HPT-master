@@ -140,7 +140,7 @@ $.ajaxSetup({
 
 $('#action-add').on("click", function (e) {
      e.stopPropagation();
-     $('#modal-block-add').modal('toggle');
+    /* $('#modal-block-add').modal('toggle');*/
      $.ajax({
        type: 'GET',
        url: '/qtype-creat/',
