@@ -83,6 +83,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/configurator', 'Dashboard\ResultController@config');
 
 
+
+
+
+    Route::get('/qtype', 'Dashboard\QtypeController@index');
+    Route::post('/qtype', 'Dashboard\QtypeController@store');
+    Route::get('/qtype-creat', 'Dashboard\QtypeController@create');
+    Route::get('/qtype-edit/{id}', 'Dashboard\QtypeController@edit');
+    Route::Put('/qtype-edit/{id}', 'Dashboard\QtypeController@update');
+    Route::delete('/qtype/{id}', 'Dashboard\QtypeController@destroy');
+
+
+
   }); // End Auth Middleware Group
 
 

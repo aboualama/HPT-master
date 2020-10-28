@@ -42,6 +42,12 @@
       "name": "Configurator",
       "icon": "feather icon-mail",
       "i18n": "locale.configurator"
+    },
+    {
+      "url": "/qtype",
+      "name": "qtype",
+      "icon": "feather icon-mail",
+      "i18n": "locale.qtype"
     }
   ]
 }
