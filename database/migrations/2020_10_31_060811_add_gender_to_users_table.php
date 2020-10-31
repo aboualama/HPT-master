@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMsgToQtypesTranslationsTable extends Migration
+class AddGenderToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddMsgToQtypesTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('qtypes_translations', function (Blueprint $table) {
-          $table->text('msg')->nullable();
+        Schema::table('userss', function (Blueprint $table) {
+            $table->enum('gender', ['male', 'female'])->nullable();
+            $table->date('birthDate')->nullable();
+            $table->string('tipoPatente')->nullable();
+            $table->year('driveYear')->nullable();
         });
     }
 
@@ -25,7 +28,7 @@ class AddMsgToQtypesTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('qtypes_translations', function (Blueprint $table) {
+        Schema::table('userss', function (Blueprint $table) {
             //
         });
     }
