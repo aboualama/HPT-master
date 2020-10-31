@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Qtype;
+use App\QtypeTranslation;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -40,16 +41,34 @@ class QtypeController extends Controller
 
   public function store(Request $request)
   {
-     // dd($request->all());
     $rules = $this->rules();
     $messages = $this->messages();
     $validator = Validator::make($request->all(), $rules, $messages);
     if ($validator->fails()) {
       return response()->json(['errors' => $validator->errors(), 'status' => 442]);
     }
-
-    $record = Qtype::create($request->all());
+    $record = new Qtype();
+    $record['type'] = $request->type;
     $record->save();
+
+    foreach(config('translatable.locales') as $lang){
+      $data = $request->get($lang);
+            $recordQT = new QtypeTranslation();
+            $recordQT['locale'] = $lang;
+            $recordQT['qtype_id'] = $record['id'];
+            $recordQT['title'] = $data['title'];
+            $recordQT['entro'] = $data['entro'];
+            if($request->type == "Hazard-Perception")
+            {
+              $msg = [];
+              foreach($request->sec as $i => $sec)
+              {
+                $msg[$i] = ['sec' => $sec , 'msg' => $data['msg'][$i]];
+              }
+              $recordQT->msg = json_encode($msg);
+            }
+            $recordQT->save();
+    }
     return response()->json(['status' => 200]);
   }
 
@@ -79,10 +98,33 @@ class QtypeController extends Controller
     if ($validator->fails()) {
       return response()->json(['errors' => $validator->errors(), 'status' => 442]);
     }
-    $record = Qtype::find($id) ;
-    $record->update($request->all());
+    $oldrecord = Qtype::find($id) ;
+    $oldrecord->delete();
+
+    $record = new Qtype();
+    $record['type'] = $request->type;
     $record->save();
-    return response()->json($record);
+
+    foreach(config('translatable.locales') as $lang){
+      $data = $request->get($lang);
+            $recordQT = new QtypeTranslation();
+            $recordQT['locale'] = $lang;
+            $recordQT['qtype_id'] = $record['id'];
+            $recordQT['title'] = $data['title'];
+            $recordQT['entro'] = $data['entro'];
+            if($request->type == "Hazard-Perception")
+            {
+              $msg = [];
+              foreach($request->sec as $i => $sec)
+              {
+                $msg[$i] = ['sec' => $sec , 'msg' => $data['msg'][$i]];
+              }
+              $recordQT->msg = json_encode($msg);
+            }
+            $recordQT->save();
+    }
+
+    return response()->json(['status' => 200]);
   }
 
 
@@ -100,12 +142,14 @@ class QtypeController extends Controller
   {
     $basicRule = [
       'type'     => 'required|string',
+      'sec.*'     => 'numeric|between:0,99.99',
     ];
     $transRule = [];
     foreach (config('translatable.locales') as $locale) {
       $transRule = $transRule + [
         $locale . '.title'     => 'required|string|min:3|max:260',
         $locale . '.entro'     => 'required|string|min:3|max:260',
+        $locale . '.msg.*'       => 'required|string|min:3|max:260',
       ];
     }
     return $basicRule + $transRule;
@@ -128,6 +172,11 @@ class QtypeController extends Controller
         $locale . '.entro.string'           => __('locale.' . $locale . '.entro string'),
         $locale . '.entro.min'              => __('locale.' . $locale . '.entro min'),
         $locale . '.entro.max'              => __('locale.' . $locale . '.entro max'),
+        $locale . '.sec.*.numeric'          => __('locale.' . $locale . '.sec numeric'),
+        $locale . '.sec.*.between'          => __('locale.' . $locale . '.sec between'),
+        $locale . '.msg.*.string'           => __('locale.' . $locale . '.msg string'),
+        $locale . '.msg.*.min'              => __('locale.' . $locale . '.msg min'),
+        $locale . '.msg.*.max'              => __('locale.' . $locale . '.msg max'),
       ];
     }
     return  $transMessage + $basicMessage;

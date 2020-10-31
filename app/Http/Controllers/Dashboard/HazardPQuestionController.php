@@ -45,22 +45,9 @@ class HazardPQuestionController extends Controller
 
   public function update(Request $request, $id)
   {
-    /* $rules = $this->rules();
-
-    if (request()->hasFile('video')) {
-      $rules = ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000',];
-    }
-    $validator = Validator::make($request->all(), $rules);*/
-    /* if ($validator->fails()) {
-       return response()->json(['errors' => $validator->errors(), 'status' => 442]);
-     }*/
-
     $record = Question::find($id);
 
     if (request()->hasFile('video')) {
-      // if(isset($record->video) && $record->video !== 'demo.mp4'){
-      //     unlink('uploads/video/'.$record->video);
-      // }
       $video = $request->file('video');
       $public_path = 'uploads/video';
       $video_name = time() . '.' . $video->getClientOriginalExtension();

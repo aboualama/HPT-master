@@ -8,6 +8,6 @@ class QtypeTranslation extends Model
 {
     protected $table = 'qtypes_translations';
     public $timestamps = false;
-    protected $fillable = ['title', 'entro'];
+    protected $fillable = ['title', 'entro' , 'msg'];
 
 }

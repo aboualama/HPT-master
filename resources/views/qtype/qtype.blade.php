@@ -225,7 +225,7 @@ $('.action-edit').on("click", function (e) {
             e.preventDefault();
             var url = $("#url").val();
             var qtype_id = $("#qtype_id").val();
-            var qtype = $('#type').val();
+            var qtype = $('#qtype').val();
             $(".small_error").text('');
 
             console.log(qtype);

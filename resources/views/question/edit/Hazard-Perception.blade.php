@@ -40,22 +40,22 @@
                 </div>
                 <hr>
               </div>
-              @php($rightanswers = json_decode($record->right_answers,true)?json_decode($record->right_answers,true):[])
+              {{-- @php($rightanswers = json_decode($record->right_answers,true)?json_decode($record->right_answers,true):[]) --}}
 
-              @php($wronganswers = json_decode($record->wrong_answers,true)?json_decode($record->wrong_answers,true) : [])
+              {{-- @php($wronganswers = json_decode($record->wrong_answers,true)?json_decode($record->wrong_answers,true) : []) --}}
+              @foreach( json_decode($record->wrong_answers,true) as $ans)
 
-              @foreach( $rightanswers as $ans)
                 <div class="col-12" id="rowindex">
                   <div class="row rowindex" id="rowindex_{{$loop->index}}">
                     <div class="col-md-7 offset-md-1">
                       <label> ... </label>
-                      <input type="text" value="{{$wronganswers[$loop->index]}}" class="form-control " name="answer[]"
+                      <input type="text" value="{{$ans['answer']}}" class="form-control " name="answer[]"
                              placeholder="Pericolo">
                       <small id="answer_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
                     <div class="col-md-2">
                       <label>...</label>
-                      <input type="number" step="0.01" min=0 class="form-control " value="{{$ans}}" name="val[]"
+                      <input type="number" step="0.01" min=0 class="form-control " value="{{$ans['val']}}" name="val[]"
                              placeholder="Secondi">
                       <small id="val_0_error" class="form-text text-danger center small_error"> </small>
                     </div>
@@ -64,14 +64,14 @@
                         <span onclick="addrow()" style="font-size: 25px; line-height: 3;"><i
                             class="feather icon-plus-square"></i></span>
                         {{--  <span class="close-div" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>--}}
-                        <span onclick="removerow(0)" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
+                        <span onclick="removerow({{$loop->index}})" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
                       </div>
                     </div>
                   </div>
                   <hr>
                 </div>
               @endforeach
-              @if($rightanswers == [])
+              @if(json_decode($record->wrong_answers,true) == [])
                 <div class="col-12" id="rowindex">
                   <div class="row rowindex" id="rowindex_0">
                     <div class="col-md-7 offset-md-1">

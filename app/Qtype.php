@@ -9,6 +9,6 @@ use Astrotomic\Translatable\Translatable;
 class Qtype extends Model implements TranslatableContract
 {
     use Translatable;
-    public $translatedAttributes =  ['title', 'entro'];
+    public $translatedAttributes =  ['title', 'entro' , 'msg'];
     protected $fillable =  ['type'];
 }

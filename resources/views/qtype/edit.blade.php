@@ -15,12 +15,13 @@
 
                 <input type="hidden" id="url" value="{{ url('en/qtype-edit/' . $record->id) }}">
                 <input type="hidden" id="qtype_id" value="{{ $record->id }}">
+                <input type="hidden" id="qtype_type" value="{{ $record->type }}" name="type" >
 
                 <div class="form-group row">
                   <div class="col-sm-12 col-12" id="add-new-select">
                     <p>{{__('locale.please select Question Type')}}</p>
                     <div class="form-group">
-                      <select class="select2 form-control" id="type" name="type">
+                      <select class="select2 form-control" id="qtype" disabled>
                         @foreach ( $types as $type)
                           <option value="{{$type}}" {{ $type == $record->type ? 'selected' : ''}} >{{$type}}</option>
                         @endforeach
@@ -58,6 +59,30 @@
                   @endforeach
                 </div>
 
+                <div id="sec" class="secrow" >
+
+                  <h3>Perception</h3>
+                  @for ($i = 0 ; $i < sizeof(json_decode($record->msg)) ; $i++)
+                    <hr>
+                    <div class="form-group row">
+                      <div class="col-md-12">
+                        <label>Sec: </label>
+                        <input type="text" class="form-control" name="sec[]" value="{{ json_decode($record->msg , true)[$i]['sec'] }}" required>
+                        <small id="sec_{{$i}}_error" class="form-text text-danger center small_error"> </small>
+                      </div>
+
+                      @foreach ( config('translatable.locales') as $lang)
+                        <div class="{{ $loop->last ? 'col-md-12' : 'col-md-6'}}">
+                          <label>{{$lang}}</label>
+                          <input type="text" class="form-control" name="{{$lang}}[msg][]" value="{{json_decode($record->translate($lang)->msg , true)[$i]['msg']}}" required>
+                          <small id="{{$lang}}_msg_{{$i}}_error" class="form-text text-danger center small_error"> </small>
+                        </div>
+                      @endforeach
+                    </div>
+                  @endfor
+                </div>
+
+
                 </div>
               </div>
 
@@ -74,21 +99,23 @@
 
 <div class="col-12">
   <button id="edit" type="button" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
-  <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
   <button type="reset" class="btn btn-warning mr-1 mb-1" onclick="location.reload()">{{__('locale.Cancel')}}</button>
 </div>
 
 
 
+
+
+
 @section('vendor-script')
-<!-- vendor files -->
-<script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
-<script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+  <!-- vendor files -->
+  <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 @endsection
 @section('page-script')
-<!-- Page js files -->
-<script src="{{ asset(mix('js/scripts/forms/select/form-select2.js')) }}"></script>
-<script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
+  <!-- Page js files -->
+  <script src="{{ asset(mix('js/scripts/forms/select/form-select2.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
 @endsection
 
 
@@ -96,6 +123,20 @@
 
 
 
-</script>
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
 
-{{-- var type = $('#select-type').val(); --}}
+// $('#qtype').on('change', function () {
+//   var type = $(this).val();
+//   if(type == 'Hazard-Perception'){
+//     $(".secrow").css("display", "");
+//   }else{
+//     $(".secrow").css("display", "none");
+//   }
+// });
+
+
+</script>
