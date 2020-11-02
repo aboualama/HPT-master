@@ -126,6 +126,15 @@ class ResultController extends Controller
   {
 
     $result = Useranswer::find($id);
+    $user = $result->user;
+   // dd($user->toArray());
+    $excel["user"] = [];
+    $excel["user"]["data"][]= ["nome",$user->name];
+    $excel["user"]["data"][]= ["nome",$user->lastName];
+    $excel["user"]["data"][]= ["Sesso",$user->gender];
+    $excel["user"]["data"][]= ["Data di nascità",$user->birthDate];
+    $excel["user"]["data"][]= ["anni Patente",$user->driveYear];
+    $excel["user"]["data"][]= ["tipo Patente",$user->tipoPatente];
     $result = json_decode($result->answer, true);
     $evaluation = ResultEvalutation::all();
 
