@@ -28,7 +28,7 @@ class QuestionController extends Controller
   {
     // App::setLocale($request->get("lang"));
     $record = Qtype::where('type', $type)->listsTranslations('entro')->get();
-    dd($record);
+  //dd($record->toArray());
     return response($record, 200);
   }
 
@@ -95,7 +95,7 @@ class QuestionController extends Controller
       if (isset($answerToattach["Risk-Responsibilty"])) {
         $ansers['Risk-Responsibilty'] = $answerToattach["Risk-Responsibilty"];
         $lisence = App\Licensecode::find($request->get('licens_id'));
-      //  dump($lisence);
+      //  dump($lisence);qtype
         $lisence->active = 0;
         $lisence->save();
       }
@@ -123,6 +123,9 @@ class QuestionController extends Controller
   function getResultByLisence(Request $request)
   {
     $id = $request->get('id');
+    $liscense = App\Licensecode::find($id);
+    if (!$liscense->active)
+        return response(\GuzzleHttp\json_encode(["active" => false]), 200);
 
     $record = Useranswer::firstWhere("License_id", '=', $id);
 
@@ -145,7 +148,8 @@ class QuestionController extends Controller
 
 
     //$answer = json_decode($record->answer);
-    return response(\GuzzleHttp\json_encode(["question" => $ret]), 200);
+    return response(\GuzzleHttp\json_encode(["question" => $ret, "active" => true,
+    ]), 200);
   }
 
 }

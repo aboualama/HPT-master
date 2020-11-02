@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Exports\ResultExport;
 use App\Exports\resultSheets;
+use App\Licensecode;
 use App\Question;
 use App\Result;
 use App\ResultEvalutation;
@@ -104,7 +105,24 @@ class ResultController extends Controller
     ]);
   }
 
-  public function export($id)
+  public function getResultByLicenceCode(Request $request)
+  {
+
+    $answer = Useranswer::where('License_id', '=', 232)->get();
+    if ($answer)
+      return $this->generateResult($answer[0]->id);
+
+    return $answer->toArray();
+    $license = $request->get('lisenceId');
+    if (!$license)
+      return null;
+    //  $lisenceRow= Licensecode::find($license)->first();
+    $answer = Useranswer::where('License_id', '=', $license)->first();
+    return $answer;
+
+  }
+
+  public function generateResult($id)
   {
 
     $result = Useranswer::find($id);
@@ -156,7 +174,7 @@ class ResultController extends Controller
               // dump($reco['correct']);
               $pericolo = json_decode($question['wrong_answers']);
               $pericoli = [];
-              $pericoli = json_decode($question['right_answers'],true);
+              $pericoli = json_decode($question['right_answers'], true);
 
               foreach ($pericoli as $key_right => $right) {
                 $m = [];
@@ -166,11 +184,20 @@ class ResultController extends Controller
                 foreach ($reco['correct'] as $k => $pressed) {
                   sscanf($pressed, "%d:%d", $minutes, $seconds);
                   $time_seconds = $minutes * 60 + $seconds;
-                  if ($time_seconds >= $right && $time_seconds <= $right + 2 && $right != null) {
-                    $points = $points + $evaluation->point - round($right + 2 - $time_seconds);
-                    // dump($points,$right);
-                    $risposta = $pressed;
-                    unset($reco['right_answers'][$k]);
+
+                  try {
+                    if ($right)
+                      $right = str_replace(",", ".", $right);
+
+                    if ($time_seconds >= $right && $time_seconds <= number_format($right + 2) && $right != null) {
+                      $points = $points + $evaluation->point - round($right + 2 - $time_seconds, 2);
+                      // dump($points,$right);
+                      $risposta = $pressed;
+                      unset($reco['right_answers'][$k]);
+                    }
+                  } catch (\Exception $e) {
+                    return ['r' => $right];
+                    // return $right;
                   }
                 }
                 $m[] = $risposta;
@@ -271,10 +298,15 @@ class ResultController extends Controller
           break;
       }
     }
+    return $excel;
+  }
 
+  public function export($id)
+  {
+    $excel = $this->generateResult($id);
 
     return \Maatwebsite\Excel\Facades\Excel::download(new resultSheets($excel), $id . ".xlsx");
-    dd(json_decode($result->answer, true));
+ //   dd(json_decode($result->answer, true));
     //
 
     header('Content-type: text/xml');

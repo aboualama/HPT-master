@@ -11,7 +11,7 @@ use Validator;
 class QtypeController extends Controller
 {
 
-  public $all_type = ['Recognation','Risk-Responsibilty' ,'Reaction-SMC', 'Hazard', 'Hazard-Perception'];
+  public $all_type = ['Recognation','Risk-Responsibilty' ,'Reaction-SMC', 'Hazard', 'Hazard-Perception','Reaction-simple','Reaction-Complex'];
 
 
   public function index()

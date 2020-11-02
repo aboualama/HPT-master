@@ -13,7 +13,7 @@ class AddGenderToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('userss', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->date('birthDate')->nullable();
             $table->string('tipoPatente')->nullable();
