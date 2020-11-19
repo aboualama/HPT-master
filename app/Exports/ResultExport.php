@@ -11,7 +11,7 @@ use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use phpDocumentor\Reflection\Types\This;
 
-class ResultExport implements FromCollection, WithTitle, WithHeadings
+class ResultExport implements FromCollection, WithTitle //WithHeadings
 {
 
 
@@ -47,8 +47,8 @@ class ResultExport implements FromCollection, WithTitle, WithHeadings
     return $this->sheetName;
   }
 
-  public function headings(): array
+  /*public function headings(): array
   {
-    return $this->result['heading'];
-  }
+  //  return $this->result['heading'];
+  }*/
 }

@@ -63,13 +63,13 @@
                     <div class="form-group row">
                       <div class="col-md-12">
                         <label>Sec: </label>
-                        <input type="text" class="form-control" name="sec[]" value="" required>
+                        <input type="text" class="form-control" name="sec[]" value="" >
                         <small id="{{'sec_0_error'}}" class="form-text text-danger center small_error"> </small>
                       </div>
                       @foreach ( config('translatable.locales') as $lang)
                       <div class="{{ $loop->last ? 'col-md-12' : 'col-md-6'}}">
                           <label>{{$lang}}</label>
-                          <input type="text" class="form-control" name="{{$lang}}[msg][]" value="" required>
+                          <input type="text" class="form-control" name="{{$lang}}[msg][]" value="" >
                           <small id="{{$lang.'_msg_0_error'}}" class="form-text text-danger center small_error"> </small>
                         </div>
                       @endforeach
@@ -140,7 +140,7 @@ function addmsg() {
                     <div class="form-group row">
                       <div class="col-md-12">
                         <label>Sec: </label>
-                        <input type="text" class="form-control" name="sec[]" required>
+                        <input type="text" class="form-control" name="sec[]" >
                         <small id="{{'sec_${i+1}_error'}}" class="form-text text-danger center small_error"> </small>
                       </div>
                     </div>

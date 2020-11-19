@@ -108,7 +108,8 @@ class ResultController extends Controller
   public function getResultByLicenceCode(Request $request)
   {
 
-    $answer = Useranswer::where('License_id', '=', 232)->get();
+    $answer = Useranswer::where('License_id', '=', $request->get('lisenceId'))->get();
+
     if ($answer)
       return $this->generateResult($answer[0]->id);
 
@@ -129,12 +130,15 @@ class ResultController extends Controller
     $user = $result->user;
    // dd($user->toArray());
     $excel["user"] = [];
-    $excel["user"]["data"][]= ["nome",$user->name];
-    $excel["user"]["data"][]= ["nome",$user->lastName];
+    $excel["user"]["data"][]= ["Nome",$user->name];
+    $excel["user"]["data"][]= ["Cognome",$user->lastName];
     $excel["user"]["data"][]= ["Sesso",$user->gender];
+    $excel["user"]["data"][]= ["CF/P.Iva",$user->cf];
+    $excel["user"]["data"][]= ["Cell",$user->cell];
+    $excel["user"]["data"][]= ["Indirizzo",$user->tipoPatente];
+    $excel["user"]["data"][]= ["Tipo Patente",$user->tipoPatente];
     $excel["user"]["data"][]= ["Data di nascità",$user->birthDate];
-    $excel["user"]["data"][]= ["anni Patente",$user->driveYear];
-    $excel["user"]["data"][]= ["tipo Patente",$user->tipoPatente];
+    $excel["user"]["data"][]= ["Anni di guida",$user->driveYear];
     $result = json_decode($result->answer, true);
     $evaluation = ResultEvalutation::all();
 

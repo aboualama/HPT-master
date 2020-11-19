@@ -96,8 +96,12 @@ class QuestionController extends Controller
         $ansers['Risk-Responsibilty'] = $answerToattach["Risk-Responsibilty"];
         $lisence = App\Licensecode::find($request->get('licens_id'));
       //  dump($lisence);qtype
-        $lisence->active = 0;
-        $lisence->save();
+        if (count( $ansers['Risk-Responsibilty'] )>0)
+        {
+          $lisence->active = 0;
+          $lisence->save();
+        }
+
       }
 
     } else {

@@ -23,7 +23,7 @@ class AuthController extends Controller
     //  dd($request->all());
     $data = $request->all();
     $validator = validator()->make($data, [
-      'name' => 'required|min:6',
+      'name' => 'required|min:3',
       'email' => 'required|email|unique:users',
       'password' => 'required|confirmed|min:6|max:60|alpha_num',
       'lastName' => 'required|string', // dah na2s mesh beyegy fel request
