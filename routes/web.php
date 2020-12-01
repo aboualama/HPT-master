@@ -14,6 +14,7 @@
 use App\User;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
+Route::get('/getResultByLicenceCode/{id}', 'Dashboard\ResultController@getResultByLicenceCodeId');
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
   Route::get('ProvaInvio', function () {
@@ -92,7 +93,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/qtype-edit/{id}', 'Dashboard\QtypeController@edit');
     Route::Put('/qtype-edit/{id}', 'Dashboard\QtypeController@update');
     Route::delete('/qtype/{id}', 'Dashboard\QtypeController@destroy');
-
 
 
   }); // End Auth Middleware Group

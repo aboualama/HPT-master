@@ -29,6 +29,7 @@ use Illuminate\Http\Request;
   Route::post('/getResultBylisence', 'Api\QuestionController@getResultByLisence');
   Route::post('/updateanswers', 'Api\QuestionController@updateanswers');
   Route::post('/getResultByLicenceCode', 'Dashboard\ResultController@getResultByLicenceCode');
+  Route::get('/getResultByLicenceCode/{id}', 'Dashboard\ResultController@getResultByLicenceCodeId');
 
  // TODO check whic checklicens work
   Route::post('/checklicens', 'Api\AuthController@checklicens');

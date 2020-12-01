@@ -123,22 +123,41 @@ class ResultController extends Controller
 
   }
 
+  public function getResultByLicenceCodeId($id)
+  {
+
+
+    $answer = Useranswer::where('License_id', '=', $id)->get();
+
+    if ($answer)
+      return $this->generateResult($answer[0]->id);
+
+    return $answer->toArray();
+    $license = $id;
+    if (!$license)
+      return null;
+    //  $lisenceRow= Licensecode::find($license)->first();
+    $answer = Useranswer::where('License_id', '=', $license)->first();
+    return $answer;
+
+  }
+
   public function generateResult($id)
   {
 
     $result = Useranswer::find($id);
     $user = $result->user;
-   // dd($user->toArray());
+    // dd($user->toArray());
     $excel["user"] = [];
-    $excel["user"]["data"][]= ["Nome",$user->name];
-    $excel["user"]["data"][]= ["Cognome",$user->lastName];
-    $excel["user"]["data"][]= ["Sesso",$user->gender];
-    $excel["user"]["data"][]= ["CF/P.Iva",$user->cf];
-    $excel["user"]["data"][]= ["Cell",$user->cell];
-    $excel["user"]["data"][]= ["Indirizzo",$user->tipoPatente];
-    $excel["user"]["data"][]= ["Tipo Patente",$user->tipoPatente];
-    $excel["user"]["data"][]= ["Data di nascità",$user->birthDate];
-    $excel["user"]["data"][]= ["Anni di guida",$user->driveYear];
+    $excel["user"]["data"][] = ["Nome", $user->name];
+    $excel["user"]["data"][] = ["Cognome", $user->lastName];
+    $excel["user"]["data"][] = ["Sesso", $user->gender];
+    $excel["user"]["data"][] = ["CF/P.Iva", $user->cf];
+    $excel["user"]["data"][] = ["Cell", $user->cell];
+    $excel["user"]["data"][] = ["Indirizzo", $user->tipoPatente];
+    $excel["user"]["data"][] = ["Tipo Patente", $user->tipoPatente];
+    $excel["user"]["data"][] = ["Data di nascità", $user->birthDate];
+    $excel["user"]["data"][] = ["Anni di guida", $user->driveYear];
     $result = json_decode($result->answer, true);
     $evaluation = ResultEvalutation::all();
 
@@ -190,6 +209,7 @@ class ResultController extends Controller
               $pericoli = json_decode($question['right_answers'], true);
 
               foreach ($pericoli as $key_right => $right) {
+                $points = 0;
                 $m = [];
                 $m[] = $pericolo[$key_right];
                 $m[] = $right;
@@ -204,9 +224,10 @@ class ResultController extends Controller
 
                     if ($time_seconds >= $right && $time_seconds <= number_format($right + 2) && $right != null) {
                       $points = $points + $evaluation->point - round($right + 2 - $time_seconds, 2);
-                      // dump($points,$right);
+                    //  dump([$right,$index,$points,round($right + 2 - $time_seconds, 2)]);
                       $risposta = $pressed;
                       unset($reco['right_answers'][$k]);
+                      continue;
                     }
                   } catch (\Exception $e) {
                     return ['r' => $right];
@@ -319,7 +340,7 @@ class ResultController extends Controller
     $excel = $this->generateResult($id);
 
     return \Maatwebsite\Excel\Facades\Excel::download(new resultSheets($excel), $id . ".xlsx");
- //   dd(json_decode($result->answer, true));
+    //   dd(json_decode($result->answer, true));
     //
 
     header('Content-type: text/xml');

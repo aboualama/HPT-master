@@ -39,7 +39,7 @@
               <div class="row">
                 <div class="col-3">
                   <div class="form-group">
-                    <input class="form-control" type="number" id="number" min="1" placeholder="Lincence Number">
+                    <input class="form-control" type="number" id="number" min="1" placeholder="Number of Licences to generate">
                   </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
@@ -47,7 +47,7 @@
                     <select class="form-control" id="user-id">
                       <option value="">All Users</option>
                       @foreach ($records['users'] as $record)
-                        <option value="{{$record->id}}">{{$record->name}}</option>
+                        <option value="{{$record->id}}">{{$record->name}} {{$record->lastName}}</option>
                       @endforeach
                     </select>
                   </fieldset>
@@ -87,7 +87,7 @@
               <td class="licenses-Code">{{ $record->id }}</td>
               <td class="username">{{$record->licensecodes->count()}}</td>
 
-              <td class="username">{{$record->licensecodes[0]->user->name}}</td>
+              <td class="username">{{$record->licensecodes[0]->user->name}} {{$record->licensecodes[0]->user->lastName}}</td>
               <td class="licenses-user_id">
                 <button type="button" class="btn btn-primary  action-licenses" data-id="{{$record->id}}">
                   Show Licensecode
