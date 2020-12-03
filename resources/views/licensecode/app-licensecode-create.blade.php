@@ -19,7 +19,7 @@
           <div class="card-body">
             <p>Create neat and clean form wizard using <code>.wizard-circle</code> class.</p>
 
-              <form novalidate id="form" action="{{ url('app-licensecode-UpdateOrCreate')  }}" method="POST" class="number-tab-steps wizard-circle" >
+              {{-- <form novalidate id="form" action="{{ url('app-licensecode-UpdateOrCreate')  }}" method="POST" class="number-tab-steps wizard-circle" >
                @csrf
               <!-- Step 1 -->
               <h6>Step 1</h6>
@@ -28,7 +28,7 @@
                     Generate Licensecode
                 </div>
               </fieldset>
-            </form>
+            </form> --}}
           </div>
         </div>
       </div>

@@ -18,12 +18,7 @@ class LicensecodeController extends Controller
     $records['users'] = User::all();
 
     // $records['licenses'] = Licensecode::all();
-    $records['group'] = Group::where('type', 'licensecode')->get();
-
-
-
-
-   // dd($records['licenses']);
+    $records['group'] = Group::where('type', 'licensecode')->has('licensecodes')->paginate(25);
     $breadcrumbs = [
       ['link' => "dashboard-analytics", 'name' => "Home"], ['link' => "dashboard-analytics", 'name' => "Pages"], ['name' => "Licensecode "]
     ];

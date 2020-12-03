@@ -43,9 +43,12 @@
               {{-- @php($rightanswers = json_decode($record->right_answers,true)?json_decode($record->right_answers,true):[]) --}}
 
               {{-- @php($wronganswers = json_decode($record->wrong_answers,true)?json_decode($record->wrong_answers,true) : []) --}}
-              @foreach( json_decode($record->wrong_answers,true) as $ans)
 
-                <div class="col-12" id="rowindex">
+              @if(is_object(json_decode($record->wrong_answers)[0]))
+
+              @foreach( json_decode($record->wrong_answers , true) as $ans)
+
+                <div class="col-12">
                   <div class="row rowindex" id="rowindex_{{$loop->index}}">
                     <div class="col-md-7 offset-md-1">
                       <label> ... </label>
@@ -61,8 +64,7 @@
                     </div>
                     <div class="col-md-2">
                       <div class="col-md-2" style="display: inline;">
-                        <span onclick="addrow()" style="font-size: 25px; line-height: 3;"><i
-                            class="feather icon-plus-square"></i></span>
+                        <span onclick="addrow()" style="font-size: 25px; line-height: 3;"><i class="feather icon-plus-square"></i></span>
                         {{--  <span class="close-div" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>--}}
                         <span onclick="removerow({{$loop->index}})" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
                       </div>
@@ -71,7 +73,37 @@
                   <hr>
                 </div>
               @endforeach
-              @if(json_decode($record->wrong_answers,true) == [])
+
+              @else
+
+              <div class="col-12">
+                <div class="row rowindex" id="rowindex_0">
+                  <div class="col-md-7 offset-md-1">
+                    <input type="text" class="form-control " name="answer[]" placeholder="Pericolo">
+                    <small id="answer_0_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" step="0.01" min=0 class="form-control " name="val[]" placeholder="Secondi">
+                    <small id="val_0_error" class="form-text text-danger center small_error"> </small>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="col-md-2" style="display: inline;">
+                      <span onclick="addrow()" style="font-size: 25px"><i class="feather icon-plus-square"></i></span>
+                      {{--  <span class="close-div" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>--}}
+                     <span onclick="removerow(0)" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+              </div>
+
+
+              @endif
+
+              <div id="rowindex" class="col-12">
+              </div>
+
+              {{-- @if(json_decode($record->wrong_answers,true) == [])
                 <div class="col-12" id="rowindex">
                   <div class="row rowindex" id="rowindex_0">
                     <div class="col-md-7 offset-md-1">
@@ -87,16 +119,19 @@
                     <div class="col-md-2">
                       <div class="col-md-2" style="display: inline;">
 
-                        <span onclick="addrow()" style="font-size: 25px; line-height: 3;"><i class="feather icon-plus-square"></i></span>
+                        <span onclick="addrow()" style="font-size: 25px; line-height: 3;"><i class="feather icon-plus-square"></i></span> --}}
 
                         {{--  <span class="close-div" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>--}}
-                        <span onclick="removerow(0)" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
+                        {{-- <span onclick="removerow(0)" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
                       </div>
                     </div>
                   </div>
                   <hr>
                 </div>
-              @endif
+              @endif --}}
+
+
+
               <div class="col-12">
                 <button id="edit" type="button" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
                 <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
@@ -129,7 +164,7 @@
                     </div>
                     <div class="col-md-2">
                       <div class="col-md-2" style="display: inline;">
-                        <span class="action-add" data-id="" onclick="addrow()" style="font-size: 25px; line-height: 3;"><i class="feather icon-plus-square"></i></span>
+                        <span class="action-add" data-id="" onclick="addrow()" style="font-size: 25px;"><i class="feather icon-plus-square"></i></span>
                         <span onclick="removerow(` + i + `)" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
                       </div>
                     </div>

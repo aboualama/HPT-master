@@ -123,13 +123,12 @@
                   <label for="user-role">User Role</label>
                       <select class="select2 form-control" id="user-role">
                           <option value="0" selected>{{__('locale.Select User Role')}}</option>
-                          <option value="Admin"> {{__('locale.Admin')}}</option>
-                          <option value="Editor"> {{__('locale.Editor')}}</option>
-                          <option value="User"> {{__('locale.User')}}</option>
+                          <option value="admin"> {{__('locale.Admin')}}</option>
+                          <option value="user"> {{__('locale.User')}}</option>
                       </select>
                 </div>
 
-
+{{--
               <section id="basic-tabs-components" style="width: 100%">
                 <div class="row">
                   <div class="col-12">
@@ -165,7 +164,7 @@
                                                 id="permissions"
                                                 name="permissions[]"
                                                 value="{{ $can . '-' . $model }}"
-                                                {{($user->can($can . '-' . $model )) ? 'checked' : ''}} >   {{-- USER SELECTED --}}
+                                                {{($user->can($can . '-' . $model )) ? 'checked' : ''}} >
                                     @lang('locale.' . $can)</label>
                                   @endforeach
                                 </div>
@@ -176,7 +175,7 @@
                     </div>
                   </div>
                 </div>
-              </section>
+              </section> --}}
 
 
 
@@ -187,7 +186,8 @@
             </div>
           <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
             <div class="add-data-btn">
-              <input type="submit" id="add-update" class="btn btn-primary" value="{{__('locale.Submit')}}">
+              {{-- <input type="submit" id="add-update" class="btn btn-primary" value="{{__('locale.Submit')}}"> --}}
+              <button id="add-update" type="submit" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
             </div>
             <div class="cancel-data-btn">
               <input type="reset" class="btn btn-outline-danger" value="{{__('locale.Cancel')}}">
@@ -234,10 +234,10 @@
       var id = $('#data-id').val();
       var form = $('#data-form').val();
       var td = $("#user-list-table  > tbody");
-      var permissions = [];
-          $("#permissions:checked").each(function() {
-              permissions.push($(this).val());
-          });
+      // var permissions = [];
+      //     $("#permissions:checked").each(function() {
+      //         permissions.push($(this).val());
+      //     });
       $.ajax({
             type: "get",
             url: "/app-user-UpdateOrCreate",
@@ -248,8 +248,8 @@
                 'userName': $('#data-userName').val(),
                 'cell': $('#data-cell').val(),
                 'address': $('#data-address').val(),
-                // 'user-role': $('#user-role').val(),
-                'permissions': permissions,
+                'role': $('#user-role').val(),
+                // 'permissions': permissions,
             },
             success: function (data) {
               $(".add-new-data").removeClass("show")

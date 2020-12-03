@@ -25,11 +25,11 @@
       <div class="card-header">
         <h4 class="card-title">Generate Licensecode</h4>
         <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-        <div class="heading-elements">
+        {{-- <div class="heading-elements">
           <ul class="list-inline mb-0">
             <li><a data-action="collapse"><i class="feather icon-chevron-down"></i></a></li>
           </ul>
-        </div>
+        </div> --}}
       </div>
       <div class="card-content collapse show">
         <div class="card-body">
@@ -53,7 +53,8 @@
                   </fieldset>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
-                  <input type="submit" id="generate" class="btn btn-primary" value="Generate">
+                  {{-- <input type="submit" id="generate" class="btn btn-primary" value="Generate"> --}}
+                  <button id="generate" type="submit" class="btn btn-primary mr-1 mb-1">Generate</button>
                 </div>
               </div>
             </form>
@@ -78,9 +79,6 @@
         </thead>
         <tbody>
         @foreach ($records['group'] as $i => $record)
-          @if ($record->licensecodes->count() >0)
-
-
             <tr>
               <td></td>
               <td class="licenses-id">{{ $i +1 }}</td>
@@ -99,11 +97,11 @@
                 <span class="action-delete" data-id="{{ $record->id }}"><i class="feather icon-trash"></i></span>
               </td>
             </tr>
-          @endif
         @endforeach
         </tbody>
       </table>
     </div>
+    {{ $records['group']->render() }}
     <!-- Ag Grid users list section end -->
   </section>
   <!-- users list ends -->
@@ -158,8 +156,7 @@
     // Generate Licensecode
     $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 
-    $('#generate').on("click", function (event) {
-      event.preventDefault();
+    $('#generate').on("click", function () {
       $.ajax({
         type: "POST",
         url: "app-licensecode-UpdateOrCreate",
@@ -227,6 +224,7 @@
         success: function (data) {
           toastr.success('Deleted Successfully', "licensecode!",);
           td.fadeOut();
+          location.reload();
         },
         error: function (data) {
           console.log('Error:', data);
