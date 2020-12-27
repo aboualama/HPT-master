@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ asset(mix('css/pages/aggrid.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/pages/data-list-view.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/plugins/extensions/toastr.css')) }}">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -44,12 +45,12 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
                   <fieldset class="form-group">
-                    <select class="form-control" id="user-id">
-                      <option value="">All Users</option>
-                      @foreach ($records['users'] as $record)
-                        <option value="{{$record->id}}">{{$record->name}} {{$record->lastName}}</option>
-                      @endforeach
-                    </select>
+                      <select class="js-example-basic-single js-example-placeholder-single form-control" name="state" id="user-id">
+                        <option>-- {{ __('locale.select user') }} --</option>
+                        @foreach ($records['users'] as $record)
+                          <option value="{{$record->id}}">{{$record->name}} {{$record->lastName}}</option>
+                        @endforeach
+                      </select>
                   </fieldset>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
@@ -152,6 +153,7 @@
   <script src="{{ asset(mix('js/scripts/pages/app-user.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
   <script>
 
@@ -234,6 +236,15 @@
       });
     });
 
+// In your Javascript (external .js resource or <script> tag)
+  $(document).ready(function() {
+      $('.js-example-basic-single').select2();
+  });
+
+  $(".js-example-placeholder-single").select2({
+    placeholder: "Select a state",
+    allowClear: true
+  });
 
   </script>
 @endsection

@@ -36,6 +36,22 @@
                 <hr>
               </div>
 
+              @foreach ( config('translatable.locales') as $lang)
+              <div class="col-12">
+                <div class="form-group row">
+                  <div class="col-md-3">
+                    <span>@lang('locale.' . $lang . '.title')</span>
+                  </div>
+                  <div class="col-md-9">
+                  <input type="text" id="title" class="form-control" name="{{$lang}}[title]" value="{{$record->translate($lang)->title  ?? ''}}">
+                  <small id="{{$lang.'_title_error'}}" class="form-text text-danger center small_error"> </small>
+                  </div>
+                </div>
+              </div>
+              @endforeach
+
+              <div class="col-12"> <hr></div>
+
 
               <div class="col-12">
                 <div class="row">
