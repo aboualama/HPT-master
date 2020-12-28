@@ -143,7 +143,7 @@
 
 function addrow() {
       let i = $('.rowindex').length
-      let m =  `<div class="row rowindex" id="rowindex_`+ i +`">
+      let m =  `<div class="row rowindex" id="rowindex_`+ i +`" style="margin-bottom: 5px;">
                     <div class="col-md-7 offset-md-1">
                       <input type="text" class="form-control " name="answer[]" placeholder="Pericolo">
                       <small id="answer_`+ i +`_error" class="form-text text-danger center small_error"> </small>
@@ -154,7 +154,7 @@ function addrow() {
                     </div>
                     <div class="col-md-2">
                       <div class="col-md-2" style="display: inline;">
-                        <span class="action-add" data-id="" onclick="addrow()" style="font-size: 25px; line-height: 3;"><i class="feather icon-plus-square"></i></span>
+                        <span class="action-add" data-id="" onclick="addrow()" style="font-size: 25px;"><i class="feather icon-plus-square"></i></span>
                         <span onclick="removerow(`+ i +`)" style="font-size: 25px"><i class="feather icon-trash-2"></i></span>
                       </div>
                     </div>

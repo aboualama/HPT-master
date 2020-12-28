@@ -85,7 +85,6 @@ class UserManagmentController
         $record->cell = $request->get('cell');
         $record->cf = $request->get('cf');
         $record->address = $request->get('address');
-        $record->role = $request->get('role');
         $record->email = $request->get('email');
 
         if ($new == true){
@@ -98,8 +97,8 @@ class UserManagmentController
         }
         $record->save();
 
-        // $record->attachRole('admin');
-        $record->syncPermissions($request->permissions);
+        $record->syncRoles([$request->get('role')]);
+       //  $record->syncPermissions($request->permissions);
 
         // return response($record, 200);
         return response()->json($record);

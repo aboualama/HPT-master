@@ -15,9 +15,9 @@ class HazardPQuestionController extends Controller
   {
     //  dd($request->all());
 
-    $rules = $this->rules();
-    $rules = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000'];
-    $messages = $this->messages();
+    $rules     = $this->rules();
+    $rules     = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000'];
+    $messages  = $this->messages();
     $validator = Validator::make($request->all(), $rules, $messages);
     if ($validator->fails()) {
       return response()->json(['errors' => $validator->errors(), 'status' => 442]);
@@ -25,13 +25,13 @@ class HazardPQuestionController extends Controller
 
     if (request()->hasFile('video')) {
       $public_path = 'uploads/video';
-      $video_name = time() . '.' . request('video')->getClientOriginalExtension();
+      $video_name  = time() . '.' . request('video')->getClientOriginalExtension();
       request('video')->move($public_path, $video_name);
     }
 
-    $record = Question::create($request->all());
+    $record  = Question::create($request->all());
     $record['video'] = $video_name;
-    $answer = [];
+    $answer  = [];
     foreach($request->answer as $i => $ans)
     {
       $answer[$i] = ['answer' => $ans , 'val' => $request->val[$i]];
@@ -47,10 +47,17 @@ class HazardPQuestionController extends Controller
   {
     $record = Question::find($id);
 
+    $rules     = $this->rules();
+    $messages  = $this->messages();
+    $validator = Validator::make($request->all(), $rules, $messages);
+    if ($validator->fails()) {
+      return response()->json(['errors' => $validator->errors(), 'status' => 442]);
+    }
+
     if (request()->hasFile('video')) {
-      $video = $request->file('video');
+      $video       = $request->file('video');
       $public_path = 'uploads/video';
-      $video_name = time() . '.' . $video->getClientOriginalExtension();
+      $video_name  = time() . '.' . $video->getClientOriginalExtension();
       $video->move($public_path, $video_name);
     }
     if (isset($video_name)) {
@@ -73,8 +80,8 @@ class HazardPQuestionController extends Controller
   public function rules()
   {
     $basicRule = [
-      'type' => 'required|string',
-      'val.*' => 'required|numeric',
+      'type'     => 'required|string',
+      'val.*'    => 'required|numeric',
       'answer.*' => 'required|string',
     ];
     return $basicRule;
@@ -83,12 +90,12 @@ class HazardPQuestionController extends Controller
   public function messages()
   {
     $basicMessage = [
-      'type.required' => __('locale.type required'),
-      'type.string' => __('locale.type string'),
-      'val.*.required' => __('locale.val required'),
-      'val.*.numeric' => __('locale.val numeric'),
+      'type.required'     => __('locale.type required'),
+      'type.string'       => __('locale.type string'),
+      'val.*.required'    => __('locale.val required'),
+      'val.*.numeric'     => __('locale.val numeric'),
       'answer.*.required' => __('locale.answer required'),
-      'answer.*.numeric' => __('locale.answer string'),
+      'answer.*.numeric'  => __('locale.answer string'),
     ];
     return $basicMessage;
   }
