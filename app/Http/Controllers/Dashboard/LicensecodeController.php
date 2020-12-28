@@ -18,7 +18,7 @@ class LicensecodeController extends Controller
     $records['users'] = User::all();
 
     // $records['licenses'] = Licensecode::all();
-    $records['group'] = Group::where('type', 'licensecode')->get();
+    $records['group'] = Group::where('type', 'licensecode')->has('licensecodes')->paginate(25);
 
 
 

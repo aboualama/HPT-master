@@ -7,9 +7,17 @@
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/ag-grid/ag-grid.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/ag-grid/ag-theme-material.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.css')) }}">
+
+
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}"> {{-- --}}
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}"> {{-- --}}
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css')) }}"> {{-- --}}
 @endsection
 
 @section('page-style')
+<link rel="stylesheet" href="{{ asset(mix('css/pages/data-list-view.css')) }}">
+
+
   {{-- Page Css files --}}
   <link rel="stylesheet" href="{{ asset(mix('css/pages/app-user.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/pages/aggrid.css')) }}">
@@ -54,7 +62,8 @@
                   </fieldset>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
-                  <input type="submit" id="generate" class="btn btn-primary" value="Generate">
+                  {{-- <input type="submit" id="generate" class="btn btn-primary" value="Generate"> --}}
+                  <button id="generate" type="submit" class="btn btn-primary mr-1 mb-1">Generate</button>
                 </div>
               </div>
             </form>
@@ -62,8 +71,9 @@
         </div>
       </div>
     </div>
+  </section>
 
-
+  <section id="data-list-view" class="users-list-wrapper data-list-view-header">
     <div class="table-responsive">
       <table class="table data-list-view" id="user-list-table">
         <thead>
@@ -140,15 +150,28 @@
 
 
 
+
 @endsection
 
 @section('vendor-script')
   {{-- Vendor js files --}}
   <script src="{{ asset(mix('vendors/js/tables/ag-grid/ag-grid-community.min.noStyle.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+
+
+  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.bootstrap4.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.bootstrap.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.select.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.checkboxes.min.js')) }}"></script> {{-- --}}
 @endsection
 
 @section('page-script')
+
+
+  <script src="{{ asset(mix('js/scripts/ui/licensecode-list-view.js')) }}"></script>
+
   {{-- Page js files --}}
   <script src="{{ asset(mix('js/scripts/pages/app-user.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
