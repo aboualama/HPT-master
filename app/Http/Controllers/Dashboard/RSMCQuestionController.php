@@ -54,13 +54,14 @@ class RSMCQuestionController extends Controller
 
       foreach(config('translatable.locales') as $lang){
         $data = $request->get($lang);
-              $recordQ = new QuestionTranslation();
-              $recordQ['locale'] = $lang;
-              $recordQ['question'] = $data['question'];
-              $recordQ['question_id'] = $record['id'];
-              $recordQ->right_answers = $data['right_answers'][$i];
-              $recordQ->wrong_answers = json_encode($data['wrong_answers']);
-              $recordQ->save();
+          $recordQ = new QuestionTranslation();
+          $recordQ['locale']      = $lang;
+          $recordQ['question']    = $data['question'];
+          $recordQ['title']       = $data['title'];
+          $recordQ['question_id'] = $record['id'];
+          $recordQ->right_answers = $data['right_answers'][$i];
+          $recordQ->wrong_answers = json_encode($data['wrong_answers']);
+          $recordQ->save();
       }
 
         $record['image'] = $img;
@@ -114,14 +115,15 @@ class RSMCQuestionController extends Controller
         }
 
       foreach(config('translatable.locales') as $lang){
-        $data = $request->get($lang);
-              $recordQ = new QuestionTranslation();
-              $recordQ['locale'] = $lang;
-              $recordQ['question'] = $data['question'];
-              $recordQ['question_id'] = $record['id'];
-              $recordQ->right_answers = $data['right_answers'][$i];
-              $recordQ->wrong_answers = json_encode($data['wrong_answers']);
-              $recordQ->save();
+            $data                   = $request->get($lang);
+            $recordQ                = new QuestionTranslation();
+            $recordQ['locale']      = $lang;
+            $recordQ['question']    = $data['question'];
+            $recordQ['title']       = $data['title'];
+            $recordQ['question_id'] = $record['id'];
+            $recordQ->right_answers = $data['right_answers'][$i];
+            $recordQ->wrong_answers = json_encode($data['wrong_answers']);
+            $recordQ->save();
       }
 
         $record['image'] = $img;
@@ -148,6 +150,7 @@ class RSMCQuestionController extends Controller
     foreach (config('translatable.locales') as $locale) {
       $transRule = $transRule + [
         $locale . '.question'  => 'required|string|min:3|max:260',
+        $locale . '.title'        => 'required|string|min:3|max:260',
         $locale . '.right_answers.*'  => 'required|string',
         $locale . '.wrong_answers.*'  => 'required|string',
       ];
@@ -168,6 +171,10 @@ class RSMCQuestionController extends Controller
         $locale . '.question.string'            => __('locale.' . $locale . '.question string'),
         $locale . '.question.min'               => __('locale.' . $locale . '.question min'),
         $locale . '.question.max'               => __('locale.' . $locale . '.question max'),
+        $locale . '.title.required'          => __('locale.' . $locale . '.title required'),
+        $locale . '.title.string'            => __('locale.' . $locale . '.title string'),
+        $locale . '.title.min'               => __('locale.' . $locale . '.title min'),
+        $locale . '.title.max'               => __('locale.' . $locale . '.title max'),
         $locale . '.right_answers.*.required'   => __('locale.' . $locale . '.right_answers required'),
         $locale . '.right_answers.*.string'     => __('locale.' . $locale . '.right_answers string'),
         $locale . '.wrong_answers.*.required'   => __('locale.' . $locale . '.wrong_answers required'),

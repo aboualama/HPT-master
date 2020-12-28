@@ -208,6 +208,7 @@ class QuestionController extends Controller
     foreach (config('translatable.locales') as $locale) {
       $transRule = $transRule + [
         $locale . '.question'     => 'required|string|min:3|max:260',
+        $locale . '.title'        => 'required|string|min:3|max:260',
         $locale . '.right_answer' => 'required|string',
         $locale . '.wrongans_1'   => 'required|string',
         $locale . '.wrongans_2'   => 'required|string',
@@ -226,18 +227,22 @@ class QuestionController extends Controller
     $transMessage  = [];
     foreach (config('translatable.locales') as $locale) {
       $transMessage = $transMessage + [
-        $locale . '.question.required'         => __('locale.' . $locale . '.question required'),
-        $locale . '.question.string'           => __('locale.' . $locale . '.question string'),
-        $locale . '.question.min'              => __('locale.' . $locale . '.question min'),
-        $locale . '.question.max'              => __('locale.' . $locale . '.question max'),
-        $locale . '.right_answer.*.required'   => __('locale.' . $locale . '.right_answers required'),
-        $locale . '.right_answer.*.string'     => __('locale.' . $locale . '.right_answers string'),
-        $locale . '.wrongans_1.*.required'     => __('locale.' . $locale . '.wrongans required'),
-        $locale . '.wrongans_1.*.string'       => __('locale.' . $locale . '.wrongans string'),
-        $locale . '.wrongans_2.*.required'     => __('locale.' . $locale . '.wrongans required'),
-        $locale . '.wrongans_2.*.string'       => __('locale.' . $locale . '.wrongans string'),
-        $locale . '.wrongans_3.*.required'     => __('locale.' . $locale . '.wrongans required'),
-        $locale . '.wrongans_3.*.string'       => __('locale.' . $locale . '.wrongans string'),
+        $locale . '.question.required'       => __('locale.' . $locale . '.question required'),
+        $locale . '.question.string'         => __('locale.' . $locale . '.question string'),
+        $locale . '.question.min'            => __('locale.' . $locale . '.question min'),
+        $locale . '.question.max'            => __('locale.' . $locale . '.question max'),
+        $locale . '.title.required'          => __('locale.' . $locale . '.title required'),
+        $locale . '.title.string'            => __('locale.' . $locale . '.title string'),
+        $locale . '.title.min'               => __('locale.' . $locale . '.title min'),
+        $locale . '.title.max'               => __('locale.' . $locale . '.title max'),
+        $locale . '.right_answer.*.required' => __('locale.' . $locale . '.right_answers required'),
+        $locale . '.right_answer.*.string'   => __('locale.' . $locale . '.right_answers string'),
+        $locale . '.wrongans_1.*.required'   => __('locale.' . $locale . '.wrongans required'),
+        $locale . '.wrongans_1.*.string'     => __('locale.' . $locale . '.wrongans string'),
+        $locale . '.wrongans_2.*.required'   => __('locale.' . $locale . '.wrongans required'),
+        $locale . '.wrongans_2.*.string'     => __('locale.' . $locale . '.wrongans string'),
+        $locale . '.wrongans_3.*.required'   => __('locale.' . $locale . '.wrongans required'),
+        $locale . '.wrongans_3.*.string'     => __('locale.' . $locale . '.wrongans string'),
       ];
     }
     return  $transMessage + $basicMessage;

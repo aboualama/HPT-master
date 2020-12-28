@@ -7,14 +7,23 @@
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/ag-grid/ag-grid.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/ag-grid/ag-theme-material.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.css')) }}">
+
+
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}"> {{-- --}}
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}"> {{-- --}}
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css')) }}"> {{-- --}}
 @endsection
 
 @section('page-style')
+<link rel="stylesheet" href="{{ asset(mix('css/pages/data-list-view.css')) }}">
+
+
   {{-- Page Css files --}}
   <link rel="stylesheet" href="{{ asset(mix('css/pages/app-user.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/pages/aggrid.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/pages/data-list-view.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/plugins/extensions/toastr.css')) }}">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -44,12 +53,12 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
                   <fieldset class="form-group">
-                    <select class="form-control" id="user-id">
-                      <option value="">All Users</option>
-                      @foreach ($records['users'] as $record)
-                        <option value="{{$record->id}}">{{$record->name}} {{$record->lastName}}</option>
-                      @endforeach
-                    </select>
+                      <select class="js-example-basic-single js-example-placeholder-single form-control" name="state" id="user-id">
+                        <option>-- {{ __('locale.select user') }} --</option>
+                        @foreach ($records['users'] as $record)
+                          <option value="{{$record->id}}">{{$record->name}} {{$record->lastName}}</option>
+                        @endforeach
+                      </select>
                   </fieldset>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
@@ -62,8 +71,9 @@
         </div>
       </div>
     </div>
+  </section>
 
-
+  <section id="data-list-view" class="users-list-wrapper data-list-view-header">
     <div class="table-responsive">
       <table class="table data-list-view" id="user-list-table">
         <thead>
@@ -137,19 +147,33 @@
 
 
 
+
 @endsection
 
 @section('vendor-script')
   {{-- Vendor js files --}}
   <script src="{{ asset(mix('vendors/js/tables/ag-grid/ag-grid-community.min.noStyle.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+
+
+  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.bootstrap4.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.bootstrap.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.select.min.js')) }}"></script> {{-- --}}
+  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.checkboxes.min.js')) }}"></script> {{-- --}}
 @endsection
 
 @section('page-script')
+
+
+  <script src="{{ asset(mix('js/scripts/ui/licensecode-list-view.js')) }}"></script>
+
   {{-- Page js files --}}
   <script src="{{ asset(mix('js/scripts/pages/app-user.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
   <script>
 
@@ -232,6 +256,15 @@
       });
     });
 
+// In your Javascript (external .js resource or <script> tag)
+  $(document).ready(function() {
+      $('.js-example-basic-single').select2();
+  });
+
+  $(".js-example-placeholder-single").select2({
+    placeholder: "Select a state",
+    allowClear: true
+  });
 
   </script>
 @endsection

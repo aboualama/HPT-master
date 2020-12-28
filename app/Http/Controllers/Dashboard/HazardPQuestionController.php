@@ -13,7 +13,6 @@ class HazardPQuestionController extends Controller
 
   public function store(Request $request)
   {
-    //  dd($request->all());
 
     $rules     = $this->rules();
     $rules     = $rules + ['video' => 'required|mimes:mp4,mov,ogg,qt|max:220000'];
@@ -43,6 +42,7 @@ class HazardPQuestionController extends Controller
   }
 
 
+
   public function update(Request $request, $id)
   {
     $record = Question::find($id);
@@ -64,6 +64,7 @@ class HazardPQuestionController extends Controller
       $record['video'] = $video_name;
     }
 
+    $record->update($request->all());
     $answer = [];
     foreach($request->answer as $i => $ans)
     {
@@ -84,7 +85,14 @@ class HazardPQuestionController extends Controller
       'val.*'    => 'required|numeric',
       'answer.*' => 'required|string',
     ];
-    return $basicRule;
+
+    $transRule = [];
+    foreach (config('translatable.locales') as $locale) {
+      $transRule = $transRule + [
+        $locale . '.title'        => 'required|string|min:3|max:260',
+      ];
+    }
+    return $basicRule + $transRule;
   }
 
   public function messages()
@@ -97,7 +105,16 @@ class HazardPQuestionController extends Controller
       'answer.*.required' => __('locale.answer required'),
       'answer.*.numeric'  => __('locale.answer string'),
     ];
-    return $basicMessage;
+    $transMessage  = [];
+    foreach (config('translatable.locales') as $locale) {
+      $transMessage = $transMessage + [
+        $locale . '.title.required'          => __('locale.' . $locale . '.title required'),
+        $locale . '.title.string'            => __('locale.' . $locale . '.title string'),
+        $locale . '.title.min'               => __('locale.' . $locale . '.title min'),
+        $locale . '.title.max'               => __('locale.' . $locale . '.title max'),
+      ];
+    }
+    return  $transMessage + $basicMessage;
   }
 
 }
