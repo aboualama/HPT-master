@@ -13,8 +13,15 @@
     overflow-y: auto;
   }
 </style>
+
+
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}"> {{-- --}}
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}"> {{-- --}}
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css')) }}"> {{-- --}}
 @endsection
+
 @section('page-style')
+<link rel="stylesheet" href="{{ asset(mix('css/pages/data-list-view.css')) }}">
         {{-- Page css files --}}
         <link rel="stylesheet" href="{{ asset(mix('css/plugins/extensions/toastr.css')) }}">
 @endsection
@@ -47,45 +54,39 @@
 
 
 <!-- Table head options start -->
-<div class="row" id="table-head">
-  <div class="col-12">
-    <div class="card">
-      <div class="card-header">
-        <h4 class="card-title">{{__('locale.Question List')}}</h4>
 
-      </div>
-      <div class="card-content">
-        <div class="table-responsive">
-          <table class="table mb-0">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">{{__('locale.type')}}</th>
-                <th scope="col">{{__('locale.question')}}</th>
-                <th scope="col">{{__('locale.Action')}}</th>
-              </tr>
-            </thead>
-            <tbody>
+        <section id="data-list-view" class="users-list-wrapper data-list-view-header">
+          <div class="table-responsive">
+            <table class="table data-list-view" id="user-list-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>#</th>
+                  <th>{{__('locale.type')}}</th>
+                  <th>{{__('locale.question')}}</th>
+                  <th>{{__('locale.Action')}}</th>
+                </tr>
+              </thead>
+              <tbody>
 
-              @foreach ($records as $i => $record)
-              <tr>
-                <th scope="row">{{$i +1}}</th>
-                <td>{{$record->type}}</td>
-                <td id="question_{{$record->id}}">{{$record->question}}</td>
-                <td>
-                  <span class="action-clone" data-id="{{$record->id}}"><i class="fa fa-clone"></i></span>
-                  <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
-                  <span class="action-delete" data-id="{{$record->id}}"><i class="feather icon-trash"></i></span>
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                @foreach ($records as $i => $record)
+                <tr>
+                  <td></td>
+                  <td class="licenses-id">{{ $i +1 }}</td>
+                  <td>{{$record->type}}</td>
+                  <td id="question_{{$record->id}}">{{$record->question}}</td>
+                  <td class="user-action">
+                    <span class="action-clone" data-id="{{$record->id}}"><i class="fa fa-clone"></i></span>
+                    <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
+                    <span class="action-delete" data-id="{{$record->id}}"><i class="feather icon-trash"></i></span>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+          <!-- Ag Grid users list section end -->
+        </section>
 <!-- Table head options end -->
 
 
@@ -118,8 +119,20 @@
 <!-- vendor files -->
 <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
 <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+
+
+<script src="{{ asset(mix('vendors/js/tables/datatable/datatables.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/datatables.bootstrap4.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/buttons.bootstrap.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.select.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/datatables.checkboxes.min.js')) }}"></script> {{-- --}}
 @endsection
+
 @section('page-script')
+
+
+<script src="{{ asset(mix('js/scripts/ui/licensecode-list-view.js')) }}"></script>
 
 <!-- Page js files -->
 
