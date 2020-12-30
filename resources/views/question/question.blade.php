@@ -4,26 +4,28 @@
 
 
 @section('vendor-style')
-<!-- vendor css files -->
-<link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
-<link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.css')) }}">
-<style>
-  .modal-body {
-    max-height: calc(90vh);
-    overflow-y: auto;
-  }
-</style>
+    <!-- vendor css files -->
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.css')) }}">
+    <style>
+      .modal-body {
+        max-height: calc(90vh);
+        overflow-y: auto;
+      }
+    </style>
 
-
-<link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}"> {{-- --}}
-<link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}"> {{-- --}}
-<link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css')) }}"> {{-- --}}
+    {{-- datatables files --}}
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css')) }}">
 @endsection
 
 @section('page-style')
-<link rel="stylesheet" href="{{ asset(mix('css/pages/data-list-view.css')) }}">
-        {{-- Page css files --}}
-        <link rel="stylesheet" href="{{ asset(mix('css/plugins/extensions/toastr.css')) }}">
+    {{-- Page css files --}}
+    <link rel="stylesheet" href="{{ asset(mix('css/plugins/extensions/toastr.css')) }}">
+
+    {{-- datatables files --}}
+    <link rel="stylesheet" href="{{ asset(mix('css/pages/data-list-view.css')) }}">
 @endsection
 
 
@@ -54,7 +56,6 @@
 
 
 <!-- Table head options start -->
-
         <section id="data-list-view" class="users-list-wrapper data-list-view-header">
           <div class="table-responsive">
             <table class="table data-list-view" id="user-list-table">
@@ -85,11 +86,8 @@
               </tbody>
             </table>
           </div>
-          <!-- Ag Grid users list section end -->
         </section>
 <!-- Table head options end -->
-
-
 
 
 
@@ -120,7 +118,7 @@
 <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
 <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 
-
+<!-- datatable files -->
 <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.min.js')) }}"></script> {{-- --}}
 <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script> {{-- --}}
 <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.bootstrap4.min.js')) }}"></script> {{-- --}}
@@ -130,29 +128,19 @@
 @endsection
 
 @section('page-script')
-
-
-<script src="{{ asset(mix('js/scripts/ui/licensecode-list-view.js')) }}"></script>
-
 <!-- Page js files -->
-
-
 <script src="{{ asset(mix('js/scripts/forms/select/form-select2.js')) }}"></script>
 <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
+
+<!-- custom js files -->
 <script src="{{ asset('js/scripts/ui/question.js') }}"></script>
+
+<!-- datatable files -->
+<script src="{{ asset(mix('js/scripts/ui/licensecode-list-view.js')) }}"></script>
+
 
 
 <script>
-
-
-
-
-
-
-
-
-
-
 
 function addrow() {
       let i = $('.rowindex').length
@@ -346,15 +334,6 @@ function addWrongAnswerSMC() {
 
 
 
-
-
-
-
-
-
-
-
-
   $(document).on('click', '#submit', function (e) {
             e.preventDefault();
             $(".small_error").text('');
@@ -426,9 +405,9 @@ function addWrongAnswerSMC() {
                             $('#question_' + question_id).text(data.question);
                             console.log('question_' + question_id);
                             toastr.success('Updated Successfully', "Question!",);
-                            if (data.type == "Reaction-SMC"){
-                                window.location.href = "/en/question";
-                            }
+                            // if (data.type == "Reaction-SMC"){
+                            //     window.location.href = "/en/question";
+                            // }
                         }
                 }, error: function (xhr) {
 

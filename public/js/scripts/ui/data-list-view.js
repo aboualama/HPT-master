@@ -119,7 +119,7 @@ $(document).ready(function() {
   $(".hide-data-sidebar, .cancel-data-btn, .overlay-bg").on("click", function() {
     $(".add-new-data").removeClass("show")
     $(".overlay-bg").removeClass("show")
-    $("#data-name, #data-email, #data-userName, #data-cell, #data-address, #data-id, #data-form").val("")
+    $("#data-name, #data-email, #data-userName, #data-cell, #data-company, #data-address, #data-id, #data-form").val("")
     $("#permissions").prop('checked', false)
     $("#add-update").val("Add Data")
     $("#h-add-update").text("Add New Data")
@@ -133,12 +133,14 @@ $(document).ready(function() {
     var email =  $(this).closest('tr').find('td.user-email').text();
     var userName =  $(this).closest('tr').find('td.user-userName').text();
     var cell =  $(this).closest('tr').find('td.user-cell').text();
+    var company =  $(this).closest('tr').find('td.user-company').text();
     var address =  $(this).closest('tr').find('td.user-address').text();
     var id = $(this).data("id");
     $('#data-name').val(name);
     $('#data-email').val(email);
     $('#data-userName').val(userName);
     $('#data-cell').val(cell);
+    $('#data-company').val(company);
     $('#data-address').val(address);
     $('#data-id').val(id);
     $('#data-form').val("edit");

@@ -111,7 +111,7 @@
         </tbody>
       </table>
     </div>
-    {{ $records['group']->render() }}
+    {{-- {{ $records['group']->render() }} --}}
     <!-- Ag Grid users list section end -->
   </section>
   <!-- users list ends -->

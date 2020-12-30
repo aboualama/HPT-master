@@ -389,9 +389,11 @@ return [
 
 
 
+
   'qtype' => 'Question Type',
   'select user' => 'Select User',
   'Configurator' => 'Configurator',
+  'company' => 'Company',
 
 
 ];

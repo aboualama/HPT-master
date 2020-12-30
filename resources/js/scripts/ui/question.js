@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 
     $('#addnew').on('click', function (e) {
-      $('#table-head').fadeOut();
+      $('#data-list-view').fadeOut();
       $('#add-new-select').fadeIn();
     });
 
@@ -19,6 +19,7 @@ $(document).ready(function() {
       var type = $('#select-type').val();
       if (type === "0") {
         $('#q-type').html("");
+        $('#data-list-view').fadeIn();
       } else {
         $.ajax({
           method: "get",
@@ -28,6 +29,7 @@ $(document).ready(function() {
           },
           success: function (data) {
             $('#q-type').html(data);
+            $('#data-list-view').fadeOut();
             console.log(type);
           }
         });

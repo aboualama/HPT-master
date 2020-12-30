@@ -69,10 +69,11 @@ class QuestionController extends Controller
     {
       $record = Question::find($id);
 
-      $records = null;
-      if($record->type === 'Reaction-SMC'){
-        $records = Question::where('group_id' , $record->group_id)->get();
-      }
+      // if want by group
+      // $records = null;
+      // if($record->type === 'Reaction-SMC'){
+      //   $records = Question::where('group_id' , $record->group_id)->get();
+      // }
 
       $type = $record->type;
       $answers = Answer::where('question_id' , $id)->get();
@@ -83,7 +84,7 @@ class QuestionController extends Controller
         'breadcrumbs' => $breadcrumbs,
         'type' => $type,
         'record' => $record,
-        'records' => $records,
+        // 'records' => $records,
         'answers' => $answers
       ]);
     }
@@ -105,9 +106,6 @@ class QuestionController extends Controller
 
       if (request()->hasFile('image'))
       {
-        // if(isset($record->image) && $record->image !== 'default.jpg'){
-        //   unlink('uploads/image/'.$record->image);
-        // }
           $image =  $request->file('image');
           $public_path = 'uploads/image';
           $image_name = time() . '.' . $image->getClientOriginalExtension();

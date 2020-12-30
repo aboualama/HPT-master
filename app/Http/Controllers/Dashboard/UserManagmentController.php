@@ -67,7 +67,7 @@ class UserManagmentController
 
   // User Create Page
     public function UpdateOrCreate(Request $request) {
-        // dd($request);
+        //  dd($request->all());
         $new = false;
         if ($request->get('id') == null || $request->get('id') == -1 || $request->get('id') == '-1')
         {
@@ -84,8 +84,10 @@ class UserManagmentController
         $record->referentName = $request->get('name');
         $record->cell = $request->get('cell');
         $record->cf = $request->get('cf');
+        $record->company = $request->get('company');
         $record->address = $request->get('address');
         $record->email = $request->get('email');
+        $record->role = $request->get('role');
 
         if ($new == true){
             $pas =Str::random(8);
@@ -97,7 +99,7 @@ class UserManagmentController
         }
         $record->save();
 
-        $record->syncRoles([$request->get('role')]);
+        //$record->syncRoles([$request->get('role')]);
        //  $record->syncPermissions($request->permissions);
 
         // return response($record, 200);

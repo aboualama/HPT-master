@@ -152,10 +152,10 @@ class ResultController extends Controller
     $excel["user"]["data"][] = ["Nome", $user->name];
     $excel["user"]["data"][] = ["Cognome", $user->lastName];
     $excel["user"]["data"][] = ["Sesso", $user->gender];
-    $excel["user"]["data"][] = ["CF/P.Iva", $user->cf];
-    $excel["user"]["data"][] = ["Cell", $user->cell];
-    $excel["user"]["data"][] = ["Indirizzo", $user->tipoPatente];
-    $excel["user"]["data"][] = ["Tipo Patente", $user->tipoPatente];
+  //  $excel["user"]["data"][] = ["CF/P.Iva", $user->cf];
+   // $excel["user"]["data"][] = ["Cell", $user->cell];
+   // $excel["user"]["data"][] = ["Indirizzo", $user->tipoPatente];
+    //$excel["user"]["data"][] = ["Tipo Patente", $user->tipoPatente];
     $excel["user"]["data"][] = ["Data di nascità", $user->birthDate];
     $excel["user"]["data"][] = ["Anni di guida", $user->driveYear];
     $result = json_decode($result->answer, true);
@@ -204,33 +204,41 @@ class ResultController extends Controller
             if (isset($reco['correct'])) {
               $info[$index]["correct"] = $reco['correct'];
               // dump($reco['correct']);
-              $pericolo = json_decode($question['wrong_answers']);
               $pericoli = [];
-              $pericoli = json_decode($question['right_answers'], true);
+              $pericoli = json_decode($question['wrong_answers']);
+              // $pericoli = json_decode($question['right_answers']);
 
               foreach ($pericoli as $key_right => $right) {
-                $points = 0;
-                $m = [];
-                $m[] = $pericolo[$key_right];
-                $m[] = $right;
-                $risposta = "Miss";
+                try {
+                  $points = 0;
+                  $m = [];
+                  $m[] = $right->answer;
+                  $m[] = $right->val;
+                  $rightVal = $right->val;
+                  $risposta = "Miss";
+                }catch (\Exception $e) {
+               //   dd($right);
+                  throw $e;
+                  // return $right;
+                }
                 foreach ($reco['correct'] as $k => $pressed) {
                   sscanf($pressed, "%d:%d", $minutes, $seconds);
                   $time_seconds = $minutes * 60 + $seconds;
-
                   try {
-                    if ($right)
-                      $right = str_replace(",", ".", $right);
 
-                    if ($time_seconds >= $right && $time_seconds <= number_format($right + 2) && $right != null) {
-                      $points = $points + $evaluation->point - round($right + 2 - $time_seconds, 2);
-                    //  dump([$right,$index,$points,round($right + 2 - $time_seconds, 2)]);
+                    if ($rightVal)
+                      $rightVal = str_replace(",", ".", $rightVal);
+
+                    if ($time_seconds >= $rightVal && $time_seconds <= number_format($rightVal + 2) && $rightVal != null) {
+                      $points = $points + $evaluation->point - round($rightVal + 2 - $time_seconds, 2);
+                      //  dump([$right,$index,$points,round($right + 2 - $time_seconds, 2)]);
                       $risposta = $pressed;
                       unset($reco['right_answers'][$k]);
                       continue;
                     }
                   } catch (\Exception $e) {
-                    return ['r' => $right];
+                    dump($right);
+                    throw $e;
                     // return $right;
                   }
                 }
@@ -338,7 +346,8 @@ class ResultController extends Controller
   public function export($id)
   {
     $excel = $this->generateResult($id);
-
+  //  var_dump($excel);
+   // die();
     return \Maatwebsite\Excel\Facades\Excel::download(new resultSheets($excel), $id . ".xlsx");
     //   dd(json_decode($result->answer, true));
     //

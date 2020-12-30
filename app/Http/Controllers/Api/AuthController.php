@@ -27,8 +27,8 @@ class AuthController extends Controller
       'email' => 'required|email|unique:users',
       'password' => 'required|confirmed|min:6|max:60|alpha_num',
       'lastName' => 'required|string', // dah na2s mesh beyegy fel request
-      'cell' => 'required', //tmam ?
-      'cf' => 'required|string',
+   //   'cell' => 'required', //tmam ?
+    //  'cf' => 'required|string',
       'role' => 'required|string',
     ]);
     if ($validator->fails()) {

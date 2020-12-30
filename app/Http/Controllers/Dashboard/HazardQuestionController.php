@@ -108,9 +108,6 @@ class HazardQuestionController extends Controller
 
     if (request()->hasFile('image'))
     {
-      // if(isset($record->image) && $record->image !== 'default.jpg'){
-      //   unlink('uploads/image/'.$record->image);
-      // }
         $image =  $request->file('image');
         $public_path = 'uploads/image';
         $image_name = time() . '.' . $image->getClientOriginalExtension();
@@ -121,9 +118,6 @@ class HazardQuestionController extends Controller
 
     if (request()->hasFile('video'))
     {
-      // if(isset($record->video) && $record->video !== 'demo.mp4'){
-      //     unlink('uploads/video/'.$record->video);
-      // }
         $video =  $request->file('video');
         $public_path = 'uploads/video';
         $video_name = time() . '.' . $video->getClientOriginalExtension();

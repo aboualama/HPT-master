@@ -49,6 +49,7 @@
             <th>{{__('locale.Email')}}</th>
             <th>{{__('locale.User Name')}}</th>
             <th>{{__('locale.Cell')}}</th>
+            <th>{{__('locale.company')}}</th>
             <th>{{__('locale.Address')}}</th>
             <th>{{__('locale.Action')}}</th>
           </tr>
@@ -61,6 +62,7 @@
               <td class="user-email" id="email-user_{{ $user["id"] }}">{{ $user["email"] }}</td>
               <td class="user-userName" id="userName-user_{{ $user["id"] }}">{{ $user["userName"] }}</td>
               <td class="user-cell" id="cell-user_{{ $user["id"] }}">{{ $user["cell"] }}</td>
+              <td class="user-company" id="company-user_{{ $user["id"] }}">{{ $user["company"] }}</td>
               <td class="user-address" id="address-user_{{ $user["id"] }}">{{ $user["address"] }}</td>
               <td class="user-action">
                 <span class="action-edit" data-id="{{$user["id"]}}"><i class="feather icon-edit"></i></span>
@@ -110,6 +112,11 @@
                 <div class="col-sm-12 data-field-col">
                   <label for="data-address">{{__('locale.Address')}}</label>
                   <input type="text" class="form-control" name="address" id="data-address">
+                </div>
+
+                <div class="col-sm-12 data-field-col">
+                  <label for="data-address">{{__('locale.company')}}</label>
+                  <input type="text" class="form-control" name="company" id="data-company">
                 </div>
 
 
@@ -248,13 +255,14 @@
                 'userName': $('#data-userName').val(),
                 'cell': $('#data-cell').val(),
                 'address': $('#data-address').val(),
+                'company': $('#data-company').val(),
                 'role': $('#user-role').val(),
                 // 'permissions': permissions,
             },
             success: function (data) {
               $(".add-new-data").removeClass("show")
               $(".overlay-bg").removeClass("show")
-              $("#data-name, #data-email, #data-userName, #data-cell, #data-address").val("")
+              $("#data-name, #data-email, #data-userName, #data-cell, #data-company, #data-address").val("")
               $("#data-category, #data-status").prop("selectedIndex", 0)
 
               if(form === "edit"){
@@ -264,6 +272,7 @@
                 $('#email-user_' + data.id).text(data.email);
                 $('#userName-user_' + data.id).text(data.userName);
                 $('#cell-user_' + data.id).text(data.cell);
+                $('#company-user_' + data.id).text(data.company);
                 $('#address-user_' + data.id).text(data.address);
               }else{
               toastr.info('Created Successfully', "User!", { "timeOut": 5000 });
@@ -275,6 +284,7 @@
                     <td class="user-email">${data.email}</td>
                     <td class="user-userName">${data.userName}</td>
                     <td class="user-cell">${data.cell}</td>
+                    <td class="user-company">${data.company}</td>
                     <td class="user-address">${data.address}</td>
                     <td class="user-action">
                       <span class="action-edit" data-id="${data.id}"><i class="feather icon-edit"></i></span>

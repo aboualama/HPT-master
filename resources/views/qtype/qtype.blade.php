@@ -13,10 +13,19 @@
     overflow-y: auto;
   }
 </style>
+
+{{-- datatables files --}}
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}">
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}">
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css')) }}">
 @endsection
+
 @section('page-style')
         {{-- Page css files --}}
         <link rel="stylesheet" href="{{ asset(mix('css/plugins/extensions/toastr.css')) }}">
+
+        {{-- datatables files --}}
+        <link rel="stylesheet" href="{{ asset(mix('css/pages/data-list-view.css')) }}">
 @endsection
 
 
@@ -29,46 +38,36 @@
 
 
 <!-- Table head options start -->
-<div class="row" id="table-head">
-  <div class="col-12">
-    <div class="card">
-      <div class="card-header">
-        <h4 class="card-title">{{__('locale.Question Type')}}</h4>
+        <section id="data-list-view" class="users-list-wrapper data-list-view-header">
+          <div class="table-responsive">
+            <table class="table data-list-view" id="user-list-table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">{{__('locale.type')}}</th>
+                  <th scope="col">{{__('locale.title')}}</th>
+                  <th scope="col">{{__('locale.entro')}}</th>
+                  <th scope="col">{{__('locale.Action')}}</th>
+                </tr>
+              </thead>
+              <tbody>
 
-      </div>
-      <div class="card-content">
-        <div class="table-responsive">
-          <table class="table mb-0">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">{{__('locale.type')}}</th>
-                <th scope="col">{{__('locale.title')}}</th>
-                <th scope="col">{{__('locale.entro')}}</th>
-                <th scope="col">{{__('locale.Action')}}</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              @foreach ($records as $i => $record)
-              <tr>
-                <th scope="row">{{$i +1}}</th>
-                <td id="qtype_type_{{$record->id}}">{{$record->type}}</td>
-                <td id="qtype_title_{{$record->id}}">{{$record->title}}</td>
-                <td id="qtype_entro_{{$record->id}}">{{$record->entro}}</td>
-                <td>
-                  <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
-                  <span class="action-delete" data-id="{{$record->id}}"><i class="feather icon-trash"></i></span>
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                @foreach ($records as $i => $record)
+                <tr>
+                  <th scope="row">{{$i +1}}</th>
+                  <td id="qtype_type_{{$record->id}}">{{$record->type}}</td>
+                  <td id="qtype_title_{{$record->id}}">{{$record->title}}</td>
+                  <td id="qtype_entro_{{$record->id}}">{{$record->entro}}</td>
+                  <td>
+                    <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
+                    <span class="action-delete" data-id="{{$record->id}}"><i class="feather icon-trash"></i></span>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </section>
 <!-- Table head options end -->
 
 
@@ -120,16 +119,24 @@
 <!-- vendor files -->
 <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
 <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+
+<!-- datatable files -->
+<script src="{{ asset(mix('vendors/js/tables/datatable/datatables.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/datatables.bootstrap4.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/buttons.bootstrap.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.select.min.js')) }}"></script> {{-- --}}
+<script src="{{ asset(mix('vendors/js/tables/datatable/datatables.checkboxes.min.js')) }}"></script> {{-- --}}
 @endsection
+
 @section('page-script')
-
 <!-- Page js files -->
-
-
 <script src="{{ asset(mix('js/scripts/forms/select/form-select2.js')) }}"></script>
 <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
 
 
+<!-- datatable files -->
+<script src="{{ asset(mix('js/scripts/ui/licensecode-list-view.js')) }}"></script>
 <script>
 
 $.ajaxSetup({

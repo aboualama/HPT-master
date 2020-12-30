@@ -29,6 +29,7 @@ class ResultExport implements FromCollection, WithTitle //WithHeadings
    */
   public function collection()
   {
+  //  var_dump($this->result);
     if (isset($this->result['data'])) {
       return new Collection($this->result['data']);
     } else{
