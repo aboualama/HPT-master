@@ -16,9 +16,7 @@ $(document).ready(function() {
       {
         orderable: true,
         targets: 0,
-        checkboxes: { selectRow: true },
-        orderCellsTop: true,
-        fixedHeader: true,
+        checkboxes: { selectRow: true }
       }
     ],
     dom:
@@ -67,9 +65,7 @@ $(document).ready(function() {
       {
         orderable: true,
         targets: 0,
-        checkboxes: { selectRow: true },
-        orderCellsTop: true,
-        fixedHeader: true,
+        checkboxes: { selectRow: true }
       }
     ],
     dom:

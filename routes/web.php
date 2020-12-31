@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/test', function (){
+  return view('test');
+});
+
 use App\User;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -29,7 +33,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/app-user-index', 'Dashboard\UserManagmentController@index');
     Route::get('/', 'Dashboard\UserManagmentController@index');
     Route::get('/test', function (){
-
+      return view('test');
     });
 
     // Route::get('/app-user-create', 'Dashboard\UserManagmentController@create');
