@@ -14,6 +14,11 @@
   }
 </style>
 
+{{-- sweetalert files --}}
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/animate/animate.css')) }}">
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/sweetalert2.min.css')) }}">
+
+
 {{-- datatables files --}}
 <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}">
 <link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}">
@@ -37,6 +42,7 @@
 @include('partials._errors')
 
 
+<input type="hidden" id="modal" value="qtype">
 <!-- Table head options start -->
         <section id="data-list-view" class="users-list-wrapper data-list-view-header">
           <div class="table-responsive">
@@ -60,7 +66,7 @@
                   <td id="qtype_entro_{{$record->id}}">{{$record->entro}}</td>
                   <td>
                     <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
-                    <span class="action-delete" data-id="{{$record->id}}"><i class="feather icon-trash"></i></span>
+                    <span class="action-delete2" data-id="{{$record->id}}" id="confirm-color_{{$record->id}}" onclick="confirmrow({{$record->id}})"><i class="feather icon-trash"></i></span>
                   </td>
                 </tr>
                 @endforeach
@@ -127,6 +133,10 @@
 <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.bootstrap.min.js')) }}"></script> {{-- --}}
 <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.select.min.js')) }}"></script> {{-- --}}
 <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.checkboxes.min.js')) }}"></script> {{-- --}}
+
+<!-- sweet-alerts -->
+<script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/extensions/polyfill.min.js')) }}"></script>
 @endsection
 
 @section('page-script')
@@ -137,6 +147,9 @@
 
 <!-- datatable files -->
 <script src="{{ asset(mix('js/scripts/ui/licensecode-list-view.js')) }}"></script>
+
+<!-- sweet-alerts -->
+<script src="{{ asset(mix('js/scripts/ui/confirm-delete.js')) }}"></script>
 <script>
 
 $.ajaxSetup({

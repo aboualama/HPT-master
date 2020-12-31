@@ -11,6 +11,11 @@
         <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.css')) }}">
         <link rel="stylesheet" href="{{ asset(mix('vendors/css/animate/animate.css')) }}">
         <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/sweetalert2.min.css')) }}">
+
+        {{-- sweetalert files --}}
+        <link rel="stylesheet" href="{{ asset(mix('vendors/css/animate/animate.css')) }}">
+        <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/sweetalert2.min.css')) }}">
+
 @endsection
 @section('page-style')
         {{-- Page css files --}}
@@ -20,6 +25,9 @@
 @endsection
 
 @section('content')
+
+
+<input type="hidden" id="modal" value="user-delete">
 {{-- Data list view starts --}}
 <section id="data-list-view" class="data-list-view-header">
     <div class="action-btns d-none">
@@ -66,7 +74,7 @@
               <td class="user-address" id="address-user_{{ $user["id"] }}">{{ $user["address"] }}</td>
               <td class="user-action">
                 <span class="action-edit" data-id="{{$user["id"]}}"><i class="feather icon-edit"></i></span>
-                <span class="action-delete" data-id="{{$user["id"]}}"><i class="feather icon-trash"></i></span>
+                <span class="action-delete2" data-id="{{$user["id"]}}" id="confirm-color_{{$user["id"]}}" onclick="confirmrow({{$user["id"]}})"><i class="feather icon-trash"></i></span>
               </td>
             </tr>
           @endforeach
@@ -222,6 +230,10 @@
         <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
         <script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
         <script src="{{ asset(mix('vendors/js/extensions/polyfill.min.js')) }}"></script>
+
+        <!-- sweet-alerts -->
+        <script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
+        <script src="{{ asset(mix('vendors/js/extensions/polyfill.min.js')) }}"></script>
 @endsection
 @section('page-script')
         {{-- Page js files --}}
@@ -229,6 +241,9 @@
         <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
         <script src="{{ asset(mix('js/scripts/extensions/sweet-alerts.js')) }}"></script>
 
+
+<!-- sweet-alerts -->
+<script src="{{ asset(mix('js/scripts/ui/confirm-delete.js')) }}"></script>
 
 
     <script>

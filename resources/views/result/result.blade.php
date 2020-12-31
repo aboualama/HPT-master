@@ -13,6 +13,11 @@
     overflow-y: auto;
   }
 </style>
+
+{{-- sweetalert files --}}
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/animate/animate.css')) }}">
+<link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/sweetalert2.min.css')) }}">
+
 @endsection
 @section('page-style')
         {{-- Page css files --}}
@@ -29,6 +34,7 @@
 <div id="q-type"></div>
 
 
+{{-- <input type="hidden" id="modal" value="question"> --}}
 
 
 <!-- Table head options start -->
@@ -69,7 +75,9 @@
                    --}} <span class="action" data-id="{{$record->id}}" onclick="downloadXML({{$record->id}})" ><i class="feather icon-file"></i></span>
                     {{-- <span class="edit" data-id="{{$record->id}}" onclick="edit({{$record->id}})" ><i class="feather icon-edit"></i></span> --}}
                   {{--  <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
-                 --}} </td>
+                 --}}
+                    {{-- <span class="action-delete2" data-id="{{$record->id}}" id="confirm-color_{{$record->id}}" onclick="confirmrow({{$record->id}})"><i class="feather icon-trash"></i></span> --}}
+                </td>
                 </tr>
                 @endforeach
               @endif
@@ -117,6 +125,10 @@
 <!-- vendor files -->
 <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
 <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+
+<!-- sweet-alerts -->
+<script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/extensions/polyfill.min.js')) }}"></script>
 @endsection
 @section('page-script')
 
@@ -127,6 +139,9 @@
 <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
 <script src="{{ asset('js/scripts/ui/result.js') }}"></script>
 
+
+<!-- sweet-alerts -->
+<script src="{{ asset(mix('js/scripts/ui/confirm-delete.js')) }}"></script>
 
 <script>
   function downloadXML(id) {

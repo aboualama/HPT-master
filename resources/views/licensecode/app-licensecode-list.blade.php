@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}"> {{-- --}}
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}"> {{-- --}}
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css')) }}"> {{-- --}}
+
+  {{-- sweetalert files --}}
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/animate/animate.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/sweetalert2.min.css')) }}">
+
 @endsection
 
 @section('page-style')
@@ -27,6 +32,11 @@
 @endsection
 
 @section('content')
+
+
+
+
+<input type="hidden" id="modal" value="licensecode">
   <!-- users list start -->
   <section class="users-list-wrapper">
     <!-- users filter start -->
@@ -104,7 +114,7 @@
               <td class="user-action">
                 <span class="action-mail" data-id="{{$record->id}}"
                       data-user_id="{{$record->licensecodes[0]->user->id}}"><i class="feather icon-mail"></i></span>
-                <span class="action-delete" data-id="{{ $record->id }}"><i class="feather icon-trash"></i></span>
+                      <span class="action-delete2" data-id="{{$record->id}}" id="confirm-color_{{$record->id}}" onclick="confirmrow({{$record->id}})"><i class="feather icon-trash"></i></span>
               </td>
             </tr>
         @endforeach
@@ -162,7 +172,13 @@
   <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.bootstrap.min.js')) }}"></script> {{-- --}}
   <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.select.min.js')) }}"></script> {{-- --}}
   <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.checkboxes.min.js')) }}"></script> {{-- --}}
-@endsection
+
+
+<!-- sweet-alerts -->
+<script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/extensions/polyfill.min.js')) }}"></script>
+
+  @endsection
 
 @section('page-script')
 
@@ -175,7 +191,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
-  <script>
+
+<!-- sweet-alerts -->
+<script src="{{ asset(mix('js/scripts/ui/confirm-delete.js')) }}"></script>
+<script>
 
     // Generate Licensecode
     $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});

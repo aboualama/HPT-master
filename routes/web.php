@@ -43,12 +43,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/app-user-show/{id}', 'Dashboard\UserManagmentController@show');
     Route::get('/app-user-edit/{id}', 'Dashboard\UserManagmentController@edit');
 
-    Route::delete('/app-user-delete/{id}', 'Dashboard\UserManagmentController@delete');
+    Route::delete('/user-delete/{id}', 'Dashboard\UserManagmentController@delete');
 
     // Licensecode Pages
     Route::get('/app-licensecode-index', 'Dashboard\LicensecodeController@index');
     Route::post('/app-licensecode-UpdateOrCreate', 'Dashboard\LicensecodeController@store');
-    Route::delete('/app-licensecode-delete/{id}', 'Dashboard\LicensecodeController@delete');
+    Route::delete('/licensecode/{id}', 'Dashboard\LicensecodeController@delete');
     Route::get('/show-licenses/{id}', 'Dashboard\LicensecodeController@show');
     Route::get('/send-licensecode-mail/{id}', 'Dashboard\LicensecodeController@sendLicense');
 

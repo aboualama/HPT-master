@@ -18,6 +18,7 @@
     {{-- sweetalert files --}}
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/animate/animate.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/sweetalert2.min.css')) }}">
+
     {{-- datatables files --}}
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/datatables.min.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}">
@@ -56,7 +57,7 @@
 
 <div id="q-type"></div>
 
-
+<input type="hidden" id="modal" value="question">
 
 
 <!-- Table head options start -->
@@ -83,9 +84,8 @@
                   <td class="user-action">
                     <span class="action-clone" data-id="{{$record->id}}"><i class="fa fa-clone"></i></span>
                     <span class="action-edit" data-id="{{$record->id}}"><i class="feather icon-edit"></i></span>
-                    {{-- <span class="action-delete" data-id="{{$record->id}}"><i class="feather icon-trash"></i></span> --}}
+                    <span class="action-delete2" data-id="{{$record->id}}" id="confirm-color_{{$record->id}}" onclick="confirmrow({{$record->id}})"><i class="feather icon-trash"></i></span>
 
-                    <span class="btn btn-outline-danger icon-trash" id="confirm-color_{{$record->id}}" onclick="confirmrow({{$record->id}})"></span>
                   </td>
                 </tr>
                 @endforeach
@@ -127,6 +127,7 @@
 <!-- sweet-alerts -->
 <script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
 <script src="{{ asset(mix('vendors/js/extensions/polyfill.min.js')) }}"></script>
+
 <!-- datatable files -->
 <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.min.js')) }}"></script> {{-- --}}
 <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script> {{-- --}}
@@ -138,6 +139,7 @@
 @endsection
 
 @section('page-script')
+
 <!-- Page js files -->
 <script src="{{ asset(mix('js/scripts/forms/select/form-select2.js')) }}"></script>
 <script src="{{ asset(mix('js/scripts/extensions/toastr.js')) }}"></script>
@@ -149,9 +151,7 @@
 <script src="{{ asset(mix('js/scripts/ui/licensecode-list-view.js')) }}"></script>
 
 <!-- sweet-alerts -->
-{{-- <script src="{{ asset(mix('js/scripts/extensions/sweet-alerts.js')) }}"></script> --}}
-
-
+<script src="{{ asset(mix('js/scripts/ui/confirm-delete.js')) }}"></script>
 <script>
 
 function addrow() {
@@ -272,9 +272,6 @@ function addWrongAnswerSMC() {
         width: '100%'
       });
     }
-
-
-
 
 
 
@@ -426,65 +423,6 @@ function addWrongAnswerSMC() {
                 }
             });
         });
-
-
-
-
-
-
-
-
-
-
-
- function confirmrow(i) {
-
-  $('#confirm-color_' + i).on('click', function () {
-    var td = $(this).closest('td').parent('tr');
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
-      confirmButtonClass: 'btn btn-primary',
-      cancelButtonClass: 'btn btn-danger ml-1',
-      buttonsStyling: false,
-    }).then(function (result) {
-      if (result.value) {
-        Swal.fire({
-          type: "success",
-          title: 'Deleted!',
-          text: 'Your file has been deleted.',
-          confirmButtonClass: 'btn btn-success',
-        }),
-        $.ajax({
-          url: "/question/" + i,
-          method: "DELETE",
-          success: function (data) {
-            toastr.success('Deleted Successfully',"Question!",);
-            td.fadeOut();
-          },
-          error: function (data) {
-            console.log('Error:');
-          }
-        });
-      }
-      else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire({
-          title: 'Cancelled',
-          text: 'Your imaginary file is safe :)',
-          type: 'error',
-          confirmButtonClass: 'btn btn-success',
-        })
-      }
-    })
-  });
-}
-
-
 
 
   </script>
