@@ -8,9 +8,8 @@
 ==========================================================================================*/
 
 function confirmrow(i) {
-  // e.stopPropagation()
-  // $('#confirm-color_' + i).on('click', function () {
     var modal = $("#modal").val();
+    var C_modal = modal.charAt(0).toUpperCase() + modal.slice(1);
     var td = $('#confirm-color_' + i).closest('td').parent('tr');
     Swal.fire({
       title: 'Are you sure?',
@@ -25,17 +24,17 @@ function confirmrow(i) {
       buttonsStyling: false,
     }).then(function (result) {
       if (result.value) {
-        Swal.fire({
-          type: "success",
-          title: 'Deleted!',
-          text: 'Your file has been deleted.',
-          confirmButtonClass: 'btn btn-success',
-        }),
+        // Swal.fire({
+        //   type: "success",
+        //   title: 'Deleted!',
+        //   text: 'Your file has been deleted.',
+        //   confirmButtonClass: 'btn btn-success',
+        // }),
         $.ajax({
           url: "/" + modal + "/" + i,
           method: "DELETE",
           success: function (data) {
-            toastr.success('Deleted Successfully',"Question!",);
+            toastr.success('Deleted Successfully', C_modal + "!",);
             td.fadeOut();
           },
           error: function (data) {

@@ -42,7 +42,7 @@
 @include('partials._errors')
 
 
-<input type="hidden" id="modal" value="qtype">
+<input type="hidden" id="modal" value="q-Type">
 <!-- Table head options start -->
         <section id="data-list-view" class="users-list-wrapper data-list-view-header">
           <div class="table-responsive">

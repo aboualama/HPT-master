@@ -27,7 +27,7 @@
 @section('content')
 
 
-<input type="hidden" id="modal" value="user-delete">
+<input type="hidden" id="modal" value="user">
 {{-- Data list view starts --}}
 <section id="data-list-view" class="data-list-view-header">
     <div class="action-btns d-none">

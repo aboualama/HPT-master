@@ -93,9 +93,7 @@
                 </div>
               </div>
 
-              <div id="allAnswers" class="col-12">
-
-              </div>
+              <div id="allAnswers" class="col-12"> </div>
 
               <div class="col-12" id="allQuestions">
                 <hr>

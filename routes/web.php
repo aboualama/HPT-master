@@ -43,7 +43,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/app-user-show/{id}', 'Dashboard\UserManagmentController@show');
     Route::get('/app-user-edit/{id}', 'Dashboard\UserManagmentController@edit');
 
-    Route::delete('/user-delete/{id}', 'Dashboard\UserManagmentController@delete');
+    Route::delete('/user/{id}', 'Dashboard\UserManagmentController@delete');
 
     // Licensecode Pages
     Route::get('/app-licensecode-index', 'Dashboard\LicensecodeController@index');
@@ -96,7 +96,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get('/qtype-creat', 'Dashboard\QtypeController@create');
     Route::get('/qtype-edit/{id}', 'Dashboard\QtypeController@edit');
     Route::Put('/qtype-edit/{id}', 'Dashboard\QtypeController@update');
-    Route::delete('/qtype/{id}', 'Dashboard\QtypeController@destroy');
+    Route::delete('/q-Type/{id}', 'Dashboard\QtypeController@destroy');
 
 
   }); // End Auth Middleware Group
