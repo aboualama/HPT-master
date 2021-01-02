@@ -54,9 +54,9 @@
                                 <h4>{{__('locale.' . 'wrong answer')}}</h4>
                               </div>
 
-                              <div id="allAnswers" class="col-12">
+                              <div id="allWEindex" class="col-12">
                                 @for ($i = 0 ; $i < sizeof(json_decode($record->wrong_answers)) ; $i++)
-                                <div  class="row" id="wrongindex_{{$i}}">
+                                <div  class="row WEindex" id="wrongindex_{{$i}}">
                                   <div  class="col-11">
                                     <div class="row" >
                                       @foreach ( config('translatable.locales') as $lang)
@@ -94,17 +94,17 @@
                                       <div class="row">
                                         <div class="col-md-4" style="text-align: center;">
                                           <img
-                                              id="preview_{{$i}}"
-                                              onclick="document.getElementById('input_{{$i}}').click()"
+                                              id="preview_0"
+                                              onclick="document.getElementById('input_0').click()"
                                               src="{{asset('uploads/image/'. $record->image)}}"
                                               style="height: 80px; width: 80px;" />
                                           <input
-                                                id="input_{{$i}}"
+                                                id="input_0"
                                                 type="file"
-                                                onchange="document.getElementById('preview_{{$i}}').src=window.URL.createObjectURL(this.files[0])"
+                                                onchange="document.getElementById('preview_0').src=window.URL.createObjectURL(this.files[0])"
                                                 name="img_answers[]"
                                                 style="display:none;">
-                                                <small id="img_answers_{{$i}}_error" class="form-text text-danger center small_error"> </small>
+                                                <small id="img_answers_0_error" class="form-text text-danger center small_error"> </small>
                                         </div>
                                         @foreach ( config('translatable.locales') as $lang)
                                             <div class="col-md-4" style="align-self: center;">
@@ -126,14 +126,15 @@
                                     </div>
                                   </div>
                               </div>
+                              {{-- <small id="img_answers_error" class="alert alert-danger center small_error" style="text-align: center; width: 100%"> ..... </small> --}}
 
 
 
                               <div class="col-12">
                                   <button id="edit" type="button" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
-                                  <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button>
-                                  <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addWrongAnswerSMC()">{{__('locale.Add Wrong Answer')}}</a>
-                                  <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addRightAnswerSMC()">{{__('locale.Add Right Answer')}}</a>
+                                  {{-- <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('locale.Reset')}}</button> --}}
+                                  <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addWrongAnswerSMCE()">{{__('locale.Add Wrong Answer')}}</a>
+                                  <a type="add" class="btn btn-outline-warning mr-1 mb-1" href="#" onclick="addRightAnswerSMCE()">{{__('locale.Add Right Answer')}}</a>
                                   <button type="reset" class="btn btn-warning mr-1 mb-1" onclick="location.reload()">{{__('locale.Cancel')}}</button>
                               </div>
                             </div>
@@ -164,9 +165,9 @@
   <script>
 
 
-function addWrongAnswerSMC() {
-      let i = $('.Windex').length + 1
-      let m =  `<div class="form-group Windex row" id="wrongindex_` + i + `">
+function addWrongAnswerSMCE() {
+      let i = $('.WEindex').length
+      let m =  `<div class="form-group WEindex row" id="wrongindex_` + i + `">
                   <div class="col-11">
                     <div class="row">
                       <div class="col-md-4">
@@ -201,13 +202,13 @@ function addWrongAnswerSMC() {
                   </div>
                 </div>`;
 
-      $("#allAnswers").append(m);
+      $("#allWEindex").append(m);
     }
 
 
-    function addRightAnswerSMC() {
-      let iR = $('.indexR').length + 1
-      let img = `<div class="indexR row" id="rightindex_${iR}">
+    function addRightAnswerSMCE() {
+      let iR = $('.indexRE').length + 1
+      let img = `<div class="indexRE row" id="rightindex_${iR}">
                   <div class="col-11">
                     <div class="form-group row">
                       <div class="col-md-4" style="text-align: center;">
@@ -256,6 +257,7 @@ function addWrongAnswerSMC() {
                   </div>
                 </div>`;
       $("#allQuestions").append(img);
+      console.log(iR);
       $(".select2").select2({
         dropdownAutoWidth: true,
         width: '100%'

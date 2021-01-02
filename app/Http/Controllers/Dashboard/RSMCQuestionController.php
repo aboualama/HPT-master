@@ -20,14 +20,15 @@ class RSMCQuestionController extends Controller
 
     public function store(Request $request)
     {
-      //  dd($request->all());
       $rules = $this->rules();
-      $rules = $rules + [];
+      $rules = $rules + ['img_answers' => 'required', 'img_answers.*' => 'mimes:jpg,jpeg,png|max:20000',];
       $messages = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors(), 'status' => 442]);
       }
+
+
       $index = count($request->en['right_answers']);
 
         $group = new Group;
@@ -76,12 +77,13 @@ class RSMCQuestionController extends Controller
 
     public function update(Request $request,  $id)
     {
-        // dd($request->all());
+      //  dd($request->all());
       $old       = Question::find($id);
       $old_group = $old->group_id;
       $old_img[0]   = $old->image;
 
       $rules     = $this->rules();
+      $rules = $rules;
       $messages  = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
@@ -107,7 +109,7 @@ class RSMCQuestionController extends Controller
             $img = $img_name;
         }
         else {
-            $img = $old_img[$i];
+            $img = $old_img[0];
         }
 
       foreach(config('translatable.locales') as $lang){
@@ -145,10 +147,10 @@ class RSMCQuestionController extends Controller
     $transRule = [];
     foreach (config('translatable.locales') as $locale) {
       $transRule = $transRule + [
-        $locale . '.question'  => 'required|string|min:3|max:260',
-        $locale . '.title'        => 'required|string|min:3|max:260',
-        $locale . '.right_answers.*'  => 'required|string',
-        $locale . '.wrong_answers.*'  => 'required|string',
+        $locale . '.question'        => 'required|string|min:3|max:260',
+        $locale . '.title'           => 'required|string|min:3|max:260',
+        $locale . '.right_answers.*' => 'required|string',
+        $locale . '.wrong_answers.*' => 'required|string',
       ];
     }
     return $basicRule + $transRule;
@@ -159,22 +161,24 @@ class RSMCQuestionController extends Controller
     $basicMessage =  [
       'type.required' => __('locale.type required'),
       'type.string'   => __('locale.type string'),
+      'img_answers.required' => __('locale.img_answers required'),
+
     ];
     $transMessage  = [];
     foreach (config('translatable.locales') as $locale) {
       $transMessage = $transMessage + [
-        $locale . '.question.required'          => __('locale.' . $locale . '.question required'),
-        $locale . '.question.string'            => __('locale.' . $locale . '.question string'),
-        $locale . '.question.min'               => __('locale.' . $locale . '.question min'),
-        $locale . '.question.max'               => __('locale.' . $locale . '.question max'),
-        $locale . '.title.required'          => __('locale.' . $locale . '.title required'),
-        $locale . '.title.string'            => __('locale.' . $locale . '.title string'),
-        $locale . '.title.min'               => __('locale.' . $locale . '.title min'),
-        $locale . '.title.max'               => __('locale.' . $locale . '.title max'),
-        $locale . '.right_answers.*.required'   => __('locale.' . $locale . '.right_answers required'),
-        $locale . '.right_answers.*.string'     => __('locale.' . $locale . '.right_answers string'),
-        $locale . '.wrong_answers.*.required'   => __('locale.' . $locale . '.wrong_answers required'),
-        $locale . '.wrong_answers.*.string'     => __('locale.' . $locale . '.wrong_answers string'),
+        $locale . '.question.required'        => __('locale.' . $locale . '.question required'),
+        $locale . '.question.string'          => __('locale.' . $locale . '.question string'),
+        $locale . '.question.min'             => __('locale.' . $locale . '.question min'),
+        $locale . '.question.max'             => __('locale.' . $locale . '.question max'),
+        $locale . '.title.required'           => __('locale.' . $locale . '.title required'),
+        $locale . '.title.string'             => __('locale.' . $locale . '.title string'),
+        $locale . '.title.min'                => __('locale.' . $locale . '.title min'),
+        $locale . '.title.max'                => __('locale.' . $locale . '.title max'),
+        $locale . '.right_answers.*.required' => __('locale.' . $locale . '.right_answers required'),
+        $locale . '.right_answers.*.string'   => __('locale.' . $locale . '.right_answers string'),
+        $locale . '.wrong_answers.*.required' => __('locale.' . $locale . '.wrong_answers required'),
+        $locale . '.wrong_answers.*.string'   => __('locale.' . $locale . '.wrong_answers string'),
       ];
     }
     return  $transMessage + $basicMessage;

@@ -395,5 +395,6 @@ return [
   'Configurator' => 'Configurator',
   'company' => 'Company',
 
+  'img_answers required' => 'All img answers field is required.',
 
 ];

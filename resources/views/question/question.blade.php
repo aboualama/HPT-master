@@ -223,7 +223,7 @@ function addWrongAnswerSMC() {
 
     function addRightAnswerSMC() {
       let iR = $('.indexR').length + 1
-      let img = ` <div class="col-12" indexR>
+      let img = `<div class="col-12 indexR" >
                   <div class="form-group row">
                     <div class="col-md-4" style="text-align: center;">
                       <img
@@ -414,9 +414,9 @@ function addWrongAnswerSMC() {
                             $('#question_' + question_id).text(data.question);
                             console.log('question_' + question_id);
                             toastr.success('Updated Successfully', "Question!",);
-                            // if (data.type == "Reaction-SMC"){
-                            //     window.location.href = "/en/question";
-                            // }
+                            if (data.type == "Reaction-SMC"){
+                                window.location.href = "/en/question";
+                            }
                         }
                 }, error: function (xhr) {
 

@@ -147,6 +147,7 @@
               <div class="col-12">
                 <hr>
               </div>
+              <small id="img_answers_error" class="alert alert-danger center small_error" style="text-align: center; width: 100%"> ..... </small>
               <div class="col-12">
                 <button id="submit" type="submit" class="btn btn-primary mr-1 mb-1">{{__('locale.Submit')}}</button>
                 {{-- <a href="#" onclick="sendDataSMC()" class="btn btn-primary mr-1 mb-1">Submit</a> --}}
