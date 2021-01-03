@@ -50,9 +50,7 @@
 
                               <div class="col-12"> <hr></div>
 
-                              <div class="col-12">
-                                <h4>{{__('locale.' . 'wrong answer')}}</h4>
-                              </div>
+                              <h4 class="alert alert-danger center " style="text-align: center; width: 100%">{{__('locale.' . 'wrong answer')}}</h4>
 
                               <div id="allWEindex" class="col-12">
                                 @for ($i = 0 ; $i < sizeof(json_decode($record->wrong_answers)) ; $i++)
@@ -82,13 +80,9 @@
 
                               <div class="col-12"> <hr></div>
 
-                              <div  class="col-12">
-                                <h4>{{__('locale.' . 'right answer')}}</h4>
-                              </div>
+                              <h4 class="alert alert-danger center" style="text-align: center; width: 100%">{{__('locale.' . 'right answer')}}</h4>
 
                               <div class="col-12" id="allQuestions">
-                                {{-- @foreach ( $records as $i => $record) --}}
-                                  {{-- {{$record->id}} --}}
                                   <div id="rightindex_0" class="row">
                                     <div  class="col-11">
                                       <div class="row">
@@ -162,7 +156,7 @@
   @endsection
 
 
-  <script>
+<script>
 
 
 function addWrongAnswerSMCE() {
