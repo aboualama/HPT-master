@@ -97,6 +97,7 @@
                                                 type="file"
                                                 onchange="document.getElementById('preview_0').src=window.URL.createObjectURL(this.files[0])"
                                                 name="img_answers[]"
+                                                value='{{asset("upload/image/".$record->image)}}'
                                                 style="display:none;">
                                                 <small id="img_answers_0_error" class="form-text text-danger center small_error"> </small>
                                         </div>
@@ -120,8 +121,9 @@
                                     </div>
                                   </div>
                               </div>
-                              {{-- <small id="img_answers_error" class="alert alert-danger center small_error" style="text-align: center; width: 100%"> ..... </small> --}}
+                              <small id="img_answers_error" class="alert text-danger center small_error" style="text-align: center; width: 100%">  </small>
 
+                              <hr>
 
 
                               <div class="col-12">
@@ -139,7 +141,7 @@
         </div>
     </div>
 
-
+<input id ='WEindexVal' type="hidden" value="{{sizeof(json_decode($record->wrong_answers)) - 1}}">
 
 
 
@@ -160,7 +162,12 @@
 
 
 function addWrongAnswerSMCE() {
+      // let i = $('#WEindexVal').val();
+
       let i = $('.WEindex').length
+      // let WEial = i++;
+      // console.log(WEial);
+      $('#WEindexVal').val(i);
       let m =  `<div class="form-group WEindex row" id="wrongindex_` + i + `">
                   <div class="col-11">
                     <div class="row">
@@ -261,7 +268,11 @@ function addWrongAnswerSMCE() {
 
 
   function removewrongrow(i) {
+
     $('#wrongindex_'+ i).remove();
+    $row = $('#WEindexVal').val() -1;
+      console.log($row);
+    $('#WEindexVal').val($row);
   }
 
   function removerightrow(i) {

@@ -27,12 +27,10 @@ class RSMCQuestionController extends Controller
       if ($validator->fails()) {
         return response()->json(['errors' => $validator->errors(), 'status' => 442]);
       }
-
-
       $index = count($request->en['right_answers']);
 
-        $group = new Group;
-        $group->save();
+      $group = new Group;
+      $group->save();
 
       for($i = 0 ; $i < $index ; $i++)
       {
@@ -83,7 +81,7 @@ class RSMCQuestionController extends Controller
       $old_img[0]   = $old->image;
 
       $rules = $this->rules();
-      $rules = $rules + ['img_answers.*' => 'required', 'img_answers.*' => 'mimes:jpg,jpeg,png|max:20000',];
+      $rules = $rules + ['img_answers' => 'required', 'img_answers.*' => 'mimes:jpg,jpeg,png|max:20000',];
       $messages  = $this->messages();
       $validator = Validator::make($request->all(), $rules, $messages);
       if ($validator->fails()) {
@@ -158,7 +156,7 @@ class RSMCQuestionController extends Controller
     $basicMessage =  [
       'type.required' => __('locale.type required'),
       'type.string'   => __('locale.type string'),
-      'img_answers.*.required' => __('locale.img_answers required'),
+      'img_answers.required' => __('locale.img_answers required'),
 
     ];
     $transMessage  = [];

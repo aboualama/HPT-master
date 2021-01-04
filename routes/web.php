@@ -102,4 +102,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
   }); // End Auth Middleware Group
 
 
+
+
 }); // End LaravelLocalization Group
+
+
+
+
+
+
+
+
+
+Route::patch('translate', 'Dashboard\AppSettingController@translate');
+Route::get('sync-translation', 'Dashboard\AppSettingController@syncTranslation');
