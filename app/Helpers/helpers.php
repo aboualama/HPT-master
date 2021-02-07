@@ -6,6 +6,27 @@ use Config;
 
 class Helper
 {
+
+
+
+/**
+ * get available languages on the application
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static function applClasses()
     {
         // Demo
@@ -60,7 +81,7 @@ class Helper
             'defaultLanguage'=>array('en'=>'en','fr'=>'fr','de'=>'de','pt'=>'pt'),
             'direction' => array('ltr', 'rtl'),
         ];
-        
+
         //if mainLayoutType value empty or not match with default options in custom.php config file then set a default value
         foreach ($allOptions as $key => $value) {
             if (array_key_exists($key, $DefaultData)) {
@@ -87,7 +108,7 @@ class Helper
                 }
             }
         }
-        
+
         //layout classes
         $layoutClasses = [
             'theme' => $data['theme'],
@@ -115,7 +136,7 @@ class Helper
         if(!session()->has('locale')){
             app()->setLocale($layoutClasses['defaultLanguage']);
         }
-        
+
         // sidebar Collapsed
         if ($layoutClasses['sidebarCollapsed'] == 'true') {
             $layoutClasses['sidebarClass'] = "menu-collapsed";
@@ -149,4 +170,35 @@ class Helper
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

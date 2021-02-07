@@ -113,6 +113,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
 
 
-
+Route::get('translation', 'Dashboard\AppSettingController@index');
 Route::patch('translate', 'Dashboard\AppSettingController@translate');
 Route::get('sync-translation', 'Dashboard\AppSettingController@syncTranslation');

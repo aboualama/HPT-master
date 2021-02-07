@@ -6,8 +6,9 @@
  * Copyright (c) 2020
  */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 // use App\Repositories\CurrencyRepository;
 // use App\Repositories\RoleRepository;
 // use App\Repositories\UploadRepository;
@@ -24,122 +25,13 @@ use Themsaid\Langman\Manager;
 class AppSettingController extends Controller
 {
     // use MigrationsHelper;
-    /** @var  UserRepository */
-    private $userRepository;
-
-    /**
-     * @var RoleRepository
-     */
-    private $roleRepository;
 
     private $langManager;
-    private $uploadRepository;
-    private $currencyRepository;
 
-    public function __construct(UserRepository $userRepo, RoleRepository $roleRepo, UploadRepository $uploadRepository, CurrencyRepository $currencyRepository)
+    public function __construct()
     {
-        parent::__construct();
-        $this->userRepository = $userRepo;
-        $this->roleRepository = $roleRepo;
-        $this->currencyRepository = $currencyRepository;
+        // parent::__construct();
         $this->langManager = new Manager(new Filesystem(), config('langman.path'), []);
-        $this->uploadRepository = $uploadRepository;
-    }
-
-    public function update(Request $request)
-    {
-        if (!env('APP_DEMO', false)) {
-            $input = $request->except(['_method', '_token']);
-            if (Str::endsWith(url()->previous(), "app/globals")) {
-                if (empty($input['app_logo'])) {
-                    unset($input['app_logo']);
-                }
-                if (empty($input['custom_field_models'])) {
-                    setting()->forget('custom_field_models');
-                }
-                if (!isset($input['blocked_ips'])) {
-                    unset($input['blocked_ips']);
-                    setting()->forget('blocked_ips');
-                }
-            } else if (Str::contains(url()->previous(), "payment")) {
-                if (isset($input['default_currency'])) {
-                    $currency = $this->currencyRepository->findWithoutFail($input['default_currency']);
-                    if (!empty($currency)) {
-                        $input['default_currency_id'] = $input['default_currency'];
-                        $input['default_currency'] = $currency->symbol;
-                        $input['default_currency_code'] = $currency->code;
-                        $input['default_currency_decimal_digits'] = $currency->decimal_digits;
-                        $input['default_currency_rounding'] = $currency->rounding;
-                    }
-                }
-//                if(isset($input['enable_stripe']) && $input['enable_stripe'] == 1){
-//                    $input['enable_razorpay'] = 0;
-//                }
-//                if(isset($input['enable_razorpay']) && $input['enable_razorpay'] == 1){
-//                    $input['enable_stripe'] = 0;
-//                }
-            }
-            if (empty($input['mail_password'])) {
-                unset($input['mail_password']);
-            }
-            $input = array_map(function ($value) {
-                return is_null($value) ? false : $value;
-            }, $input);
-
-            setting($input)->save();
-            Flash::success(trans('lang.app_setting_global') . ' updated successfully.');
-            Artisan::call("config:clear");
-        } else {
-            Flash::warning('This is only demo app you can\'t change this section ');
-        }
-
-        return redirect()->back();
-    }
-
-    public function syncTranslation(Request $request)
-    {
-        if (!env('APP_DEMO', false)) {
-            Artisan::call('langman:sync');
-        } else {
-            Flash::warning('This is only demo app you can\'t change this section ');
-        }
-        return redirect()->back();
-    }
-
-    public function checkForUpdates(Request $request)
-    {
-        if (!env('APP_DEMO', false)) {
-            Artisan::call('config:clear');
-            Artisan::call('cache:clear');
-            Artisan::call('cache:forget', ['key' => 'spatie.permission.cache']);
-            Artisan::call('view:clear');
-            Artisan::call('route:clear');
-            $executedMigrations = $this->getExecutedMigrations();
-            $newMigrations = $this->getMigrations(config('installer.currentVersion', 'v100'));
-
-            $containsUpdate = !empty($newMigrations) && count(array_intersect($newMigrations, $executedMigrations->toArray())) == count($newMigrations);
-            if (!$containsUpdate) {
-                return redirect(url('update/' . config('installer.currentVersion', 'v100')));
-            }
-        }
-        Flash::warning(__('lang.app_setting_already_updated'));
-        return redirect()->back();
-
-    }
-
-    public function clearCache(Request $request)
-    {
-        if (!env('APP_DEMO', false)) {
-            Artisan::call('cache:forget', ['key' => 'spatie.permission.cache']);
-            Artisan::call('cache:clear');
-            Artisan::call('config:clear');
-            Artisan::call('view:clear');
-            Artisan::call('route:clear');
-            Flash::success(__('lang.app_setting_cache_is_cleared'));
-        } else {
-            Flash::warning('This is only demo app you can\'t change this section ');
-        }
-        return redirect()->back();
     }
 
 
@@ -152,6 +44,9 @@ class AppSettingController extends Controller
         }
         return redirect()->back();
     }
+
+
+
     public function translate(Request $request)
     {
         //translate only lang.php file
@@ -195,51 +90,238 @@ class AppSettingController extends Controller
         return redirect()->back();
     }
 
-    public function index($type = null, $tab = null)
+    public function index()
     {
-        // dd($type , $tab);
-        if (empty($type)) {
-            Flash::error(trans('lang.app_setting_global') . 'not found');
-            return redirect()->back();
-        }
-        $executedMigrations = $this->getExecutedMigrations();
-        $newMigrations = $this->getMigrations(config('installer.currentVersion', 'v100'));
-        $containsUpdate = !empty($newMigrations) && count(array_intersect($newMigrations, $executedMigrations->toArray())) != count($newMigrations);
 
         $langFiles = [];
-        $languages = getAvailableLanguages();
-        $mobileLanguages = getLanguages();
-        if ($type && $type === 'translation' && $tab) {
-            if (!Arr::has($languages, $tab)) {
-                Flash::error('Translate not loaded');
-                return redirect()->back();
-            }
-            $langFiles = $this->langManager->files();
-            return view('settings.' . $type . '.index', compact(['languages', 'type', 'tab', 'langFiles']));
+        $languages = $this->getAvailableLanguages();
+        $mobileLanguages = $this->getLanguages();
 
-        }
+        $langFiles = $this->langManager->files();
+        return view('settings.translation.index', compact(['languages', 'langFiles']));
 
-        foreach (timezone_abbreviations_list() as $abbr => $timezone) {
-            foreach ($timezone as $val) {
-                if (isset($val['timezone_id'])) {
-                    $group = preg_split('/\//', $val['timezone_id'])[0];
-                    $timezones[$group][$val['timezone_id']] = $val['timezone_id'];
-                }
-            }
-        }
-        $upload = $this->uploadRepository->findByField('uuid', setting('app_logo'))->first();
+     }
 
-        $currencies = $this->currencyRepository->all()->pluck('name_symbol', 'id');
 
-        $customFieldModels = getModelsClasses(app_path('Models'));
+     function getAvailableLanguages()
+     {
+         $dir = base_path('resources/lang');
+         $languages = array_diff(scandir($dir), array('..', '.'));
+         $languages = array_map(function ($value) {
+             return ['id' => $value, 'value' => trans('lang.app_setting_' . $value)];
+         }, $languages);
 
-        return view('settings.' . $type . '.' . $tab . '', compact(['languages', 'type', 'tab', 'langFiles', 'timezones', 'upload', 'customFieldModels', 'currencies', 'mobileLanguages', 'containsUpdate']));
-    }
+         return array_column($languages, 'value', 'id');
+     }
 
-    public function initFirebase()
-    {
-        return response()->view('vendor.notifications.sw_firebase')->header('Content-Type', 'application/javascript');
-    }
+     function getLanguages()
+     {
+         return array(
+             'aa' => 'Afar',
+             'ab' => 'Abkhaz',
+             'ae' => 'Avestan',
+             'af' => 'Afrikaans',
+             'ak' => 'Akan',
+             'am' => 'Amharic',
+             'an' => 'Aragonese',
+             'ar' => 'Arabic',
+             'as' => 'Assamese',
+             'av' => 'Avaric',
+             'ay' => 'Aymara',
+             'az' => 'Azerbaijani',
+             'ba' => 'Bashkir',
+             'be' => 'Belarusian',
+             'bg' => 'Bulgarian',
+             'bh' => 'Bihari',
+             'bi' => 'Bislama',
+             'bm' => 'Bambara',
+             'bn' => 'Bengali',
+             'bo' => 'Tibetan Standard, Tibetan, Central',
+             'br' => 'Breton',
+             'bs' => 'Bosnian',
+             'ca' => 'Catalan; Valencian',
+             'ce' => 'Chechen',
+             'ch' => 'Chamorro',
+             'co' => 'Corsican',
+             'cr' => 'Cree',
+             'cs' => 'Czech',
+             'cu' => 'Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic',
+             'cv' => 'Chuvash',
+             'cy' => 'Welsh',
+             'da' => 'Danish',
+             'de' => 'German',
+             'dv' => 'Divehi; Dhivehi; Maldivian;',
+             'dz' => 'Dzongkha',
+             'ee' => 'Ewe',
+             'el' => 'Greek, Modern',
+             'en' => 'English',
+             'eo' => 'Esperanto',
+             'es' => 'Spanish; Castilian',
+             'et' => 'Estonian',
+             'eu' => 'Basque',
+             'fa' => 'Persian',
+             'ff' => 'Fula; Fulah; Pulaar; Pular',
+             'fi' => 'Finnish',
+             'fj' => 'Fijian',
+             'fo' => 'Faroese',
+             'fr' => 'French',
+             'fy' => 'Western Frisian',
+             'ga' => 'Irish',
+             'gd' => 'Scottish Gaelic; Gaelic',
+             'gl' => 'Galician',
+             'gn' => 'GuaranÃƒÂ­',
+             'gu' => 'Gujarati',
+             'gv' => 'Manx',
+             'ha' => 'Hausa',
+             'he' => 'Hebrew (modern)',
+             'hi' => 'Hindi',
+             'ho' => 'Hiri Motu',
+             'hr' => 'Croatian',
+             'ht' => 'Haitian; Haitian Creole',
+             'hu' => 'Hungarian',
+             'hy' => 'Armenian',
+             'hz' => 'Herero',
+             'ia' => 'Interlingua',
+             'id' => 'Indonesian',
+             'ie' => 'Interlingue',
+             'ig' => 'Igbo',
+             'ii' => 'Nuosu',
+             'ik' => 'Inupiaq',
+             'io' => 'Ido',
+             'is' => 'Icelandic',
+             'it' => 'Italian',
+             'iu' => 'Inuktitut',
+             'ja' => 'Japanese (ja)',
+             'jv' => 'Javanese (jv)',
+             'ka' => 'Georgian',
+             'kg' => 'Kongo',
+             'ki' => 'Kikuyu, Gikuyu',
+             'kj' => 'Kwanyama, Kuanyama',
+             'kk' => 'Kazakh',
+             'kl' => 'Kalaallisut, Greenlandic',
+             'km' => 'Khmer',
+             'kn' => 'Kannada',
+             'ko' => 'Korean',
+             'kr' => 'Kanuri',
+             'ks' => 'Kashmiri',
+             'ku' => 'Kurdish',
+             'kv' => 'Komi',
+             'kw' => 'Cornish',
+             'ky' => 'Kirghiz, Kyrgyz',
+             'la' => 'Latin',
+             'lb' => 'Luxembourgish, Letzeburgesch',
+             'lg' => 'Luganda',
+             'li' => 'Limburgish, Limburgan, Limburger',
+             'ln' => 'Lingala',
+             'lo' => 'Lao',
+             'lt' => 'Lithuanian',
+             'lu' => 'Luba-Katanga',
+             'lv' => 'Latvian',
+             'mg' => 'Malagasy',
+             'mh' => 'Marshallese',
+             'mi' => 'Maori',
+             'mk' => 'Macedonian',
+             'ml' => 'Malayalam',
+             'mn' => 'Mongolian',
+             'mr' => 'Marathi (Mara?hi)',
+             'ms' => 'Malay',
+             'mt' => 'Maltese',
+             'my' => 'Burmese',
+             'na' => 'Nauru',
+             'nb' => 'Norwegian BokmÃƒÂ¥l',
+             'nd' => 'North Ndebele',
+             'ne' => 'Nepali',
+             'ng' => 'Ndonga',
+             'nl' => 'Dutch',
+             'nn' => 'Norwegian Nynorsk',
+             'no' => 'Norwegian',
+             'nr' => 'South Ndebele',
+             'nv' => 'Navajo, Navaho',
+             'ny' => 'Chichewa; Chewa; Nyanja',
+             'oc' => 'Occitan',
+             'oj' => 'Ojibwe, Ojibwa',
+             'om' => 'Oromo',
+             'or' => 'Oriya',
+             'os' => 'Ossetian, Ossetic',
+             'pa' => 'Panjabi, Punjabi',
+             'pi' => 'Pali',
+             'pl' => 'Polish',
+             'ps' => 'Pashto, Pushto',
+             'pt' => 'Portuguese',
+             'qu' => 'Quechua',
+             'rm' => 'Romansh',
+             'rn' => 'Kirundi',
+             'ro' => 'Romanian, Moldavian, Moldovan',
+             'ru' => 'Russian',
+             'rw' => 'Kinyarwanda',
+             'sa' => 'Sanskrit (Sa?sk?ta)',
+             'sc' => 'Sardinian',
+             'sd' => 'Sindhi',
+             'se' => 'Northern Sami',
+             'sg' => 'Sango',
+             'si' => 'Sinhala, Sinhalese',
+             'sk' => 'Slovak',
+             'sl' => 'Slovene',
+             'sm' => 'Samoan',
+             'sn' => 'Shona',
+             'so' => 'Somali',
+             'sq' => 'Albanian',
+             'sr' => 'Serbian',
+             'ss' => 'Swati',
+             'st' => 'Southern Sotho',
+             'su' => 'Sundanese',
+             'sv' => 'Swedish',
+             'sw' => 'Swahili',
+             'ta' => 'Tamil',
+             'te' => 'Telugu',
+             'tg' => 'Tajik',
+             'th' => 'Thai',
+             'ti' => 'Tigrinya',
+             'tk' => 'Turkmen',
+             'tl' => 'Tagalog',
+             'tn' => 'Tswana',
+             'to' => 'Tonga (Tonga Islands)',
+             'tr' => 'Turkish',
+             'ts' => 'Tsonga',
+             'tt' => 'Tatar',
+             'tw' => 'Twi',
+             'ty' => 'Tahitian',
+             'ug' => 'Uighur, Uyghur',
+             'uk' => 'Ukrainian',
+             'ur' => 'Urdu',
+             'uz' => 'Uzbek',
+             've' => 'Venda',
+             'vi' => 'Vietnamese',
+             'vo' => 'VolapÃƒÂ¼k',
+             'wa' => 'Walloon',
+             'wo' => 'Wolof',
+             'xh' => 'Xhosa',
+             'yi' => 'Yiddish',
+             'yo' => 'Yoruba',
+             'za' => 'Zhuang, Chuang',
+             'zh' => 'Chinese',
+             'zu' => 'Zulu',
+         );
+
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

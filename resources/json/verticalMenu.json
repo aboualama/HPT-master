@@ -48,6 +48,12 @@
       "name": "qtype",
       "icon": "feather icon-mail",
       "i18n": "locale.qtype"
+    },
+    {
+      "url": "/translation",
+      "name": "translation",
+      "icon": "feather icon-mail",
+      "i18n": "locale.translation"
     }
   ]
 }
