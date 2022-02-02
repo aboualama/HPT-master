@@ -21,7 +21,6 @@ use VerifiesEmails;
       $user->email_verified_at = $date;
       $user->save();
       return response()->json('Email verified!');
-      // return redirect($this->redirectPath());
   }
 
 
@@ -31,11 +30,9 @@ use VerifiesEmails;
   {
       if ($request->user()->hasVerifiedEmail()) {
       return response()->json('User already have verified email!', 422);
-      // return redirect($this->redirectPath());
       }
     $request->user()->sendEmailVerificationNotification();
     return response()->json('The notification has been resubmitted');
-    // return back()->with('resent', true);
   }
 
 

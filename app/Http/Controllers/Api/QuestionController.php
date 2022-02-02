@@ -38,13 +38,10 @@ class QuestionController extends Controller
 
   public function getquestions($type, Request $request)
   {
-    // return  dd($request);
     App::setLocale($request->get("lang"));
 
 
     $record = Question::where('type', $type)->with('answers')->get()->toArray();
-    // $record = Question::where('type' , $type)->withTranslation()->with('answers')->get()->toArray();
-    // dd(Question::listsTranslations('id')->get()->toArray());
     return response($record, 200);
   }
 
@@ -57,7 +54,6 @@ class QuestionController extends Controller
 
   public function storanswers(Request $request)
   {
-    //return dd($request->all());
     $record = new Useranswer();
 
     $record->user_id = $request->get('user_id');
@@ -67,15 +63,12 @@ class QuestionController extends Controller
     $record->answer = json_encode($request->answer);
     $record->point = 0;
 
-    //return dd($record);
     $record->save();
     return response($record, 200);
   }
 
   public function updateanswers(Request $request)
   {
-    //dump($request->get('answer'));
-
 
     $record = Useranswer::where('License_id', '=', $request->get('licens_id'))->first();
 
@@ -95,7 +88,6 @@ class QuestionController extends Controller
       if (isset($answerToattach["Risk-Responsibilty"])) {
         $ansers['Risk-Responsibilty'] = $answerToattach["Risk-Responsibilty"];
         $lisence = App\Licensecode::find($request->get('licens_id'));
-      //  dump($lisence);qtype
         if (count( $ansers['Risk-Responsibilty'] )>0)
         {
           $lisence->active = 0;
@@ -108,7 +100,6 @@ class QuestionController extends Controller
       $record = new Useranswer();
       $ansers = $answerToattach;
     }
-    //   return dd($ansers);
 
     $record->answer = json_encode($ansers);
     $record->user_id = $request->get('user_id');
@@ -117,9 +108,7 @@ class QuestionController extends Controller
     $record->isRight = true;
     $record->point = 0;
 
-    //return dd($record);
     $record->save();
-    //return   dd($record);
     return response($record, 200);
   }
 
@@ -150,8 +139,6 @@ class QuestionController extends Controller
     }
 
 
-
-    //$answer = json_decode($record->answer);
     return response(\GuzzleHttp\json_encode(["question" => $ret, "active" => true,
     ]), 200);
   }

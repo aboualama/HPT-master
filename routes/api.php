@@ -17,36 +17,42 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-  Route::get('/getQuestionEntro/{type}', 'Api\QuestionController@getQuestionEntro');
 
-  Route::post('/questions/{type}', 'Api\QuestionController@getquestions');
-  Route::get('/getAllQuestions', 'Api\QuestionController@getAllQuestions');
-  Route::get('/getanswers', 'Api\QuestionController@getanswers');
-  Route::post('/storanswers', 'Api\QuestionController@storanswers');
 
-  Route::post('/checklicens', 'Api\LicensecodeController@checklicens');
-  Route::post('/LicenseInactive/{id}', 'Api\LicensecodeController@LicenseInactive');
-  Route::post('/getResultBylisence', 'Api\QuestionController@getResultByLisence');
-  Route::post('/updateanswers', 'Api\QuestionController@updateanswers');
-  Route::post('/getResultByLicenceCode', 'Dashboard\ResultController@getResultByLicenceCode');
-  Route::get('/getResultByLicenceCode/{id}', 'Dashboard\ResultController@getResultByLicenceCodeId');
 
- // TODO check whic checklicens work
-  Route::post('/checklicens', 'Api\AuthController@checklicens');
-  Route::post('/requestLicenseMail', 'Api\AuthController@requestLicense');
+Route::get('/getQuestionEntro/{type}', 'Api\QuestionController@getQuestionEntro');
+
 
 // Route::get('/test' , function(){return  'test'; });
 
 Route::group(['prefix' => 'auth'], function () {
-  Route::post('login', 'Api\AuthController@login');
-  Route::post('register', 'Api\AuthController@register');
-  Route::get('email/verify/{id}', 'Api\VerificationApiController@verify')->name('verificationapi.verify');
-  Route::get('email/resend', 'Api\VerificationApiController@resend')->name('verificationapi.resend');
 
-  Route::group(['middleware' => 'auth:api'], function() {
-      Route::get('logout', 'Api\AuthController@logout');
-      Route::get('user', 'AuthController@user');
-  });
+  Route::post('login', 'AuthController@login');
+  Route::post('register', 'AuthController@register');
+  Route::get('email/verify/{id}', 'VerificationApiController@verify')->name('verificationapi.verify');
+  Route::get('email/resend', 'VerificationApiController@resend')->name('verificationapi.resend');
+
 });
 
+Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
 
+  Route::get('/questions/{type}', 'QuestionController@getquestions');
+  Route::get('/getAllQuestions', 'QuestionController@getAllQuestions');
+  Route::get('/getanswers', 'QuestionController@getanswers');
+  Route::post('/storanswers', 'QuestionController@storanswers');
+  Route::post('/LicenseInactive/{id}', 'LicensecodeController@LicenseInactive');
+  Route::post('/getResultBylisence', 'QuestionController@getResultByLisence');
+  Route::post('/updateanswers', 'QuestionController@updateanswers');
+
+
+  Route::post('/checklicens', 'AuthController@checklicens');
+  Route::post('/requestLicenseMail', 'AuthController@requestLicense');
+
+
+  Route::get('user', 'AuthController@user');
+  Route::get('logout', 'AuthController@logout');
+
+
+  Route::post('/getResultByLicenceCode', 'ResultController@getResultByLicenceCode');
+  Route::get('/getResultByLicenceCode/{id}', 'ResultController@getResultByLicenceCodeId');
+});

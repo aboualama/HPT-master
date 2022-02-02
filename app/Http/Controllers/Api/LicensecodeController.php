@@ -26,7 +26,6 @@ class LicensecodeController extends Controller
     }
     $licens = Licensecode::where('user_id' , $request->user_id)->pluck('code')->toArray();
     $licens_id = Licensecode::where('code' , $request->code)->pluck('id');
-    // dd($licens);
     if($licens)
     {
       if(in_array($request->code , $licens))
@@ -40,7 +39,6 @@ class LicensecodeController extends Controller
       }
     }
   }
-
 
 
 

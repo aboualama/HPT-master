@@ -177,8 +177,6 @@ return [
         App\Providers\MenuServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
 
-        Themsaid\Langman\LangmanServiceProvider::class
-
     ],
 
     /*

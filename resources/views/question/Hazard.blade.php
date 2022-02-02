@@ -57,13 +57,14 @@
                       <small id="video_error" class="form-text text-danger text-center small_error"> </small>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-6" style="display: inline-flex;">
                     <h4 class="text-center">{{__('locale.select img')}}</h4>
                     <img
                       id="preview_img"
                       onclick="document.getElementById('input_img').click()"
                       src="{{asset('uploads/image/default.jpg')}}"
-                      style="max-width: 50%; max-height: 350px; display: block; margin: 0 auto;" />
+                      />
+
                     <input
                         id="input_img"
                         type="file"
